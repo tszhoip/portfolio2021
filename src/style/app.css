@@ -1,0 +1,16 @@
+.app {
+    text-align: left;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    min-height: 10vh;
+    margin: 0;
+    padding: 0;
+}
+
+.list-style ul li {
+    list-style: none;
+}
