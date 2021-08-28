@@ -8,7 +8,6 @@ import Work from './Work';
 import Figs from './Work/Figs';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-
 function App() {
   return (
     <Router>
