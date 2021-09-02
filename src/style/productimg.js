@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Projimg = styled.img`
+const Productimg = styled.img`
     display: block;
     height: 100vh;
     width: 100%;
@@ -13,4 +13,4 @@ const Projimg = styled.img`
       }
 `
 
-export default Projimg;
+export default Productimg;

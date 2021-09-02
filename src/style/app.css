@@ -6,7 +6,7 @@ nav ul {
     display: flex;
     justify-content: space-between;
     align-items: left;
-    min-height: 10vh;
+    min-height: 20px;
     margin: 0;
     padding: 0;
 }
