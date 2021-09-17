@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const Projimg = styled.img`
-    display: block;
-    height: 100vh;
+    display: flex;
+    height: ${props => props.height};
     width: 100%;
     object-position: ${props => props.position};
     overflow: hidden;
@@ -14,3 +14,4 @@ const Projimg = styled.img`
 `
 
 export default Projimg;
+

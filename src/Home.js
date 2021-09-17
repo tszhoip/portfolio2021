@@ -12,7 +12,7 @@ function Home() {
         <Projlist title="Figs" type="ecommerece" year="2020" path="/figs"/>
         <Projlist title="Concept D'odeur" type="ecommerece" year="2020" />
         <Projlist title="Hyundai" type="Website" year="2020" />
-        <Projlist title="Nike" type="Art Direction" year="2020" />
+        <Projlist title="Nike" type="Art Direction" year="2020" path="/nike"/>
         <Projlist title="Disney SH" type="typography" year="2020" />
         <Projlist title="American Apparel" type="ecommerce" year="2020" />
     </div>
