@@ -1,15 +1,16 @@
 import React from 'react';
-import Productkeen from './Productkeen.js';
+import ProductSlider from './ProductSlider.js';
 import styled from 'styled-components';
 
 const Product = (props) => {
   const ProductContainer = styled.div`
-    width: 100%;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 5vh;
     display: flex; 
     flex-direction: column;
     justify-content: space-between;
-    border-bottom: 1px solid #f5f5f5;
-    color: black;
+
 `
 const ProductInfo = styled.div`
     width: 100%;
@@ -48,7 +49,7 @@ text-align: center;
 
 return (
     <ProductContainer>
-      <Productkeen/>
+    <ProductSlider images={props.images} objfit={props.objfit}/>
       <ProductInfo>
         <Lp>{props.title}</Lp>
         <Mp>{props.type}</Mp>

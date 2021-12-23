@@ -7,6 +7,10 @@ import Shop from './Shop';
 import Play from './Play';
 import Figs from './Work/Figs';
 import Nike from './Work/Nike';
+import Odeur from './Work/Odeur';
+import Disney from './Work/Disney';
+import Hyundai from './Work/Hyundai';
+
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
@@ -20,6 +24,9 @@ function App() {
         <Route path="/shop" component={Shop}/>
         <Route path="/figs" component={Figs}/>
         <Route path="/nike" component={Nike} />
+        <Route path="/odeur" component={Odeur} />
+        <Route path="/disney" component={Disney} />
+        <Route path="/hyundai" component={Hyundai} />
     </div>
     </Router>
   );
