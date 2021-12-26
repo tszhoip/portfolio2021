@@ -6,7 +6,7 @@ import styled from 'styled-components';
 //     color: 'black',
 //     padding: '16px'
 //   };
-const Menu = styled.nav`
+const Foot = styled.footer`
     display: flex; 
     justify-content: space-between;
     border-bottom: 1px solid #f5f5f5;
@@ -41,17 +41,17 @@ const MenuItem = styled(Link)`
     }
 `
 
-const Nav = (props) => {
+const Footer = (props) => {
   return (
-    <Menu>
-        <MenuItem to="/">NONAME.LA</MenuItem>
+    <Foot>
+      <MenuItem to="/">footer</MenuItem>
       <MenuLine>
-        <MenuItem to="/">Work</MenuItem>,
-        <MenuItem to="/play">Play</MenuItem>,
-        <MenuItem to="/shop">Shop</MenuItem>
+        <MenuItem to="/">footer</MenuItem>,
+        <MenuItem to="/play">footer</MenuItem>,
+        <MenuItem to="/shop">footer</MenuItem>
       </MenuLine>
-    </Menu>
+    </Foot>
   )
 }
 
-export default Nav;
+export default Footer;

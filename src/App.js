@@ -1,15 +1,16 @@
 import React from 'react';
 import './style/app.css';
 import Nav from './component/Nav';
-import Home from './Home';
-import About from './About';
-import Shop from './Shop';
-import Play from './Play';
-import Figs from './Work/Figs';
-import Nike from './Work/Nike';
-import Odeur from './Work/Odeur';
-import Disney from './Work/Disney';
-import Hyundai from './Work/Hyundai';
+import Footer from './component/Footer'
+import Home from './pages/Home';
+import About from './pages/About';
+import Shop from './pages/Shop';
+import Play from './pages/Play';
+import Figs from './work/Figs';
+import Nike from './work/Nike';
+import Odeur from './work/Odeur';
+import Disney from './work/Disney';
+import Hyundai from './work/Hyundai';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/odeur" component={Odeur} />
         <Route path="/disney" component={Disney} />
         <Route path="/hyundai" component={Hyundai} />
+        <Footer />
     </div>
     </Router>
   );

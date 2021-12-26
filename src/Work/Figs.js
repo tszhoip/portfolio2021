@@ -1,11 +1,11 @@
 import React from 'react';
 import Projimgadv from '../style/projimgadv.js'
-import f1 from '../Assets/f-1.jpg';
-import f2 from '../Assets/f-2.jpg';
-import f3 from '../Assets/f-3.jpg';
-import f4 from '../Assets/f-4.jpg';
-import f5 from '../Assets/f-5.jpg';
-import f6 from '../Assets/f-6.jpg';
+import f1 from '../assets/f-1.jpg';
+import f2 from '../assets/f-2.jpg';
+import f3 from '../assets/f-3.jpg';
+import f4 from '../assets/f-4.jpg';
+import f5 from '../assets/f-5.jpg';
+import f6 from '../assets/f-6.jpg';
 import Projlist from '../component/Projlist';
 
 function Figs() {

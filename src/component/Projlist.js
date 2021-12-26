@@ -7,6 +7,19 @@ const Projlist = (props) => {
     width: 100%;
     display: flex; 
     flex-direction: column;
+    margin: auto;
+             @media only screen and (min-width : 480px) {
+width: 100%;
+    }
+    @media only screen and (min-width : 768px) {
+width: 100%;
+    }
+    @media only screen and (min-width : 1000px) {
+width: 100%;
+    }
+    @media only screen and (min-width : 1600px) {
+max-width: 1600px;
+    }
     }
 `
   const ProjectItem = styled.div`
@@ -55,12 +68,13 @@ const Projlist = (props) => {
   return (
     <Link to={props.path}>
       <ProjLink>
-        <ProjImg src={props.img}/>
+        
         <ProjectItem>
           <Lp><span />{props.title}</Lp>
           <Mp>{props.type}</Mp>
           <Rp>{props.year}</Rp>
         </ProjectItem>
+        <ProjImg src={props.img} />
       </ProjLink>
     </Link>
   )

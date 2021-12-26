@@ -1,17 +1,24 @@
 import React from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
-import "./styles.css"
 import styled from "styled-components"
 
 const Keen = styled.div`
- width:2500px;
+ width:1200px;
  height:500px;
- max-width: 100%;
+     @media only screen and (min-width : 480px) {
+width: 100%;
+    }
+    @media only screen and (min-width : 768px) {
+width: 100%;
+    }
+    @media only screen and (min-width : 1000px) {
+max-width: 1200px;
+    }
+    @media only screen and (min-width : 1800px) {
+max-width: 1400px;
+    }
 ` 
-
-
-
 
 const ProductSlider = (props) => {
     const [sliderRef] = useKeenSlider({ loop: true })

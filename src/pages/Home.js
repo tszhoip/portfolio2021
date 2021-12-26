@@ -1,13 +1,14 @@
 import React from 'react';
-import Projlist from './component/Projlist';
+import Projlist from '../component/Projlist';
 
 function Home() {
   const subnavposit = {
-    position: 'Absolute', top: '', width: '100%', borderTop: '1px solid #f5f5f5'
+    position: 'Relative', top: '', width: '100%', borderTop: '1px solid #f5f5f5'
   };
   return (
     <div style={subnavposit}>
-      <Projlist img="https://source.unsplash.com/random/1024x300" title="Innocell" type="website" year="2020" path="/figs"/>
+      <Projlist title="Tsz and Michelle are a design duo based in Los Angeles, CA. We create immersive digital spaces that are challenging the ways people interact with brands. " type="" year=""/>
+      <Projlist title="Innocell" type="website" year="2020" path="/figs"/>
       <Projlist title="Treedom" type="App, Branding" year="2020" path="/figs"/>
       <Projlist title="Figs" type="ecommerece" year="2020" path="/figs"/>
       <Projlist title="Concept D'odeur" type="ecommerece" year="2020" path="/odeur"/>
