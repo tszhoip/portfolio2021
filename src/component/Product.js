@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductSlider from './ProductSlider.js';
 import styled from 'styled-components';
+import Container1 from '../style/container1.js';
 
 const Product = (props) => {
   const ProductContainer = styled.div`
@@ -10,16 +11,16 @@ const Product = (props) => {
     flex-direction: column;
     justify-content: space-between;
     @media only screen and (min-width : 480px) {
-width: 100%;
+   padding: 16px;
     }
     @media only screen and (min-width : 768px) {
-width: 100%;
+    padding: 16px;
     }
     @media only screen and (min-width : 1000px) {
-max-width: 1200px;
+    padding: 16px 10%;
     }
-    @media only screen and (min-width : 1800px) {
-max-width: 1400px;
+    @media only screen and (min-width : 1600px) {
+    max-width: 16px 20%;
     }
 `
 const ProductInfo = styled.div`
@@ -78,15 +79,17 @@ width: 20%;
 
 
 return (
+    <Container1>
     <ProductContainer>
     <ProductSlider images={props.images} objfit={props.objfit}/>
       <ProductInfo>
-        <Lp>{props.title}</Lp>
-        <Mp>{props.type}</Mp>
-        <Rp>{props.year}</Rp>
+        <Lp>{props.t1}</Lp>
+        <Mp>{props.t2}</Mp>
+        <Rp>{props.t3}</Rp>
         <Aa href={props.href}>BUY</Aa>
      </ProductInfo>
     </ProductContainer>
+    </Container1 >
 )}
 
 export default Product;

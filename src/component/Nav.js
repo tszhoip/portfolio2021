@@ -1,11 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-// function Nav() {
-//   const navstyle = {
-//     color: 'black',
-//     padding: '16px'
-//   };
+
 const Menu = styled.nav`
     display: flex; 
     justify-content: space-between;
@@ -14,17 +10,17 @@ const Menu = styled.nav`
     flex-wrap: wrap;
     flex-direction: row;
     margin: auto;
-         @media only screen and (min-width : 480px) {
-width: 100%;
+    @media only screen and (min-width : 480px) {
+    width: 100%;
     }
     @media only screen and (min-width : 768px) {
-width: 100%;
+    width: 100%;
     }
     @media only screen and (min-width : 1000px) {
-width: 100%;
+    width: 100%;
     }
     @media only screen and (min-width : 1600px) {
-max-width: 1600px;
+    max-width: 1600px;
     }
 `
 const MenuLine = styled.section`
@@ -33,22 +29,34 @@ const MenuLine = styled.section`
 `
 const MenuItem = styled(Link)`
     padding: 16px;
-   &:hover{
-      text-decoration: underline;
-    }
-    &:active{
-      text-decoration: underline;
+    color: black;
+  //  &:hover{
+  //    color: black;
+  //     text-decoration: underline;
+  //   }
+  //   &:active{
+  //     text-decoration: underline;
+  //   }
+    &:hover span::before {
+      content: " ";
+      width: 16px;
+      height: 16px;
+      background-color:black;
+      border-radius: 50%;
+      display: inline-block;
+      margin-bottom: -2px;
+      margin-right: 8px;
     }
 `
 
 const Nav = (props) => {
   return (
     <Menu>
-        <MenuItem to="/">NONAME.LA</MenuItem>
+      <MenuItem to="/"><span />NONAME.LA</MenuItem>
       <MenuLine>
-        <MenuItem to="/">Work</MenuItem>,
-        <MenuItem to="/play">Play</MenuItem>,
-        <MenuItem to="/shop">Shop</MenuItem>
+        <MenuItem to="/work"><span />Work</MenuItem>
+        <MenuItem to="/play"><span />Play</MenuItem>
+        <MenuItem to="/shop"><span />Shop</MenuItem>
       </MenuLine>
     </Menu>
   )

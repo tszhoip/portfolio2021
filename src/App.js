@@ -4,6 +4,7 @@ import Nav from './component/Nav';
 import Footer from './component/Footer'
 import Home from './pages/Home';
 import About from './pages/About';
+import Work from './pages/Work';
 import Shop from './pages/Shop';
 import Play from './pages/Play';
 import Figs from './work/Figs';
@@ -11,6 +12,7 @@ import Nike from './work/Nike';
 import Odeur from './work/Odeur';
 import Disney from './work/Disney';
 import Hyundai from './work/Hyundai';
+import Logo from './work/Logo';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -20,6 +22,7 @@ function App() {
     <div className="app">
         <Nav />
         <Route path="/" exact component={Home}/>
+        <Route path="/work" component={Work} />
         <Route path="/about" component={About}/>
         <Route path="/play" component={Play}/>
         <Route path="/shop" component={Shop}/>
@@ -28,6 +31,8 @@ function App() {
         <Route path="/odeur" component={Odeur} />
         <Route path="/disney" component={Disney} />
         <Route path="/hyundai" component={Hyundai} />
+        <Route path="/logo" component={Logo} />
+
         <Footer />
     </div>
     </Router>

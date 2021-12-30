@@ -19,8 +19,8 @@ function Odeur() {
       <Projimgadv theme={{ bgcolor: "#f5f5f5", imgp: "center" }} ><img src={o4} width="80%" height="80%" alt="" /></Projimgadv>
       <Projimgadv theme={{ bgcolor: "#f5f5f5", imgp: "center" }} ><img src={o5} width="80%" height="80%" alt="" /></Projimgadv>
       <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center", vidw: "50%" }} >
-        <video autoPlay muted loop ><source src={ov0} type="video/mp4" /></video>
-        <video autoPlay muted loop ><source src={ov1} type="video/mp4" /></video>
+        <video autoPlay muted loop ><source src={ov0} t2="video/mp4" /></video>
+        <video autoPlay muted loop ><source src={ov1} t2="video/mp4" /></video>
       </Projimgadv>
       <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center" }} ><img src={o6} width="80%" height="80%" alt="" /></Projimgadv>
       <Projimgadv theme={{ bgcolor: "#EBEBDE", imgp: "center" }} ><img src={o7} width="80%" height="80%" alt="" /></Projimgadv>

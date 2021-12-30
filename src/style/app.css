@@ -1,3 +1,38 @@
 .app {
     text-align: left;
 }
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.pswp__img {
+    width: 100vw;
+    height: 100vh !important;
+    object-fit: contain;
+}
+
+.pswp--open {
+    transition: none !important;
+}
+
+.pswp__button--share,
+.pswp__button--fs {
+    display: none !important;
+}
+
+.pswp__button {
+    height: 54px !important;
+    width: 54px !important;
+}
+
+.pswp__top-bar {
+    height: 54px !important;
+}
+
+.pswp__counter {
+    height: 54px;
+    font-size: 16px;
+    padding: 0 10px;
+}

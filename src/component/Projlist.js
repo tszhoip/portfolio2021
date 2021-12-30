@@ -1,82 +1,66 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import ProductSlider from './ProductSlider.js';
+import Type1 from './type1';
+import d1 from '../assets/d-1.jpg';
+import Container1 from '../style/container1';
 
+const images1 = [
+  d1,
+  d1,
+  d1
+]
 const Projlist = (props) => {
-  const ProjLink = styled.div`
+  const ProjLink = styled(Link)`
     width: 100%;
     display: flex; 
     flex-direction: column;
     margin: auto;
-             @media only screen and (min-width : 480px) {
-width: 100%;
-    }
-    @media only screen and (min-width : 768px) {
-width: 100%;
-    }
-    @media only screen and (min-width : 1000px) {
-width: 100%;
-    }
-    @media only screen and (min-width : 1600px) {
-max-width: 1600px;
-    }
-    }
-`
-  const ProjectItem = styled.div`
-    width: 100%;
-    display: flex; 
-    justify-content: space-between;
     border-bottom: 1px solid #f5f5f5;
-    color: black;
     &:hover {
-      background-color: black;
+      border-bottom: 1px solid #888;
     }
     &:hover p{
-      color: white;
+      color: #888;
     }
-    &:hover span::before {
-      content: " ";
-      width: 16px;
-      height: 16px;
-      background-color: lightgrey;
-      border-radius: 50%;
-      display: inline-block;
-      margin-bottom: -2px;
-      margin-right: 4px;
+    @media only screen and (min-width : 480px) {
+    width: 100%;
+    }
+    @media only screen and (min-width : 768px) {
+    width: 100%;
+    }
+    @media only screen and (min-width : 1000px) {
+    width: 100%;
+    }
+    @media only screen and (min-width : 1600px) {
+    max-width: 1600px;
+    }
+    }
+`
+  const SliderWrapper = styled.div`
+    @media only screen and (min-width : 480px) {
+   padding: 16px;
+    }
+    @media only screen and (min-width : 768px) {
+    padding: 16px;
+    }
+    @media only screen and (min-width : 1000px) {
+    padding: 16px 10%;
+    }
+    @media only screen and (min-width : 1600px) {
+    max-width: 16px 20%;
     }
   `
-  const ProjImg = styled.img`
-    width: 100%;
-`
-  const Lp = styled.p`
-    width: 50%;
-    padding: 16px;
-`
-  const Mp = styled.p`
-    width: 30%;
-    padding: 16px;
-    color: lightgrey;
-`
-  const Rp = styled.p`
-    width: 20%;
-    padding: 16px;
-    color: lightgrey;
-    text-align: right;
-`
-
 
   return (
-    <Link to={props.path}>
-      <ProjLink>
-        
-        <ProjectItem>
-          <Lp><span />{props.title}</Lp>
-          <Mp>{props.type}</Mp>
-          <Rp>{props.year}</Rp>
-        </ProjectItem>
-        <ProjImg src={props.img} />
-      </ProjLink>
-    </Link>
+    <Container1>
+      <Type1 t1={props.t1} t2={props.t2} t3={props.t3} />
+      <SliderWrapper>
+        <ProductSlider images={props.images}/>
+      </SliderWrapper>
+      <ProjLink to={props.path}></ProjLink>
+    </Container1>
   )
 }
 

@@ -17,7 +17,7 @@ function Nike() {
       <Projimgadv theme={{ bgcolor: "#2F2F2F", imgp: "center" }} ><img src={n1} width="80%" height="80%" alt=""/></Projimgadv>
       <Projimgadv theme={{ bgcolor: "#2F2F2F", imgp: "center" }} ><img src={n2} width="80%" height="80%" alt=""/></Projimgadv>
       <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center" }} ><img src={n4} width="80%" height="80%" alt=""/></Projimgadv>
-      <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center", vidw: "100%" }} ><video autoPlay muted loop ><source src={nv3} type="video/mp4" /></video></Projimgadv>
+      <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center", vidw: "100%" }} ><video autoPlay muted loop ><source src={nv3} t2="video/mp4" /></video></Projimgadv>
       <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center" }} ><img src={n15} width="80%" height="80%" alt=""/></Projimgadv>
       <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center" }} ><img src={n6} width="80%" height="80%" alt=""/></Projimgadv>
       <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center" }} ><img src={n10} width="80%" height="80%" alt=""/></Projimgadv>

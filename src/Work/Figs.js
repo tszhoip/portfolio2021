@@ -20,15 +20,15 @@ function Figs() {
 
 {/* 
       <Projimgadv><img src={f1} width="50%" alt="" /><img src={f2} width="50%" alt=""/></Projimgadv> */}
-      <Projlist title="Innocell" type="website" year="2020" />
-      <Projlist title="Treedom" type="App, Branding" year="2020" />
-      <Projlist title="Figs" type="ecommerece" year="2020" path="/figs" />
-      <Projlist title="Concept D'odeur" type="ecommerece" year="2020" path="/odeur" />
-      <Projlist title="Hyundai" type="Website" year="2020" />
-      <Projlist title="Nike" type="Art Direction" year="2020" path="/nike" />
-      <Projlist title="Disney SH" type="typography" year="2020" />
-      <Projlist title="American Apparel" type="ecommerce" year="2020" />
-      <Projlist title="Logos" type=" " year="~2020" />
+      <Projlist t1="Innocell" t2="website" t3="2020" />
+      <Projlist t1="Treedom" t2="App, Branding" t3="2020" />
+      <Projlist t1="Figs" t2="ecommerece" t3="2020" path="/figs" />
+      <Projlist t1="Concept D'odeur" t2="ecommerece" t3="2020" path="/odeur" />
+      <Projlist t1="Hyundai" t2="Website" t3="2020" />
+      <Projlist t1="Nike" t2="Art Direction" t3="2020" path="/nike" />
+      <Projlist t1="Disney SH" t2="typography" t3="2020" />
+      <Projlist t1="American Apparel" t2="ecommerce" t3="2020" />
+      <Projlist t1="Logos" t2=" " t3="~2020" />
     </div>
   );
 }

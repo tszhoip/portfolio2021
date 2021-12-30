@@ -25,9 +25,9 @@ const images3 = [
 function Shop() {
   return (
     <div>
-      <Product images={images1} objfit="cover" title="Duo Passport Case" type="leather" year="$80" href="https://buy.stripe.com/test_5kA5okgPOeIlfEkbII"/>
-      <Product images={images2} title="Innocell" type="website" year="2020" href="https://buy.stripe.com/test_5kA5okgPOeIlfEkbII" />
-      <Product images={images3} title="Innocell" type="website" year="2020" href="https://buy.stripe.com/test_5kA5okgPOeIlfEkbII" />
+      <Product images={images1} objfit="cover" t1="Duo Passport Case" t2="leather" t3="$80" href="https://buy.stripe.com/test_5kA5okgPOeIlfEkbII"/>
+      <Product images={images2} t1="Innocell" t2="website" t3="2020" href="https://buy.stripe.com/test_5kA5okgPOeIlfEkbII" />
+      <Product images={images3} t1="Innocell" t2="website" t3="2020" href="https://buy.stripe.com/test_5kA5okgPOeIlfEkbII" />
     </div>
   );
 }
