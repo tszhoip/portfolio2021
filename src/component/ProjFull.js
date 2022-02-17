@@ -23,8 +23,8 @@ const ImageGallery = styled.div`
     width: 100%;
     display: grid;
     grid-template-rows: repeat(3, auto);
-    grid-row-gap: 8px;
-    grid-column-gap: 8px;
+    grid-row-gap: 4px;
+    grid-column-gap: 4px;
     padding-left: 16px;
     padding-right: 16px;
     @media only screen and (min-width : 480px) {

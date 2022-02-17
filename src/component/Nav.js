@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Container0 from '../style/container0';
 
 const Menu = styled.nav`
     display: flex; 
     justify-content: space-between;
-    border-bottom: 1px solid #f5f5f5;
     color: black;
     flex-wrap: wrap;
     flex-direction: row;
@@ -39,8 +39,8 @@ const MenuItem = styled(Link)`
   //   }
     &:hover span::before {
       content: " ";
-      width: 16px;
-      height: 16px;
+      width: 4px;
+      height: 4px;
       background-color:black;
       border-radius: 50%;
       display: inline-block;
@@ -51,14 +51,16 @@ const MenuItem = styled(Link)`
 
 const Nav = (props) => {
   return (
+    <Container0 borderb="1px solid #f5f5f5">
     <Menu>
-      <MenuItem to="/"><span />NONAME.LA</MenuItem>
+      <MenuItem to="/">NONAME.LA</MenuItem>
       <MenuLine>
-        <MenuItem to="/work"><span />Work</MenuItem>
-        <MenuItem to="/play"><span />Play</MenuItem>
-        <MenuItem to="/shop"><span />Shop</MenuItem>
+        <MenuItem to="/work">Work</MenuItem>
+        <MenuItem to="/play">Play</MenuItem>
+        <MenuItem to="/shop">Shop</MenuItem>
       </MenuLine>
     </Menu>
+    </Container0>
   )
 }
 

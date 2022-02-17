@@ -4,7 +4,7 @@ import "keen-slider/keen-slider.min.css"
 import styled from "styled-components"
 
 const Keen = styled.div`
- height: auto; 
+ height: auto;
      @media only screen and (min-width : 480px) {
 width: 100%;
     }
@@ -20,15 +20,14 @@ max-width: 100%;
 ` 
 
 const ProductSlider = (props) => {
-    const [sliderRef] = useKeenSlider({ loop: false })
+    const [sliderRef] = useKeenSlider({ loop: true })
     const hasImages = Array.isArray(props.images)
     
 return (
   <Keen ref={sliderRef} className="keen-slider">
-    {hasImages && props.images.map((imageUrl, index) => <div className="keen-slider__slide"
-      key={index}
-      original={imageUrl}>
-      <img src={imageUrl} alt={imageUrl} objfit={props.objfit} />
+    {hasImages && props.images.map((imageUrl, index) => 
+      <div className="keen-slider__slide" key={index} original={imageUrl}>
+        <img src={imageUrl} alt={imageUrl} objfit={props.objfit} />
     </div>)}
   </Keen>
 )}

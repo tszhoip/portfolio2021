@@ -11,8 +11,8 @@ const images1 = [
   d1,
   d1
 ]
-const Projlist = (props) => {
-  const ProjLink = styled(Link)`
+
+const ProjLink = styled(Link)`
     width: 100%;
     display: flex; 
     flex-direction: column;
@@ -38,20 +38,23 @@ const Projlist = (props) => {
     }
     }
 `
-  const SliderWrapper = styled.div`
+const SliderWrapper = styled.div`
     @media only screen and (min-width : 480px) {
-   padding: 16px;
+    padding: 16px;
     }
     @media only screen and (min-width : 768px) {
     padding: 16px;
     }
     @media only screen and (min-width : 1000px) {
-    padding: 16px 10%;
+    padding: 16px;
     }
     @media only screen and (min-width : 1600px) {
-    max-width: 16px 20%;
+    padding: 16px;
     }
   `
+  
+const Projlist = (props) => {
+  
 
   return (
     <Container1>
