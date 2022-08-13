@@ -1,10 +1,10 @@
 import React from 'react';
-import Projimgadv from '../style/projimgadv.js'
-import d1 from '../assets/d-1.jpg';
-import d2 from '../assets/d-2.jpg';
-import d3 from '../assets/d-3.jpg';
-import d0 from '../assets/d-0.jpg';
-import Projlist from '../component/Projlist';
+import Projimgadv from '../../style/projimgadv.js'
+import d0 from '../../assets/d-0.jpg';
+import d1 from '../../assets/d-1.jpg';
+import d2 from '../../assets/d-2.jpg';
+import d3 from '../../assets/d-3.jpg';
+import Projlist from '../../component/Projlist';
 
 function Disney() {
   return (

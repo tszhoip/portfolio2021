@@ -18,9 +18,7 @@ img {
 
 
 .pswp__img {
-    width: 100vw;
-    height: 100vh !important;
-    object-fit: contain;
+
 }
 
 .pswp--open {

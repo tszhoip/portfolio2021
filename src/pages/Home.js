@@ -35,7 +35,7 @@ function Home() {
   return (
     <Container1>
       <Type1 t1="Tsz and Michelle are a design duo based in Los Angeles, CA. Together, We create."/>
-      
+
       <Projlist t1="Treedom" t2="App, Branding" t3="2020" path="/figs"/>
       <Projlist images={Innocell} t1="Innocell" t2="website, casestudy" t3="2020" path="/innocell" />
       <Projlist t1="Concept D'odeur" t2="ecommerece" t3="2020" path="/odeur"/>

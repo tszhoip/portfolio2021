@@ -9,11 +9,11 @@ const TypeBlock2 = styled(Link)`
     padding: 16px 16px 18px;
     color: grey;
     &:hover{
-         color: black;
+         color: #222;
          background-color: #f5f5f5;
         }
         &:active{
-         text-decoration: underline;
+          color: #000;
         }
 `
   
