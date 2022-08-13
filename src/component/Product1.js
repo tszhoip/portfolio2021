@@ -2,7 +2,7 @@ import React from 'react';
 import ProductSlider from './ProductSlider.js';
 import styled from 'styled-components';
 import Container1 from '../style/container1.js';
-
+import d1 from '../assets/d-1.jpg';
 
 const ProductContainer = styled.div`
     margin: auto;
@@ -77,16 +77,20 @@ width: 20%;
     }
 `
 
+const images3 = [
+    d1,
+    d1,
+    d1
+  ]
 
-
-const Product = (props) => {
+const Product1 = (props) => {
   
 
 
 return (
     <Container1>
     <ProductContainer>
-    <ProductSlider images={props.images} objfit={props.objfit}/>
+    <ProductSlider images={images3} objfit="cover"/>
       <ProductInfo>
         <Lp>{props.t1}</Lp>
         <Mp>{props.t2}</Mp>
@@ -97,4 +101,4 @@ return (
     </Container1 >
 )}
 
-export default Product;
+export default Product1;
