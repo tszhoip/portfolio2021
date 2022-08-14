@@ -23,7 +23,7 @@ const ProductContainer = styled.div`
     }
 `
 const ProductInfo = styled.div`
-    width: 100%;
+    width: 50%;
     display: flex; 
     justify-content: space-between;
     border-bottom: 1px solid #f5f5f5;

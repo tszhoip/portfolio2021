@@ -70,7 +70,7 @@ function Logo() {
   ]
   return (
     <div>
-      <BlockInfo t1="canoo"/>
+      <BlockInfo text1="Logo" text2="2011~present" bgc="#ececec"/>
       <BlockImg2 images={imgLogo} />
     </div>
   );

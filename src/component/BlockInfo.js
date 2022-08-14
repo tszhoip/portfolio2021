@@ -6,7 +6,7 @@ const Info = styled.div`
     width: 100%;
     display: grid;
     grid-gap: 0px;
-    background-color: #d5d5d5;
+    background-color: ${props => props.bgc};
     @media only screen and (min-width : 480px) {
         grid-template-columns: repeat(1, auto);
     }
@@ -14,18 +14,18 @@ const Info = styled.div`
         grid-template-columns: repeat(2, auto);
     }
     @media only screen and (min-width : 1000px) {
-            grid-template-columns: repeat(3, auto);
+            grid-template-columns: repeat(2, auto);
     }
     @media only screen and (min-width : 1600px) {
-            grid-template-columns: repeat(4, auto);
+            grid-template-columns: repeat(2, auto);
     }
 `
 const BlockInfo = (props) => {
 
     return ( 
-      <Info> 
-          <Type2 text={props.t1}/>
-          <Type2 text={props.t2}/>
+      <Info bgc={props.bgc}> 
+          <Type2 text={props.text1}/>
+          <Type2 text={props.text2}/>
 </Info> 
     )
   }
