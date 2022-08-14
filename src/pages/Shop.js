@@ -1,12 +1,13 @@
 import React from "react";
-import Product from '../component/Product';
-import Product1 from '../component/Product1';
-import d1 from '../assets/d-1.jpg';
+import L01 from '../component/L01';
+import p1 from '../assets/product/1.jpg';
+import p2 from '../assets/product/2.jpg';
+import p3 from '../assets/product/3.jpg';
 
 const images1 = [
-  d1,
-  d1,
-  d1
+  p2,
+  p1,
+  p3
 ]
 
 
@@ -14,8 +15,7 @@ const images1 = [
 function Shop() {
   return (
     <div>
-      <Product images={images1} objfit="cover" t1="Duo Passport Case" t2="leather" t3="$80" href="https://buy.stripe.com/test_5kA5okgPOeIlfEkbII"/>
-      <Product1  href="https://buy.stripe.com/test_5kA5okgPOeIlfEkbII" />
+      <L01  href="https://buy.stripe.com/test_5kA5okgPOeIlfEkbII" />
     </div>
   );
 }

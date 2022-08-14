@@ -6,21 +6,20 @@ import Container1 from '../style/container1.js';
 
 const ProductContainer = styled.div`
     margin: auto;
-    margin-bottom: 5vh;
     display: flex; 
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     @media only screen and (min-width : 480px) {
-   padding: 16px;
+   padding: 0;
     }
     @media only screen and (min-width : 768px) {
-    padding: 16px;
+    padding: 0;
     }
     @media only screen and (min-width : 1000px) {
-    padding: 16px 10%;
+    padding: 0;
     }
     @media only screen and (min-width : 1600px) {
-    max-width: 16px 20%;
+    max-width: 0px;
     }
 `
 const ProductInfo = styled.div`
@@ -84,7 +83,6 @@ const Product = (props) => {
 
 
 return (
-    <Container1>
     <ProductContainer>
     <ProductSlider images={props.images} objfit={props.objfit}/>
       <ProductInfo>
@@ -94,7 +92,6 @@ return (
         <Aa href={props.href}>BUY</Aa>
      </ProductInfo>
     </ProductContainer>
-    </Container1 >
 )}
 
 export default Product;

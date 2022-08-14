@@ -9,13 +9,13 @@ const Keen = styled.div`
 width: 100%;
     }
     @media only screen and (min-width : 768px) {
-width: 100%;
+width: 50%;
     }
     @media only screen and (min-width : 1000px) {
-max-width: 100%;
+max-width: 50%;
     }
     @media only screen and (min-width : 1800px) {
-max-width: 100%;
+max-width: 50%;
     }
 ` 
 

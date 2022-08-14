@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Cta1 from './Cta1';
 
@@ -18,18 +17,15 @@ const Head = styled.nav`
     width: 100%;
     }
     @media only screen and (min-width : 1800px) {
-    max-width: 1200px;
+    max-width: 1800px;
     }
-`
-const Menu = styled.div`
 `
 
 const Header = (props) => {
   return (
     <Head>
-      <Cta1 grow="2" t1="NONAME.LA" linkto="/" />
-      <Cta1 grow="1" t1="Work" linkto="/work" />
-      <Cta1 grow="1" t1="Shop" linkto="/shop" />
+      <Cta1 grow="1" w="50%" side="left" linkto="/work" text="NONAME.la"/>
+      <Cta1 grow="1" w="50%" side="right" linkto="/shop" text="Shop"/>
     </Head>
   )
 }

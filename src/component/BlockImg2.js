@@ -10,23 +10,23 @@ const ImageGallery = styled.div`
     display: grid;
     grid-gap: 0px;
     @media only screen and (min-width : 480px) {
-        grid-template-columns: repeat(1, auto);
-    }
-    @media only screen and (min-width : 768px) {
         grid-template-columns: repeat(2, auto);
     }
+    @media only screen and (min-width : 768px) {
+        grid-template-columns: repeat(3, auto);
+    }
     @media only screen and (min-width : 1000px) {
-            grid-template-columns: repeat(3, auto);
+            grid-template-columns: repeat(5, auto);
     }
     @media only screen and (min-width : 1600px) {
-            grid-template-columns: repeat(4, auto);
+            grid-template-columns: repeat(5, auto);
     }
 `
 const ImgGrid = styled.img`
 object-fit: cover;
 `
 
-const BlockImg = (props) => {
+const BlockImg2 = (props) => {
 
     const hasImages = Array.isArray(props.images)
     const smallItemStyles = {
@@ -72,4 +72,4 @@ const BlockImg = (props) => {
     )
   }
 
-export default BlockImg;
+export default BlockImg2;
