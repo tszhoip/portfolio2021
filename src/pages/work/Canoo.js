@@ -1,5 +1,5 @@
 import React from 'react';
-import BlockImg from '../../component/BlockImg';
+import BlockImg3 from '../../component/BlockImg3';
 import BlockInfo from '../../component/BlockInfo';
 import ca1 from '../../assets/c-01.jpg';
 import ca2 from '../../assets/c-02.jpg';
@@ -37,7 +37,7 @@ function Canoo() {
   return (
     <div>
       <BlockInfo t1="canoo"/>
-      <BlockImg images={imgCanoo} />
+      <BlockImg3 images={imgCanoo} />
      
     
     </div>

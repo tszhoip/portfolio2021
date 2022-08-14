@@ -1,5 +1,5 @@
 import React from 'react';
-import BlockImg2 from '../../component/BlockImg2';
+import BlockImg4 from '../../component/BlockImg4';
 import BlockInfo from '../../component/BlockInfo';
 import lo1 from '../../assets/logo/lo01.jpg';
 import lo2 from '../../assets/logo/lo02.jpg';
@@ -33,45 +33,44 @@ import lo29 from '../../assets/logo/lo29.jpg';
 import lo30 from '../../assets/logo/lo30.jpg';
 
 
-
+const ImgLogo = [
+  lo1,
+  lo2,
+  lo3,
+  lo4,
+  lo5,
+  lo6,
+  lo7,
+  lo8,
+  lo9,
+  lo10,
+  lo11,
+  lo12,
+  lo13,
+  lo14,
+  lo15,
+  lo16,
+  lo17,
+  lo18,
+  lo19,
+  lo20,
+  lo21,
+  lo22,
+  lo23,
+  lo24,
+  lo25,
+  lo26,
+  lo27,
+  lo28,
+  lo29,
+  lo30
+]
 
 function Logo() {
-  const imgLogo = [
-    lo1,
-    lo2,
-    lo3,
-    lo4,
-    lo5,
-    lo6,
-    lo7,
-    lo8,
-    lo9,
-    lo10,
-    lo11,
-    lo12,
-    lo13,
-    lo14,
-    lo15,
-    lo16,
-    lo17,
-    lo18,
-    lo19,
-    lo20,
-    lo21,
-    lo22,
-    lo23,
-    lo24,
-    lo25,
-    lo26,
-    lo27,
-    lo28,
-    lo29,
-    lo30
-  ]
   return (
     <div>
       <BlockInfo text1="Logo" text2="2011~present" bgc="#ececec"/>
-      <BlockImg2 images={imgLogo} />
+      <BlockImg4 images={ImgLogo} />
     </div>
   );
 }

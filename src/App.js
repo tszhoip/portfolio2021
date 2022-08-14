@@ -22,9 +22,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 function App() {
   return (
     <Router>
-    <div className="app">
-        <Header/>
-        {/* <Nav /> */}
+        <Header />
         <Route path="/" exact component={Home}/>
         <Route path="/work" component={Work} />
         <Route path="/about" component={About}/>
@@ -39,7 +37,6 @@ function App() {
         <Route path="/work/canoo" component={Canoo} />
 
         <Footer />
-    </div>
     </Router>
   );
 }
