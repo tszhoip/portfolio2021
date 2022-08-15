@@ -1,6 +1,5 @@
 import React from 'react';
 import './style/app.css';
-import Nav from './component/Nav';
 import Header from './component/Header';
 import Footer from './component/Footer'
 import Home from './pages/Home';
@@ -15,6 +14,7 @@ import Disney from './pages/Disney';
 import Hyundai from './pages/Hyundai';
 import Canoo from './pages/Canoo';
 import Logo from './pages/Logo';
+import Snap from './pages/Snap'
 
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'
@@ -35,6 +35,7 @@ function App() {
         <Route path="/hyundai" component={Hyundai} />
         <Route path="/logo" component={Logo} />
         <Route path="/canoo" component={Canoo} />
+        <Route path="/snap" component={Snap} />
 
         <Footer />
     </Router>

@@ -9,6 +9,7 @@ const TypeBlock2 = styled(Link)`
     text-align: ${props => props.side};
     width: ${props => props.w};
     padding: 16px 16px 18px 16px;
+    border: 0.5px solid #f5f5f5;
     color: grey;
     &:hover{
          color: #222;

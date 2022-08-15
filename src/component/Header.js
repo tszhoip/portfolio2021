@@ -4,6 +4,8 @@ import Cta1 from './Cta1';
 
 const Head = styled.nav`
     display: flex; 
+    // position: fixed;
+    // background-color: white;
     justify-content: space-between;
     flex-direction: row;
     margin: auto;
@@ -24,8 +26,34 @@ const Head = styled.nav`
 const Header = (props) => {
   return (
     <Head>
-      <Cta1 grow="1" w="50%" side="left" linkto="/work" text="NONAME.la"/>
-      <Cta1 grow="1" w="50%" side="right" linkto="/shop" text="Shop"/>
+      <Cta1 
+        grow="1" 
+        w="25%" 
+        side="LEFT" 
+        linkto="/work" 
+        text="NONAME.la"
+      />
+      <Cta1 
+        grow="1" 
+        w="25%" 
+        side="LEFT" 
+        linkto="/shop" 
+        text="Shop"
+      />
+      <Cta1 
+        grow="1" 
+        w="25%" 
+        side="LEFT" 
+        linkto="/play" 
+        text="Play"
+      />
+      <Cta1 
+        grow="1" 
+        w="25%" 
+        side="LEFT" 
+        linkto="/snap" 
+        text="SNAP"
+      />
     </Head>
   )
 }
