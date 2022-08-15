@@ -1,14 +1,14 @@
 import React from 'react';
-import Projimgadv from '../../style/projimgadv.js'
-import o1 from '../../assets/o-1.jpg';
-import o2 from '../../assets/o-2.jpg';
-import o3 from '../../assets/o-3.jpg';
-import o4 from '../../assets/o-4.jpg';
-import o5 from '../../assets/o-5.jpg';
-import o6 from '../../assets/o-6.jpg';
-import o7 from '../../assets/o-7.jpg';
-import ov0 from '../../assets/o-v-0.mp4';
-import ov1 from '../../assets/o-v-1.mp4';
+import Projimgadv from '../style/projimgadv.js'
+import o1 from '../assets/o-1.jpg';
+import o2 from '../assets/o-2.jpg';
+import o3 from '../assets/o-3.jpg';
+import o4 from '../assets/o-4.jpg';
+import o5 from '../assets/o-5.jpg';
+import o6 from '../assets/o-6.jpg';
+import o7 from '../assets/o-7.jpg';
+import ov0 from '../assets/o-v-0.mp4';
+import ov1 from '../assets/o-v-1.mp4';
 
 function Odeur() {
   return (

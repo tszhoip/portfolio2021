@@ -1,6 +1,7 @@
 import React from 'react';
 import Cta1 from '../component/Cta1';
 import styled from 'styled-components';
+import Banner from '../component/Banner'
 
 
 const Worklist = styled.div`
@@ -13,12 +14,13 @@ function Work() {
 
   return (
     <Worklist>
-      <Cta1 grow="1" text="Canoo" linkto="/work/canoo" />
-      <Cta1 grow="1" text="logo" linkto="/work/logo" />
-      <Cta1 grow="1" text="Figs Inc." linkto="/work/figs" />
-      <Cta1 grow="1" text="Hyundai" linkto="/work/Hyundai" />
-      <Cta1 grow="1" text="Nike" linkto="/work/Nike" />
-      <Cta1 grow="1" text="Odeur" linkto="/work/Odeur" />
+      <Banner />
+      <Cta1 grow="1" text="Canoo" linkto="/canoo" />
+      <Cta1 grow="1" text="logo" linkto="/logo" />
+      <Cta1 grow="1" text="Figs Inc." linkto="/figs" />
+      <Cta1 grow="1" text="Hyundai" linkto="/Hyundai" />
+      <Cta1 grow="1" text="Nike" linkto="/Nike" />
+      <Cta1 grow="1" text="Odeur" linkto="/Odeur" />
     </Worklist>
   );
 }

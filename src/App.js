@@ -8,13 +8,13 @@ import About from './pages/About';
 import Work from './pages/Work';
 import Shop from './pages/Shop';
 import Play from './pages/Play';
-import Figs from './pages/work/Figs';
-import Nike from './pages/work/Nike';
-import Odeur from './pages/work/Odeur';
-import Disney from './pages/work/Disney';
-import Hyundai from './pages/work/Hyundai';
-import Canoo from './pages/work/Canoo';
-import Logo from './pages/work/Logo';
+import Figs from './pages/Figs';
+import Nike from './pages/Nike';
+import Odeur from './pages/Odeur';
+import Disney from './pages/Disney';
+import Hyundai from './pages/Hyundai';
+import Canoo from './pages/Canoo';
+import Logo from './pages/Logo';
 
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'
@@ -28,13 +28,13 @@ function App() {
         <Route path="/about" component={About}/>
         <Route path="/play" component={Play}/>
         <Route path="/shop" component={Shop}/>
-        <Route path="/work/figs" component={Figs}/>
-        <Route path="/work/nike" component={Nike} />
-        <Route path="/work/odeur" component={Odeur} />
-        <Route path="/work/disney" component={Disney} />
-        <Route path="/work/hyundai" component={Hyundai} />
-        <Route path="/work/logo" component={Logo} />
-        <Route path="/work/canoo" component={Canoo} />
+        <Route path="/figs" component={Figs}/>
+        <Route path="/nike" component={Nike} />
+        <Route path="/odeur" component={Odeur} />
+        <Route path="/disney" component={Disney} />
+        <Route path="/hyundai" component={Hyundai} />
+        <Route path="/logo" component={Logo} />
+        <Route path="/canoo" component={Canoo} />
 
         <Footer />
     </Router>
