@@ -23,6 +23,7 @@ const Banner = styled.div`
     &:hover{
       color: #222;
       background-color: #f5f5f5;
+      transform: scale(0.99);
      }
      &:active{
        color: #000;
@@ -33,7 +34,7 @@ const Banner = styled.div`
 const Header = (props) => {
   return (
     <Banner>
-      <Img1 grow="1" w="50%" side="left"/>
+      <Img1 grow="1" w="50%" side="left" img={props.img}/>
       <Cta1 grow="1" w="50%" side="left" linkto="/work" text="Figs Inc. / Web Ui"/>
     </Banner>
   )
