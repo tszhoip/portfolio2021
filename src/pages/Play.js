@@ -1,6 +1,6 @@
 import React from 'react';
-import ProjFull from '../component/ProjFull';
 import Container0 from '../style/container0';
+import BlockImg4 from '../component/BlockImg4';
 
 
 
@@ -34,19 +34,12 @@ function Play() {
   return (
     <Container0 bgcolor="white">
 
-      <ProjFull color="#fff"
-        bgcolor="white"
-        t1="2021"
-        t2=" "
-        objfit="contain"
+      <BlockImg4
         images={Play2021} />
 
-      <ProjFull color="#fff"
-        bgcolor="#DFD2D2"
-        t1="2020"
-        t2=" "
-        objfit="contain"
-        images={Play2020} />
+      <BlockImg4
+        images={Play2021} />
+
 
 
     </Container0>

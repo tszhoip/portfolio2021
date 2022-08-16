@@ -14,20 +14,24 @@ const Info = styled.div`
         grid-template-columns: repeat(2, auto);
     }
     @media only screen and (min-width : 1000px) {
-            grid-template-columns: repeat(2, auto);
+            grid-template-columns: repeat(2, 50%);
     }
     @media only screen and (min-width : 1600px) {
-            grid-template-columns: repeat(2, auto);
+            grid-template-columns: repeat(2, 50%);
     }
 `
 const BlockInfo = (props) => {
 
-    return ( 
-      <Info bgc={props.bgc}> 
-          <Type2 text={props.text1}/>
-          <Type2 text={props.text2}/>
-</Info> 
+    return (
+        <Info bgc={props.bgc}>
+            <Type2
+                text={props.text1}
+            />
+            <Type2
+                text={props.text2}
+            />
+        </Info>
     )
-  }
+}
 
 export default BlockInfo;

@@ -36,7 +36,7 @@ const ImgLogo = [
 function Snap() {
   return (
     <div>
-      <BlockInfo text1="Tokyo" text2="2011~present" bgc="#ececec"/>
+      <BlockInfo text1="Tokyo" text2="2011~present" bgc="white"/>
       <BlockImgCon2 images={ImgLogo} />
     </div>
   );

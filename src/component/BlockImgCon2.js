@@ -8,7 +8,6 @@ import "photoswipe/dist/default-skin/default-skin.css";
 const ImageGallery = styled.div`
     width: 100%;
     display: grid;
-    grid-gap: 0px;
     overflow: hidden;
     @media only screen and (min-width : 480px) {
         grid-template-columns: repeat(2, auto);
@@ -17,28 +16,41 @@ const ImageGallery = styled.div`
         grid-template-columns: repeat(2, auto);
     }
     @media only screen and (min-width : 1000px) {
-            grid-template-columns: repeat(3, auto);
+            grid-template-columns: repeat(4, auto);
     }
     @media only screen and (min-width : 1600px) {
-            grid-template-columns: repeat(3, auto);
+            grid-template-columns: repeat(4, auto);
     }
 `
 const ImgGrid = styled.img`
-object-fit: cover;
+    object-fit: contain;
+    cursor: pointer;
+    width: 100%;
+    height: 75vh;
+    min-height: 400px;
+    max-height: 1100px;
+    &:hover{
+      border: none;
+      transform: scale(1.02);
+      transition: width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s
+     }
+     &:active{
+       color: #000;
+     }
 `
 
 const BlockImgCon2 = (props) => {
 
     const hasImages = Array.isArray(props.images)
-    const smallItem = {
-      cursor: "pointer",
-      objectFit: "contain",
-      border: "0.5px solid red",
-      width: "100%",
-      height: "75vh",
-      minHeight: "400px",
-      maxHeight: "1100px"
-    }
+    // const smallItem = {
+    //   cursor: "pointer",
+    //   objectFit: "contain",
+    //   border: "0.5px solid red",
+    //   width: "100%",
+    //   height: "75vh",
+    //   minHeight: "400px",
+    //   maxHeight: "1100px"
+    // }
 
     return ( 
       <div> 
@@ -48,7 +60,7 @@ const BlockImgCon2 = (props) => {
               <Gallery
               id="simple-gallery"
               options={{
-                closeOnScroll: false,
+                closeOnScroll: true,
                 shareEl: false,
                 arrowPrevTitle: "asd",
                 fullscreenEl: (props) => (
@@ -66,7 +78,7 @@ const BlockImgCon2 = (props) => {
                   height="1024"
                 >
                   {({ ref, open }) => (
-                    <ImgGrid ref={ref} onClick={open} src={imageUrl} style={smallItem} objfit={props.objfit} />
+                    <ImgGrid ref={ref} onClick={open} src={imageUrl} objfit={props.objfit} />
                   )}
                 </Item>)}
               </Gallery>

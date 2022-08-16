@@ -6,8 +6,7 @@ const ImgBlock2 = styled.img`
     flex-grow: ${props => props.grow};
     order: ${props => props.order};
     text-align: ${props => props.side};
-    width: ${props => props.w};
-    padding: 16px 16px 18px 16px;
+    padding: 8px;
     &:hover{
          color: #222;
          background-color: #f5f5f5;

@@ -32,7 +32,7 @@ const ImgFig = [
 function Figs() {
   return (
     <div>
-      <BlockInfo text1="Figs Inc." text2="Web UI" bgc="#222222"/>
+      <BlockInfo text1="Figs Inc." text2="The objective of the project is " bgc="#222222"/>
       <BlockImg3 images={ImgFig} />
       
     </div>

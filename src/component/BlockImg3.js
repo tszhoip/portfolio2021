@@ -44,7 +44,7 @@ const BlockImg3 = (props) => {
               <Gallery
               id="simple-gallery"
               options={{
-                closeOnScroll: false,
+                closeOnScroll: true,
                 shareEl: false,
                 arrowPrevTitle: "asd",
                 fullscreenEl: (props) => (
