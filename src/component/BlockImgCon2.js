@@ -16,41 +16,32 @@ const ImageGallery = styled.div`
         grid-template-columns: repeat(2, auto);
     }
     @media only screen and (min-width : 1000px) {
-            grid-template-columns: repeat(4, auto);
+            grid-template-columns: repeat(3, auto);
     }
     @media only screen and (min-width : 1600px) {
-            grid-template-columns: repeat(4, auto);
+            grid-template-columns: repeat(3, auto);
     }
 `
 const ImgGrid = styled.img`
     object-fit: contain;
     cursor: pointer;
-    width: 100%;
+    width: calc(100% - 16px);
+    padding: 8px;
     height: 75vh;
     min-height: 400px;
     max-height: 1100px;
+    border: 0.5px solid #f5f5f5;
     &:hover{
-      border: none;
-      transform: scale(1.02);
-      transition: width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s
-     }
+    background-color: #f5f5f5;
+        }
      &:active{
-       color: #000;
+    background-color: #f5f5f5;
      }
 `
 
 const BlockImgCon2 = (props) => {
 
     const hasImages = Array.isArray(props.images)
-    // const smallItem = {
-    //   cursor: "pointer",
-    //   objectFit: "contain",
-    //   border: "0.5px solid red",
-    //   width: "100%",
-    //   height: "75vh",
-    //   minHeight: "400px",
-    //   maxHeight: "1100px"
-    // }
 
     return ( 
       <div> 

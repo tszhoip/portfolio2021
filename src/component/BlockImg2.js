@@ -32,7 +32,7 @@ const BlockImg2 = (props) => {
     const smallItemStyles = {
       cursor: "pointer",
       objectFit: "cover",
-      width: "100%",
+      width: "calc(100% - 16px)",
       Height: "100%"
     };
 

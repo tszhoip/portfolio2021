@@ -11,8 +11,20 @@ import logo from '../assets/Lhyundai.jpg';
 
 const Worklist = styled.div`
 width: 100%;
-display: flex;
-flex-direction: column;
+display: grid;
+grid-gap: 0px;
+@media only screen and (min-width : 480px) {
+  grid-template-columns: repeat(3, auto);
+}
+@media only screen and (min-width : 768px) {
+  grid-template-columns: repeat(3, auto);
+}
+@media only screen and (min-width : 1000px) {
+        grid-template-columns: repeat(3, auto);
+}
+@media only screen and (min-width : 1600px) {
+  grid-template-columns: repeat(3, auto);
+}
 `
 
 
@@ -20,17 +32,23 @@ function Work() {
 
   return (
     <Worklist>
-            <Thumbnail img={logo}/>
-      <Banner img={figs} to="/figs" />
-      <Banner img={nike} />
-      <Banner img={logo} />
+      <Thumbnail img={logo} gr="1" gc="1 / span 2"/>
+      <Thumbnail img={figs}/>
       <Thumbnail img={logo}/>
-      <Cta1 grow="1" text="Canoo" linkto="/canoo" />
+      <Thumbnail img={figs}/>
+      <Thumbnail img={logo}/>
+      <Thumbnail img={figs}/>
+      <Thumbnail img={logo}/>
+      <Thumbnail img={figs}/>
+      {/* <Cta1 grow="1" text="Canoo" linkto="/canoo" />
       <Cta1 grow="1" text="logo" linkto="/logo" />
       <Cta1 grow="1" text="Figs Inc." linkto="/figs" />
       <Cta1 grow="1" text="Hyundai" linkto="/Hyundai" />
       <Cta1 grow="1" text="Nike" linkto="/Nike" />
       <Cta1 grow="1" text="Odeur" linkto="/Odeur" />
+      <Banner img={figs} to="/figs" />
+      <Banner img={nike} />
+      <Banner img={logo} /> */}
     </Worklist>
   );
 }

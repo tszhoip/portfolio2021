@@ -3,10 +3,12 @@ import styled from 'styled-components';
 
 
 const ImgBlock2 = styled.img`
-    flex-grow: ${props => props.grow};
+    // flex-grow: 1;
+    width: calc(100% - 16px);
     order: ${props => props.order};
     text-align: ${props => props.side};
     padding: 8px;
+    
     &:hover{
          color: #222;
          background-color: #f5f5f5;
@@ -22,8 +24,7 @@ const Img1 = (props) => {
   return (
         <ImgBlock2 
           src={props.img}
-          w={props.w} 
-          grow={props.grow} 
+          // grow={props.grow} 
           to={props.linkto} 
           order={props.order} 
           side={props.side} 
