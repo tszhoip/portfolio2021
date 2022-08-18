@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "portfolio2021test"
-  }
+    "default": "portfolio2021test",
+    "staging": "portfolio2021test"
+  },
+  "targets": {},
+  "etags": {}
 }
