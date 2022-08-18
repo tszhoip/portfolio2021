@@ -21,18 +21,17 @@ const Banner = styled(Link)`
         grid-template-columns: repeat(1, auto);
     }
     @media only screen and (min-width : 1000px) {
-            grid-template-columns: repeat(1, 100%);
+            grid-template-columns: repeat(1, auto);
     }
     @media only screen and (min-width : 1600px) {
-            grid-template-columns: repeat(1, 100%);
+            grid-template-columns: repeat(1, auto);
     }
     &:hover{
-      color: #222;
       background-color: #f5f5f5;
       filter: grayscale(1);
+      
      }
      &:active{
-       color: #000;
      }
 `
 

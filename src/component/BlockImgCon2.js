@@ -10,7 +10,7 @@ const ImageGallery = styled.div`
     display: grid;
     overflow: hidden;
     @media only screen and (min-width : 480px) {
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: ${props => props.gtcM};
     }
     @media only screen and (min-width : 768px) {
         grid-template-columns: repeat(2, auto);
@@ -27,9 +27,6 @@ const ImgGrid = styled.img`
     cursor: pointer;
     width: calc(100% - 16px);
     padding: 8px;
-    height: 75vh;
-    min-height: 400px;
-    max-height: 1100px;
     border: 0.5px solid #f5f5f5;
     &:hover{
     background-color: #f5f5f5;
@@ -37,46 +34,66 @@ const ImgGrid = styled.img`
      &:active{
     background-color: #f5f5f5;
      }
+     @media only screen and (min-width : 480px) {
+      height: 30vh;
+      min-height: 400px;
+      max-height: 1100px;
+  }
+  @media only screen and (min-width : 768px) {
+    height: 50vh;
+    min-height: 400px;
+    max-height: 1100px;
+  }
+  @media only screen and (min-width : 1000px) {
+    height: 75vh;
+    min-height: 400px;
+    max-height: 1100px;
+  }
+  @media only screen and (min-width : 1600px) {
+    height: 75vh;
+    min-height: 400px;
+    max-height: 1100px;
+  }
 `
 
 const BlockImgCon2 = (props) => {
 
-    const hasImages = Array.isArray(props.images)
+  const hasImages = Array.isArray(props.images)
 
-    return ( 
-      <div> 
-          {
-            hasImages &&
-            <ImageGallery>
-              <Gallery
-              id="simple-gallery"
-              options={{
-                closeOnScroll: true,
-                shareEl: false,
-                arrowPrevTitle: "asd",
-                fullscreenEl: (props) => (
-                  <span {...props} style={{ color: "red" }}>
-                    f
-                  </span>
-                )
-              }}
-              >
-                {props.images.map((imageUrl, index) => <Item
-                  key={index}
-                  original={imageUrl}
-                  thumbnail={imageUrl}
-                  width="1024"
-                  height="1024"
-                >
-                  {({ ref, open }) => (
-                    <ImgGrid ref={ref} onClick={open} src={imageUrl} objfit={props.objfit} />
-                  )}
-                </Item>)}
-              </Gallery>
-            </ImageGallery>
-          }
-</div> 
-    )
-  }
+  return (
+    <div>
+      {
+        hasImages &&
+        <ImageGallery>
+          <Gallery
+            id="simple-gallery"
+            options={{
+              closeOnScroll: true,
+              shareEl: false,
+              arrowPrevTitle: "asd",
+              fullscreenEl: (props) => (
+                <span {...props} style={{ color: "red" }}>
+                  f
+                </span>
+              )
+            }}
+          >
+            {props.images.map((imageUrl, index) => <Item
+              key={index}
+              original={imageUrl}
+              thumbnail={imageUrl}
+              width="1024"
+              height="1024"
+            >
+              {({ ref, open }) => (
+                <ImgGrid ref={ref} onClick={open} src={imageUrl} objfit={props.objfit} />
+              )}
+            </Item>)}
+          </Gallery>
+        </ImageGallery>
+      }
+    </div>
+  )
+}
 
 export default BlockImgCon2;
