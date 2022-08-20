@@ -3,7 +3,6 @@ import ProductSlider from './ProductSlider.js';
 import Type2 from './Type2.js';
 import Cta1 from './Cta1.js';
 import styled from 'styled-components';
-import Container1 from '../style/container1.js';
 import d1 from '../assets/product/1.jpg';
 import d2 from '../assets/product/2.jpg';
 import d3 from '../assets/product/3.jpg';

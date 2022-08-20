@@ -36,8 +36,8 @@ const ImgLogo = [
 function Play() {
   return (
     <div>
-      <BlockInfo text1="play" text2="try" bgc="white"/>
-      <BlockImgCon2 images={ImgLogo} />
+      <BlockInfo text1="play" text2="try" bgc="white"gtcD="repeat(2, 50%)" gtcM="repeat(1, 50%)"/>
+      <BlockImgCon2 images={ImgLogo} gtcD="repeat(4, 25%)" gtcM="repeat(2, 50%)"/>
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Gallery, Item } from 'react-photoswipe-gallery'
 import "photoswipe/dist/photoswipe.css";

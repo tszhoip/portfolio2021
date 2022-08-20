@@ -37,7 +37,7 @@ function Snap() {
   return (
     <div>
       <BlockInfo text1="Tokyo" text2="2011~present" bgc="white"/>
-      <BlockImgCon2 images={ImgLogo} />
+      <BlockImgCon2 images={ImgLogo} gtcD="repeat(2, 50%)" gtcM="repeat(1, 50%)"/>
     </div>
   );
 }

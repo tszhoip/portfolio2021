@@ -1,52 +1,53 @@
 import React from 'react';
-import Projlist from '../component/Projlist';
-import Container1 from '../style/container1';
-import Type1 from '../component/type1';
-import n1 from '../assets/n-1.jpg';
-import n2 from '../assets/n-2.jpg';
-import n3 from '../assets/n-3.jpg';
-import n4 from '../assets/n-4.jpg';
-import n5 from '../assets/n-5.jpg';
-import i1 from '../assets/i-1.jpg';
-import i2 from '../assets/i-2.jpg';
-import i3 from '../assets/i-3.jpg';
-import i4 from '../assets/i-4.jpg';
-import i5 from '../assets/i-5.jpg';
-import d1 from '../assets/d-1.jpg';
-import d2 from '../assets/d-2.jpg';
-import d3 from '../assets/d-3.jpg';
-import d4 from '../assets/d-4.jpg';
-import d5 from '../assets/d-5.jpg';
+import styled from 'styled-components';
+import Thumbnail from '../component/Thumbnail';
 
-const Nike = [
-  n1, n2, n3, n4, n5
-]
-const Innocell = [
-  i1, i2, i3, i4, i5
-]
-const Hyundai = [
-  i1, i2, i3, i4, i5
-]
-const Disney = [
-  d5, d1, d2, d3, d4,
-]
+import figs from '../assets/lfigs.jpg';
+import logo from '../assets/lhyundai.jpg';
 
-function Home() {
+
+const Worklist = styled.div`
+width: 100%;
+display: grid;
+grid-gap: 0px;
+@media only screen and (min-width : 480px) {
+  grid-template-columns: repeat(3, auto);
+}
+@media only screen and (min-width : 768px) {
+  grid-template-columns: repeat(3, auto);
+}
+@media only screen and (min-width : 1000px) {
+        grid-template-columns: repeat(3, auto);
+}
+@media only screen and (min-width : 1600px) {
+  grid-template-columns: repeat(3, auto);
+}
+`
+
+
+function Work() {
+
   return (
-    <Container1>
-      <Type1 t1="Tsz and Michelle are a design duo based in Los Angeles, CA. Together, We create."/>
-
-      <Projlist t1="Treedom" t2="App, Branding" t3="2020" path="/figs"/>
-      <Projlist images={Innocell} t1="Innocell" t2="website, casestudy" t3="2020" path="/innocell" />
-      <Projlist t1="Concept D'odeur" t2="ecommerece" t3="2020" path="/odeur"/>
-      <Projlist t1="Figs" t2="ecommerece" t3="2020" path="/figs" />
-      <Projlist images={Hyundai} t1="Hyundai" t2="Website" t3="2020" path="/hyundai"/>
-      <Projlist images={Nike} t1="Nike" t2="Art Direction" t3="2020" path="/nike"/>
-      <Projlist images={Disney} t1="Disney SH" t2="typography" t3="2020" path="/disney"/>
-      <Projlist t1="American Apparel" t2="ecommerce" t3="2020" path="/figs"/>
-      <Projlist t1="Logos" t2=" " t3="~2020" path="/logo"/>
-    </Container1>
+    <Worklist>
+      <Thumbnail img={logo} gr="1" gc="1 / span 2" to="/figs"/>
+      <Thumbnail img={figs}/>
+      <Thumbnail img={logo}/>
+      <Thumbnail img={figs}/>
+      <Thumbnail img={logo}/>
+      <Thumbnail img={figs}/>
+      <Thumbnail img={logo}/>
+      <Thumbnail img={figs}/>
+      {/* <Cta1 grow="1" text="Canoo" linkto="/canoo" />
+      <Cta1 grow="1" text="logo" linkto="/logo" />
+      <Cta1 grow="1" text="Figs Inc." linkto="/figs" />
+      <Cta1 grow="1" text="Hyundai" linkto="/Hyundai" />
+      <Cta1 grow="1" text="Nike" linkto="/Nike" />
+      <Cta1 grow="1" text="Odeur" linkto="/Odeur" />
+      <Banner img={figs} to="/figs" />
+      <Banner img={nike} />
+      <Banner img={logo} /> */}
+    </Worklist>
   );
 }
 
-export default Home;
+export default Work;

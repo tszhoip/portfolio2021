@@ -1,12 +1,9 @@
 import React from 'react';
-import Cta1 from '../component/Cta1';
 import styled from 'styled-components';
-import Banner from '../component/Banner';
 import Thumbnail from '../component/Thumbnail';
 
-import figs from '../assets/Lfigs.jpg';
-import nike from '../assets/Lnike.jpg';
-import logo from '../assets/Lhyundai.jpg';
+import figs from '../assets/lfigs.jpg';
+import logo from '../assets/lhyundai.jpg';
 
 
 const Worklist = styled.div`

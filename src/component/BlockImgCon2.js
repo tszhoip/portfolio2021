@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Gallery, Item } from 'react-photoswipe-gallery'
 import "photoswipe/dist/photoswipe.css";
@@ -13,13 +12,13 @@ const ImageGallery = styled.div`
         grid-template-columns: ${props => props.gtcM};
     }
     @media only screen and (min-width : 768px) {
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: ${props => props.gtcM};
     }
     @media only screen and (min-width : 1000px) {
-            grid-template-columns: repeat(3, auto);
+            grid-template-columns: ${props => props.gtcD};
     }
     @media only screen and (min-width : 1600px) {
-            grid-template-columns: repeat(3, auto);
+            grid-template-columns: ${props => props.gtcD};
     }
 `
 const ImgGrid = styled.img`
@@ -64,7 +63,7 @@ const BlockImgCon2 = (props) => {
     <div>
       {
         hasImages &&
-        <ImageGallery>
+        <ImageGallery gtcD={props.gtcD} gtcM={props.gtcM} >
           <Gallery
             id="simple-gallery"
             options={{

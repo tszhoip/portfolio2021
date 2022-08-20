@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Cta1 from './Cta1';
 import Type2 from './Type2';
 import Img1 from './Img1';
 
