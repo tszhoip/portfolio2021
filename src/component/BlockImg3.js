@@ -25,7 +25,7 @@ const ImgGrid = styled.img`
 object-fit: cover;
 `
 
-const BlockImg3 = (props) => {
+const BlockImgProj = (props) => {
 
     const hasImages = Array.isArray(props.images)
     const smallItemStyles = {
@@ -71,4 +71,4 @@ const BlockImg3 = (props) => {
     )
   }
 
-export default BlockImg3;
+export default BlockImgProj;

@@ -55,7 +55,7 @@ const ImgGrid = styled.img`
   }
 `
 
-const BlockImgCon2 = (props) => {
+const BlockImgCon = (props) => {
 
   const hasImages = Array.isArray(props.images)
 
@@ -95,4 +95,4 @@ const BlockImgCon2 = (props) => {
   )
 }
 
-export default BlockImgCon2;
+export default BlockImgCon;

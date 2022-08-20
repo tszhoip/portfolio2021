@@ -11,7 +11,7 @@ import f9 from '../assets/figs/f-9.jpg';
 import f10 from '../assets/figs/f-10.jpg';
 import f11 from '../assets/figs/f-11.jpg';
 import f12 from '../assets/figs/f-12.jpg';
-import BlockImg3 from '../component/BlockImg3';
+import BlockImgProj from '../component/BlockImgProj';
 import BlockInfo from '../component/BlockInfo';
 
 const ImgFig = [
@@ -33,7 +33,7 @@ function Figs() {
   return (
     <div>
       <BlockInfo text1="Figs Inc." text2="The objective of the project is " bgc="#222222"/>
-      <BlockImg3 images={ImgFig} />
+      <BlockImgProj images={ImgFig}  gtcD="repeat(2, 50%)" gtcM="repeat(1, 100%)"/>
       
     </div>
   );

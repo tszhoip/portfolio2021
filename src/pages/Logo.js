@@ -1,5 +1,5 @@
 import React from 'react';
-import BlockImg4 from '../component/BlockImg4';
+import BlockImgProj from '../component/BlockImgProj';
 import BlockInfo from '../component/BlockInfo';
 import lo1 from '../assets/logo/lo01.jpg';
 import lo2 from '../assets/logo/lo02.jpg';
@@ -70,7 +70,7 @@ function Logo() {
   return (
     <div>
       <BlockInfo text1="Logo" text2="2011~present" bgc="#ececec"/>
-      <BlockImg4 images={ImgLogo} />
+      <BlockImgProj images={ImgLogo} />
     </div>
   );
 }

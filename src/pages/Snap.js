@@ -1,5 +1,5 @@
 import React from 'react';
-import BlockImgCon2 from '../component/BlockImgCon2';
+import BlockImgCon from '../component/BlockImgCon';
 import BlockInfo from '../component/BlockInfo';
 import lo1 from '../assets/tokyo/tokyo3-01.jpg';
 import lo2 from '../assets/tokyo/tokyo3-02.jpg';
@@ -37,7 +37,7 @@ function Snap() {
   return (
     <div>
       <BlockInfo text1="Tokyo" text2="2011~present" bgc="white"/>
-      <BlockImgCon2 images={ImgLogo} gtcD="repeat(2, 50%)" gtcM="repeat(1, 50%)"/>
+      <BlockImgCon images={ImgLogo} gtcD="repeat(2, 50%)" gtcM="repeat(1, 50%)"/>
     </div>
   );
 }

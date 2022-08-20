@@ -29,14 +29,14 @@ function Work() {
 
   return (
     <Worklist>
-      <Thumbnail img={logo} gr="1" gc="1 / span 2"/>
-      <Thumbnail img={figs}/>
-      <Thumbnail img={logo}/>
-      <Thumbnail img={figs}/>
-      <Thumbnail img={logo}/>
-      <Thumbnail img={figs}/>
-      <Thumbnail img={logo}/>
-      <Thumbnail img={figs}/>
+      <Thumbnail img={logo} gr="1" gc="1 / span 2" to="/figs"/>
+      <Thumbnail img={figs} to="/odeur"/>
+      <Thumbnail img={logo} to="/hyundai"/>
+      <Thumbnail img={figs} to="/figs"/>
+      <Thumbnail img={logo} to="/figs"/>
+      <Thumbnail img={figs} to="/figs"/>
+      <Thumbnail img={logo} to="/figs"/>
+      <Thumbnail img={figs} to="/figs"/>
       {/* <Cta1 grow="1" text="Canoo" linkto="/canoo" />
       <Cta1 grow="1" text="logo" linkto="/logo" />
       <Cta1 grow="1" text="Figs Inc." linkto="/figs" />

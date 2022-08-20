@@ -9,23 +9,23 @@ const ImageGallery = styled.div`
     display: grid;
     grid-gap: 0px;
     @media only screen and (min-width : 480px) {
-        grid-template-columns: repeat(2, auto);
+      grid-template-columns: ${props => props.gtcM};
     }
     @media only screen and (min-width : 768px) {
-        grid-template-columns: repeat(3, auto);
+      grid-template-columns: ${props => props.gtcM};
     }
     @media only screen and (min-width : 1000px) {
-            grid-template-columns: repeat(4, auto);
+      grid-template-columns: ${props => props.gtcD};
     }
     @media only screen and (min-width : 1600px) {
-            grid-template-columns: repeat(5, auto);
+      grid-template-columns: ${props => props.gtcD};
     }
 `
 const ImgGrid = styled.img`
 object-fit: cover;
 `
 
-const BlockImg4 = (props) => {
+const BlockImgProj = (props) => {
 
     const hasImages = Array.isArray(props.images)
     const smallItemStyles = {
@@ -39,7 +39,7 @@ const BlockImg4 = (props) => {
       <div> 
           {
             hasImages &&
-            <ImageGallery>
+            <ImageGallery gtcM={props.gtcM} gtcD={props.gtcD}>
               <Gallery
               id="simple-gallery"
               options={{
@@ -71,4 +71,4 @@ const BlockImg4 = (props) => {
     )
   }
 
-export default BlockImg4;
+export default BlockImgProj;
