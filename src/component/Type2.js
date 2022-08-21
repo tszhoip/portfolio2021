@@ -8,8 +8,9 @@ const TypeBlock1 = styled.p`
     text-align: ${props => props.side};
     width: ${props => props.w};
     padding: 8px 8px 10px 8px;
+    border: 0.5px solid #f5f5f5;
     padding-bottom: ${props => props.pb};
-    color: grey;
+    color: black;
 `
 
 const Type2 = (props) => {

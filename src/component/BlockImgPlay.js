@@ -34,28 +34,20 @@ const ImgGrid = styled.img`
     background-color: #f5f5f5;
      }
      @media only screen and (min-width : 480px) {
-      height: 30vh;
-      min-height: 400px;
-      max-height: 1100px;
+      height: auto;
   }
   @media only screen and (min-width : 768px) {
-    height: 50vh;
-    min-height: 400px;
-    max-height: 1100px;
+    height: auto;
   }
   @media only screen and (min-width : 1000px) {
-    height: 75vh;
-    min-height: 400px;
-    max-height: 1100px;
+    height: auto;
   }
   @media only screen and (min-width : 1600px) {
-    height: 75vh;
-    min-height: 400px;
-    max-height: 1100px;
+    height: auto;
   }
 `
 
-const BlockImgCon = (props) => {
+const BlockImgPlay = (props) => {
 
   const hasImages = Array.isArray(props.images)
 
@@ -95,4 +87,4 @@ const BlockImgCon = (props) => {
   )
 }
 
-export default BlockImgCon;
+export default BlockImgPlay;

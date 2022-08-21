@@ -10,7 +10,8 @@ const TypeBlock2 = styled(Link)`
     width: ${props => props.w};
     padding: 8px 8px 10px 8px;
     border: 0.5px solid #f5f5f5;
-    color: grey;
+    padding-bottom: ${props => props.pb};
+    color: black;
     &:hover{
          color: #222;
          background-color: #f5f5f5;

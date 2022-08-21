@@ -5,7 +5,7 @@ import Footer from './component/Footer'
 import Home from './pages/Home';
 import Work from './pages/Work';
 import Shop from './pages/Shop';
-import Play from './pages/Play';
+import Feed from './pages/Feed';
 import Figs from './pages/Figs';
 import Nike from './pages/Nike';
 import Odeur from './pages/Odeur';
@@ -22,7 +22,7 @@ function App() {
         <Header />
         <Route path="/" exact component={Home}/>
         <Route path="/work" component={Work} />
-        <Route path="/play" component={Play}/>
+        <Route path="/feed" component={Feed}/>
         <Route path="/shop" component={Shop}/>
         <Route path="/figs" component={Figs}/>
         <Route path="/nike" component={Nike} />

@@ -26,32 +26,32 @@ const Head = styled.nav`
 const Header = (props) => {
   return (
     <Head>
-      <Cta1 
-        grow="1" 
-        w="25%" 
-        side="LEFT" 
-        linkto="/work" 
+      <Cta1
+        grow="1"
+        w="25%"
+        side="LEFT"
+        linkto="/work"
         text="NONAME.la"
       />
-      <Cta1 
-        grow="1" 
-        w="25%" 
-        side="LEFT" 
-        linkto="/play" 
-        text="Play"
+      <Cta1
+        grow="1"
+        w="25%"
+        side="LEFT"
+        linkto="/feed"
+        text="Feed"
       />
-      <Cta1 
-        grow="1" 
-        w="25%" 
-        side="LEFT" 
-        linkto="/snap" 
+      <Cta1
+        grow="1"
+        w="25%"
+        side="LEFT"
+        linkto="/snap"
         text="SNAP"
       />
-      <Cta1 
-        grow="1" 
-        w="25%" 
-        side="LEFT" 
-        linkto="/shop" 
+      <Cta1
+        grow="1"
+        w="25%"
+        side="LEFT"
+        linkto="/shop"
         text="Shop"
       />
     </Head>

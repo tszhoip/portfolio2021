@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Thumbnail from '../component/Thumbnail';
+import BlockInfo from '../component/BlockInfo';
 
 import figs from '../assets/lfigs.jpg';
 import logo from '../assets/lhyundai.jpg';
@@ -35,17 +36,14 @@ function Work() {
       <Thumbnail img={figs}/>
       <Thumbnail img={logo}/>
       <Thumbnail img={figs}/>
-      <Thumbnail img={logo}/>
+      <Thumbnail img={logo} />
       <Thumbnail img={figs}/>
-      {/* <Cta1 grow="1" text="Canoo" linkto="/canoo" />
-      <Cta1 grow="1" text="logo" linkto="/logo" />
-      <Cta1 grow="1" text="Figs Inc." linkto="/figs" />
-      <Cta1 grow="1" text="Hyundai" linkto="/Hyundai" />
-      <Cta1 grow="1" text="Nike" linkto="/Nike" />
-      <Cta1 grow="1" text="Odeur" linkto="/Odeur" />
-      <Banner img={figs} to="/figs" />
-      <Banner img={nike} />
-      <Banner img={logo} /> */}
+<BlockInfo 
+text1="NONAME.LA" 
+text2="We are duo designer couple resides in Los Angeles. Believing design is a process of solving problem. Attitude is essential element of our design. Just like we don’t need an entity to define us, Our work does.
+Whenever we are not working, we love drinking fruity coffee and enjoying southern Asian food. " 
+pb="32px"
+/>
     </Worklist>
   );
 }

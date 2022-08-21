@@ -24,7 +24,7 @@ const Foot = styled.nav`
 const Footer = (props) => {
   return (
     <Foot>
-      <Cta1 grow="2" text="Play" linkto="/" />
+      <Cta1 grow="2" text="Feed" linkto="/" />
       <Cta1 grow="2" text="Inst" linkto="/shop" />
       <Cta1 grow="2" text="TERM" linkto="/" />
       <Cta1 grow="2" text="PRIV" linkto="/work" />
