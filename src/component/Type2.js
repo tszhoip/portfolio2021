@@ -7,6 +7,7 @@ const TypeBlock1 = styled.p`
     order: ${props => props.order};
     text-align: ${props => props.side};
     width: ${props => props.w};
+    height: ${props => props.h};
     padding: 8px 8px 10px 8px;
     border: ${props => props.b};
     padding-bottom: ${props => props.pb};
@@ -15,11 +16,8 @@ const TypeBlock1 = styled.p`
 `
 
 const Type2 = (props) => {
-
-
   return (
-    <TypeBlock1 b={props.b} pb={props.pb} pt={props.pt} >{props.text}</TypeBlock1>
+    <TypeBlock1 b={props.b} h={props.h} pb={props.pb} pt={props.pt} w={props.w}>{props.text}</TypeBlock1>
   )
 }
-
 export default Type2;

@@ -4,6 +4,25 @@ img {
     display: block;
 }
 
+*:lang(en) {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+*:lang(zh) {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 1.5px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
 
 [class^="number-slide"],
 [class*=" number-slide"] {
