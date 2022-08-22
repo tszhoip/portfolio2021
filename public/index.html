@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Web site created using create-react-app"/>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Space+Mono&display=swap" rel="stylesheet">    <title>NONAME.LA</title>
-    <style>
-      * {
-        font-family: 'Roboto Mono', monospace;
-        margin: 0;
-        text-transform: uppercase;
-        text-decoration: none;
-      }
-    </style>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Space+Mono&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+  <title>NONAME.LA</title>
+  <style>
+    * {
+      text-decoration: none;
+      margin: 0;
+    }
+
+    body {
+      border: 0.5px solid #f5f5f5;
+    }
+    body:lang(en) {
+      font-family: 'Roboto Mono', monospace;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      line-height: 18px;
+}
+
+    body:lang(ch) {
+    font-family: 'Noto Sans SC', sans-serif;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      line-height: 18px;
+}
+
+  </style>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+</body>
+
 </html>

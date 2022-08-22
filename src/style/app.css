@@ -4,10 +4,6 @@ img {
     display: block;
 }
 
-body {
-    border: 0.5px solid #f5f5f5;
-    font-size: 0.75rem;
-}
 
 [class^="number-slide"],
 [class*=" number-slide"] {
