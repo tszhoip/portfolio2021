@@ -26,10 +26,12 @@ const BlockInfo = (props) => {
         <Info bgc={props.bgc}>
             <Type2
                 text={props.text1}
+                b={props.b1}
                 pb="32px"
             />
             <Type2
                 text={props.text2}
+                b={props.b2}
                 pb="32px"
             />
         </Info>

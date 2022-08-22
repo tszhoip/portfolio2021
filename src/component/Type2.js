@@ -8,8 +8,9 @@ const TypeBlock1 = styled.p`
     text-align: ${props => props.side};
     width: ${props => props.w};
     padding: 8px 8px 10px 8px;
-    border: 0.5px solid #f5f5f5;
+    border: ${props => props.b};
     padding-bottom: ${props => props.pb};
+    padding-top: ${props => props.pt};
     color: black;
 `
 
@@ -17,7 +18,7 @@ const Type2 = (props) => {
 
 
   return (
-    <TypeBlock1 pb={props.pb} >{props.text}</TypeBlock1>
+    <TypeBlock1 b={props.b} pb={props.pb} pt={props.pt} >{props.text}</TypeBlock1>
   )
 }
 

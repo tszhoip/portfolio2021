@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const ImgBlock2 = styled.img`
     // flex-grow: 1;
     width: calc(100% - 16px);
+    height: auto;
     order: ${props => props.order};
     text-align: ${props => props.side};
     object-fit: cover;

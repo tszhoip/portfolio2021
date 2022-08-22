@@ -4,7 +4,9 @@ import Thumbnail from '../component/Thumbnail';
 import BlockInfo from '../component/BlockInfo';
 
 import figs from '../assets/lfigs.jpg';
-import logo from '../assets/lhyundai.jpg';
+import hyundai from '../assets/lhyundai.jpg';
+import logo from '../assets/llogo.jpg';
+import nike from '../assets/lnike.jpg';
 
 
 const Worklist = styled.div`
@@ -12,10 +14,10 @@ width: 100%;
 display: grid;
 grid-gap: 0px;
 @media only screen and (min-width : 480px) {
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(2, 50%);
 }
 @media only screen and (min-width : 768px) {
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(2, 50%);
 }
 @media only screen and (min-width : 1000px) {
         grid-template-columns: repeat(3, auto);
@@ -26,26 +28,30 @@ grid-gap: 0px;
 `
 
 
-function Work() {
+function Home() {
 
   return (
+    <div>
     <Worklist>
-      <Thumbnail img={logo} gr="1" gc="1 / span 2" to="/figs"/>
-      <Thumbnail img={figs}/>
-      <Thumbnail img={logo}/>
-      <Thumbnail img={figs}/>
-      <Thumbnail img={logo}/>
+      <Thumbnail img={nike} gr="1" gc="1 / span 2" projtitle="nike 2018 / Environmental / art direction" to="/nike"/>
+      <Thumbnail img={figs} to="/figs"  projtitle="figs 2019 / E-commerce" to="/figs"/>
+      <Thumbnail img={logo} to="/oduer" />
+      <Thumbnail img={figs} to="/nike" />
+      <Thumbnail img={hyundai} to="/hyundai"/>
       <Thumbnail img={figs}/>
       <Thumbnail img={logo} />
       <Thumbnail img={figs}/>
-<BlockInfo 
-text1="NONAME.LA" 
-text2="We are duo designer couple resides in Los Angeles. Believing design is a process of solving problem. Attitude is essential element of our design. Just like we don’t need an entity to define us, Our work does.
-Whenever we are not working, we love drinking fruity coffee and enjoying southern Asian food. " 
-pb="32px"
-/>
     </Worklist>
+    <BlockInfo 
+    text1="我们是一对设计师夫妇，居住在洛杉矶。相信设计是解决问题的过程。态度是我们设计的基本要素。就像我们不需要一个实体来定义我们一样，我们的工作就是如此。当我们不工作时，我们喜欢喝果味咖啡和享受南亚美食。" 
+    text2="We are duo designer couple resides in Los Angeles. Believing design is a process of solving problem. Attitude is essential element of our design. Just like we don’t need an entity to define us, Our work does.
+    Whenever we are not working, we love drinking fruity coffee and enjoying southern Asian food. " 
+    pb="32px"
+    b1="0.5px solid #f5f5f5"
+    b2="0.5px solid #f5f5f5"
+    />
+    </div>
   );
 }
 
-export default Work;
+export default Home;
