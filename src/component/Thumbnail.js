@@ -33,7 +33,7 @@ const Thumbnail = (props) => {
   return (
     <Banner to={props.to} gr={props.gr} gc={props.gc}>
       <Img1 grow="1" w="100%" side="left" img={props.img} />
-      <Type2 grow="1" w="100%" side="left" pb="32px" pt="0px" text={props.projtitle} />
+      <Type2 grow="1" w="100%" side="left" pb="32px" pt="0px" text={props.projtitle}/>
     </Banner>
   )
 }

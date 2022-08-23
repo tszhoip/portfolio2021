@@ -17,7 +17,7 @@ const TypeBlock1 = styled.p`
 
 const Type2 = (props) => {
   return (
-    <TypeBlock1 b={props.b} h={props.h} pb={props.pb} pt={props.pt} w={props.w}>{props.text}</TypeBlock1>
+    <TypeBlock1 lang={props.lang} b={props.b} h={props.h} pb={props.pb} pt={props.pt} w={props.w}>{props.text}</TypeBlock1>
   )
 }
 export default Type2;
