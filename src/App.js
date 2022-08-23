@@ -11,7 +11,8 @@ import Nike from './pages/Nike';
 import Odeur from './pages/Odeur';
 import Canoo from './pages/Canoo';
 import Logo from './pages/Logo';
-import Snap from './pages/Snap'
+import Snap from './pages/Snap';
+import Joy from './pages/Joy';
 
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'
@@ -30,6 +31,7 @@ function App() {
         <Route path="/logo" component={Logo} />
         <Route path="/canoo" component={Canoo} />
         <Route path="/snap" component={Snap} />
+        <Route path="/joy" component={Joy} />
 
         <Footer />
     </Router>
