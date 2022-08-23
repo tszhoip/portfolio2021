@@ -69,8 +69,8 @@ const ImgLogo = [
 function Logo() {
   return (
     <div>
-      <BlockInfo text1="Logo" text2="2011~present" bgc="#ececec"/>
-      <BlockImgProj images={ImgLogo} />
+      <BlockInfo text1="Logo" text2="2011~present" bgc="#ececec" />
+      <BlockImgProj images={ImgLogo} gtcD="repeat(5, 20%)" gtcM="repeat(3, 33.3%)"/>
     </div>
   );
 }
