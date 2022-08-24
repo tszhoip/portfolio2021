@@ -11,18 +11,19 @@ import lo8 from '../assets/feed/feed-8.jpg';
 import lo9 from '../assets/feed/feed-9.jpg';
 
 
-
 const ImgLogo = [
-  lo1,
-  lo2,
-  lo3,
-  lo4,
-  lo5,
-  lo6,
-  lo7,
-  lo8,
-  lo9
+  { img: lo1 },
+  { img: lo2 },
+  { img: lo3, colSpan: 2, rowSpan: 3 },
+  { img: lo4 },
+  { img: lo5 },
+  { img: lo6 },
+  { img: lo7 },
+  { img: lo8 },
+  { img: lo9 },
 ]
+
+
 
 function Feed() {
   return (

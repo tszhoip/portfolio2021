@@ -27,6 +27,8 @@ const ImgGrid = styled.img`
     width: calc(100% - 16px);
     padding: 8px;
     border: 0.5px solid #f5f5f5;
+    grid-column: span ${props => props.colSpan};
+    grid-row: span ${props => props.colRow};
     &:hover{
     background-color: #f5f5f5;
         }
@@ -69,17 +71,21 @@ const BlockImgPlay = (props) => {
               )
             }}
           >
-            {props.images.map((imageUrl, index) => <Item
-              key={index}
-              original={imageUrl}
-              thumbnail={imageUrl}
-              width="1024"
-              height="1024"
-            >
-              {({ ref, open }) => (
-                <ImgGrid ref={ref} onClick={open} src={imageUrl} objfit={props.objfit} />
-              )}
-            </Item>)}
+            {props.images.map((imgInfo, index) => {
+              const { img, colSpan = 1, rowSpan = 1 } = imgInfo
+              return <Item
+                key={index}
+                original={img}
+                thumbnail={img}
+                width="1024"
+                height="1024"
+              >
+                {({ ref, open }) => (
+                  <ImgGrid ref={ref} onClick={open} src={img} colSpan={colSpan} rowSpan={rowSpan} objfit={props.objfit} />
+                )}
+              </Item>
+            }
+            )}
           </Gallery>
         </ImageGallery>
       }

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Gallery, Item } from 'react-photoswipe-gallery'
 import Container1 from '../style/container1';
-import Type1 from './type1';
 
 const ProjectContainer = styled.div`
     width: 100%;

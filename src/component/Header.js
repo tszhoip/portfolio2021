@@ -31,14 +31,14 @@ const Header = (props) => {
         w="25%"
         side="LEFT"
         linkto="/work"
-        text="NONAME.la"
+        text="NONAME"
       />
       <Cta1
         grow="1"
         w="25%"
         side="LEFT"
         linkto="/feed"
-        text="Feed"
+        text="FEED"
       />
       <Cta1
         grow="1"
@@ -52,7 +52,7 @@ const Header = (props) => {
         w="25%"
         side="LEFT"
         linkto="/shop"
-        text="Shop"
+        text="SHOP"
       />
     </Head>
   )
