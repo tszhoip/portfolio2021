@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import d1 from '../assets/product/1.jpg';
 import d2 from '../assets/product/2.jpg';
 import d3 from '../assets/product/3.jpg';
+import d4 from '../assets/product/4.jpg';
 
 const ProductContainer = styled.div`
     display: flex; 
@@ -22,20 +23,19 @@ const ProductContainer = styled.div`
 `
 const ProductInfo = styled.div`
     width: 50%;
-    display: flex; 
-    justify-content: space-between;
+    display: grid; 
     border-bottom: 1px solid #f5f5f5;
     color: black;
-    flex-wrap: wrap;
-    flex-direction: row;
+    grid-template-columns: repeat (1, 1);
 
 `
 
 
 const images3 = [
-    d3,
     d1,
-    d2
+    d2,
+    d3,
+    d4
   ]
 
 const L01 = (props) => {

@@ -11,6 +11,7 @@ import Nike from './pages/Nike';
 import Odeur from './pages/Odeur';
 import Canoo from './pages/Canoo';
 import Logo from './pages/Logo';
+import Inno from './pages/inno';
 import Snap from './pages/Snap';
 import Joy from './pages/Joy';
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/figs" component={Figs}/>
         <Route path="/nike" component={Nike} />
         <Route path="/odeur" component={Odeur} />
+        <Route path="/Inno" component={Inno} />
         <Route path="/logo" component={Logo} />
         <Route path="/canoo" component={Canoo} />
         <Route path="/snap" component={Snap} />
