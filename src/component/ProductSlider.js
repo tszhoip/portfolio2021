@@ -20,7 +20,7 @@ max-width: 50% ;
 ` 
 
 const ProductSlider = (props) => {
-    const [sliderRef] = useKeenSlider({ loop: true })
+    const [sliderRef] = useKeenSlider({ loop: false })
     const hasImages = Array.isArray(props.images)
     
 return (

@@ -7,6 +7,9 @@ import d1 from '../assets/product/1.jpg';
 import d2 from '../assets/product/2.jpg';
 import d3 from '../assets/product/3.jpg';
 import d4 from '../assets/product/4.jpg';
+import d5 from '../assets/product/5.jpg';
+import d6 from '../assets/product/6.jpg';
+import d7 from '../assets/product/7.jpg';
 
 const ProductContainer = styled.div`
     display: flex; 
@@ -35,7 +38,10 @@ const images3 = [
     d1,
     d2,
     d3,
-    d4
+    d4,
+    d5,
+    d6,
+    d7
   ]
 
 const L01 = (props) => {
@@ -46,7 +52,9 @@ return (
     <ProductContainer>
     <ProductSlider images={images3} objfit="cover"/>
       <ProductInfo>
-        <Type2 text="Leather Wallet L01" />
+      <Type2 text="NN N1 MONO™" />
+        <Type2 text="NN N1 MONO is designed especially for display and small sizes screen. Perfect for web performance and minimalist aesthetic. Come in single weight, uppercase and lowercase with a character set that covers over 300 Glyphs.
+Developed & Published 2022 © Noname™" />
         <Cta1 grow="1"linkto="/" text="BUY  $100" />
      </ProductInfo>
     </ProductContainer>
