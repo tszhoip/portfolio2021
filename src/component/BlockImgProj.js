@@ -21,8 +21,29 @@ const ImageGallery = styled.div`
       grid-template-columns: ${props => props.gtcD};
     }
 `
+
 const ImgGrid = styled.img`
-object-fit: cover;
+    object-fit: contain;
+    grid-column: span ${props => props.colSpan};
+    grid-row: span ${props => props.colRow};
+    &:hover{
+    background-color: #f5f5f5;
+        }
+     &:active{
+    background-color: #f5f5f5;
+     }
+     @media only screen and (min-width : 480px) {
+      height: auto;
+  }
+  @media only screen and (min-width : 768px) {
+    height: auto;
+  }
+  @media only screen and (min-width : 1000px) {
+    height: auto;
+  }
+  @media only screen and (min-width : 1600px) {
+    height: auto;
+  }
 `
 
 const BlockImgProj = (props) => {
@@ -37,37 +58,40 @@ const BlockImgProj = (props) => {
 
     return ( 
       <div> 
-          {
-            hasImages &&
-            <ImageGallery gtcM={props.gtcM} gtcD={props.gtcD}>
-              <Gallery
-              id="simple-gallery"
-              options={{
-                closeOnScroll: true,
-                shareEl: false,
-                arrowPrevTitle: "asd",
-                fullscreenEl: (props) => (
-                  <span {...props} style={{ color: "red" }}>
-                    f
-                  </span>
-                )
-              }}
+{
+        hasImages &&
+        <ImageGallery gtcD={props.gtcD} gtcM={props.gtcM} >
+          <Gallery
+            id="simple-gallery"
+            options={{
+              closeOnScroll: true,
+              shareEl: false,
+              arrowPrevTitle: "asd",
+              fullscreenEl: (props) => (
+                <span {...props} style={{ color: "red" }}>
+                  f
+                </span>
+              )
+            }}
+          >
+            {props.images.map((imgInfo, index) => {
+              const { img, colSpan = 1, rowSpan = 1 } = imgInfo
+              return <Item
+                key={index}
+                original={img}
+                thumbnail={img}
+                width="1024"
+                height="1024"
               >
-                {props.images.map((imageUrl, index) => <Item
-                  key={index}
-                  original={imageUrl}
-                  thumbnail={imageUrl}
-                  width="1024"
-                  height="1024"
-                >
-                  {({ ref, open }) => (
-                    <ImgGrid ref={ref} onClick={open} src={imageUrl} style={smallItemStyles} objfit={props.objfit} />
-                  )}
-                </Item>)}
-              </Gallery>
-            </ImageGallery>
-          }
-</div> 
+                {({ ref, open }) => (
+                  <ImgGrid ref={ref} onClick={open} src={img} colSpan={colSpan} rowSpan={rowSpan} objfit={props.objfit} />
+                )}
+              </Item>
+            }
+            )}
+          </Gallery>
+        </ImageGallery>
+      }</div> 
     )
   }
 

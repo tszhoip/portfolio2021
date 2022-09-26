@@ -1,4 +1,5 @@
 import React from 'react';
+import Link1 from './Link1';
 import styled from 'styled-components';
 
 
@@ -15,9 +16,16 @@ const TypeBlock1 = styled.p`
     color: black;
 `
 
-const Type2 = (props) => {
+const QuickLink = styled.a`
+    text-decoration: underline;
+    cursor: pointer;
+`
+
+const Type1 = (props) => {
   return (
-    <TypeBlock1 lang={props.lang} b={props.b} h={props.h} pb={props.pb} pt={props.pt} w={props.w}>{props.text}</TypeBlock1>
+    <TypeBlock1 lang={props.lang} b={props.b} h={props.h} pb={props.pb} pt={props.pt} w={props.w}>
+      {props.text}<Link1 Qhref={props.Qhref1} Qlink={props.Qlink1} /><Link1 Qhref={props.Qhref2} Qlink={props.Qlink2} />
+    </TypeBlock1>
   )
 }
-export default Type2;
+export default Type1;

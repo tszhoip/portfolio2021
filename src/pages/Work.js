@@ -10,6 +10,8 @@ import nike from '../assets/lnike.jpg';
 import oduer from '../assets/loduer.jpg';
 import joy from '../assets/ljoy.jpg';
 import inno from '../assets/linno.jpg';
+import tree from '../assets/ltree.jpg';
+import canoo from '../assets/lcanoo.jpg';
 
 const Worklist = styled.div`
 width: 100%;
@@ -30,18 +32,21 @@ overflow: hidden;
 }
 `
 
-function Home() {
+function Work() {
 
   return (
     <div>
       <Worklist>
-        <Thumbnail img={joy}    to="/joy"        gr="1" gc="1 / span 2" projtitle="Joy&peace 2020 / Monogram / Product" />
-        <Thumbnail img={inno}    to="/inno"      projtitle="Innocell 2030 / App" />
+        <Thumbnail img={canoo}   to="/canoo"    gr="1" gc="1 / span 2" projtitle="Canoo 2022 / Web / App" />
+        <Thumbnail img={joy}     to="/joy"       projtitle="Joy&peace 2021 / Monogram / Product" />
+        <Thumbnail img={inno}    to="/inno"      projtitle="Innocell 2022 / App" />
+        <Thumbnail img={tree}    to="/treedom"   projtitle="Treedom 2021 / App" />
+        <Thumbnail img={nike}    to="/nike"      projtitle="nike 2018 / Environmental / art direction"  />
         <Thumbnail img={oduer}   to="/oduer"     projtitle="Oduer 2018 / Concept / E-commerce" />
         <Thumbnail img={figs}    to="/nike"      projtitle="Nike 2018 / Store / Art Directions"/>
         <Thumbnail img={hyundai} to="/hyundai"   projtitle="Hyundai 2017 / Concept / E-commerce" />
         <Thumbnail img={logo}    to="/logo"      projtitle="Logo 2011 ~ 2022"/>
-        <Thumbnail img={nike}     to="/nike"       projtitle="nike 2018 / Environmental / art direction"  />
+        <Thumbnail img={nike}    to="/nike"      projtitle="nike 2018 / Environmental / art direction"  />
       </Worklist>
       <BlockInfo
         text1="CN: 我们是一对设计师夫妇，居住在 Los Angeles 。相信设计是解决问题的过程。态度是我们设计的基本要素。就像我们不需要一个实体来定义我们一样，我们的工作就是如此。当我们不工作时，我们喜欢喝果味咖啡和享受南亚美食。"
@@ -53,4 +58,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Work;

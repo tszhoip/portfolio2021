@@ -37,7 +37,7 @@ function Home() {
   return (
     <div>
       <Worklist>
-        <Thumbnail img={canoo}    to="/canoo"    gr="1" gc="1 / span 2" projtitle="Canoo 2022 / Web / App" />
+        <Thumbnail img={canoo}   to="/canoo"    gr="1" gc="1 / span 2" projtitle="Canoo 2022 / Web / App" />
         <Thumbnail img={joy}     to="/joy"       projtitle="Joy&peace 2021 / Monogram / Product" />
         <Thumbnail img={inno}    to="/inno"      projtitle="Innocell 2022 / App" />
         <Thumbnail img={tree}    to="/treedom"   projtitle="Treedom 2021 / App" />

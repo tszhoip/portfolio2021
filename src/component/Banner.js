@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Cta1 from './Cta1';
-import Type2 from './Type2';
+import Type1 from './Type1';
 import Img1 from './Img1';
 
 const Banner = styled(Link)`
@@ -36,8 +36,8 @@ const Header = (props) => {
   return (
     <Banner to={props.to}>
       <Img1 grow="1" w="25%" side="left" img={props.img} />
-      <Type2 grow="1" w="25%" side="left" text="Figs Inc." />
-      <Type2 grow="1" w="25%" side="left" text="Web UI" />
+      <Type1 grow="1" w="25%" side="left" text="Figs Inc." />
+      <Type1 grow="1" w="25%" side="left" text="Web UI" />
     </Banner>
   )
 }

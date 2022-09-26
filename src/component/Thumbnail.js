@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Type2 from './Type2';
+import Type1 from './Type1';
 import Img1 from './Img1';
 
 const Banner = styled(Link)`
@@ -33,7 +33,7 @@ const Thumbnail = (props) => {
   return (
     <Banner to={props.to} gr={props.gr} gc={props.gc}>
       <Img1 grow="1" w="100%" side="left" img={props.img} />
-      <Type2 grow="1" w="100%" side="left" pb="32px" pt="0px" text={props.projtitle}/>
+      <Type1 grow="1" w="100%" side="left" pb="32px" pt="0px" text={props.projtitle}/>
     </Banner>
   )
 }

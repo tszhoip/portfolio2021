@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductSlider from './ProductSlider.js';
-import Type2 from './Type2.js';
+import Type1 from './Type1.js';
 import Cta1 from './Cta1.js';
 import styled from 'styled-components';
 import d1 from '../assets/product/1.jpg';
@@ -10,6 +10,8 @@ import d4 from '../assets/product/4.jpg';
 import d5 from '../assets/product/5.jpg';
 import d6 from '../assets/product/6.jpg';
 import d7 from '../assets/product/7.jpg';
+import d8 from '../assets/product/8.jpg';
+import d9 from '../assets/product/9.jpg';
 
 const ProductContainer = styled.div`
     display: flex; 
@@ -35,29 +37,39 @@ const ProductInfo = styled.div`
 
 
 const images3 = [
-    d1,
-    d2,
-    d3,
-    d4,
-    d5,
-    d6,
-    d7
-  ]
+  d1,
+  d2,
+  d3,
+  d4,
+  d5,
+  d6,
+  d7,
+  d8,
+  d9
+]
 
 const L01 = (props) => {
-  
 
 
-return (
+
+  return (
     <ProductContainer>
-    <ProductSlider images={images3} objfit="cover"/>
+      <ProductSlider images={images3} objfit="cover" />
       <ProductInfo>
-      <Type2 text="NN N1 MONO™" />
-        <Type2 text="NN N1 MONO is designed especially for display and small sizes screen. Perfect for web performance and minimalist aesthetic. Come in single weight, uppercase and lowercase with a character set that covers over 300 Glyphs.
-Developed & Published 2022 © Noname™" />
-        <Cta1 grow="1"linkto="/" text="BUY  $100" />
-     </ProductInfo>
+        <Type1 text="NN N1 MONO™" />
+        <Type1 
+          text="NN N1 MONO is designed especially for display and small sizes screen. Perfect for web performance and minimalist aesthetic. Come in single weight, uppercase and lowercase with a character set that covers over 300 Glyphs.
+Developed & Published 2022 © Noname™" 
+          Qhref1="/terms"
+          Qlink1="View Standard License"
+          Qhref2="/terms"
+          Qlink2="View WebFont License"
+           />
+        <Type1 text="View Standard License" />
+        <Cta1 grow="1" linkto="/" text="BUY  $100" />
+      </ProductInfo>
     </ProductContainer>
-)}
+  )
+}
 
 export default L01;

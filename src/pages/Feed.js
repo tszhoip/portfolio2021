@@ -14,7 +14,7 @@ import lo9 from '../assets/feed/feed-9.jpg';
 const ImgLogo = [
   { img: lo1 },
   { img: lo2 },
-  { img: lo3, colSpan: 2, rowSpan: 3 },
+  { img: lo3, colSpan: 3, rowSpan: 2 },
   { img: lo4 },
   { img: lo5 },
   { img: lo6 },
