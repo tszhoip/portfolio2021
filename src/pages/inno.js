@@ -30,7 +30,7 @@ import BlockInfo from '../component/BlockInfo';
 // ]
 
 const ImgFig = [
-  { img: f1, colSpan: 2, rowSpan: 2 },
+  { img: f1, colSpan: 2, rowSpan: 1 },
   { img: f2 },
   { img: f3 },
   { img: f4 },
