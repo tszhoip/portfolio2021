@@ -80,8 +80,8 @@ const BlockImgProj = (props) => {
                 key={index}
                 original={img}
                 thumbnail={img}
-                width="1024"
-                height="1024"
+                width="3000"
+                height="2000"
               >
                 {({ ref, open }) => (
                   <ImgGrid ref={ref} onClick={open} src={img} colSpan={colSpan} rowSpan={rowSpan} objfit={props.objfit} />

@@ -32,8 +32,12 @@ const ImgFig = [
 function Figs() {
   return (
     <div>
-      <BlockInfo text1="Figs Inc." text2="The objective of the project is " bgc="#222222"/>
-      <BlockImgProj images={ImgFig}  gtcD="repeat(2, 50%)" gtcM="repeat(1, 100%)"/>
+<BlockInfo
+        text1="我们是一对设计师夫妇，居住在 Los Angeles 。相信设计是解决问题的过程。态度是我们设计的基本要素。就像我们不需要一个实体来定义我们一样，我们的工作就是如此。当我们不工作时，我们喜欢喝果味咖啡和享受南亚美食。"
+        text2="Figs Inc. is the scrub company that disrupt the industry. We were commisioned to provide a solution to simplify the shopping expereince. "
+        pb="32px"
+      />     
+            <BlockImgProj images={ImgFig}  gtcD="repeat(2, 50%)" gtcM="repeat(1, 100%)"/>
       
     </div>
   );

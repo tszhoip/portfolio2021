@@ -9,7 +9,7 @@ const TypeBlock1 = styled.p`
     text-align: ${props => props.side};
     width: ${props => props.w};
     height: ${props => props.h};
-    padding: 8px 8px 10px 8px;
+    padding: 8px 10% 10px 8px;
     border: ${props => props.b};
     padding-bottom: ${props => props.pb};
     padding-top: ${props => props.pt};

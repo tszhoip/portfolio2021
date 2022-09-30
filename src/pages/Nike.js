@@ -10,10 +10,16 @@ import n10 from '../assets/n-10.jpg';
 import n15 from '../assets/n-15.jpg';
 import n16 from '../assets/n-16.jpg';
 import nv3 from '../assets/n-v-3.mp4';
+import BlockInfo from '../component/BlockInfo';
 
 function Nike() {
   return (
     <div>
+      <BlockInfo
+        text1="我们是一对设计师夫妇，居住在 Los Angeles 。相信设计是解决问题的过程。态度是我们设计的基本要素。就像我们不需要一个实体来定义我们一样，我们的工作就是如此。当我们不工作时，我们喜欢喝果味咖啡和享受南亚美食。"
+        text2="Art direction for a nike store in new york. We are exploring that possibility of using the finish line tag as a inspiration. "
+        pb="32px"
+      />   
       <Projimgadv theme={{ bgcolor: "#2F2F2F", imgp: "center" }} ><img src={n1} width="80%" height="80%" alt=""/></Projimgadv>
       <Projimgadv theme={{ bgcolor: "#2F2F2F", imgp: "center" }} ><img src={n2} width="80%" height="80%" alt=""/></Projimgadv>
       <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center" }} ><img src={n4} width="80%" height="80%" alt=""/></Projimgadv>
