@@ -15,15 +15,18 @@ import d9 from '../assets/product/9.jpg';
 
 const ProductContainer = styled.div`
     display: flex; 
-    flex-direction: row;
     justify-content: start;
-    @media only screen and (min-width : 480px) {
+    @media only screen and (min-width : 300px) {
+      flex-direction: column;
     }
     @media only screen and (min-width : 768px) {
+      flex-direction: row;
     }
     @media only screen and (min-width : 1000px) {
+      flex-direction: row;
     }
     @media only screen and (min-width : 1600px) {
+      flex-direction: row;
     }
 `
 const ProductInfo = styled.div`
@@ -32,6 +35,18 @@ const ProductInfo = styled.div`
     border-bottom: 1px solid #f5f5f5;
     color: black;
     grid-template-columns: repeat (1, 1);
+    @media only screen and (min-width : 300px) {
+      width: 100%;
+    }
+    @media only screen and (min-width : 768px) {
+      width: 50%;
+    }
+    @media only screen and (min-width : 1000px) {
+      width: 50%;
+    }
+    @media only screen and (min-width : 1600px) {
+      width: 50%;
+    }
 
 `
 

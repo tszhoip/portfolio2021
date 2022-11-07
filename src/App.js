@@ -1,7 +1,7 @@
 import React from 'react';
 import './style/app.css';
 import Header from './component/Header';
-import Footer from './component/Footer'
+import Footer from './component/Footer';
 import Home from './pages/Home';
 import Work from './pages/Work';
 import Shop from './pages/Shop';
@@ -16,7 +16,7 @@ import Snap from './pages/Snap';
 import Joy from './pages/Joy';
 
 
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
   return (

@@ -37,9 +37,9 @@ function Work() {
   return (
     <div>
       <Worklist>
-        <Thumbnail img={canoo}   to="/canoo"    gr="1" gc="1 / span 2" projtitle="Canoo 2022 / Web / App" />
-        <Thumbnail img={joy}     to="/joy"       projtitle="Joy&peace 2021 / Monogram / Product" />
-        <Thumbnail img={inno}    to="/inno"      projtitle="Innocell 2022 / App" />
+        <Thumbnail img={canoo}   to="/canoo"    gr="1" gc="1 / span 2" projtitle="Canoo/Web/App" />
+        <Thumbnail img={joy}     to="/joy"       projtitle="Joy&peace/Monogram/Product" />
+        <Thumbnail img={inno}    to="/inno"      projtitle="Innocell/App" />
         <Thumbnail img={tree}    to="/treedom"   projtitle="Treedom 2021 / App" />
         <Thumbnail img={nike}    to="/nike"      projtitle="nike 2018 / Environmental / art direction"  />
         <Thumbnail img={oduer}   to="/oduer"     projtitle="Oduer 2018 / Concept / E-commerce" />
@@ -49,8 +49,8 @@ function Work() {
         <Thumbnail img={nike}    to="/nike"      projtitle="nike 2018 / Environmental / art direction"  />
       </Worklist>
       <BlockInfo
-        text1="CN: 我们是一对设计师夫妇，居住在 Los Angeles 。相信设计是解决问题的过程。态度是我们设计的基本要素。就像我们不需要一个实体来定义我们一样，我们的工作就是如此。当我们不工作时，我们喜欢喝果味咖啡和享受南亚美食。"
-        text2="EN: We are duo designer couple resides in Los Angeles. Believing design is a process of solving problem. Attitude is essential element of our design. Just like we don’t need an entity to define us, Our work does.
+        text1="我们是一对设计师夫妇，居住在 Los Angeles 。相信设计是解决问题的过程。态度是我们设计的基本要素。就像我们不需要一个实体来定义我们一样，我们的工作就是如此。当我们不工作时，我们喜欢喝果味咖啡和享受南亚美食。"
+        text2="We are duo designer couple resides in Los Angeles. Believing design is a process of solving problem. Attitude is essential element of our design. Just like we don’t need an entity to define us, Our work does.
     Whenever we are not working, we love drinking fruity coffee and enjoying southern Asian food. "
         pb="32px"
       />

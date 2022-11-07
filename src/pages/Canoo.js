@@ -1,43 +1,27 @@
 import React from 'react';
 import BlockImgProj from '../component/BlockImgProj';
 import BlockInfo from '../component/BlockInfo';
-import ca1 from '../assets/c-01.jpg';
-import ca2 from '../assets/c-02.jpg';
-import ca3 from '../assets/c-03.jpg';
-import ca4 from '../assets/c-04.jpg';
-import ca5 from '../assets/c-05.jpg';
-import ca6 from '../assets/c-06.jpg';
-import ca7 from '../assets/c-07.jpg';
-import ca8 from '../assets/c-08.jpg';
-import ca9 from '../assets/c-09.jpg';
-import ca10 from '../assets/c-10.jpg';
-import ca11 from '../assets/c-11.jpg';
-import ca12 from '../assets/c-12.jpg';
-
+import ca1 from '../assets/canoo/c-01.jpg';
+import ca2 from '../assets/canoo/c-02.jpg';
+import ca3 from '../assets/canoo/c-03.jpg';
 
 
 function Canoo() {
 
-
-  const imgCanoo = [
-    ca1,
-    ca2,
-    ca3,
-    ca4,
-    ca5,
-    ca6,
-    ca7,
-    ca8,
-    ca9,
-    ca10,
-    ca11,
-    ca12
+  const ImgCanoo = [
+    { img: ca1, colSpan: 2, rowSpan: 1 },
+    { img: ca2 },
+    { img: ca3 }
   ]
 
   return (
     <div>
-      <BlockInfo t1="canoo"/>
-      <BlockImgProj images={imgCanoo} />
+      <BlockInfo
+        text1=" "
+        text2="A Design System for Canoo web environment. The Goal is to maintain a standard of design quality and same visual language. This Design system documented all the basic elements of the brand and act like a user manual to allow designer to pick up works more efficients."
+        pb="32px"
+      />      
+      <BlockImgProj images={ImgCanoo}  gtcD="repeat(2, 50%)" gtcM="repeat(1, 100%)"/>
      
     
     </div>

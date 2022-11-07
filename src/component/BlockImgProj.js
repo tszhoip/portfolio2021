@@ -49,12 +49,12 @@ const ImgGrid = styled.img`
 const BlockImgProj = (props) => {
 
     const hasImages = Array.isArray(props.images)
-    const smallItemStyles = {
-      cursor: "pointer",
-      objectFit: "cover",
-      width: "100%",
-      Height: "100%"
-    };
+    // const smallItemStyles = {
+    //   cursor: "pointer",
+    //   objectFit: "cover",
+    //   width: "100%",
+    //   Height: "100%"
+    // };
 
     return ( 
       <div> 
@@ -82,6 +82,7 @@ const BlockImgProj = (props) => {
                 thumbnail={img}
                 width="3000"
                 height="2000"
+                
               >
                 {({ ref, open }) => (
                   <ImgGrid ref={ref} onClick={open} src={img} colSpan={colSpan} rowSpan={rowSpan} objfit={props.objfit} />

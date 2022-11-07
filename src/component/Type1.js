@@ -16,10 +16,7 @@ const TypeBlock1 = styled.p`
     color: black;
 `
 
-const QuickLink = styled.a`
-    text-decoration: underline;
-    cursor: pointer;
-`
+
 
 const Type1 = (props) => {
   return (
