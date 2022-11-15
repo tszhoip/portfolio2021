@@ -54,7 +54,7 @@ const ProjFull = (props) => {
     return (
       <Container1 bgcolor = {props.bgcolor}>
         
-        <Type1 t1={props.t1} t2={props.t2} t3={props.t3}/>
+        <TypeStatic t1={props.t1} t2={props.t2} t3={props.t3}/>
           {
 
             hasImages &&
@@ -63,7 +63,7 @@ const ProjFull = (props) => {
                 {props.images.map((imageUrl, index) => <Item
                   key={index}
                   original={imageUrl}
-                  thumbnail={imageUrl}
+                  ThumbnailProj={imageUrl}
                   width="1024"
                   height="768"
                 >

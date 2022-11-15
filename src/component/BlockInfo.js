@@ -1,5 +1,5 @@
 import React from 'react';
-import Type1 from './Type1';
+import TypeStatic from './TypeStatic';
 import styled from 'styled-components';
 
 const Info = styled.div`
@@ -24,13 +24,13 @@ const BlockInfo = (props) => {
 
     return (
         <Info bgc={props.bgc}>
-            <Type1
+            <TypeStatic
                 lang="zh"
                 text={props.text1}
                 b={props.b1}
                 pb="32px"
             />     
-            <Type1 
+            <TypeStatic 
                 lang="en"
                 text={props.text2}
                 b={props.b2}

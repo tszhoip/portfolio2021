@@ -14,6 +14,7 @@ import Logo from './pages/Logo';
 import Inno from './pages/inno';
 import Snap from './pages/Snap';
 import Joy from './pages/Joy';
+import Type from './pages/Type';
 
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -34,6 +35,7 @@ function App() {
         <Route path="/canoo" component={Canoo} />
         <Route path="/snap" component={Snap} />
         <Route path="/joy" component={Joy} />
+        <Route path="/type" component={Type} />
 
         <Footer />
     </Router>

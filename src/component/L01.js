@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductSlider from './ProductSlider.js';
-import Type1 from './Type1.js';
-import Cta1 from './Cta1.js';
+import TypeStatic from './TypeStatic.js';
+import TypeCta from './TypeCta.js';
 import styled from 'styled-components';
 import d1 from '../assets/product/1.jpg';
 import d2 from '../assets/product/2.jpg';
@@ -71,8 +71,8 @@ const L01 = (props) => {
     <ProductContainer>
       <ProductSlider images={images3} objfit="cover" />
       <ProductInfo>
-        <Type1 text="NN N1 MONO™" />
-        <Type1 
+        <TypeStatic text="NN N1 MONO™" />
+        <TypeStatic 
           text="NN N1 MONO is designed especially for display and small sizes screen. Perfect for web performance and minimalist aesthetic. Come in single weight, uppercase and lowercase with a character set that covers over 300 Glyphs.
 Developed & Published 2022 © Noname™" 
           Qhref1="/terms"
@@ -80,8 +80,8 @@ Developed & Published 2022 © Noname™"
           Qhref2="/terms"
           Qlink2="View WebFont License"
            />
-        <Type1 text="View Standard License" />
-        <Cta1 grow="1" linkto="/" text="BUY  $100" />
+        <TypeStatic text="View Standard License" />
+        <TypeCta grow="1" linkto="/" text="BUY  $100" />
       </ProductInfo>
     </ProductContainer>
   )

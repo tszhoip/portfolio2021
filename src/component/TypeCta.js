@@ -21,12 +21,19 @@ const TypeBlock2 = styled(Link)`
         }
 `
   
-const Cta1 = (props) => {
+const TypeCta = (props) => {
 
 
   return (
-        <TypeBlock2 w={props.w} grow={props.grow} to={props.linkto} order={props.order} side={props.side}>{props.text}</TypeBlock2>
+        <TypeBlock2 
+        w={props.w} 
+        grow={props.grow} 
+        order={props.order} 
+        side={props.side} 
+        to={props.linkto}>
+          {props.text}
+        </TypeBlock2>
   )
 }
 
-export default Cta1;
+export default TypeCta;

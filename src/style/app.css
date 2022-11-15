@@ -6,16 +6,12 @@ img {
 
 *:lang(en) {
     font-family: 'Roboto Mono', monospace;
-    font-size: 12px;
-    line-height: 20px;
     text-transform: none;
 }
 
 *:lang(zh) {
     font-family: 'Noto Sans SC', 'Roboto Mono', sans-serif, monospace;;
     font-weight: 300;
-    font-size: 11.5px;
-    line-height: 20px;
     letter-spacing: 1.5px;
 }
 
@@ -37,7 +33,12 @@ body {
     max-height: 100vh;
 }
 
-
+p, h1 {
+    font-size: 1em;
+    line-height: 1.5em;
+    padding: 0px;
+    margin: 0px;
+}
 /* .pswp__img {
 
 }

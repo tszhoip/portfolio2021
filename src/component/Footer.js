@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Cta1 from './Cta1';
+import TypeCta from './TypeCta';
 
 const Foot = styled.nav`
     display: flex; 
@@ -24,8 +24,20 @@ const Foot = styled.nav`
 const Footer = (props) => {
   return (
     <Foot>
-      <Cta1 grow="2" text="Feed" linkto="/" />
-      <Cta1 grow="2" text="Inst" linkto="/shop" />
+      <TypeCta
+        grow="1"
+        w="25%"
+        side="left"
+        linkto="/feed"
+        text="FEED"
+      />
+      <TypeCta
+        grow="1"
+        w="25%"
+        side="left"
+        linkto="/snap"
+        text="SNAP"
+      />
     </Foot>
   )
 }

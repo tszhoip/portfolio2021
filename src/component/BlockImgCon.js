@@ -80,7 +80,7 @@ const BlockImgCon = (props) => {
             {props.images.map((imageUrl, index) => <Item
               key={index}
               original={imageUrl}
-              thumbnail={imageUrl}
+              ThumbnailProj={imageUrl}
               width="1024"
               height="1024"
             >

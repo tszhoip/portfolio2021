@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Cta1 from './Cta1';
+import TypeCta from './TypeCta';
 
 const Head = styled.nav`
     display: flex; 
@@ -26,31 +26,17 @@ const Head = styled.nav`
 const Header = (props) => {
   return (
     <Head>
-      <Cta1
+      <TypeCta
         grow="1"
         w="25%"
-        side="LEFT"
+        side="left"
         linkto="/work"
         text="NONAME"
       />
-      <Cta1
+      <TypeCta
         grow="1"
         w="25%"
-        side="LEFT"
-        linkto="/feed"
-        text="FEED"
-      />
-      <Cta1
-        grow="1"
-        w="25%"
-        side="LEFT"
-        linkto="/snap"
-        text="SNAP"
-      />
-      <Cta1
-        grow="1"
-        w="25%"
-        side="LEFT"
+        side="left"
         linkto="/shop"
         text="SHOP"
       />
