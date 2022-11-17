@@ -1,11 +1,7 @@
-const fontSizes = ["10px", "12px", "14px", "16px", "24px", "40px", "64px"];
-fontSizes.extraSmall = fontSizes[0];
-fontSizes.smaller = fontSizes[1];
-fontSizes.small = fontSizes[2];
-fontSizes.medium = fontSizes[3];
-fontSizes.large = fontSizes[4];
-fontSizes.larger = fontSizes[5];
-fontSizes.extraLarge = fontSizes[6];
+const fontSizes = ["12px", "16px", "32px"];
+fontSizes.s = fontSizes[0];
+fontSizes.m = fontSizes[1];
+fontSizes.l = fontSizes[2];
 
 const breakpoints = ["600px", "900px", "1200px", "1800px"];
 breakpoints.sm = breakpoints[0];
@@ -27,21 +23,51 @@ widths.w50 = widths[1];
 widths.w100 = widths[2];
 
 
-export default {
+
+// export default {
+//   colors: {
+//     primary: "#ED4B9E",
+//     secondary: "#4B4DED",
+//     tertiary: "#F3D9DA",
+//     dark: "red",
+//     success: "#31D0AA",
+//     text: "#4A4A68",
+//     subtleText: "#8C8CA1",
+//     accent: "#ECF1F4",
+//     light: "#FAFCFE",
+//     white: "#FFFFFF",
+//   },
+//   fontSizes,
+//   breakpoints,
+//   spaces
+// };
+
+export const base = {
   colors: {
-  primary: "#ED4B9E",
-  secondary: "#4B4DED",
-  tertiary: "#F3D9DA",
-  dark: "red",
-  success: "#31D0AA",
-  text: "#4A4A68",
-  subtleText: "#8C8CA1",
-  accent: "#ECF1F4",
-  light: "#FAFCFE",
-  white: "#FFFFFF",
+    primary: "red",
+    secondary: "#4B4DED",
+    tertiary: "#F3D9DA",
+    dark: "red",
+    success: "#31D0AA",
+    modes: {
+      dark: {
+        primary: "red",
+        secondary: "#4B4DED",
+        tertiary: "#F3D9DA",
+        dark: "red",
+        success: "#31D0AA",
+      },
+      light: {
+        primary: "blue",
+        secondary: "#4B4DED",
+        tertiary: "#F3D9DA",
+        dark: "blue",
+        success: "#31D0AA",
+      },
+    }
   },
-  fontSizes,
-  breakpoints,
-  spaces,
-  widths,
-  };
+    fontSizes,
+    breakpoints,
+    spaces,
+    widths
+  }

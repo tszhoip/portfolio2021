@@ -12,6 +12,8 @@ import d6 from '../assets/product/6.jpg';
 import d7 from '../assets/product/7.jpg';
 import d8 from '../assets/product/8.jpg';
 import d9 from '../assets/product/9.jpg';
+import { PButton } from '../component/Buttons';
+import { BlockTwoLn100, BlockTwoLn50 } from '../component/Block';
 
 const ProductContainer = styled.div`
     display: flex; 
@@ -71,15 +73,11 @@ const L01 = (props) => {
     <ProductContainer>
       <ProductSlider images={images3} objfit="cover" />
       <ProductInfo>
-        <TypeStatic text="NN N1 MONO™" />
-        <TypeStatic 
-          text="NN N1 MONO is designed especially for display and small sizes screen. Perfect for web performance and minimalist aesthetic. Come in single weight, uppercase and lowercase with a character set that covers over 300 Glyphs.
-Developed & Published 2022 © Noname™" 
-          Qhref1="/terms"
-          Qlink1="View Standard License"
-          Qhref2="/terms"
-          Qlink2="View WebFont License"
-           />
+        <BlockTwoLn100
+        title="NN N1 MONO™" 
+        body="NN N1 MONO is designed especially for display and small sizes screen. Perfect for web performance and minimalist aesthetic. Come in single weight, uppercase and lowercase with a character set that covers over 300 Glyphs. Developed & Published 2022 © Noname™View Standard LicenseView WebFont License" />
+        <PButton cta="BUY"/>
+
         <TypeStatic text="View Standard License" />
         <TypeCta grow="1" linkto="/" text="BUY  $100" />
       </ProductInfo>

@@ -16,8 +16,6 @@ const TypeBlock1 = styled.p`
     color: black;
 `
 
-
-
 const TypeStatic = (props) => {
   return (
     <TypeBlock1 lang={props.lang} h={props.h} pb={props.pb} pt={props.pt} w={props.w}>

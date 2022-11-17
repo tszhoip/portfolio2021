@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ThumbnailProj from '../component/ThumbnailProj';
 import BlockInfo from '../component/BlockInfo';
+import { BlockTwoLn50 } from '../component/Block';
 
 import figs from '../assets/lfigs.jpg';
 import hyundai from '../assets/lhyundai.jpg';
@@ -54,6 +55,7 @@ function Home() {
     Whenever we are not working, we love drinking fruity coffee and enjoying southern Asian food. "
         pb="32px"
       />
+      <BlockTwoLn50 title="我们是一对设计师夫妇，居住在 Los Angeles 。相信设计是解决问题的过程。态度是我们设计的基本要素。就像我们不需要一个实体来定义我们一样，我们的工作就是如此。当我们不工作时，我们喜欢喝果味咖啡和享受南亚美食。"/>
     </div>
   );
 }
