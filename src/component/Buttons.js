@@ -27,7 +27,6 @@ export const Button = styled.button`
 
 
 export const PButton = (props) => {
-
   const navigate = useNavigate();
   const navigateToContacts = () => {
     // 👇️ navigate to /contacts
@@ -37,7 +36,6 @@ export const PButton = (props) => {
     // 👇️ navigate to /
     navigate('/');
   };
-
   return (
     <ThemeProvider theme={base}>
       <Button color="dark" padding={[2]} width={[1, 1, 1 / 2, 1 / 2]} onClick={navigateHome}>
