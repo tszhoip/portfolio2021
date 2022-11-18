@@ -1,6 +1,6 @@
 import React from 'react';
 import BlockImgProj from '../component/BlockImgProj';
-import BlockInfo from '../component/BlockInfo';
+import { ThumbnailProj, BlockTwoLn100 } from '../component/Block';
 import ca1 from '../assets/canoo/c-01.jpg';
 import ca2 from '../assets/canoo/c-02.jpg';
 import ca3 from '../assets/canoo/c-03.jpg';
@@ -16,11 +16,10 @@ function Canoo() {
 
   return (
     <div>
-      <BlockInfo
-        text1=" "
-        text2="A Design System for Canoo web environment. The Goal is to maintain a standard of design quality and same visual language. This Design system documented all the basic elements of the brand and act like a user manual to allow designer to pick up works more efficients."
-        pb="32px"
-      />      
+       <BlockTwoLn100 title="We are duo designer couple resides in Los Angeles. Believing design is a process of solving problem. Attitude is essential element of our design. Just like we don’t need an entity to define us, Our work does.
+    Whenever we are not working, we love drinking fruity coffee and enjoying southern Asian food."/>
+      <BlockTwoLn100 title="我们是一对设计师夫妇，居住在 Los Angeles 。相信设计是解决问题的过程。态度是我们设计的基本要素。就像我们不需要一个实体来定义我们一样，我们的工作就是如此。当我们不工作时，我们喜欢喝果味咖啡和享受南亚美食。"/>
+         
       <BlockImgProj images={ImgCanoo}  gtcD="repeat(2, 50%)" gtcM="repeat(1, 100%)"/>
      
     
