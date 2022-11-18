@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ThumbnailProj from '../component/ThumbnailProj';
+import { ThumbnailProj } from '../component/Block';
 import BlockInfo from '../component/BlockInfo';
 import { BlockTwoLn50 } from '../component/Block';
 

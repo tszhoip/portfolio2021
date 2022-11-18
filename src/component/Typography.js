@@ -5,21 +5,21 @@ import { color, typography, space, layout } from "styled-system";
 
 
 export const H1 = styled.h1`
-  font-size: ${(props) => props.theme.fontSizes.m};
+  ${typography};
   letter-spacing: -0.02em;
   ${color};
   ${space};
 `;
 
 export const H2 = styled.h2`
-  font-size: ${(props) => props.theme.fontSizes.m};
+  ${typography};
   letter-spacing: -0.02em;
   ${color};
   ${space};
 `;
 
 export const Text = styled.p`
-  font-size: ${(props) => props.theme.fontSizes.m};
+  ${typography};
   ${color};
   ${space};
 `;

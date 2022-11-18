@@ -44,7 +44,7 @@ widths.w100 = widths[2];
 
 export const base = {
   colors: {
-    primary: "red",
+    primary: "green",
     secondary: "#4B4DED",
     tertiary: "#F3D9DA",
     dark: "red",
