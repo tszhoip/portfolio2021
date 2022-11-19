@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PButton } from '../component/Buttons';
-import { BlockTwoLn100, BlockTwoLn50, BlockHeader, ThumbnailProj } from '../component/Block';
+import { BlockTwoLn100, BlockTwoLn50, BlockHeader, BlockThumbHm } from '../component/Block';
 
 const TestContainer = styled.div`
     width: 100%;
@@ -43,7 +43,7 @@ function Type() {
         title="Button" 
       />
       <PButton cta="button01"/>
-      <ThumbnailProj/>
+      <BlockThumbHm/>
 
     </TestContainer>
   );

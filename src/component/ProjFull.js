@@ -63,7 +63,7 @@ const ProjFull = (props) => {
                 {props.images.map((imageUrl, index) => <Item
                   key={index}
                   original={imageUrl}
-                  ThumbnailProj={imageUrl}
+                  BlockThumbHm={imageUrl}
                   width="1024"
                   height="768"
                 >

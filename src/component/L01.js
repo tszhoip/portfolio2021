@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductSlider from './ProductSlider.js';
-import styled from 'styled-components';
+import { base } from '../theme';
+import styled, { ThemeProvider } from "styled-components";
 import d1 from '../assets/product/1.jpg';
 import d2 from '../assets/product/2.jpg';
 import d3 from '../assets/product/3.jpg';
@@ -68,18 +69,20 @@ const L01 = (props) => {
 
 
   return (
+    <ThemeProvider theme={base}>
     <ProductContainer>
       <ProductSlider images={images3} objfit="cover" />
       <ProductInfo>
         <BlockTwoLn100
         title="NN N1 MONO™" 
         body="NN N1 MONO is designed especially for display and small sizes screen. Perfect for web performance and minimalist aesthetic. Come in single weight, uppercase and lowercase with a character set that covers over 300 Glyphs. Developed & Published 2022 © Noname™View Standard LicenseView WebFont License" />
-        <PButton cta="BUY"/>
+        <PButton width={[1, 1, 1, 1]} cta="BUY"/>
 
 
         
       </ProductInfo>
     </ProductContainer>
+    </ThemeProvider>
   )
 }
 

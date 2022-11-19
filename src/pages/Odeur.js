@@ -8,7 +8,7 @@ import f6 from '../assets/odeur/odeur-6.jpg';
 import ov0 from '../assets/o-v-0.mp4';
 import ov1 from '../assets/o-v-1.mp4';
 import BlockImgProj from '../component/BlockImgProj';
-import { ThumbnailProj, BlockTwoLn100 } from '../component/Block';
+import { BlockThumbHm, BlockTwoLn100 } from '../component/Block';
 
 const ImgFig = [
   f1,

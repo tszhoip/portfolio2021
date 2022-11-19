@@ -7,9 +7,10 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 
 
 export const Button = styled.button`
-  box-shadow: 0px 0px 1px #d5d5d5 inset;
-  background-color: black;
-  font-size: ${(props) => props.theme.fontSizes.l};
+  box-shadow: 0px 0px 16px ${(props) => props.theme.colors.gre20} inset;
+  background-color: ${(props) => props.theme.colors.gre10};
+  font-size: ${(props) => props.theme.fontSizes.m};
+  color: ${(props) => props.theme.colors.nav30};
   text-align: left;
   border: none;
   ${color};
@@ -17,11 +18,11 @@ export const Button = styled.button`
   ${layout};
   ${typography};
   &:hover{
-    color: white;
-    background-color: red;
-   }
+    color: ${(props) => props.theme.colors.nav20};
+    box-shadow: 0px 0px 32px ${(props) => props.theme.colors.gre20} inset;
+  }
    &:active{
-     color: grey;
+     color: ${(props) => props.theme.colors.nav20};
    }
 `;
 
@@ -38,9 +39,9 @@ export const PButton = (props) => {
   };
   return (
     <ThemeProvider theme={base}>
-      <Button color="dark" padding={[2]} width={[1, 1, 1 / 2, 1 / 2]} onClick={navigateHome}>
+      <Button padding={[2]} onClick={navigateHome}>
         {props.cta}
       </Button>
     </ThemeProvider>
-  )
+  ) 
 };

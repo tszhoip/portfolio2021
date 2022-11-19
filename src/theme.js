@@ -9,7 +9,7 @@ breakpoints.md = breakpoints[1];
 breakpoints.lg = breakpoints[2];
 breakpoints.xl = breakpoints[3];
 
-const spaces = ["4px", "8px", "16px", "32px", "48px", "56px"];
+const spaces = ["8px", "12px", "16px", "24px", "32px", "56px"];
 spaces.smaller = spaces[0];
 spaces.small = spaces[1];
 spaces.medium = spaces[2];
@@ -22,49 +22,19 @@ widths.w25 = widths[0];
 widths.w50 = widths[1];
 widths.w100 = widths[2];
 
-
-
-// export default {
-//   colors: {
-//     primary: "#ED4B9E",
-//     secondary: "#4B4DED",
-//     tertiary: "#F3D9DA",
-//     dark: "red",
-//     success: "#31D0AA",
-//     text: "#4A4A68",
-//     subtleText: "#8C8CA1",
-//     accent: "#ECF1F4",
-//     light: "#FAFCFE",
-//     white: "#FFFFFF",
-//   },
-//   fontSizes,
-//   breakpoints,
-//   spaces
-// };
-
 export const base = {
   colors: {
-    primary: "green",
-    secondary: "#4B4DED",
-    tertiary: "#F3D9DA",
-    dark: "red",
-    success: "#31D0AA",
-    modes: {
-      dark: {
-        primary: "red",
-        secondary: "#4B4DED",
-        tertiary: "#F3D9DA",
-        dark: "red",
-        success: "#31D0AA",
-      },
-      light: {
-        primary: "blue",
-        secondary: "#4B4DED",
-        tertiary: "#F3D9DA",
-        dark: "blue",
-        success: "#31D0AA",
-      },
-    }
+    nav10: "#3D63C6",
+    nav20: "#0E2E81",
+    nav30: "#132144",
+    yel10: "#E7CA92",
+    yel20: "#DCAB4C",
+    yel30: "#BD871F",
+    gre10: "#F4EFEA",
+    gre20: "#D3C9BE",
+    blk10: "#272E28",
+    blk20: "#151716",
+    
   },
     fontSizes,
     breakpoints,

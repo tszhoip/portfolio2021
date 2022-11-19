@@ -76,7 +76,7 @@ const BlockImgPlay = (props) => {
               return <Item
                 key={index}
                 original={img}
-                ThumbnailProj={img}
+                BlockThumbHm={img}
                 width="1024"
                 height="1024"
               >

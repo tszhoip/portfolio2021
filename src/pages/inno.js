@@ -12,7 +12,7 @@ import f10 from '../assets/figs/f-10.jpg';
 import f11 from '../assets/figs/f-11.jpg';
 import f12 from '../assets/figs/f-12.jpg';
 import BlockImgProj from '../component/BlockImgProj';
-import { ThumbnailProj, BlockTwoLn100 } from '../component/Block';
+import { BlockThumbHm, BlockTwoLn100 } from '../component/Block';
 
 const ImgFig = [
   { img: f1, colSpan: 2, rowSpan: 1 },

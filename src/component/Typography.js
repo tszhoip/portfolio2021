@@ -44,10 +44,11 @@ export const LinkText = styled.span`
 `;
 
 export const BlockContainer = styled.div`
+background-color: ${(props) => props.theme.colors.gre10};
+box-shadow: 0px 0px 16px ${(props) => props.theme.colors.gre20} inset;
 ${color};
 ${space};
 ${layout};
-box-shadow: 0px 0px 1px #d5d5d5 inset;
 `
 export const TextWrap = styled.div`
 ${color};

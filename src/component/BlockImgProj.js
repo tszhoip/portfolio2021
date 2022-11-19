@@ -79,7 +79,7 @@ const BlockImgProj = (props) => {
               return <Item
                 key={index}
                 original={img}
-                ThumbnailProj={img}
+                BlockThumbHm={img}
                 width="3000"
                 height="2000"
                 

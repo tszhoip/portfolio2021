@@ -1,6 +1,6 @@
 import React from 'react';
 import BlockImgProj from '../component/BlockImgProj';
-import { ThumbnailProj, BlockTwoLn100 } from '../component/Block';
+import { BlockThumbHm, BlockTwoLn100 } from '../component/Block';
 import lo1 from '../assets/logo/lo01.jpg';
 import lo2 from '../assets/logo/lo02.jpg';
 import lo3 from '../assets/logo/lo03.jpg';
