@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BlockThumbHm, BlockTwoLn100 } from '../component/Block';
+import { Worklist } from '../component/Container';
 
 import logo from '../assets/llogo.jpg';
 import nike from '../assets/lnike.jpg';
@@ -9,24 +10,6 @@ import inno from '../assets/linno.jpg';
 import tree from '../assets/ltree.jpg';
 import canoo from '../assets/lcanoo.jpg';
 
-const Worklist = styled.div`
-width: 100%;
-display: grid;
-grid-gap: 0px;
-overflow: hidden;
-@media only screen and (min-width : 280px) {
-  grid-template-columns: repeat(2, 50%);
-}
-@media only screen and (min-width : 768px) {
-  grid-template-columns: repeat(2, 50%);
-}
-@media only screen and (min-width : 1000px) {
-        grid-template-columns: repeat(2, 50%);
-}
-@media only screen and (min-width : 1600px) {
-  grid-template-columns: repeat(2, 50%);
-}
-`
 
 function Home() {
 
