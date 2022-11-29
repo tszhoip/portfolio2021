@@ -6,7 +6,6 @@ import Shop from './pages/Shop';
 import Feed from './pages/Feed';
 import Figs from './pages/Figs';
 import Nike from './pages/Nike';
-import Odeur from './pages/Odeur';
 import Canoo from './pages/Canoo';
 import Logo from './pages/Logo';
 import Inno from './pages/inno';
@@ -14,11 +13,13 @@ import Snap from './pages/Snap';
 import Joy from './pages/Joy';
 import Type from './pages/Type';
 import { BlockHeader, BlockFooter } from './component/Block';
+import { ContainerFlex } from './component/Container';
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
   return (
     <Router>
+      <ContainerFlex>
         <BlockHeader />
         <Routes>
         <Route path="/" exact element={<Home/>}/>
@@ -27,7 +28,6 @@ function App() {
         <Route path="/shop" element={<Shop/>}/>
         <Route path="/figs" element={<Figs/>}/>
         <Route path="/nike" element={<Nike/>}/>
-        <Route path="/odeur" element={<Odeur/>}/>
         <Route path="/Inno" element={<Inno/>}/>
         <Route path="/logo" element={<Logo/>}/>
         <Route path="/canoo" element={<Canoo/>}/>
@@ -36,6 +36,7 @@ function App() {
         <Route path="/type" element={<Type/>}/>
         </Routes>
         <BlockFooter />
+        </ContainerFlex>
     </Router>
   );
 }

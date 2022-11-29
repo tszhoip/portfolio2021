@@ -49,7 +49,7 @@ const ImgGrid = styled.img`
   }
 `
 
-const BlockImgPlay = (props) => {
+export const BlockImgPlay = (props) => {
 
   const hasImages = Array.isArray(props.images)
 
@@ -93,4 +93,45 @@ const BlockImgPlay = (props) => {
   )
 }
 
-export default BlockImgPlay;
+
+
+
+export const BlockImgCon = (props) => {
+
+  const hasImages = Array.isArray(props.images)
+
+  return (
+    <div>
+      {
+        hasImages &&
+        <ImageGallery gtcD={props.gtcD} gtcM={props.gtcM} >
+          <Gallery
+            id="simple-gallery"
+            options={{
+              closeOnScroll: true,
+              shareEl: false,
+              arrowPrevTitle: "asd",
+              fullscreenEl: (props) => (
+                <span {...props} style={{ color: "red" }}>
+                  f
+                </span>
+              )
+            }}
+          >
+            {props.images.map((imageUrl, index) => <Item
+              key={index}
+              original={imageUrl}
+              BlockThumbHm={imageUrl}
+              width="1024"
+              height="1024"
+            >
+              {({ ref, open }) => (
+                <ImgGrid ref={ref} onClick={open} src={imageUrl} objfit={props.objfit} />
+              )}
+            </Item>)}
+          </Gallery>
+        </ImageGallery>
+      }
+    </div>
+  )
+}
