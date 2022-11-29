@@ -1,23 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400&family=Roboto:wght@400;500&display=swap');
 img {
     width: 100%;
     height: 100%;
     display: block;
+    border-radius: 4px;
 }
 
 *:lang(en) {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+    font-weight: 400;
+    line-height: 1.5em;
     text-transform: none;
-}
-
-*:lang(zh) {
-    font-family: 'Noto Sans SC', 'Roboto Mono', sans-serif, monospace;;
-    font-weight: 300;
-    letter-spacing: 1.5px;
 }
 
 body {
     margin: 0;
     padding: 0;
+    background-color: #F4EFEA;
 }
 
 [class^="number-slide"],
@@ -32,37 +31,3 @@ body {
     height: 300px;
     max-height: 100vh;
 }
-
-p, h1 {
-    font-size: 1em;
-    line-height: 1.5em;
-    padding: 0px;
-    margin: 0px;
-}
-/* .pswp__img {
-
-}
-
-.pswp--open {
-    transition: none !important;
-}
-
-.pswp__button--share,
-.pswp__button--fs {
-    display: none !important;
-}
-
-.pswp__button {
-    height: 54px !important;
-    width: 54px !important;
-}
-
-.pswp__top-bar {
-    height: 54px !important;
-}
-
-.pswp__counter {
-    height: 54px;
-    font-size: 16px;
-    padding: 0 10px;
-} */

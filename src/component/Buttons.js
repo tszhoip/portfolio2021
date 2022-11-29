@@ -7,7 +7,7 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 
 
 export const Button = styled.button`
-  box-shadow: 0px 0px 16px ${(props) => props.theme.colors.gre20} inset;
+  box-shadow: 0px 0px 1px ${(props) => props.theme.colors.gre20} inset;
   background-color: ${(props) => props.theme.colors.gre10};
   font-size: ${(props) => props.theme.fontSizes.m};
   color: ${(props) => props.theme.colors.nav30};
@@ -19,7 +19,7 @@ export const Button = styled.button`
   ${typography};
   &:hover{
     color: ${(props) => props.theme.colors.nav20};
-    box-shadow: 0px 0px 32px ${(props) => props.theme.colors.gre20} inset;
+    box-shadow: 0px 0px 16px ${(props) => props.theme.colors.gre20} inset;
   }
    &:active{
      color: ${(props) => props.theme.colors.nav20};

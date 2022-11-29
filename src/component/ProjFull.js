@@ -45,11 +45,9 @@ const ImgGrid = styled.img`
     height: auto;
 `
 
-
 const ProjFull = (props) => {
 
     const hasImages = Array.isArray(props.images)
-
 
     return (
       <Container1 bgcolor = {props.bgcolor}>
@@ -74,8 +72,6 @@ const ProjFull = (props) => {
               </Gallery>
             </ImageGallery>
           }
-
-        
 
      </Container1 >
     )

@@ -17,6 +17,8 @@ spaces.large = spaces[3];
 spaces.larger = spaces[4];
 spaces.extraLarge = spaces[5];
 
+const gridRows = ["2"]
+
 const widths = ["25%", "50%", "100%"];
 widths.w25 = widths[0];
 widths.w50 = widths[1];
