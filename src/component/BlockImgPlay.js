@@ -135,3 +135,54 @@ export const BlockImgCon = (props) => {
     </div>
   )
 }
+
+
+export const BlockImgProj = (props) => {
+
+  const hasImages = Array.isArray(props.images)
+  // const smallItemStyles = {
+  //   cursor: "pointer",
+  //   objectFit: "cover",
+  //   width: "100%",
+  //   Height: "100%"
+  // };
+
+  return ( 
+    <div> 
+{
+      hasImages &&
+      <ImageGallery gtcD={props.gtcD} gtcM={props.gtcM} >
+        <Gallery
+          id="simple-gallery"
+          options={{
+            closeOnScroll: true,
+            shareEl: false,
+            arrowPrevTitle: "asd",
+            fullscreenEl: (props) => (
+              <span {...props} style={{ color: "red" }}>
+                f
+              </span>
+            )
+          }}
+        >
+          {props.images.map((imgInfo, index) => {
+            const { img, colSpan = 1, rowSpan = 1 } = imgInfo
+            return <Item
+              key={index}
+              original={img}
+              BlockThumbHm={img}
+              width="3000"
+              height="2000"
+              
+            >
+              {({ ref, open }) => (
+                <ImgGrid ref={ref} onClick={open} src={img} colSpan={colSpan} rowSpan={rowSpan} objfit={props.objfit} />
+              )}
+            </Item>
+          }
+          )}
+        </Gallery>
+      </ImageGallery>
+    }</div> 
+  )
+}

@@ -11,7 +11,7 @@ import f9 from '../assets/figs/f-9.jpg';
 import f10 from '../assets/figs/f-10.jpg';
 import f11 from '../assets/figs/f-11.jpg';
 import f12 from '../assets/figs/f-12.jpg';
-import BlockImgProj from '../component/BlockImgProj';
+import { BlockImgCon, BlockImgPlay, BlockImgProj } from '../component/BlockImgPlay';
 import { BlockThumbHm, BlockTwoLn100 } from '../component/Block';
 
 const ImgFig = [

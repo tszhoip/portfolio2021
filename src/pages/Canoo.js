@@ -1,5 +1,5 @@
 import React from 'react';
-import BlockImgProj from '../component/BlockImgProj';
+import { BlockImgCon, BlockImgPlay, BlockImgProj } from '../component/BlockImgPlay';
 import { BlockTwoLn100, BlockTwoLn50 } from '../component/Block';
 import { ContainerFlex } from '../component/Container';
 import ca1 from '../assets/canoo/c-01.jpg';

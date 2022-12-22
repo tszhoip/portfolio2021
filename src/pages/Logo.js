@@ -1,5 +1,5 @@
 import React from 'react';
-import BlockImgProj from '../component/BlockImgProj';
+import { BlockImgCon, BlockImgPlay, BlockImgProj } from '../component/BlockImgPlay';
 import { BlockThumbHm, BlockTwoLn100 } from '../component/Block';
 import lo1 from '../assets/logo/lo01.jpg';
 import lo2 from '../assets/logo/lo02.jpg';
