@@ -42,16 +42,3 @@ export const LinkText = styled.span`
   display: inline-block;
   ${space};
 `;
-
-export const BlockContainer = styled.div`
-background-color: ${(props) => props.theme.colors.gre10};
-box-shadow: 0px 0px 16px ${(props) => props.theme.colors.gre20} inset;
-${color};
-${space};
-${layout};
-`
-export const TextWrap = styled.div`
-${color};
-${space};
-${typography};
-`

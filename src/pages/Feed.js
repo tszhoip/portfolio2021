@@ -1,5 +1,5 @@
 import React from 'react';
-import { BlockImgCon, BlockImgPlay } from '../component/BlockImgPlay';
+import { BlockImgCon, BlockImgPlay, BlockImgProj } from '../component/BlockImgPlay';
 import lo1 from '../assets/feed/feed-1.jpg';
 import lo2 from '../assets/feed/feed-2.jpg';
 import lo3 from '../assets/feed/feed-3.jpg';
