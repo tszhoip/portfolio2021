@@ -2,15 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { BlockThumbHm, BlockTwoLn100 } from '../component/Block';
 
-import figs from '../assets/lfigs.jpg';
-import hyundai from '../assets/lhyundai.jpg';
-import logo from '../assets/llogo.jpg';
-import nike from '../assets/lnike.jpg';
-import oduer from '../assets/loduer.jpg';
-import joy from '../assets/ljoy.jpg';
-import inno from '../assets/linno.jpg';
-import tree from '../assets/ltree.jpg';
-import canoo from '../assets/lcanoo.jpg';
+import figs from '../Assets/lfigs.jpg';
+import hyundai from '../Assets/lhyundai.jpg';
+import logo from '../Assets/llogo.jpg';
+import nike from '../Assets/lnike.jpg';
+import oduer from '../Assets/loduer.jpg';
+import joy from '../Assets/ljoy.jpg';
+import inno from '../Assets/linno.jpg';
+import tree from '../Assets/ltree.jpg';
+import canoo from '../Assets/lcanoo.jpg';
 
 const ContainerGrid = styled.div`
 width: 100%;

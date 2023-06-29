@@ -2,11 +2,11 @@ import React from 'react';
 import { BlockImgCon, BlockImgPlay, BlockImgProj } from '../component/BlockImgPlay';
 import { BlockTwoLn100, BlockTwoLn50 } from '../component/Block';
 import { ContainerFlex } from '../component/Container';
-import ca1 from '../assets/canoo/c-01.jpg';
-import ca2 from '../assets/canoo/c-02.jpg';
-import ca3 from '../assets/canoo/c-03.jpg';
-import ca4 from '../assets/canoo/c-04.jpg';
-import ca5 from '../assets/canoo/c-05.jpg';
+import ca1 from '../Assets/canoo/c-01.jpg';
+import ca2 from '../Assets/canoo/c-02.jpg';
+import ca3 from '../Assets/canoo/c-03.jpg';
+import ca4 from '../Assets/canoo/c-04.jpg';
+import ca5 from '../Assets/canoo/c-05.jpg';
 
 
 function Canoo() {

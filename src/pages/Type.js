@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { PButton } from '../component/Buttons';
-import { BlockTwoLn100, BlockTwoLn50, BlockHeader, BlockThumbHm } from '../component/Block';
+import { Button } from '../component/Buttons';
+import { BlockTwoLn100, BlockTwoLn50, BlockThumbHm } from '../component/Block';
 
 const TestContainer = styled.div`
     width: 100%;
@@ -14,7 +14,6 @@ function Type() {
 
   return (
     <TestContainer>
-      <BlockHeader/>
       <BlockTwoLn100
         title="Typography LockUp" 
       />
@@ -42,7 +41,7 @@ function Type() {
       <BlockTwoLn100
         title="Button" 
       />
-      <PButton cta="button01"/>
+      <Button cta="button01"/>
       <BlockThumbHm/>
 
     </TestContainer>

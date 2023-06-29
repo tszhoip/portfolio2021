@@ -12,7 +12,7 @@ import Inno from './pages/inno';
 import Snap from './pages/Snap';
 import Joy from './pages/Joy';
 import Type from './pages/Type';
-import { BlockHeader, BlockFooter } from './component/Block';
+import { BlockMenu } from './component/Block';
 import { ContainerFlex } from './component/Container';
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ function App() {
   return (
     <Router>
       <ContainerFlex>
-        <BlockHeader />
+        <BlockMenu />
         <Routes>
         <Route path="/" exact element={<Home/>}/>
         <Route path="/work" element={<Work/>} />
@@ -35,7 +35,6 @@ function App() {
         <Route path="/joy" element={<Joy/>}/>
         <Route path="/type" element={<Type/>}/>
         </Routes>
-        <BlockFooter />
         </ContainerFlex>
     </Router>
   );

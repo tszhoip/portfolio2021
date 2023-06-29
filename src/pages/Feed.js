@@ -1,14 +1,14 @@
 import React from 'react';
 import { BlockImgCon, BlockImgPlay, BlockImgProj } from '../component/BlockImgPlay';
-import lo1 from '../assets/feed/feed-1.jpg';
-import lo2 from '../assets/feed/feed-2.jpg';
-import lo3 from '../assets/feed/feed-3.jpg';
-import lo4 from '../assets/feed/feed-4.jpg';
-import lo5 from '../assets/feed/feed-5.jpg';
-import lo6 from '../assets/feed/feed-6.jpg';
-import lo7 from '../assets/feed/feed-7.jpg';
-import lo8 from '../assets/feed/feed-8.jpg';
-import lo9 from '../assets/feed/feed-9.jpg';
+import lo1 from '../Assets/feed/feed-1.jpg';
+import lo2 from '../Assets/feed/feed-2.jpg';
+import lo3 from '../Assets/feed/feed-3.jpg';
+import lo4 from '../Assets/feed/feed-4.jpg';
+import lo5 from '../Assets/feed/feed-5.jpg';
+import lo6 from '../Assets/feed/feed-6.jpg';
+import lo7 from '../Assets/feed/feed-7.jpg';
+import lo8 from '../Assets/feed/feed-8.jpg';
+import lo9 from '../Assets/feed/feed-9.jpg';
 
 
 const ImgLogo = [

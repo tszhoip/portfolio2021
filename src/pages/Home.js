@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { BlockThumbHm, BlockTwoLn100, BlockTwoLn50 } from '../component/Block';
 import { ContainerFlex } from '../component/Container';
 
-import logo from '../assets/llogo.jpg';
-import nike from '../assets/lnike.jpg';
-import joy from '../assets/ljoy.jpg';
-import inno from '../assets/linno.jpg';
-import tree from '../assets/ltree.jpg';
-import canoo from '../assets/lcanoo.jpg';
+import logo from '../Assets/llogo.jpg';
+import nike from '../Assets/lnike.jpg';
+import joy from '../Assets/ljoy.jpg';
+import inno from '../Assets/linno.jpg';
+import tree from '../Assets/ltree.jpg';
+import canoo from '../Assets/lcanoo.jpg';
 
 
 function Home() {

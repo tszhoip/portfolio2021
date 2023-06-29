@@ -2,16 +2,16 @@ import React from 'react';
 import ProductSlider from './ProductSlider.js';
 import { base } from '../theme';
 import styled, { ThemeProvider } from "styled-components";
-import d1 from '../assets/product/1.jpg';
-import d2 from '../assets/product/2.jpg';
-import d3 from '../assets/product/3.jpg';
-import d4 from '../assets/product/4.jpg';
-import d5 from '../assets/product/5.jpg';
-import d6 from '../assets/product/6.jpg';
-import d7 from '../assets/product/7.jpg';
-import d8 from '../assets/product/8.jpg';
-import d9 from '../assets/product/9.jpg';
-import { PButton } from '../component/Buttons';
+import d1 from '../Assets/product/1.jpg';
+import d2 from '../Assets/product/2.jpg';
+import d3 from '../Assets/product/3.jpg';
+import d4 from '../Assets/product/4.jpg';
+import d5 from '../Assets/product/5.jpg';
+import d6 from '../Assets/product/6.jpg';
+import d7 from '../Assets/product/7.jpg';
+import d8 from '../Assets/product/8.jpg';
+import d9 from '../Assets/product/9.jpg';
+import { Button } from '../component/Buttons';
 import { BlockTwoLn100, BlockTwoLn50 } from '../component/Block';
 
 const ProductContainer = styled.div`
@@ -76,7 +76,7 @@ const L01 = (props) => {
         <BlockTwoLn100
         title="NN N1 MONO™" 
         body="NN N1 MONO is designed especially for display and small sizes screen. Perfect for web performance and minimalist aesthetic. Come in single weight, uppercase and lowercase with a character set that covers over 300 Glyphs. Developed & Published 2022 © Noname™View Standard LicenseView WebFont License" />
-        <PButton width={[1, 1, 1, 1]} cta="BUY"/>
+        <Button width={[1, 1, 1, 1]} cta="BUY"/>
 
 
         

@@ -1,16 +1,16 @@
 import React from 'react';
-import f1 from '../assets/figs/f-1.jpg';
-import f2 from '../assets/figs/f-2.jpg';
-import f3 from '../assets/figs/f-3.jpg';
-import f4 from '../assets/figs/f-4.jpg';
-import f5 from '../assets/figs/f-5.jpg';
-import f6 from '../assets/figs/f-6.jpg';
-import f7 from '../assets/figs/f-7.jpg';
-import f8 from '../assets/figs/f-8.jpg';
-import f9 from '../assets/figs/f-9.jpg';
-import f10 from '../assets/figs/f-10.jpg';
-import f11 from '../assets/figs/f-11.jpg';
-import f12 from '../assets/figs/f-12.jpg';
+import f1 from '../Assets/figs/f-1.jpg';
+import f2 from '../Assets/figs/f-2.jpg';
+import f3 from '../Assets/figs/f-3.jpg';
+import f4 from '../Assets/figs/f-4.jpg';
+import f5 from '../Assets/figs/f-5.jpg';
+import f6 from '../Assets/figs/f-6.jpg';
+import f7 from '../Assets/figs/f-7.jpg';
+import f8 from '../Assets/figs/f-8.jpg';
+import f9 from '../Assets/figs/f-9.jpg';
+import f10 from '../Assets/figs/f-10.jpg';
+import f11 from '../Assets/figs/f-11.jpg';
+import f12 from '../Assets/figs/f-12.jpg';
 import { BlockImgCon, BlockImgPlay, BlockImgProj } from '../component/BlockImgPlay';
 import { BlockThumbHm, BlockTwoLn100 } from '../component/Block';
 

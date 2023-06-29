@@ -1,47 +1,40 @@
-import React, { useState } from 'react';
-import { base } from '../theme';
-import styled, { ThemeProvider } from "styled-components";
-import { color, typography, space, layout } from "styled-system";
-import { H1 } from "./Typography";
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import styled from "styled-components";
+import { color, typography, space, layout, flexbox, variant, border } from "styled-system";
 
+const buttonVariants = {
+  primary: {
+    backgroundColor: "rgb(255 255 255 / 0.5)",
+    backdropFilter: "blur(4px)"
+  },
+  secondary: {
+    backgroundColor: "rgb(255 255 255 / 0.5)",
+    backdropFilter: "blur(4px)"
+  },
+  tertiary: {
+
+  },
+};
 
 export const Button = styled.button`
-  box-shadow: 0px 0px 1px ${(props) => props.theme.colors.gre20} inset;
-  background-color: ${(props) => props.theme.colors.gre10};
-  font-size: ${(props) => props.theme.fontSizes.m};
-  color: ${(props) => props.theme.colors.nav30};
-  text-align: left;
+  color: ${(props) => props.theme.colors.blk10};
   border: none;
+  color: black;
   ${color};
   ${space};
   ${layout};
   ${typography};
+  ${flexbox};
+  ${border};
+  ${variant({
+    variants: buttonVariants,
+  })};
   &:hover{
-    color: ${(props) => props.theme.colors.nav20};
-    box-shadow: 0px 0px 16px ${(props) => props.theme.colors.gre20} inset;
+    color: ${(props) => props.theme.colors.blk20};
+    backdrop-filter: blur(8px);
+    cursor: pointer;
   }
    &:active{
-     color: ${(props) => props.theme.colors.nav20};
+     color: ${(props) => props.theme.colors.blk20};
    }
+
 `;
-
-
-export const PButton = (props) => {
-  const navigate = useNavigate();
-  const navigateToContacts = () => {
-    // 👇️ navigate to /contacts
-    navigate('/contacts');
-  };
-  const navigateHome = () => {
-    // 👇️ navigate to /
-    navigate('/');
-  };
-  return (
-    <ThemeProvider theme={base}>
-      <Button padding={[2]} onClick={navigateHome}>
-        {props.cta}
-      </Button>
-    </ThemeProvider>
-  ) 
-};
