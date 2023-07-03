@@ -12,28 +12,13 @@ import d7 from '../Assets/product/7.jpg';
 import d8 from '../Assets/product/8.jpg';
 import d9 from '../Assets/product/9.jpg';
 import { Button } from '../component/Buttons';
-import { BlockTwoLn100, BlockTwoLn50 } from '../component/Block';
+import { BlockTwoLn100 } from '../component/Block';
+import { color, typography, space, layout, flexbox, position, width } from "styled-system";
+import { ContainerBase, Wrap } from '../component/Core';
 
-const ProductContainer = styled.div`
-    display: flex; 
-    justify-content: start;
-    @media only screen and (min-width : 300px) {
-      flex-direction: column;
-    }
-    @media only screen and (min-width : 768px) {
-      flex-direction: row;
-    }
-    @media only screen and (min-width : 1000px) {
-      flex-direction: row;
-    }
-    @media only screen and (min-width : 1600px) {
-      flex-direction: row;
-    }
-`
+
 const ProductInfo = styled.div`
     width: 50%;
-    display: grid; 
-    border-bottom: 1px solid #f5f5f5;
     color: black;
     grid-template-columns: repeat (1, 1);
     @media only screen and (min-width : 300px) {
@@ -67,21 +52,19 @@ const images3 = [
 const L01 = (props) => {
 
 
+  const handleBuyClick = () => {
+    window.location.href = 'https://buy.stripe.com/00g4gQ5UY5j5abe8wA';
+  };
 
   return (
     <ThemeProvider theme={base}>
-    <ProductContainer>
-      <ProductSlider images={images3} objfit="cover" />
-      <ProductInfo>
-        <BlockTwoLn100
-        title="NN N1 MONO™" 
-        body="NN N1 MONO is designed especially for display and small sizes screen. Perfect for web performance and minimalist aesthetic. Come in single weight, uppercase and lowercase with a character set that covers over 300 Glyphs. Developed & Published 2022 © Noname™View Standard LicenseView WebFont License" />
-        <Button width={[1, 1, 1, 1]} cta="BUY"/>
-
-
-        
-      </ProductInfo>
-    </ProductContainer>
+      <ContainerBase flexDirection={['column', 'row', 'row', 'row']} flexWrap="wrap" justifyContent="center">
+        <ProductSlider images={images3} objfit="cover" />
+        <Wrap width={["100%","100%","50%", "50%"]} height="100%">
+          <BlockTwoLn100 title="AIR PRO™" body="Meet AIR PRO™, a Modular sans serif, meticulously crafted with current trends in mind - street, modern, and sleek. Perfect for versatile design projects, it features OpenType attributes like ligatures and ordinals, along with multi-lingual support, currency figures, numerals, punctuation, and arrows.Ideal for graphic design, signage, movie posters, logos, print, business cards, and branding materials, SP ROBUS promises to be an excellent asset to your design toolkit. is designed especially for display and small sizes screen. Perfect for web performance and minimalist aesthetic. Come in single weight, uppercase and lowercase with a character set that covers over 300 Glyphs. Developed & Published 2022 © Noname™View Standard LicenseView WebFont License" />
+          <Button variant="secondary" width={[1, 1, 1, 1]} onClick={handleBuyClick} >BUY NOW</Button>
+        </Wrap>
+      </ContainerBase>
     </ThemeProvider>
   )
 }

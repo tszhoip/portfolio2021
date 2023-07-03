@@ -1,6 +1,6 @@
 import React from 'react';
-import { BlockImgCon, BlockImgPlay } from '../component/BlockImgPlay';
-import { BlockThumbHm, BlockTwoLn100 } from '../component/Block';
+import { BlockImgCon } from '../component/BlockImgPlay';
+import { BlockTwoLn100 } from '../component/Block';
 import lo1 from '../Assets/tokyo/tokyo3-01.jpg';
 import lo2 from '../Assets/tokyo/tokyo3-02.jpg';
 import lo3 from '../Assets/tokyo/tokyo3-03.jpg';

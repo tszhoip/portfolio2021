@@ -1,20 +1,13 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled, { ThemeProvider } from "styled-components";
-import { color, typography, space, layout, flexbox, position, width, border } from "styled-system";
+import { color, typography, space, layout, flexbox, position, width } from "styled-system";
 
 import { base } from '../theme';
 import { H1, Text } from "./Typography";
 import { Button } from "./Buttons";
+import { Thumbnail, Wrap } from './Core';
 
-export const Wrap = styled.div`
-${layout};
-${width}
-${position};
-${flexbox};
-${space};
-${typography};
-`
 export const BlockContainer = styled.div`
 background-color: ${(props) => props.theme.colors.gre10};
 box-shadow: 0px 0px 1px ${(props) => props.theme.colors.gre20} inset;
@@ -30,30 +23,7 @@ ${position};
 ${flexbox};
 `
 
-export const Banner = styled(Link)`
-    background-color: ${(props) => props.theme.colors.gre10};
-    grid-row: ${props => props.gr};
-    grid-column: ${props => props.gc};
-    box-shadow: 0px 0px 1px ${(props) => props.theme.colors.gre20} inset;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    ${width}
-    @media only screen and (min-width : 480px) {
-    }
-    @media only screen and (min-width : 768px) {
-    }
-    @media only screen and (min-width : 1000px) {
-    }
-    @media only screen and (min-width : 1600px) {
-    }
-    &:hover{
-      box-shadow: 0px 0px 16px ${(props) => props.theme.colors.blk10} inset;
-    }
-     &:active{
-      background-color: ${(props) => props.theme.colors.gre20};
-     }
-`
+
 
 const ImgBlock2 = styled.img`
     flex-grow: 1;
@@ -107,22 +77,26 @@ export const BlockMenu = (props) => {
   const navigateSnap = () => {
     navigate('/snap');
   };
+  const navigateFont = () => {
+    navigate('/font');
+  };
 
   return (
     <ThemeProvider theme={base}>
       <Wrap
+      zIndex="999"
         width={[1, 1, 1, 1]}
         position="fixed"
         display="flex"
         justifyContent="center"
         bottom={2}>
-        <CenterWrap
-          width={[4 / 5, 4 / 5, 1 / 2, 1 / 4]}
-          display="flex">
+        <CenterWrap width={[4 / 5, 4 / 5, 1 / 2, 1 / 4]} display="flex">
           <Button padding={[3]} variant="secondary" flexGrow="6" textAlign="left" onClick={navigateHome}> Noname </Button>
           <Button padding={[3]} variant="primary" flexGrow="1" onClick={navigateShop}> Shop </Button>
           <Button padding={[3]} variant="primary" flexGrow="1" onClick={navigateSnap}> Snap </Button>
           <Button padding={[3]} variant="primary" flexGrow="1" onClick={navigateFeed}> Feed </Button>
+          <Button padding={[3]} variant="primary" flexGrow="1" onClick={navigateFont}> Font </Button>
+
         </CenterWrap>
       </Wrap>
     </ThemeProvider>
@@ -131,16 +105,13 @@ export const BlockMenu = (props) => {
 
 
 
-export const BlockThumbHm = (props) => {
+export const BlockThumb = (props) => {
   return (
     <ThemeProvider theme={base}>
-      <Banner width={[1, 1, 1 / 2, 1 / 3]} to={props.to}>
-        <Wrap padding={[3]} pb={[4]}>
+      <Thumbnail width={[1, 1, 1 / 2, 1 / 3]}  display="flex" flexDirection="row" flexWrap="wrap" justifyContent="start" to={props.to}>
           <ImgBlock2 src={props.img} to={props.linkto} side={props.side} />
-          <H1 fontSize={[1]} pt={[2]} >{props.title}</H1>
-          <Text fontSize={[1]}>{props.body}</Text>
-        </Wrap>
-      </Banner>
+          <H1 fontSize={[2]} p={[2]} >{props.title}</H1>
+      </Thumbnail>
     </ThemeProvider>
   )
 }

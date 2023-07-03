@@ -8,7 +8,6 @@ function Shop() {
   return (
     <div>
       <L01  href="https://buy.stripe.com/test_5kA5okgPOeIlfEkbII" />
-      <L01  href="https://buy.stripe.com/test_5kA5okgPOeIlfEkbII" />
     </div>
   );
 }

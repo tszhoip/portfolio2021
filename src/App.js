@@ -12,20 +12,22 @@ import Inno from './pages/inno';
 import Snap from './pages/Snap';
 import Joy from './pages/Joy';
 import Type from './pages/Type';
-import { BlockMenu } from './component/Block';
-import { ContainerFlex } from './component/Container';
+import Font from './pages/Font';
+import { BlockContainer, BlockMenu } from './component/Block';
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
+import { ContainerBase } from './component/Core';
 
 function App() {
   return (
     <Router>
-      <ContainerFlex>
+      <ContainerBase width={[1, 1, 1, 1]} display="flex" flexDirection="row" justifyContent="center">
         <BlockMenu />
         <Routes>
         <Route path="/" exact element={<Home/>}/>
         <Route path="/work" element={<Work/>} />
         <Route path="/feed" element={<Feed/>} />
         <Route path="/shop" element={<Shop/>}/>
+        <Route path="/font" element={<Font/>}/>
         <Route path="/figs" element={<Figs/>}/>
         <Route path="/nike" element={<Nike/>}/>
         <Route path="/Inno" element={<Inno/>}/>
@@ -35,7 +37,7 @@ function App() {
         <Route path="/joy" element={<Joy/>}/>
         <Route path="/type" element={<Type/>}/>
         </Routes>
-        </ContainerFlex>
+        </ContainerBase>
     </Router>
   );
 }

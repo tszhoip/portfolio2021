@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { base } from '../theme';
-import styled, { ThemeProvider } from "styled-components";
-import { color, typography, space, layout } from "styled-system";
+import styled from "styled-components";
+import { color, typography, space } from "styled-system";
 
 
 export const H1 = styled.h1`

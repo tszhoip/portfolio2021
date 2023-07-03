@@ -76,7 +76,7 @@ export const BlockImgPlay = (props) => {
               return <Item
                 key={index}
                 original={img}
-                BlockThumbHm={img}
+                BlockThumb={img}
                 width="1024"
                 height="1024"
               >
@@ -121,7 +121,7 @@ export const BlockImgCon = (props) => {
             {props.images.map((imageUrl, index) => <Item
               key={index}
               original={imageUrl}
-              BlockThumbHm={imageUrl}
+              BlockThumb={imageUrl}
               width="1024"
               height="1024"
             >
@@ -170,7 +170,7 @@ export const BlockImgProj = (props) => {
             return <Item
               key={index}
               original={img}
-              BlockThumbHm={img}
+              BlockThumb={img}
               width="3000"
               height="2000"
               

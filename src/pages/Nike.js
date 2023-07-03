@@ -10,7 +10,7 @@ import n10 from '../Assets/n-10.jpg';
 import n15 from '../Assets/n-15.jpg';
 import n16 from '../Assets/n-16.jpg';
 import nv3 from '../Assets/n-v-3.mp4';
-import { BlockThumbHm, BlockTwoLn100 } from '../component/Block';
+import {  BlockTwoLn100 } from '../component/Block';
 
 function Nike() {
   return (

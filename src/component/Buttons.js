@@ -7,8 +7,9 @@ const buttonVariants = {
     backdropFilter: "blur(4px)"
   },
   secondary: {
-    backgroundColor: "rgb(255 255 255 / 0.5)",
-    backdropFilter: "blur(4px)"
+    backgroundColor: "rgb(0 0 0 / 0.5)",
+    backdropFilter: "blur(4px)",
+    color: "white"
   },
   tertiary: {
 

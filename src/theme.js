@@ -3,7 +3,13 @@ fontSizes.s = fontSizes[0];
 fontSizes.m = fontSizes[1];
 fontSizes.l = fontSizes[2];
 
-const breakpoints = ["600px", "900px", "1200px", "1800px"];
+const fonts = ["Helvetica", "Arial", "Georgia"];
+fonts.helvetica = fonts[0];
+fonts.arial = fonts[1];
+fonts.georgia = fonts[2];
+
+
+const breakpoints = ["600px", "900px", "1400px", "1800px"];
 breakpoints.sm = breakpoints[0];
 breakpoints.md = breakpoints[1];
 breakpoints.lg = breakpoints[2];
@@ -16,8 +22,6 @@ spaces.medium = spaces[2];
 spaces.large = spaces[3];
 spaces.larger = spaces[4];
 spaces.extraLarge = spaces[5];
-
-const gridRows = ["2"]
 
 const widths = ["25%", "50%", "100%"];
 widths.w25 = widths[0];
@@ -41,5 +45,6 @@ export const base = {
     fontSizes,
     breakpoints,
     spaces,
-    widths
-  }
+    widths,
+    fonts,
+  };
