@@ -1,9 +1,12 @@
-const fontSizes = ["12px", "16px", "32px"];
+
+
+const fontSizes = ["12px", "16px", "32px","16vh"];
 fontSizes.s = fontSizes[0];
 fontSizes.m = fontSizes[1];
 fontSizes.l = fontSizes[2];
+fontSizes.xl = fontSizes[3];
 
-const fonts = ["Helvetica", "Arial", "Georgia"];
+const fonts = ["AIR", "Arial", "Georgia"];
 fonts.helvetica = fonts[0];
 fonts.arial = fonts[1];
 fonts.georgia = fonts[2];

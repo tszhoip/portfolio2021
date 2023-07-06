@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400&family=Roboto:wght@400;500&display=swap');
+@font-face {
+    font-family: "AIR";
+    src: local("AIR"),
+     url("../Assets/font/Airforce-Black.ttf") format("truetype");
+    font-weight: heavy;
+   }
+   
+
 img {
     width: 100%;
     height: 100%;

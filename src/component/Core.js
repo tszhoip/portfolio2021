@@ -28,10 +28,12 @@ ${color};
 `
 
 export const Wrap = styled.div`
+display: flex; 
 ${layout};
 ${width}
 ${position};
 ${flexbox};
 ${space};
 ${typography};
+${color};
 `
