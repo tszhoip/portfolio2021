@@ -5,6 +5,18 @@
      url("../Assets/font/Airforce-Black.ttf") format("truetype");
     font-weight: heavy;
    }
+   @font-face {
+    font-family: "Hong";
+    src: local("Hong"),
+     url("../Assets/font/NewFont-Regular.ttf") format("truetype");
+    font-weight: Regular;
+   }
+   @font-face {
+    font-family: "PIX";
+    src: local("PIX"),
+     url("../Assets/font/N1MONO-MONO.ttf") format("truetype");
+    font-weight: Regular;
+   }
    
 
 img {

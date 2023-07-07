@@ -6,10 +6,11 @@ fontSizes.m = fontSizes[1];
 fontSizes.l = fontSizes[2];
 fontSizes.xl = fontSizes[3];
 
-const fonts = ["AIR", "Arial", "Georgia"];
+const fonts = ["Helvetica", "AIR", "Hong", "PIX"];
 fonts.helvetica = fonts[0];
-fonts.arial = fonts[1];
-fonts.georgia = fonts[2];
+fonts.air = fonts[1];
+fonts.hong = fonts[2];
+fonts.pix = fonts[3];
 
 
 const breakpoints = ["600px", "900px", "1400px", "1800px"];
@@ -41,8 +42,10 @@ export const base = {
     yel30: "#BD871F",
     gre10: "#F4EFEA",
     gre20: "#D3C9BE",
-    blk10: "#272E28",
-    blk20: "#151716",
+    blk10: "#151716",
+    blk20: "#273427",
+    blk30: "#645264",
+    blk40: "#858284",
     
   },
     fontSizes,

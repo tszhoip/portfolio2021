@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled, { ThemeProvider } from "styled-components";
-import { color, typography, space, layout, flexbox, position, width } from "styled-system";
+import { color, space, layout, flexbox, position, width } from "styled-system";
 
 import { base } from '../theme';
-import { H1, Text } from "./Typography";
-import { Button } from "./Buttons";
-import { Thumbnail, Wrap } from './Core';
+import { Thumbnail, Wrap, H1, Text, Button } from './Core';
 
 export const BlockContainer = styled.div`
 background-color: ${(props) => props.theme.colors.gre10};
@@ -91,11 +89,11 @@ export const BlockMenu = (props) => {
         justifyContent="center"
         bottom={2}>
         <CenterWrap width={[4 / 5, 4 / 5, 1 / 2, 1 / 4]} display="flex">
-          <Button padding={[3]} variant="secondary" flexGrow="6" textAlign="left" onClick={navigateHome}> Noname </Button>
-          <Button padding={[3]} variant="primary" flexGrow="1" onClick={navigateShop}> Shop </Button>
-          <Button padding={[3]} variant="primary" flexGrow="1" onClick={navigateSnap}> Snap </Button>
-          <Button padding={[3]} variant="primary" flexGrow="1" onClick={navigateFeed}> Feed </Button>
-          <Button padding={[3]} variant="primary" flexGrow="1" onClick={navigateFont}> Font </Button>
+          <Button padding={[3]} variant="menuWht" flexGrow="6" textAlign="left" onClick={navigateHome}> Noname </Button>
+          <Button padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateShop}> Shop </Button>
+          <Button padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateSnap}> Snap </Button>
+          <Button padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateFeed}> Feed </Button>
+          <Button padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateFont}> Font </Button>
 
         </CenterWrap>
       </Wrap>
@@ -115,4 +113,17 @@ export const BlockThumb = (props) => {
     </ThemeProvider>
   )
 }
+
+export const BlockThumbFont = (props) => {
+  return (
+    <ThemeProvider theme={base}>
+      <Thumbnail width={[1, 1, 1, 1]}  display="flex" flexDirection="column" flexWrap="wrap" bg="#d0d0c6" height={['50vh']} alignItems="center" justifyContent="center" to={props.to}>
+          <Wrap fontFamily={props.fontFamily} fontSize={[3]} p={[2]} >{props.title}</Wrap>
+          <H1 fontFamily={[0]} fontSize={[1]} p={[2]} >{props.cta}</H1>
+      </Thumbnail>
+    </ThemeProvider>
+  )
+}
+
+
 

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import '../src/Assets/font/Airforce-Black.ttf';
+import '../src/Assets/font/NewFont-Regular.ttf';
+import '../src/Assets/font/N1MONO-MONO.ttf';
 
 ReactDOM.render(
   <React.StrictMode>

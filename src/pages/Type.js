@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '../component/Buttons';
+import { Button } from '../component/Core';
 import { BlockTwoLn100, BlockTwoLn50, BlockThumb } from '../component/Block';
 
 const TestContainer = styled.div`

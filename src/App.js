@@ -13,7 +13,9 @@ import Snap from './pages/Snap';
 import Joy from './pages/Joy';
 import Type from './pages/Type';
 import Font from './pages/Font';
-import { BlockContainer, BlockMenu } from './component/Block';
+import { Airpro } from './pages/f-airpro';
+
+import { BlockMenu } from './component/Block';
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import { ContainerBase } from './component/Core';
 
@@ -28,6 +30,7 @@ function App() {
         <Route path="/feed" element={<Feed/>} />
         <Route path="/shop" element={<Shop/>}/>
         <Route path="/font" element={<Font/>}/>
+        <Route path="/f-airpro" element={<Airpro/>}/>
         <Route path="/figs" element={<Figs/>}/>
         <Route path="/nike" element={<Nike/>}/>
         <Route path="/Inno" element={<Inno/>}/>
