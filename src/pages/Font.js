@@ -10,9 +10,9 @@ function Font() {
   return (
     <ThemeProvider theme={base}>
       <ContainerBase flexDirection={['column', 'row', 'row', 'row']} flexWrap="wrap" justifyContent="center" width={['100vw']}>
-        <BlockThumbFont fontFamily={[1]} title="AIR PRO" cta="BUY FAMILY $5" to="/f-airpro"></BlockThumbFont>
-        <BlockThumbFont fontFamily={[2]} title="HONG" cta="BUY FAMILY COMING SOON"></BlockThumbFont>
-        <BlockThumbFont fontFamily={[3]} title="PIX" cta="BUY FAMILY COMING SOON"></BlockThumbFont>
+        <BlockThumbFont fontFamily={[1]} title="AIR PRO" cta="" to="/f-airpro"></BlockThumbFont>
+        <BlockThumbFont fontFamily={[2]} title="HONG" cta=""></BlockThumbFont>
+        <BlockThumbFont fontFamily={[3]} title="PIX" cta=""></BlockThumbFont>
       </ContainerBase>
     </ThemeProvider>
   );

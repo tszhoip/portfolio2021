@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { color, typography, space, layout, flexbox, position, width, variant, border } from "styled-system";
-import { Link } from 'react-router-dom';
+import styled from "styled-components"
+import { color, typography, space, layout, flexbox, position, width, variant, border, compose } from "styled-system"
+import { Link } from 'react-router-dom'
 
 export const ContainerBase = styled.div`
 display: flex; 
@@ -54,6 +54,9 @@ export const Text = styled.p`
   ${width}
 `;
 
+
+
+
 const buttonVariants = {
   menuWht: {
     backgroundColor: "rgb(255 255 255 / 0.5)",
@@ -71,26 +74,23 @@ const buttonVariants = {
   },
 };
 
+const hoverEffect = {
+  "&:hover": {
+    backgroundColor: "red",
+    cursor: "pointer",
+  }
+};
+
 export const Button = styled.button`
   color: ${(props) => props.theme.colors.blk10};
   border: none;
-  color: black;
-  ${color};
-  ${space};
-  ${layout};
+  ${compose(space, color, layout)};
   ${typography};
   ${flexbox};
   ${border};
+  ${hoverEffect}
   ${variant({
   variants: buttonVariants,
 })};
-  &:hover{
-    color: ${(props) => props.theme.colors.blk40};
-    background-color: black;
-    backdrop-filter: blur(8px);
-    cursor: pointer;
-  }
-   &:active{
-     color: ${(props) => props.theme.colors.blk20};
-   }
+ 
 `;

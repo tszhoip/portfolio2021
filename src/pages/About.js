@@ -1,5 +1,6 @@
 import React from 'react';
-import { BlockImgPlay } from '../component/BlockImgPlay';
+import { BlockImgPlay } from '../component/BlockImgPlay'
+import { Wrap } from '../component/Core'
 import lo1 from '../Assets/feed/feed-1.jpg';
 import lo2 from '../Assets/feed/feed-2.jpg';
 import lo3 from '../Assets/feed/feed-3.jpg';
@@ -25,12 +26,15 @@ const ImgLogo = [
 
 
 
-function Feed() {
+function About() {
   return (
     <div>
+      <Wrap>
+        Noname
+      </Wrap>
       <BlockImgPlay images={ImgLogo} gtcD="repeat(4, 25%)" gtcM="repeat(2, 50%)"/>
     </div>
   );
 }
 
-export default Feed;
+export default About;

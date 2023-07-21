@@ -3,7 +3,7 @@ import './style/app.css';
 import Home from './pages/Home';
 import Work from './pages/Work';
 import Shop from './pages/Shop';
-import Feed from './pages/Feed';
+import About from './pages/About';
 import Figs from './pages/Figs';
 import Nike from './pages/Nike';
 import Canoo from './pages/Canoo';
@@ -13,6 +13,7 @@ import Snap from './pages/Snap';
 import Joy from './pages/Joy';
 import Type from './pages/Type';
 import Font from './pages/Font';
+import License from './pages/License';
 import { Airpro } from './pages/f-airpro';
 
 import { BlockMenu } from './component/Block';
@@ -27,7 +28,7 @@ function App() {
         <Routes>
         <Route path="/" exact element={<Home/>}/>
         <Route path="/work" element={<Work/>} />
-        <Route path="/feed" element={<Feed/>} />
+        <Route path="/feed" element={<About/>} />
         <Route path="/shop" element={<Shop/>}/>
         <Route path="/font" element={<Font/>}/>
         <Route path="/f-airpro" element={<Airpro/>}/>
@@ -39,6 +40,7 @@ function App() {
         <Route path="/snap" element={<Snap/>}/>
         <Route path="/joy" element={<Joy/>}/>
         <Route path="/type" element={<Type/>}/>
+        <Route path="/license" element={<License/>}/>
         </Routes>
         </ContainerBase>
     </Router>

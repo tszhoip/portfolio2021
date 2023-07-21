@@ -22,3 +22,4 @@ export const ProductSliderFull = (props) => {
     </Keen>
   )
 }
+
