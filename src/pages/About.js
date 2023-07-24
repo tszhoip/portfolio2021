@@ -1,6 +1,5 @@
 import React from 'react';
 import { BlockImgPlay } from '../component/BlockImgPlay'
-import { Wrap } from '../component/Core'
 import lo1 from '../Assets/feed/feed-1.jpg';
 import lo2 from '../Assets/feed/feed-2.jpg';
 import lo3 from '../Assets/feed/feed-3.jpg';
@@ -11,6 +10,9 @@ import lo7 from '../Assets/feed/feed-7.jpg';
 import lo8 from '../Assets/feed/feed-8.jpg';
 import lo9 from '../Assets/feed/feed-9.jpg';
 
+import { ContainerBase, Wrap, Button, H1, Text } from '../component/Core';
+import { base } from '../theme';
+import { ThemeProvider, isStyledComponent } from "styled-components";
 
 const ImgLogo = [
   { img: lo1 },
@@ -24,16 +26,26 @@ const ImgLogo = [
   { img: lo9 },
 ]
 
-
-
 function About() {
   return (
-    <div>
-      <Wrap>
-        Noname
-      </Wrap>
-      <BlockImgPlay images={ImgLogo} gtcD="repeat(4, 25%)" gtcM="repeat(2, 50%)"/>
-    </div>
+    <ThemeProvider theme={base}>
+      <ContainerBase width='100%' flexDirection='column' flexWrap="wrap" alignItems='center' justifyContent="center">
+
+        <Wrap width={[1, 1, 1 / 2, 1 / 2]} flexDirection='row' height="auto">
+          <Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">
+            <Text fontFamily={[0]} color={['blk40']} variant='indent' fontSize={[0]}>
+            We are an independent Creative duo based in Los Angeles, CA. Both me & Michelle had our own fulltime. And We still like to use our downtime to express our creativity.
+              </Text>
+              <Text fontFamily={[0]} color={['blk40']} variant='indent' fontSize={[0]}>
+              If you have something on your mind, feel free to contact us at hi@inaritype.com. We can’t wait to hear from you.
+              </Text>
+          </Wrap>
+        </Wrap>
+
+        <BlockImgPlay images={ImgLogo} gtcD="repeat(4, 25%)" gtcM="repeat(2, 50%)" />
+
+      </ContainerBase>
+    </ThemeProvider>
   );
 }
 

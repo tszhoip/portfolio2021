@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled, { ThemeProvider } from "styled-components";
-import { color, space, layout, flexbox, position, width } from "styled-system";
+import { color, space, layout, flexbox, position, width, zIndex } from "styled-system";
 
 import { base } from '../theme';
 import { Thumbnail, Wrap, H1, Text, Button } from './Core';
@@ -63,9 +63,7 @@ export const BlockTwoLn100 = (props) => {
 
 export const BlockMenu = (props) => {
   const navigate = useNavigate();
-  const navigateShop = () => {
-    navigate('/shop');
-  };
+
   const navigateHome = () => {
     navigate('/');
   };
@@ -75,26 +73,23 @@ export const BlockMenu = (props) => {
   const navigateSnap = () => {
     navigate('/snap');
   };
-  const navigateFont = () => {
-    navigate('/font');
+  const navigateShop = () => {
+    navigate('/Shop');
   };
 
   return (
     <ThemeProvider theme={base}>
-      <Wrap
-        zIndex="999"
-        width={[1, 1, 1, 1]}
-        position="fixed"
-        display="flex"
-        justifyContent="center"
-        bottom={2}>
-        <CenterWrap width={[4 / 5, 4 / 5, 1 / 2, 1 / 4]} display="flex">
-          <Button fontFamily={[0]} padding={[3]} variant="menuWht" flexGrow="6" textAlign="left" onClick={navigateHome}> Noname </Button>
-          <Button fontFamily={[0]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateShop}> Shop </Button>
-          <Button fontFamily={[0]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateSnap}> Snap </Button>
-          <Button fontFamily={[0]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateAbout}> About </Button>
-          <Button fontFamily={[0]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateFont}> Font </Button>
-        </CenterWrap>
+      <Wrap bottom={[0]} justifyContent="center" zIndex="999" width={['100%', '80%', '60%', '50%']} position="fixed">
+        <Wrap
+          p={['4', '2', '1', '0']}
+          width='100%'
+        >
+          <Button fontFamily={[0]} fontSize={[0]} padding={[3]} variant="menuWht" flexGrow="6" textAlign="left" onClick={navigateHome}> Noname </Button>
+          <Button fontFamily={[0]} fontSize={[0]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateSnap}> Snap </Button>
+          <Button fontFamily={[0]} fontSize={[0]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateAbout}> About </Button>
+          <Button fontFamily={[0]} fontSize={[0]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateShop}> Shop </Button>
+
+        </Wrap>
       </Wrap>
     </ThemeProvider>
   )
@@ -113,41 +108,12 @@ export const BlockThumb = (props) => {
   )
 }
 
-export const BlockThumbFont = (props) => {
+export const BlockThumbFont = ({ fontFamily, title, to }) => {
   return (
     <ThemeProvider theme={base}>
-      <Thumbnail width={[1, 1, 1, 1]} display="flex" flexDirection="column" flexWrap="wrap" bg="#d0d0c6" height={['50vh']} alignItems="center" justifyContent="center" to={props.to}>
-        <Wrap fontFamily={props.fontFamily} fontSize={[3]} p={[2]} >{props.title}</Wrap>
-        <H1 fontFamily={[0]} fontSize={[1]} p={[2]} >{props.cta}</H1>
+      <Thumbnail width={[1, 1, 1, 1]} display="flex" flexDirection="column" flexWrap="wrap" bg="#d0d0c6" height={['50vh']} alignItems="center" justifyContent="center" to={to}>
+        <Wrap fontFamily={fontFamily} fontSize={[3]} p={[2]} >{title}</Wrap>
       </Thumbnail>
-    </ThemeProvider>
-  )
-}
-
-export const BlockType2s = (props) => {
-  return (
-    <ThemeProvider theme={base}>
-      <Wrap flexDirection={['column', 'column', 'column', 'column']} justifyContent="start" width={['100%', '100%', '100%', "50%"]} flex={['1 1 auto']}>
-        <Wrap p={[4]} bg={['#CDCDCD']} flexDirection={['column', 'column', 'column', 'column']} justifyContent="start" flex={['1 1 auto']}>
-          <Text fontFamily={[0]} fontSize={[0, 0, 0, 0]} >
-            {props.meta}
-          </Text>
-          <H1 fontFamily={[1]} fontSize={[2, 2, 2, 2]} >
-            {props.body}
-          </H1>
-        </Wrap>
-      </Wrap>
-    </ThemeProvider>
-  )
-}
-
-export const BlockType2w = (props) => {
-  return (
-    <ThemeProvider theme={base}>
-      <Wrap pl={[2]} flexDirection={['column', 'column', 'column', 'column']} width={[1 / 4, 1 / 3, 1 / 2, 1 / 2]} justifyContent="center">
-        <H1 fontFamily={[0]} fontSize={[1, 0, 0, 0]} >{props.title}</H1>
-        <Text fontFamily={[0]} color={'blk40'} fontSize={[1, 0, 0, 0]}>{props.body}</Text>
-        </Wrap>
     </ThemeProvider>
   )
 }
@@ -164,4 +130,33 @@ export const BlockType = (props) => {
 }
 
 
+
+export const BlockHeader = ({ title, description, buttonText, handleBuyClick, zIndex }) => {
+  return (
+    <ThemeProvider theme={base}>
+      <Wrap width={["100%", "100%", "100%", "100%"]} position='fixed' top='0' flexDirection={['row']} zIndex='999' height={["64px", "64px", "64px", "64px"]}>
+        <Wrap flexGrow={["6", "6", "6", "6"]} p="2" flexDirection='column' justifyContent="center">
+          <H1 fontFamily={[0]} fontSize={[0]} fontWeight='600'>{title}</H1>
+          <H1 fontFamily={[0]} fontSize={[0]} fontWeight='400'>{description}</H1>
+        </Wrap>
+        <Wrap p="2">
+          <Button borderRadius={2} fontFamily={[0]} fontSize={[0]} p="3" flexShrink="1" fontWeight='600' variant="primary" fle onClick={handleBuyClick} >{buttonText}</Button>
+        </Wrap>
+      </Wrap>
+    </ThemeProvider>
+  )
+}
+
+export const BlockList = ({ title, description }) => {
+  return (
+    <ThemeProvider theme={base}>
+      <Wrap flexGrow='4' p={[2]} flexDirection='row' justifyContent="left">
+        <Text fontFamily={[0]} color={['blk40']} variant='' fontSize={[0]}>{title}</Text>
+      </Wrap>
+      <Wrap flexGrow='4' p={[2]} flexDirection='row' justifyContent="right">
+        <Text fontFamily={[0]} color={['blk40']} variant='' fontSize={[0]}>{description}</Text>
+      </Wrap>
+    </ThemeProvider>
+  )
+}
 

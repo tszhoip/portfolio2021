@@ -1,7 +1,7 @@
 import React from 'react';
 import { ProductSliderFull } from '../component/ProductSlider';
 import { base } from '../theme';
-import { ThemeProvider, isStyledComponent } from "styled-components";
+import { ThemeProvider, useTheme, isStyledComponent } from "styled-components";
 
 import sl1 from '../Assets/font/air/air1-1.jpg';
 import sl2 from '../Assets/font/air/air1-2.jpg';
@@ -9,6 +9,7 @@ import sl3 from '../Assets/font/air/air1-3.jpg';
 import sl4 from '../Assets/font/air/air1-4.jpg';
 import sl5 from '../Assets/font/air/air1-5.jpg';
 import sl6 from '../Assets/font/air/air1-6.jpg';
+
 
 import sl7 from '../Assets/font/air/air2-1.jpg';
 import sl8 from '../Assets/font/air/air2-2.jpg';
@@ -24,18 +25,23 @@ import ban4 from '../Assets/font/air/airpro-04.jpg';
 import ban5 from '../Assets/font/air/airpro-05.jpg';
 import ban6 from '../Assets/font/air/airpro-06.jpg';
 
+import ban1m from '../Assets/font/air/airpro-01-m.jpg';
+import ban2m from '../Assets/font/air/airpro-02-m.jpg';
+import ban3m from '../Assets/font/air/airpro-03-m.jpg';
+import ban4m from '../Assets/font/air/airpro-04-m.jpg';
+
 import set1 from '../Assets/font/air/airproset.jpg';
 
 import { ContainerBase, Wrap, Button, H1, Text } from '../component/Core';
-import { BlockType2s, BlockType2w } from '../component/Block';
+import { BlockType2s, BlockList, BlockHeader } from '../component/Block';
 
 const slider1 = [
   sl1,
   sl2,
   sl3,
   sl4,
-  sl5,
-  sl6
+  // sl5,
+  // sl6
 ]
 
 const slider2 = [
@@ -51,9 +57,14 @@ const banner = [
   ban1,
   ban2,
   ban3,
-  ban4,
-  ban5,
-  ban6
+  ban4
+]
+
+const bannerm = [
+  ban1m,
+  ban2m,
+  ban3m,
+  ban4m
 ]
 
 const set = [
@@ -68,26 +79,48 @@ export const Airpro = (props) => {
     window.location.href = '/license';
   };
 
+  const theme = useTheme();
+  const isMobile = window.innerWidth <= parseInt(theme.breakpoints.md, 10);
+
+
   return (
     <ThemeProvider theme={base}>
-      <ContainerBase width={["100%", "100%", "100%", "100%"]} flexDirection={['column', 'row', 'row', 'row']} flexWrap="wrap" justifyContent="center">
-        <Wrap width={["100%", "100%", "100%", "100%"]} flexDirection={['row']} height={["64px", "64px", "64px", "64px"]}>
-          <BlockType2w title="Air Pro" body="A USAF revamp version with a modern touch"/>
-          <Button fontSize={[0]} variant="primary" width={[1 / 4, 1 / 3, 1 / 2, 1 / 2]} onClick={handleBuyClick} >BUY / 5 USD</Button>
+      <ContainerBase width='100%' flexDirection='row' flexWrap="wrap" alignItems='center' justifyContent="center">
+
+        <BlockHeader title="AIR PRO™" description="A Modern Version of US AIRFORCE font" handleBuyClick={handleBuyClick} buttonText='BUY' />
+
+        <Wrap width={[1, 1, 1, 1]} mt="5">
+          {isMobile ? (
+            <ProductSliderFull images={bannerm} objfit="cover" />
+          ) : (
+            <ProductSliderFull images={banner} objfit="cover" />
+          )
+          }
         </Wrap>
 
-        <ProductSliderFull images={banner} objfit="cover" />
+        <Wrap width={[1, 1, 2 / 3, 1/2]} flexDirection='column' height="auto" justifyContent="space-between">
 
-        <Wrap width={[1, 1, 1, 1 / 3]}>
-        <BlockType2s body="SAME OLD CORNER IS THE ONLY CHARACTERS" meta="blk size 36" />
-        </Wrap>
+          <Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">
+            <Text fontFamily={[0]} color={['blk40']} variant='indent' fontSize={[0]}>Introducing AIR™, a versatile and clean font inspired by the United States Air Force font. AIR™ retains the simplicity and limited character set of its inspiration, but has been further refined to offer a range of weight options.
+              It works very well in combo or solo. It is made up of six styles, from cap light to cap bold.</Text>
 
-        <Wrap  width={[1, 1, 1 / 2, 1 / 3]}>
-        <BlockType2s body="SAME OLD CORNER IS THE ONLY CHARACTERS" meta="blk size 36" />
-        </Wrap>
+          </Wrap>
 
-        <Wrap width={[1, 1, 1 / 2, 1 / 3]}>
-        <BlockType2s body="SAME OLD CORNER IS THE ONLY CHARACTERS" meta="blk size 36" />
+          <Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">
+            <Wrap flexDirection='row' height="auto">
+              <BlockList title="formats" description={"OTF, TTF (variable), WOFF, WOFF2"} />
+            </Wrap>
+
+            <Wrap flexDirection='row' height="auto">
+              <BlockList title="Glyph" description={"40"} />
+            </Wrap>
+
+            <Wrap flexDirection='row' height="auto">
+              <BlockList title="Release date" description={"Aug 2023 (1.0.0)"} />
+            </Wrap>
+
+          </Wrap>
+
         </Wrap>
 
 
@@ -102,7 +135,7 @@ export const Airpro = (props) => {
         <Wrap width={["100%", "100%", "100%", "100%"]} flexDirection={['row']}>
           <ProductSliderFull images={set} objfit="cover" />
         </Wrap>
-        <Button fontSize={[0]} height={['500px']}variant="primary" width={[1, 1, 1, 1]} onClick={handlelicense} >license</Button>
+        <Button fontSize={[0]} height={['500px']} variant="primary" width={[1, 1, 1, 1]} onClick={handlelicense} >license</Button>
 
 
 
