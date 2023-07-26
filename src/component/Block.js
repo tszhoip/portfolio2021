@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled, { ThemeProvider } from "styled-components";
 import { color, space, layout, flexbox, position, width, zIndex } from "styled-system";
 
 import { base } from '../theme';
-import { Thumbnail, Wrap, H1, Text, Button } from './Core';
+import { Thumbnail, Wrap, H1, Text, Button, ContainerBase } from './Core';
 
 export const BlockContainer = styled.div`
 background-color: ${(props) => props.theme.colors.gre10};
@@ -21,8 +21,6 @@ ${position};
 ${flexbox};
 `
 
-
-
 const ImgBlock2 = styled.img`
     flex-grow: 1;
     width: 100%;
@@ -31,7 +29,6 @@ const ImgBlock2 = styled.img`
     ${space};
     ${layout};
 `
-
 
 export const BlockTwoLn50 = (props) => {
   return (
@@ -79,7 +76,7 @@ export const BlockMenu = (props) => {
 
   return (
     <ThemeProvider theme={base}>
-      <Wrap bottom={[0]} justifyContent="center" zIndex="999" width={['100%', '80%', '60%', '50%']} position="fixed">
+      <Wrap bottom={[0]} justifyContent="center" zIndex="999" width={['100%', '75%', '40%', '25%']} position="fixed">
         <Wrap
           p={['4', '2', '1', '0']}
           width='100%'
@@ -140,7 +137,7 @@ export const BlockHeader = ({ title, description, buttonText, handleBuyClick, zI
           <H1 fontFamily={[0]} fontSize={[0]} fontWeight='400'>{description}</H1>
         </Wrap>
         <Wrap p="2">
-          <Button borderRadius={2} fontFamily={[0]} fontSize={[0]} p="3" flexShrink="1" fontWeight='600' variant="primary" fle onClick={handleBuyClick} >{buttonText}</Button>
+          <Button fontFamily={[0]} fontSize={[0]} p="3" flexShrink="1" fontWeight='600' variant="primaryR" fle onClick={handleBuyClick} >{buttonText}</Button>
         </Wrap>
       </Wrap>
     </ThemeProvider>
@@ -150,13 +147,12 @@ export const BlockHeader = ({ title, description, buttonText, handleBuyClick, zI
 export const BlockList = ({ title, description }) => {
   return (
     <ThemeProvider theme={base}>
-      <Wrap flexGrow='4' p={[2]} flexDirection='row' justifyContent="left">
+      <Wrap flexGrow='4' pt={[2]} pb={[2]} flexDirection='row' justifyContent="left">
         <Text fontFamily={[0]} color={['blk40']} variant='' fontSize={[0]}>{title}</Text>
       </Wrap>
-      <Wrap flexGrow='4' p={[2]} flexDirection='row' justifyContent="right">
-        <Text fontFamily={[0]} color={['blk40']} variant='' fontSize={[0]}>{description}</Text>
+      <Wrap flexGrow='4' pt={[2]} pb={[2]} flexDirection='row' justifyContent="right">
+        <Text fontFamily={[0]} color={['blk10']} variant='' fontSize={[0]}>{description}</Text>
       </Wrap>
     </ThemeProvider>
   )
 }
-

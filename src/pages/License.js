@@ -1,55 +1,97 @@
 import React from 'react'
-import { Wrap } from '../component/Core'
+import { Wrap, Text, H1, ContainerBase, Span } from '../component/Core'
 import { BlockType } from '../component/Block'
 
 
 
 function License() {
   return (
-    <div>
-      <Wrap width={["100%", "100%", "100%", "100%"]} flexDirection={['column']} p={['4']}>
-        <BlockType title="END USER LICENSE AGREEMENT(DESKTOP FONT SOFTWARE)" body="THIS IS A BINDING LEGAL AGREEMENT regarding the font software and the design of the typeface embodied within (collectively, the “Font Software”) that you are downloading or purchasing from YouWorkForThem, for yourself, your company, your employer, or other principal (hereafter collectively referred to as “you”). If you refuse to accept a contractual obligation through this license agreement, you are not permitted to access, download, or use the Font Software. Please thoroughly and carefully read through this Agreement before purchasing, downloading, installing and/or using the Font Software, ANY OF WHICH SHALL INDICATE YOUR EXPRESS AGREEMENT TO THE FOLLOWING TERMS AND CONDITIONS.
-        The Font Software licensed under this Agreement and its inherent digital, device-readable, scalable data is supplied to you by YouWorkForThem for USAGE ONLY, and remains the intellectual property of the designer(s) of the Font Software.
-        YouWorkForThem and/or the designer(s) reserve all rights not expressly granted to you under this Agreement."/>
+    <ContainerBase width={['100%','100%','100%','80%']} flexDirection={['column', 'column', 'row', 'row']} p='4' flexWrap="no wrap" alignItems='start' justifyContent="center">
 
-        <BlockType title="1. Terms and Conditions" body="This is a legal agreement that establishes the terms and conditions of usage when installing any INARI TYPE font softwares. When purchasing one of our font softwares you are automatically agreeing with the following terms of this contract." />
+      <Wrap width={["100%", "100%", "33.3%", "33.3%"]} flexDirection='column' justifyContent="center">
+        <H1 fontFamily={[0]} color={['blk40']} fontSize={[2]}>
+          Section A — General Information
+        </H1>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          By purchasing, downloading, installing, using, or otherwise handling font software by the Supplier, the Licensee automatically accepts the terms of this agreement and acknowledges that:
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          <Span color="#a5a5a5" paddingRight="16px">01</Span>This license is non-exclusive, non-assignable and non-transferable, which grants you certain rights to use the font software (see section C).
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          <Span color="#a5a5a5" paddingRight="16px">02</Span>Except for your right to use the font software granted by this license, all other rights are owned and retained by the Supplier.
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          <Span color="#a5a5a5" paddingRight="16px">03</Span>The intellectual property of the design contained in the font software is owned by the Supplier.
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+        <Span color="#a5a5a5" paddingRight="16px">04</Span>The Supplier’s warranty is strictly limited to the replacement of the purchased font software in case it does not perform substantially in accordance with the specifications published on its website. To submit a claim, you must notify the Supplier in writing within 30 (thirty) days of purchase. The warranty does not apply to any font software converted, manipulated or modified by the user. All other rights and remedies are excluded.
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+        <Span color="#a5a5a5" paddingRight="16px">05</Span>The Supplier is not liable for any loss or damages caused by the use of purchased fonts, including lost profits, lost data, lost business opportunities, or lost savings.
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+        <Span color="#a5a5a5" paddingRight="16px">06</Span>The fonts and all of their copies are protected by the Copyright Act of the Czech Republic.
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+        <Span color="#a5a5a5" paddingRight="16px">07</Span>This EULA, and any dispute arising out of or in connection with this EULA, shall be governed by and construed in accordance with the laws of the Czech Republic.
+        </Text>
+      </Wrap>
 
-        <BlockType title="2. You may" body="INARI TYPE all inclusive licenses covers desktop, web and app usage, restricted to the user quantity agreed upon the font software purchase." />
-
-        <BlockType title="Logotype" body="You can adapt, distort, resize, reposition and make any formal alterations you need to match the visual language of your project, respecting the section 3 of this contract." />
-
-        <BlockType title="Partnerships / 3rd party" body="You can provide a copy of the font software for a third party such as a printer or web developer with its use limited to the project. Make sure they erase the font file afterwards." />
-
-        <BlockType title="Backup" body="You can make backup files of our font softwares, making sure you are the only one who has access to them." />
-
-        <BlockType title="You may not" body="You may not resell, redistribute or copy the font software.
-
-You may not modify, rename or adapt de font software generating a new file to be commercially redistributed, such as a new font software (.OTF, .TTF, etc), vector (.eps, .ai, etc) or any other type of file converted from the original.
-
-You may not generate a new font software from the alterations you may create for a logotype project using any INARI typeface.
-
-You may not use the trial font software for commercial work.
-
-You may not share the license between organizations, excepting third parties that may be involved in the project.
-
-You may not do any expansion or translation of any INARI TYPE font softwares without prior permission. Please check the section 5.
-
-You may not use any INARI TYPE font softwares in discriminatory actions."/>
-
-<BlockType title="4. Responsibility" body="The INARI TYPE font softwares are developed to work on the most current design softwares and programs. We recommend downloading the trial version of the font softwares prior to the purchase in order to predict any problems, since we do not make refunds. We are not responsible for any installation or usage problems caused by this nature." />
-
-
-<BlockType title="5. Extras" body="Translations
-If you are interested in adding characters or making the expansion of the font software for a language that is not covered, it is necessary a prior permission. Please contact hi@inaritype.com with ‘’Name of the typeface - translation’’ subject for further information.
-For any other inquiries, please get in touch!
-
-We are very happy about your interest in using our typefaces. Don't hesitate in giving us your feedback, we would love to hear from you. Have fun!" />
-
-
-
+      <Wrap width={["100%", "100%", "33.3%", "33.3%"]} flexDirection='column' justifyContent="center">
+        <H1 fontFamily={[0]} color={['blk40']} fontSize={[2]}>
+          Section B — Don'ts
+        </H1>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          01   You are not authorized to redistribute, sublicense, sell, lend, or lease purchased font software to any 3rd parties (including subsidiary company, affiliate company, servicing and production company, design agency, self-employed parties, or any other 3rd party carrying out work on behalf of the Licensee — for exceptions, see C5 and C6).
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          02   You must not enable remote access to your fonts via company servers or cloud solutions unless you purchased a server-use license extension.
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          03   You must not upload the fonts to any public server or public GIT repository available to users outside your organisation or entity.
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          04   You must not modify, rename or convert the original font software file under any circumstance.
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          05   You are not allowed to use the original font software file to create a derivative or modified product or design, including creating characters for alphabets and languages not covered by the typeface or designing a custom version of the typeface.
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          06   You are not allowed to use the fonts for user-generated content (generating invoices, print-on-demand, retail labelling solutions, user-editable documents or similar).
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          07   This document does not cover App/Game/ePub License, Online Advertising License or Electronic Device License. You are not allowed to use the fonts within a mobile or desktop app, game, eBook, HTML advertising, HTML pop-ups, e-mail newsletters, device displays (such as entertainment products, household appliances, digital POS, ticket machines, dashboards), broadcasting or similar specific situations, unless specified otherwise in your order.
+        </Text>
 
       </Wrap>
-    </div>
+
+      <Wrap width={["100%", "100%", "33.3%", "33.3%"]} flexDirection='column' justifyContent="center">
+        <H1 fontFamily={[0]} color={['blk40']} fontSize={[2]}>
+          Section C — Do's
+        </H1>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          01   The Desktop license grants you the right to install fonts locally on 3 computers within a single company/organisation (see B1), unless specified otherwise in your order. It allows you to generate static printed and digital imagery (such as posters, books, promotional materials, packaging or social media images) and moving pictures (such as YouTube videos).
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          02   Organisations with up to 50 employees may use the fonts to generate logos, wordmarks or physical retail products (such as clothing or hardware). Larger organisations are required to obtain a license extension.
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          03   You are not limited by the number of prints or views. The Desktop license is perpetual and does not require a subscription.
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          04   The Web license grants you the right to self-host fonts for a single domain with up to 10k visitors/month, unless specified otherwise in your order. The Web license is perpetual and does not require a subscription.
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          05  You may provide a copy of OTF and TTF font files to your printer or preprint facility, in the scope of a defined project, only in order to prepare for printing and print your documents.
+        </Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]}>
+          06   You may provide a copy of WOFF and WOFF2 font files to a web developer, in the scope of a defined project, only in order to implement the font software into the website.
+        </Text>
+
+      </Wrap>
+
+    </ContainerBase>
   );
 }
 

@@ -7,23 +7,16 @@ import sl1 from '../Assets/font/air/air1-1.jpg';
 import sl2 from '../Assets/font/air/air1-2.jpg';
 import sl3 from '../Assets/font/air/air1-3.jpg';
 import sl4 from '../Assets/font/air/air1-4.jpg';
-import sl5 from '../Assets/font/air/air1-5.jpg';
-import sl6 from '../Assets/font/air/air1-6.jpg';
-
 
 import sl7 from '../Assets/font/air/air2-1.jpg';
 import sl8 from '../Assets/font/air/air2-2.jpg';
 import sl9 from '../Assets/font/air/air2-3.jpg';
 import sl10 from '../Assets/font/air/air2-4.jpg';
-import sl11 from '../Assets/font/air/air2-5.jpg';
-import sl12 from '../Assets/font/air/air2-6.jpg';
 
 import ban1 from '../Assets/font/air/airpro-01.jpg';
 import ban2 from '../Assets/font/air/airpro-02.jpg';
 import ban3 from '../Assets/font/air/airpro-03.jpg';
 import ban4 from '../Assets/font/air/airpro-04.jpg';
-import ban5 from '../Assets/font/air/airpro-05.jpg';
-import ban6 from '../Assets/font/air/airpro-06.jpg';
 
 import ban1m from '../Assets/font/air/airpro-01-m.jpg';
 import ban2m from '../Assets/font/air/airpro-02-m.jpg';
@@ -33,24 +26,21 @@ import ban4m from '../Assets/font/air/airpro-04-m.jpg';
 import set1 from '../Assets/font/air/airproset.jpg';
 
 import { ContainerBase, Wrap, Button, H1, Text } from '../component/Core';
-import { BlockType2s, BlockList, BlockHeader } from '../component/Block';
+import { BlockList, BlockHeader} from '../component/Block';
+import { BlockTabs } from '../component/BlockTabs'
 
 const slider1 = [
   sl1,
   sl2,
   sl3,
-  sl4,
-  // sl5,
-  // sl6
+  sl4
 ]
 
 const slider2 = [
   sl7,
   sl8,
   sl9,
-  sl10,
-  sl11,
-  sl12
+  sl10
 ]
 
 const banner = [
@@ -78,14 +68,62 @@ export const Airpro = (props) => {
   const handlelicense = () => {
     window.location.href = '/license';
   };
-
   const theme = useTheme();
   const isMobile = window.innerWidth <= parseInt(theme.breakpoints.md, 10);
+  const tabs = [
+    {
+      label: '700',
+      content: 
+      <H1 fontFamily={[1]} fontWeight={[700]} fontSize={[4]}>
+       Muji First began in 1980
+      </H1>,
+    },
+    {
+      label: '600',
+      content: 
+      <H1 fontFamily={[1]} fontWeight={[600]} fontSize={[3]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980
+      </H1>,
+    },
+    {
+      label: '500',
+      content:
+      <H1 fontFamily={[1]} fontWeight={[500]} fontSize={[2]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria.
+      </H1>,
+    },
+    {
+      label: '400',
+      content:
+      <H1 fontFamily={[1]} fontWeight={[400]} fontSize={[1]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria.
+       This site introduces MUJI from various perspectives such as Message from MUJI / Products and Services / Stores / MUJI's Expanding Activities
+      </H1>,
+    },
+    {
+      label: 'Light',
+      content:
+      <H1 fontFamily={[1]} fontWeight={[300]} fontSize={[0]}>
+       “Lower priced for a reason.” This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria. Focusing on our three priorities of “selection of materials,” “streamlining of processes,” and “simplification of packages,” we have grown into a brand with over 7,000 no-frills quality products.
+This site introduces MUJI from various perspectives such as “Message from MUJI” “Products and Services” “Stores” and “MUJI's Expanding Activities.”
+      </H1>,
+    },
+    {
+      label: 'Thin',
+      content:
+      <H1 fontFamily={[1]} fontWeight={[200]} fontSize={[0]}>
+       “Lower priced for a reason.” This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria. Focusing on our three priorities of “selection of materials,” “streamlining of processes,” and “simplification of packages,” we have grown into a brand with over 7,000 no-frills quality products.
+This site introduces MUJI from various perspectives such as “Message from MUJI” “Products and Services” “Stores” and “MUJI's Expanding Activities.”
+      </H1>,
+    },
+    // Add more tabs as needed
+  ];
+
 
 
   return (
     <ThemeProvider theme={base}>
-      <ContainerBase width='100%' flexDirection='row' flexWrap="wrap" alignItems='center' justifyContent="center">
+      <ContainerBase width='100%' flexDirection='column' flexWrap="wrap" alignItems='center' justifyContent="center">
 
         <BlockHeader title="AIR PRO™" description="A Modern Version of US AIRFORCE font" handleBuyClick={handleBuyClick} buttonText='BUY' />
 
@@ -101,7 +139,7 @@ export const Airpro = (props) => {
         <Wrap width={[1, 1, 2 / 3, 1/2]} flexDirection='column' height="auto" justifyContent="space-between">
 
           <Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">
-            <Text fontFamily={[0]} color={['blk40']} variant='indent' fontSize={[0]}>Introducing AIR™, a versatile and clean font inspired by the United States Air Force font. AIR™ retains the simplicity and limited character set of its inspiration, but has been further refined to offer a range of weight options.
+            <Text fontFamily={[0]} color={['blk10']} variant='indent' fontSize={[0]}>Introducing AIR™, a versatile and clean font inspired by the United States Air Force font. AIR™ retains the simplicity and limited character set of its inspiration, but has been further refined to offer a range of weight options.
               It works very well in combo or solo. It is made up of six styles, from cap light to cap bold.</Text>
 
           </Wrap>
@@ -124,12 +162,18 @@ export const Airpro = (props) => {
         </Wrap>
 
 
-        <Wrap width={["100%", "50%", "50%", "50%"]} flexDirection={['row']}>
-          <ProductSliderFull images={slider1} objfit="cover" />
+
+        <Wrap width={["100%"]} flexDirection={['column','row','row','row']}>
+          <BlockTabs tabs={tabs}/> <BlockTabs tabs={tabs}/>
         </Wrap>
 
-        <Wrap width={["100%", "50%", "50%", "50%"]} flexDirection={['row']}>
-          <ProductSliderFull images={slider2} objfit="cover" />
+        <Wrap width={["100%"]} flexDirection={['column','row','row','row']}>
+          <BlockTabs tabs={tabs}/> <BlockTabs tabs={tabs}/>
+        </Wrap>
+
+
+        <Wrap width={["100%"]} flexDirection={['row']}>
+          <ProductSliderFull images={slider1} objfit="cover" /><ProductSliderFull images={slider2} objfit="cover" />
         </Wrap>
 
         <Wrap width={["100%", "100%", "100%", "100%"]} flexDirection={['row']}>

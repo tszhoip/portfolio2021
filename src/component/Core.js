@@ -4,6 +4,7 @@ import { color, typography, space, layout, flexbox, position, width, variant, bo
 
 export const ContainerBase = styled.div`
 display: flex; 
+gap:8px;
 ${compose(space, width, color, layout, typography, flexbox, border, position)};
 `
 
@@ -34,8 +35,13 @@ ${color};
 const fontVariants = {
   indent: {
     textIndent: '4rem',
+  },
+  indentpb: {
+    paddingBottom: '1rem',
+    textIndent: '4rem',
   }
 };
+
 
 export const H1 = styled.h1`
 letter-spacing: -0.02em;
@@ -57,6 +63,23 @@ export const Text = styled.p`
 `;
 
 
+// S P A N
+
+const spanVariants = {
+  A: {
+  },
+  B: {
+  }
+};
+
+export const Span = styled.span`
+${compose(space, color, layout, typography, flexbox, border, width)};
+${variant({
+  variants: spanVariants,
+})};
+`;
+
+
 // B U T T O N
 
 const buttonVariants = {
@@ -74,7 +97,13 @@ const buttonVariants = {
     backgroundColor: "rgb(215 215 215 / 0.4)",
     backdropFilter: "blur(4px)",
     color: "black",
-    transition: "background-color 0.6s ease-in-out",
+    transition: "background-color 0.3s ease-in-out",
+  },
+  primaryR: {
+    backgroundColor: "rgb(215 215 215 / 0.4)",
+    backdropFilter: "blur(4px)",
+    color: "black",
+    transition: "background-color 0.3s ease-in-out",
     borderRadius: "16px"
   },
 };
@@ -97,9 +126,16 @@ const hoverVariants = {
       background-color: black;
       backdrop-filter: blur(8px);
       color: #39FF14;
-      border-radius: 16px;
     }
   `,
+  primaryR: css`
+  &:hover {
+    background-color: black;
+    backdrop-filter: blur(8px);
+    color: #39FF14;
+    border-radius: 16px;
+  }
+`,
 };
 
 export const Button = styled.button`
