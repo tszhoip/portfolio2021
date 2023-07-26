@@ -1,11 +1,12 @@
 
 
-const fontSizes = ["12px", "16px", "32px","48px","64px"];
+const fontSizes = ["9px","12px", "16px", "32px","48px","64px"];
 fontSizes.s = fontSizes[0];
 fontSizes.m = fontSizes[1];
 fontSizes.l = fontSizes[2];
 fontSizes.xl = fontSizes[3];
 fontSizes.xl = fontSizes[4];
+fontSizes.xl = fontSizes[5];
 
 const fonts = ["Helvetica", "AIR", "Hong", "PIX"];
 fonts.helvetica = fonts[0];

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import styled, { ThemeProvider } from "styled-components";
-import { color, space, layout, flexbox, position, width, zIndex } from "styled-system";
+import { ThemeProvider } from "styled-components";
 import { base } from '../theme';
-import { Thumbnail, Wrap, H1, Text, Button, ContainerBase } from './Core';
+import { Wrap,ContainerBase } from './Core';
 
 
 
@@ -11,7 +10,7 @@ export const BlockTabs = ({ tabs }) => {
 
   return (
     <ThemeProvider theme={base}>
-      <ContainerBase width='100%' flexDirection='column' flexWrap="wrap" alignItems='start' justifyContent="start">
+      <Wrap width={['50%','50%','50%','33.3%']} height={["320px","340px","380px","420px"]}  flexDirection='column' alignItems='start' justifyContent="start">
         <Wrap p={[2]}>
           {tabs.map((tab, index) => (
             <div
@@ -33,8 +32,8 @@ export const BlockTabs = ({ tabs }) => {
           ))}
         </Wrap>
           {tabs.map((tab, index) => (
-             <ContainerBase width='100%' backgroundColor="#f5f5f5" p="2" alignItems='start' justifyContent="start">
-            <Wrap width={['90%','90%','80%','80%']} height={["55vh","60vh","65vh","70vh"]} key={index}
+             <Wrap width='100%' backgroundColor="#f5f5f5" alignItems='start' justifyContent="start">
+            <Wrap width={['90%','90%','80%','80%']} key={index}
               style={{
                 fontFamily: 'Helvetica',
                 borderRadius: '8px',
@@ -43,9 +42,9 @@ export const BlockTabs = ({ tabs }) => {
               }}>
               {tab.content}
             </Wrap>
-            </ContainerBase>
+            </Wrap>
           ))}
-      </ContainerBase>
+      </Wrap>
     </ThemeProvider>
   )
 }

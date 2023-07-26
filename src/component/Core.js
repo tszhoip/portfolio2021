@@ -88,11 +88,6 @@ const buttonVariants = {
     backgroundColor: "rgb(230 230 230 / 0.8)",
     backdropFilter: "blur(2px)"
     },
-  menuBlk: {
-    backgroundColor: "rgb(0 0 0 / 0.5)",
-    backdropFilter: "blur(4px)",
-    color: "white"
-  },
   primary: {
     backgroundColor: "rgb(215 215 215 / 0.4)",
     backdropFilter: "blur(4px)",
@@ -112,13 +107,6 @@ const hoverVariants = {
   menuWht: css`
    &:hover {
       backdrop-filter: blur(4px);
-    }
-  `,
-  menuBlk: css`
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(8px);
-      color: white;
     }
   `,
   primary: css`

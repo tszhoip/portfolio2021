@@ -1,7 +1,7 @@
 import React from 'react';
 import { ProductSliderFull } from '../component/ProductSlider';
 import { base } from '../theme';
-import { ThemeProvider, useTheme, isStyledComponent } from "styled-components";
+import { ThemeProvider, useTheme } from "styled-components";
 
 import sl1 from '../Assets/font/air/air1-1.jpg';
 import sl2 from '../Assets/font/air/air1-2.jpg';
@@ -70,50 +70,110 @@ export const Airpro = (props) => {
   };
   const theme = useTheme();
   const isMobile = window.innerWidth <= parseInt(theme.breakpoints.md, 10);
-  const tabs = [
+  const tabsBLK = [
     {
-      label: '700',
+      label: 'Title',
       content: 
-      <H1 fontFamily={[1]} fontWeight={[700]} fontSize={[4]}>
-       Muji First began in 1980
+      <H1 pl={2} fontFamily={[1]} fontWeight={[700]} fontSize={[2,2,3,3]} lineHeight={[1.4]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980.<br/><br/>Size 34 / Black
       </H1>,
     },
     {
-      label: '600',
+      label: 'Body 2',
+      content:
+      <H1 pl={2} fontFamily={[1]} fontWeight={[700]} fontSize={[0,0,1,1]} lineHeight={[1.6]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria.<br/><br/>Focusing on our three priorities of “selection of materials,” “streamlining of processes,” and “simplification of packages,” we have grown into a brand with over 7,000 no-frills quality products.
+This site introduces MUJI from various perspectives such as Message from MUJI / Products and Services / Stores / MUJI's Expanding Activities.<br/><br/> Size 10 / Black
+      </H1>,
+    },
+    // Add more tabs as needed
+  ];
+  const tabsBold = [
+    {
+      label: 'Title',
       content: 
-      <H1 fontFamily={[1]} fontWeight={[600]} fontSize={[3]}>
-       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980
+      <H1 pl={2} fontFamily={[1]} fontWeight={[600]} fontSize={[2,2,3,3]} lineHeight={[1.4]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980.<br/><br/>Size 34 / Black
       </H1>,
     },
     {
-      label: '500',
+      label: 'Body 2',
       content:
-      <H1 fontFamily={[1]} fontWeight={[500]} fontSize={[2]}>
-       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria.
+      <H1 pl={2} fontFamily={[1]} fontWeight={[600]} fontSize={[0,0,1,1]} lineHeight={[1.6]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria.<br/><br/>Focusing on our three priorities of “selection of materials,” “streamlining of processes,” and “simplification of packages,” we have grown into a brand with over 7,000 no-frills quality products.
+This site introduces MUJI from various perspectives such as Message from MUJI / Products and Services / Stores / MUJI's Expanding Activities.<br/><br/> Size 10 / Black
+      </H1>,
+    },
+    // Add more tabs as needed
+  ];
+  const tabsMed = [
+    {
+      label: 'Title',
+      content: 
+      <H1 pl={2} fontFamily={[1]} fontWeight={[500]} fontSize={[2,2,3,3]} lineHeight={[1.4]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980.<br/><br/>Size 34 / Black
       </H1>,
     },
     {
-      label: '400',
+      label: 'Body 2',
       content:
-      <H1 fontFamily={[1]} fontWeight={[400]} fontSize={[1]}>
-       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria.
-       This site introduces MUJI from various perspectives such as Message from MUJI / Products and Services / Stores / MUJI's Expanding Activities
+      <H1 pl={2} fontFamily={[1]} fontWeight={[500]} fontSize={[0,0,1,1]} lineHeight={[1.6]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria.<br/><br/>Focusing on our three priorities of “selection of materials,” “streamlining of processes,” and “simplification of packages,” we have grown into a brand with over 7,000 no-frills quality products.
+This site introduces MUJI from various perspectives such as Message from MUJI / Products and Services / Stores / MUJI's Expanding Activities.<br/><br/> Size 10 / Black
+      </H1>,
+    },
+    // Add more tabs as needed
+  ];
+  const tabsReg = [
+    {
+      label: 'Title',
+      content: 
+      <H1 pl={2} fontFamily={[1]} fontWeight={[400]} fontSize={[2,2,3,3]} lineHeight={[1.4]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980.<br/><br/>Size 34 / Black
       </H1>,
     },
     {
-      label: 'Light',
+      label: 'Body 2',
       content:
-      <H1 fontFamily={[1]} fontWeight={[300]} fontSize={[0]}>
-       “Lower priced for a reason.” This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria. Focusing on our three priorities of “selection of materials,” “streamlining of processes,” and “simplification of packages,” we have grown into a brand with over 7,000 no-frills quality products.
-This site introduces MUJI from various perspectives such as “Message from MUJI” “Products and Services” “Stores” and “MUJI's Expanding Activities.”
+      <H1 pl={2} fontFamily={[1]} fontWeight={[400]} fontSize={[0,0,1,1]} lineHeight={[1.6]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria.<br/><br/>Focusing on our three priorities of “selection of materials,” “streamlining of processes,” and “simplification of packages,” we have grown into a brand with over 7,000 no-frills quality products.
+This site introduces MUJI from various perspectives such as Message from MUJI / Products and Services / Stores / MUJI's Expanding Activities.<br/><br/> Size 10 / Black
+      </H1>,
+    },
+    // Add more tabs as needed
+  ];
+  const tabsLight = [
+    {
+      label: 'Title',
+      content: 
+      <H1 pl={2} fontFamily={[1]} fontWeight={[300]} fontSize={[2,2,3,3]} lineHeight={[1.4]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980.<br/><br/>Size 34 / Black
       </H1>,
     },
     {
-      label: 'Thin',
+      label: 'Body',
       content:
-      <H1 fontFamily={[1]} fontWeight={[200]} fontSize={[0]}>
-       “Lower priced for a reason.” This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria. Focusing on our three priorities of “selection of materials,” “streamlining of processes,” and “simplification of packages,” we have grown into a brand with over 7,000 no-frills quality products.
-This site introduces MUJI from various perspectives such as “Message from MUJI” “Products and Services” “Stores” and “MUJI's Expanding Activities.”
+      <H1 pl={2} fontFamily={[1]} fontWeight={[300]} fontSize={[0,0,1,1]} lineHeight={[1.6]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria.<br/><br/>Focusing on our three priorities of “selection of materials,” “streamlining of processes,” and “simplification of packages,” we have grown into a brand with over 7,000 no-frills quality products.
+This site introduces MUJI from various perspectives such as Message from MUJI / Products and Services / Stores / MUJI's Expanding Activities.<br/><br/> Size 10 / Black
+      </H1>,
+    },
+    // Add more tabs as needed
+  ];
+  const tabsThin = [
+    {
+      label: 'Title',
+      content: 
+      <H1 pl={2} fontFamily={[1]} fontWeight={[200]} fontSize={[2,2,3,3]} lineHeight={[1.4]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980.<br/><br/>Size 34 / Black
+      </H1>,
+    },
+    {
+      label: 'Body 2',
+      content:
+      <H1 pl={2} fontFamily={[1]} fontWeight={[200]} fontSize={[0,0,1,1]} lineHeight={[1.6]}>
+       Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria.<br/><br/>Focusing on our three priorities of “selection of materials,” “streamlining of processes,” and “simplification of packages,” we have grown into a brand with over 7,000 no-frills quality products.
+This site introduces MUJI from various perspectives such as Message from MUJI / Products and Services / Stores / MUJI's Expanding Activities.<br/><br/> Size 10 / Black
       </H1>,
     },
     // Add more tabs as needed
@@ -163,12 +223,13 @@ This site introduces MUJI from various perspectives such as “Message from MUJI
 
 
 
-        <Wrap width={["100%"]} flexDirection={['column','row','row','row']}>
-          <BlockTabs tabs={tabs}/> <BlockTabs tabs={tabs}/>
-        </Wrap>
-
-        <Wrap width={["100%"]} flexDirection={['column','row','row','row']}>
-          <BlockTabs tabs={tabs}/> <BlockTabs tabs={tabs}/>
+        <Wrap width={["100%"]} flexDirection={['row']} flexWrap="wrap">
+          <BlockTabs tabs={tabsBLK}/>
+          <BlockTabs tabs={tabsBold}/>
+          <BlockTabs tabs={tabsMed}/>
+          <BlockTabs tabs={tabsReg}/>
+          <BlockTabs tabs={tabsLight}/>
+          <BlockTabs tabs={tabsThin}/>
         </Wrap>
 
 
