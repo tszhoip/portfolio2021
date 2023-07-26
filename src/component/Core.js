@@ -46,7 +46,6 @@ const fontVariants = {
 export const H1 = styled.h1`
 letter-spacing: -0.02em;
 line-height: 1.15;
-
 ${compose(space, color, layout, typography, flexbox, border, width)};
 ${variant({
   variants: fontVariants,

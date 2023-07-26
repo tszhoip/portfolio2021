@@ -1,8 +1,5 @@
 import React from 'react'
 import { Wrap, Text, H1, ContainerBase, Span } from '../component/Core'
-import { BlockType } from '../component/Block'
-
-
 
 function License() {
   return (

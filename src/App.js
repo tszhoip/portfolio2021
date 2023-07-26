@@ -13,16 +13,17 @@ import Joy from './pages/Joy';
 import Type from './pages/Type';
 import Shop from './pages/Shop';
 import License from './pages/License';
+import Privacy from './pages/Privacy';
 import { Airpro } from './pages/f-airpro';
 
-import { BlockMenu } from './component/Block';
+import { BlockMenu,BlockFooter } from './component/Block';
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import { ContainerBase } from './component/Core';
 
 function App() {
   return (
     <Router>
-      <ContainerBase width={[1, 1, 1, 1]} display="flex" flexDirection="row" justifyContent="center">
+      <ContainerBase width={[1, 1, 1, 1]} display="flex" flexDirection="column" justifyContent="center" alignItems="center">
         <BlockMenu />
         <Routes>
         <Route path="/" exact element={<Home/>}/>
@@ -38,8 +39,11 @@ function App() {
         <Route path="/snap" element={<Snap/>}/>
         <Route path="/joy" element={<Joy/>}/>
         <Route path="/type" element={<Type/>}/>
+
         <Route path="/license" element={<License/>}/>
+        <Route path="/Privacy" element={<Privacy/>}/>
         </Routes>
+        <BlockFooter />
         </ContainerBase>
     </Router>
   );

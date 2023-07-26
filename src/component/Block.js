@@ -76,15 +76,15 @@ export const BlockMenu = (props) => {
 
   return (
     <ThemeProvider theme={base}>
-      <Wrap bottom={[0]} justifyContent="center" zIndex="999" width={['100%', '75%', '40%', '25%']} position="fixed">
+      <Wrap bottom={[0]} justifyContent="center" zIndex="999" width={['100%', '75%', '40%', '25%']} position="fixed" >
         <Wrap
           p={['4', '2', '1', '0']}
           width='100%'
         >
-          <Button fontFamily={[0]} fontSize={[0]} padding={[3]} variant="menuWht" flexGrow="6" textAlign="left" onClick={navigateHome}> Noname </Button>
-          <Button fontFamily={[0]} fontSize={[0]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateSnap}> Snap </Button>
-          <Button fontFamily={[0]} fontSize={[0]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateAbout}> About </Button>
-          <Button fontFamily={[0]} fontSize={[0]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateShop}> Shop </Button>
+          <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="8" textAlign="left" onClick={navigateHome}> Noname </Button>
+          <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateSnap}> Snap </Button>
+          <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateAbout}> About </Button>
+          <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateShop}> Shop </Button>
 
         </Wrap>
       </Wrap>
@@ -92,6 +92,37 @@ export const BlockMenu = (props) => {
   )
 };
 
+
+export const BlockFooter = (props) => {
+  const navigate = useNavigate();
+
+  const navigateLicense = () => {
+    navigate('/License');
+  };
+  const navigatePrivacy = () => {
+    navigate('/Privacy');
+  };
+  const navigateSnap = () => {
+    navigate('/snap');
+  };
+  const navigateShop = () => {
+    navigate('/Shop');
+  };
+
+  return (
+    <ThemeProvider theme={base}>
+      <Wrap bottom={[0]} justifyContent="center" zIndex="1" width={['100%']}>
+        <Wrap
+          width='100%'
+        >
+          <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" textAlign="left" onClick={navigatePrivacy}> Privacy </Button>
+          <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" textAlign="left" onClick={navigateLicense}> License </Button>
+
+        </Wrap>
+      </Wrap>
+    </ThemeProvider>
+  )
+};
 
 
 export const BlockThumb = (props) => {
@@ -133,11 +164,11 @@ export const BlockHeader = ({ title, description, buttonText, handleBuyClick, zI
     <ThemeProvider theme={base}>
       <Wrap width={["100%", "100%", "100%", "100%"]} position='fixed' top='0' flexDirection={['row']} zIndex='999' height={["64px", "64px", "64px", "64px"]}>
         <Wrap flexGrow={["6", "6", "6", "6"]} p="2" flexDirection='column' justifyContent="center">
-          <H1 fontFamily={[0]} fontSize={[0]} fontWeight='600'>{title}</H1>
-          <H1 fontFamily={[0]} fontSize={[0]} fontWeight='400'>{description}</H1>
+          <H1 fontFamily={[0]} fontSize={[1]} fontWeight='600'>{title}</H1>
+          <H1 fontFamily={[0]} fontSize={[1]} fontWeight='400'>{description}</H1>
         </Wrap>
         <Wrap p="2">
-          <Button fontFamily={[0]} fontSize={[0]} p="3" flexShrink="1" fontWeight='600' variant="primaryR" fle onClick={handleBuyClick} >{buttonText}</Button>
+          <Button fontFamily={[0]} fontSize={[1]} p="3" flexShrink="1" fontWeight='600' variant="primaryR" fle onClick={handleBuyClick} >{buttonText}</Button>
         </Wrap>
       </Wrap>
     </ThemeProvider>
@@ -148,10 +179,10 @@ export const BlockList = ({ title, description }) => {
   return (
     <ThemeProvider theme={base}>
       <Wrap flexGrow='4' pt={[2]} pb={[2]} flexDirection='row' justifyContent="left">
-        <Text fontFamily={[0]} color={['blk40']} variant='' fontSize={[0]}>{title}</Text>
+        <Text fontFamily={[0]} color={['blk40']} variant='' fontSize={[1]}>{title}</Text>
       </Wrap>
       <Wrap flexGrow='4' pt={[2]} pb={[2]} flexDirection='row' justifyContent="right">
-        <Text fontFamily={[0]} color={['blk10']} variant='' fontSize={[0]}>{description}</Text>
+        <Text fontFamily={[0]} color={['blk10']} variant='' fontSize={[1]}>{description}</Text>
       </Wrap>
     </ThemeProvider>
   )
