@@ -24,6 +24,11 @@ const ImgLogo = [
   { img: lo7 },
   { img: lo8 },
   { img: lo9 },
+  { img: lo5 },
+  { img: lo6 },
+  { img: lo7 },
+  { img: lo8 },
+  { img: lo9 },
 ]
 
 function About() {

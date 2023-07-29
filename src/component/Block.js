@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled, { ThemeProvider } from "styled-components";
 import { color, space, layout, flexbox, position, width, zIndex } from "styled-system";
@@ -65,7 +65,7 @@ export const BlockMenu = (props) => {
     navigate('/');
   };
   const navigateAbout = () => {
-    navigate('/feed');
+    navigate('/about');
   };
   const navigateSnap = () => {
     navigate('/snap');
@@ -76,21 +76,18 @@ export const BlockMenu = (props) => {
 
   return (
     <ThemeProvider theme={base}>
-      <Wrap bottom={[0]} justifyContent="center" zIndex="999" width={['100%', '75%', '40%', '25%']} position="fixed" >
-        <Wrap
-          p={['4', '2', '1', '0']}
-          width='100%'
-        >
+      <Wrap width="100%">
           <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="8" textAlign="left" onClick={navigateHome}> Noname </Button>
           <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateSnap}> Snap </Button>
           <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateAbout}> About </Button>
           <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateShop}> Shop </Button>
-
-        </Wrap>
-      </Wrap>
+  </Wrap>
     </ThemeProvider>
   )
 };
+
+
+
 
 
 export const BlockFooter = (props) => {
@@ -111,9 +108,10 @@ export const BlockFooter = (props) => {
 
   return (
     <ThemeProvider theme={base}>
-      <Wrap bottom={[0]} justifyContent="center" zIndex="1" width={['100%']}>
+      <Wrap className="block-footer" bottom={[0]} justifyContent="center" zIndex="1" width={['100%']}>
         <Wrap
           width='100%'
+          height="50vh"
         >
           <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" textAlign="left" onClick={navigatePrivacy}> Privacy </Button>
           <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" textAlign="left" onClick={navigateLicense}> License </Button>

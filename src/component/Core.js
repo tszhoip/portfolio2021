@@ -4,7 +4,6 @@ import { color, typography, space, layout, flexbox, position, width, variant, bo
 
 export const ContainerBase = styled.div`
 display: flex; 
-gap:8px;
 ${compose(space, width, color, layout, typography, flexbox, border, position)};
 `
 
