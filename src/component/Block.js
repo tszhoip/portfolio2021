@@ -77,11 +77,11 @@ export const BlockMenu = (props) => {
   return (
     <ThemeProvider theme={base}>
       <Wrap width="100%">
-          <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="8" textAlign="left" onClick={navigateHome}> Noname </Button>
-          <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateSnap}> Snap </Button>
-          <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateAbout}> About </Button>
-          <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" onClick={navigateShop}> Shop </Button>
-  </Wrap>
+        <Button fontFamily={[0]} width="40%" fontSize={[1]} padding={[3]} variant="default" flexGrow="8" textAlign="left" onClick={navigateHome}> Noname </Button>
+        <Button fontFamily={[0]} width="20%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="right" onClick={navigateSnap}> Snap </Button>
+        <Button fontFamily={[0]} width="20%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="right" onClick={navigateAbout}> About </Button>
+        <Button fontFamily={[0]} width="20%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="right" onClick={navigateShop}> Shop </Button>
+      </Wrap>
     </ThemeProvider>
   )
 };
@@ -99,23 +99,34 @@ export const BlockFooter = (props) => {
   const navigatePrivacy = () => {
     navigate('/Privacy');
   };
-  const navigateSnap = () => {
-    navigate('/snap');
-  };
-  const navigateShop = () => {
-    navigate('/Shop');
-  };
+
 
   return (
     <ThemeProvider theme={base}>
-      <Wrap className="block-footer" bottom={[0]} justifyContent="center" zIndex="1" width={['100%']}>
-        <Wrap
-          width='100%'
-          height="50vh"
-        >
-          <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" textAlign="left" onClick={navigatePrivacy}> Privacy </Button>
-          <Button fontFamily={[0]} fontSize={[1]} padding={[3]} variant="menuWht" flexGrow="1" textAlign="left" onClick={navigateLicense}> License </Button>
+      <Wrap className="block-footer" bottom={[0]} justifyContent="flex-start" flexDirection={["column","column","row","row"]} zIndex="1" width={['100%']} pt="4" pb="4" bg="#000" color="grey">
+        <Wrap width={['80%','80%','40%','40%']} >
+          <Text  fontFamily={[0]} fontSize={[1]} pt={[1]} pl={[3]} maxWidth="400px">
+            Noname is an independent creative office with high quality design. All design are exclusively created with passions and thought.
+          </Text>
 
+        </Wrap>
+
+        <Wrap width={['80%','80%','20%','20%']} flexDirection={["row","row","column","column"]}>
+          <Button fontFamily={[0]} fontSize={[1]} pt={[5,3,1,1]} pl={[3]} pr={[3]} variant="footer"   textAlign="right" onClick={navigatePrivacy}> Privacy </Button>
+          <Button fontFamily={[0]} fontSize={[1]} pt={[5,3,1,1]} pl={[3]}  pr={[3]} variant="footer"  textAlign="right" onClick={navigateLicense}> License </Button>
+          <Button fontFamily={[0]} fontSize={[1]} pt={[5,3,1,1]} pl={[3]}  pr={[3]} variant="footer"  textAlign="right" onClick={navigateLicense}> Shipping </Button>
+
+        </Wrap>
+
+        <Wrap width={['80%','80%','20%','20%']} flexDirection={["row","row","column","column"]}>
+          <Button fontFamily={[0]} fontSize={[1]} pt={[5,3,1,1]} pl={[3]}  pr={[3]} variant="footer"  textAlign="right" onClick={navigatePrivacy}> Instagram </Button>
+          <Button fontFamily={[0]} fontSize={[1]} pt={[5,3,1,1]} pl={[3]}  pr={[3]} variant="footer"  textAlign="right" onClick={navigateLicense}> Savee.it </Button>
+          <Button fontFamily={[0]} fontSize={[1]} pt={[5,3,1,1]} pl={[3]}  pr={[3]} variant="footer"  textAlign="right" onClick={navigateLicense}> Red </Button>
+        </Wrap>
+
+        <Wrap width={['80%','80%','20%','20%']} flexDirection={["row","row","column","column"]}>
+          <Button fontFamily={[0]} fontSize={[1]} pt={[5,3,1,1]} pl={[3]}  pr={[3]} variant="footer" textAlign="right" onClick={navigatePrivacy}> 626 390 2555 </Button>
+          <Button fontFamily={[0]} fontSize={[1]} pt={[5,3,1,1]} pl={[3]}  pr={[3]} variant="footer" textAlign="right" onClick={navigateLicense}> info@noname.com </Button>
         </Wrap>
       </Wrap>
     </ThemeProvider>
@@ -161,7 +172,7 @@ export const BlockHeader = ({ title, description, buttonText, handleBuyClick, zI
   return (
     <ThemeProvider theme={base}>
       <Wrap width={["100%", "100%", "100%", "100%"]} position='fixed' top='0' flexDirection={['row']} zIndex='999' height={["64px", "64px", "64px", "64px"]}>
-        <Wrap flexGrow={["6", "6", "6", "6"]} p="2" flexDirection='column' justifyContent="center">
+        <Wrap flexGrow={["6", "6", "6", "6"]} p="3" flexDirection='column' justifyContent="center">
           <H1 fontFamily={[0]} fontSize={[1]} fontWeight='600'>{title}</H1>
           <H1 fontFamily={[0]} fontSize={[1]} fontWeight='400'>{description}</H1>
         </Wrap>
@@ -176,11 +187,13 @@ export const BlockHeader = ({ title, description, buttonText, handleBuyClick, zI
 export const BlockList = ({ title, description }) => {
   return (
     <ThemeProvider theme={base}>
-      <Wrap flexGrow='4' pt={[2]} pb={[2]} flexDirection='row' justifyContent="left">
-        <Text fontFamily={[0]} color={['blk40']} variant='' fontSize={[1]}>{title}</Text>
+      <Wrap width={["100%"]} borderBottom="1px grey solid">
+      <Wrap flexGrow='4' width={["50%"]} pt={[2]} pb={[2]} flexDirection='row' justifyContent="left">
+        <Text fontFamily={[0]} color={['blk70']} variant='' fontSize={[1]}>{title}</Text>
       </Wrap>
-      <Wrap flexGrow='4' pt={[2]} pb={[2]} flexDirection='row' justifyContent="right">
-        <Text fontFamily={[0]} color={['blk10']} variant='' fontSize={[1]}>{description}</Text>
+      <Wrap flexGrow='4' width={["50%"]} pt={[2]} pb={[2]} flexDirection='row' justifyContent="left">
+        <Text fontFamily={[0]} color={['blk50']} variant='' fontSize={[1]}>{description}</Text>
+      </Wrap>
       </Wrap>
     </ThemeProvider>
   )

@@ -1,12 +1,13 @@
 
 
-const fontSizes = ["9px","12px", "16px", "32px","48px","64px"];
-fontSizes.s = fontSizes[0];
-fontSizes.m = fontSizes[1];
-fontSizes.l = fontSizes[2];
-fontSizes.xl = fontSizes[3];
-fontSizes.xl = fontSizes[4];
+const fontSizes = ["9px","12px", "16px", "32px","48px","64px","80px"];
+fontSizes.xxs = fontSizes[0];
+fontSizes.xs = fontSizes[1];
+fontSizes.s = fontSizes[2];
+fontSizes.m = fontSizes[3];
+fontSizes.l = fontSizes[4];
 fontSizes.xl = fontSizes[5];
+fontSizes.xxl = fontSizes[6];
 
 const fonts = ["Helvetica", "AIR", "Hong", "PIX"];
 fonts.helvetica = fonts[0];
@@ -44,10 +45,14 @@ export const base = {
     yel30: "#BD871F",
     gre10: "#F4EFEA",
     gre20: "#D3C9BE",
-    blk10: "#151716",
-    blk20: "#273427",
-    blk30: "#645264",
-    blk40: "#858284",
+    blk00: "#0F0F10",
+    blk10: "#1B1B1E",
+    blk20: "#313236",
+    blk30: "#313236",
+    blk40: "#5D5F68",
+    blk50: "#787A87",
+    blk60: "#A5A6B0",
+    blk70: "#C2C3CE",
     
   },
     fontSizes,

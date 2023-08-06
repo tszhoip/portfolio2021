@@ -2,6 +2,7 @@ import styled, { css } from "styled-components"
 import { Link } from 'react-router-dom'
 import { color, typography, space, layout, flexbox, position, width, variant, border, compose } from "styled-system"
 
+
 export const ContainerBase = styled.div`
 display: flex; 
 ${compose(space, width, color, layout, typography, flexbox, border, position)};
@@ -55,8 +56,8 @@ export const Text = styled.p`
   line-height: 1.15;
   ${compose(space, color, layout, typography, flexbox, border, width)};
   ${variant({
-    variants: fontVariants,
-  })};
+  variants: fontVariants,
+})};
 
 `;
 
@@ -81,11 +82,17 @@ ${variant({
 // B U T T O N
 
 const buttonVariants = {
-  menuWht: {
+  default: {
     color: 'black',
     backgroundColor: "rgb(230 230 230 / 0.8)",
+    backdropFilter: "blur(2px)",
+    padding: "16px",
+  },
+  footer: {
+    color: 'grey',
+    backgroundColor: "rgb(0 0 0 / 0)",
     backdropFilter: "blur(2px)"
-    },
+  },
   primary: {
     backgroundColor: "rgb(215 215 215 / 0.4)",
     backdropFilter: "blur(4px)",
@@ -102,8 +109,9 @@ const buttonVariants = {
 };
 
 const hoverVariants = {
-  menuWht: css`
+  default: css`
    &:hover {
+      background-color: rgb(230 230 230 / 0.6);
       backdrop-filter: blur(4px);
     }
   `,
@@ -114,6 +122,12 @@ const hoverVariants = {
       color: #39FF14;
     }
   `,
+  footer: css`
+  &:hover {
+    backdrop-filter: blur(8px);
+    color: red;
+  }
+`,
   primaryR: css`
   &:hover {
     background-color: black;
@@ -127,10 +141,19 @@ const hoverVariants = {
 export const Button = styled.button`
 border: none;
 ${compose(space, color, layout, typography, flexbox, border)};
+padding: 16px 24px;
   ${variant({
   variants: buttonVariants,
 })};
-  ${(props) => hoverVariants[props.variant] || ""}; // Apply the appropriate hover styles based on the variant prop
+  ${(props) => hoverVariants[props.variant] || ""};
+`;
 
- 
+
+
+
+// S P A C E R
+
+
+export const Spacer = styled.div`
+${compose(space, color, layout, typography, flexbox, border)};
 `;

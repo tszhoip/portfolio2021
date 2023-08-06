@@ -15,8 +15,8 @@ const ImageGallery = styled.div`
   overflow-x: auto; /* Enable horizontal scrolling */
   width: 100vw;
   overflow: hidden;
-  padding: 200px 0;
-  background-color: red;
+  padding: 160px 0;
+  background-color: #f5f5f5;
   ${space}
   ${layout}
   ${flexbox}
@@ -29,8 +29,7 @@ const ImageGallery = styled.div`
 
 const ImgGrid = styled.img`
   cursor: pointer;
-  width: 400px;
-  margin-left: 200px;
+  width: 360px;
   border: 0.5px solid #f5f5f5;
   ${space}
   ${layout}
@@ -85,6 +84,7 @@ export const BlockImg = (props) => {
                   colSpan={colSpan}
                   rowSpan={rowSpan}
                   objfit={props.objfit}
+                  ml={['40px','80px','160px','160px']}
                 />
               )}
             </Item>

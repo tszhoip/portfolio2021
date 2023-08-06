@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400&family=Roboto:wght@400;500&display=swap');
 @font-face {
-    font-family: "AIR";
-    src: local("AIR"),
-     url("../Assets/font/AirPro.ttf") format("truetype");
+    font-family: 'AIR';
+    src: local('AIR'),
+     url('../Assets/font/AirPro.ttf') format('truetype');
     font-weight: heavy;
    }
    @font-face {
-    font-family: "Hong";
-    src: local("Hong"),
-     url("../Assets/font/NewFont-Regular.ttf") format("truetype");
+    font-family: 'Hong';
+    src: local('Hong'),
+     url('../Assets/font/NewFont-Regular.ttf') format('truetype');
     font-weight: Regular;
    }
    @font-face {
-    font-family: "PIX";
-    src: local("PIX"),
-     url("../Assets/font/N1MONO-MONO.ttf") format("truetype");
+    font-family: 'PIX';
+    src: local('PIX'),
+     url('../Assets/font/N1MONO-MONO.ttf') format('truetype');
     font-weight: Regular;
    }
    
@@ -30,8 +30,8 @@ body {
     padding: 0;
 }
 
-[class^="number-slide"],
-[class*=" number-slide"] {
+[class^='number-slide'],
+[class*=' number-slide'] {
     background: grey;
     display: flex;
     align-items: center;

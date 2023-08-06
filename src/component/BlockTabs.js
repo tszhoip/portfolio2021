@@ -10,8 +10,8 @@ export const BlockTabs = ({ tabs }) => {
 
   return (
     <ThemeProvider theme={base}>
-      <Wrap width={['100%','50%','50%','33.3%']} height={["180px","240px","280px","320px"]}  flexDirection='column' alignItems='start' overflow="hidden" justifyContent="start" bg="#e5e5e5">
-        <Wrap p={[2]} bg="#e5e5e5">
+      <Wrap width={['100%','100%','67%','50%']} height={["560px","640px","640px","720px"]}  flexDirection='column' alignItems='center' overflow="hidden" justifyContent="start" bg="white" >
+        <Wrap p={[2]}>
           {tabs.map((tab, index) => (
             <div
               key={index}
@@ -32,11 +32,8 @@ export const BlockTabs = ({ tabs }) => {
           ))}
         </Wrap>
           {tabs.map((tab, index) => (
-            <Wrap width={['100%','90%','80%','80%']} key={index} 
+            <Wrap width={['100%']} height={['100%']} key={index} alignItems='center' justifyContent="center" 
               style={{
-                fontFamily: 'Helvetica',
-                borderRadius: '8px',
-                color: '#666',
                 display: activeTab === index ? 'block' : 'none'
               }}>
               {tab.content}

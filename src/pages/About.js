@@ -10,9 +10,10 @@ import lo7 from '../Assets/feed/feed-7.jpg';
 import lo8 from '../Assets/feed/feed-8.jpg';
 import lo9 from '../Assets/feed/feed-9.jpg';
 
-import { ContainerBase, Wrap, Button, H1, Text } from '../component/Core';
+import { ContainerBase, Wrap, Button, H1, Text, Spacer } from '../component/Core';
 import { base } from '../theme';
 import { ThemeProvider, isStyledComponent } from "styled-components";
+import { BlockList, BlockHeader } from '../component/Block';
 
 const ImgLogo = [
   { img: lo1 },
@@ -36,16 +37,36 @@ function About() {
     <ThemeProvider theme={base}>
       <ContainerBase width='100%' flexDirection='column' flexWrap="wrap" alignItems='center' justifyContent="center">
 
-        <Wrap width={[1, 1, 1 / 2, 1 / 2]} flexDirection='row' height="auto">
-          <Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">
-            <Text fontFamily={[0]} color={['blk40']} variant='indent' fontSize={[0]}>
-            We are an independent Creative duo based in Los Angeles, CA. Both me & Michelle had our own fulltime. And We still like to use our downtime to express our creativity.
-              </Text>
-              <Text fontFamily={[0]} color={['blk40']} variant='indent' fontSize={[0]}>
-              If you have something on your mind, feel free to contact us at hi@inaritype.com. We can’t wait to hear from you.
-              </Text>
+      <Wrap width={[1, 1, 2 / 3, 1 / 2]} flexDirection='column' height="auto" justifyContent="space-between">
+
+      <Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">
+            <Text fontFamily={[0]} color={['blk50']} variant='indent' fontSize={[2]}>Introducing AIR™, a versatile and clean font inspired by the United States Air Force font. AIR™ retains the simplicity and limited character set of its inspiration, but has been further refined to offer a range of weight options.
+              It works very well in combo or solo. It is made up of six styles, from cap light to cap bold.</Text>
+              <Spacer height="16px" />
+              <Text fontFamily={[0]} color={['blk50']} variant='indent' fontSize={[2]}>
+              Our goal with AIR™ was to create a font that is both functional and visually appealing, with as little design as possible to maximize utility. We believe that the best fonts are those that can be used in a variety of contexts, from branding and marketing to product packaging and signage.</Text>
           </Wrap>
-        </Wrap>
+
+<Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">
+  <Wrap flexDirection='row' height="auto">
+    <BlockList title="formats" description={"OTF, TTF (variable), WOFF, WOFF2"} />
+  </Wrap>
+
+  <Wrap flexDirection='row' height="auto">
+    <BlockList title="Glyph" description={"40"} />
+  </Wrap>
+
+  <Wrap flexDirection='row' height="auto">
+    <BlockList title="Release date" description={"Aug 2023 (1.0.0)"} />
+  </Wrap>
+
+  <Wrap flexDirection='row' height="auto">
+    <BlockList title="Licensing" description={"A basic license purchased via this website combines desktop and web license. Desktop covers installation on a given number of workstations. Web allows you to self-host webfont files for a single domain with no time limitation. For more information, please check FAQ or get in touch."} />
+  </Wrap>
+
+</Wrap>
+
+</Wrap>
 
         <BlockImgPlay images={ImgLogo} gtcD="repeat(4, 25%)" gtcM="repeat(2, 50%)" />
 
