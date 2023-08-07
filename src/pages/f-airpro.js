@@ -2,7 +2,6 @@ import React from 'react';
 import { ProductSliderFull } from '../component/ProductSlider';
 import { base } from '../theme';
 import { ThemeProvider, useTheme } from "styled-components";
-import { Spacer } from '../component/Core';
 
 import ban1 from '../Assets/font/air/airpro-01.jpg';
 import ban2 from '../Assets/font/air/airpro-02.jpg';
@@ -23,7 +22,7 @@ import { BlockImg } from '../component/BlockImgLR'
 
 import set1 from '../Assets/font/air/airproset.jpg';
 
-import { ContainerBase, Wrap, Button, H1, Text } from '../component/Core';
+import { ContainerBase, Wrap, Button, H1, Text, Spacer } from '../component/Core';
 import { BlockList, BlockHeader } from '../component/Block';
 import { BlockTabs } from '../component/BlockTabs'
 
