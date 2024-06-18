@@ -20,6 +20,7 @@ ${width};
 ${layout};
 ${flexbox};
 ${color};
+color: black;
 &:hover{
   filter: grayscale(100%);
   color: white;

@@ -1,8 +1,5 @@
 {
-  'projects': {
-    'default': 'portfolio2021test',
-    'staging': 'portfolio2021test'
-  },
-  'targets': {},
-  'etags': {}
+  "projects": {
+    "default": "test-360proj-test"
+  }
 }

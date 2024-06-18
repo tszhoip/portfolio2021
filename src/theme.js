@@ -1,3 +1,4 @@
+import { flex } from "styled-system";
 
 
 const fontSizes = ["9px","12px", "16px", "32px","48px","64px","80px"];
@@ -34,6 +35,10 @@ const widths = ["25%", "50%", "100%"];
 widths.w25 = widths[0];
 widths.w50 = widths[1];
 widths.w100 = widths[2];
+
+const flexDirection = ["row", "column"];
+flexDirection.row = flexDirection[0];
+flexDirection.column = flexDirection[1];
 
 export const base = {
   colors: {

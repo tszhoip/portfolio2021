@@ -6,12 +6,41 @@ import { color, space, layout, flexbox, position, width, zIndex } from "styled-s
 import { base } from '../theme';
 import { Thumbnail, Wrap, H1, Text, Button, ContainerBase } from './Core';
 
+export const Block = styled.div`
+background-color: ${(props) => props.theme.colors.gre10};
+display: flex;
+flex-direction: row;
+width: 100vw;
+flex-wrap: wrap;
+`
+
 export const BlockContainer = styled.div`
 background-color: ${(props) => props.theme.colors.gre10};
 box-shadow: 0px 0px 1px ${(props) => props.theme.colors.gre20} inset;
 ${color};
 ${space};
 ${layout};
+`
+export const BlockConCol = styled.div`
+display: flex;
+flex-direction: column;
+${layout};
+`
+export const BlockConRow = styled.div`
+${layout};
+${space};
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+` 
+
+export const BlockContainer5050 = styled.div`
+background-color: ${(props) => props.theme.colors.gre10};
+box-shadow: 0px 0px 1px ${(props) => props.theme.colors.gre20} inset;
+${color};
+${space};
+${layout};
+
 `
 
 export const CenterWrap = styled.div`
@@ -33,11 +62,10 @@ const ImgBlock2 = styled.img`
 export const BlockTwoLn50 = (props) => {
   return (
     <ThemeProvider theme={base}>
-      <BlockContainer width={[1, 1, 1 / 2, 1 / 2]}>
-        <Wrap padding={[3]} pb={[4]}>
-          <ImgBlock2 src={props.image} pb={[2]} />
-          <H1 fontFamily={[0]} color="navy10" fontSize={[1]}>{props.title}</H1>
-          <Text color="navy20" fontSize={[1]}>{props.body}</Text>
+      <BlockContainer width={[1, 1, 1 / 2, 1 / 2]} >
+        <Wrap padding={[3]} pb={[4]} display={"block"}>
+          <Text fontFamily={[0]} color="grey" fontSize={[1]}>{props.title}</Text>
+          <Text fontFamily={[0]} color="navy20" fontSize={[1]}>{props.body}</Text>
         </Wrap>
       </BlockContainer>
     </ThemeProvider>
@@ -48,12 +76,24 @@ export const BlockTwoLn100 = (props) => {
   return (
     <ThemeProvider theme={base}>
       <BlockContainer width={[1, 1, 1, 1]}>
-        <Wrap padding={[3]} pb={[4]}>
-          <ImgBlock2 src={props.image} pb={[2]} />
+        <Wrap padding={[0]} pb={[0]}>
+          <ImgBlock2 src={props.image} pb={[0]} />
           <H1 fontFamily={[0]} color="navy10" fontSize={[1]}>{props.title}</H1>
-          <Text color="navy20" fontSize={[1]}>{props.body}</Text>
+          <Text color="black" fontSize={[0]}>{props.body}</Text>
         </Wrap>
       </BlockContainer>
+    </ThemeProvider>
+  )
+};
+
+export const Blockitem = (props) => {
+  return (
+    <ThemeProvider theme={base}>
+        <Wrap padding={[0]} pb={[3]} width={[1, 1, 1, 1]} flexDirection="column">
+          <ImgBlock2 src={props.image} pb={[0]} />
+          <H1 fontFamily={[0]} color="navy10" fontSize={[1]}>{props.title}</H1>
+          <Text fontFamily={[0]} color="black" fontSize={[1]}>{props.body}</Text>
+        </Wrap>
     </ThemeProvider>
   )
 };
@@ -139,7 +179,7 @@ export const BlockThumb = (props) => {
     <ThemeProvider theme={base}>
       <Thumbnail width={[1, 1, 1 / 2, 1 / 3]} display="flex" flexDirection="row" flexWrap="wrap" justifyContent="start" to={props.to}>
         <ImgBlock2 src={props.img} to={props.linkto} side={props.side} />
-        <H1 fontFamily={[0]} fontSize={[2]} p={[2]} >{props.title}</H1>
+        <H1 fontFamily={[0]} fontSize={[2]} p={[2]}>{props.title}</H1>
       </Thumbnail>
     </ThemeProvider>
   )
