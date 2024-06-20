@@ -8,7 +8,7 @@ import { space, layout, flexbox, border, color, typography, width } from "styled
 
 
 import { base } from '../theme';
-import { Thumbnail, Wrap, H1, Text, Button, ContainerBase } from './Core';
+import { Thumbnail, Wrap, H1, Text, Button, Container } from './Core';
 
 const ImageGallery = styled.div`
   display: flex;

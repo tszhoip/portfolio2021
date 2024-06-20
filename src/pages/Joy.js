@@ -28,7 +28,7 @@ import { ProductSliderFull } from '../component/ProductSlider';
 import { BlockImgProj } from '../component/BlockImgPlay';
 import { BlockTwoLn100 } from '../component/Block';
 
-import { ContainerBase, Wrap, Button, H1, Text } from '../component/Core';
+import { Container, Wrap, Button, H1, Text } from '../component/Core';
 
 const ImgFig = [
   f1,

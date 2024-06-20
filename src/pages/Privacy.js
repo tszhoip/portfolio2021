@@ -1,9 +1,9 @@
 import React from 'react'
-import { Wrap, Text, H1, ContainerBase, Span } from '../component/Core'
+import { Wrap, Text, H1, Container, Span } from '../component/Core'
 
 function Privacy() {
   return (
-    <ContainerBase width={['100%', '100%', '100%', '80%']} flexDirection={['column', 'column', 'row', 'row']} p='4' flexWrap="no wrap" alignItems='start' justifyContent="center">
+    <Container width={['100%', '100%', '100%', '80%']} flexDirection={['column', 'column', 'row', 'row']} p='4' flexWrap="no wrap" alignItems='start' justifyContent="center">
 
       <Wrap width={["100%", "100%", "50%", "50%"]} flexDirection='column' justifyContent="center">
         <H1 fontFamily={[0]} color={['blk40']} fontSize={[2]}>
@@ -112,7 +112,7 @@ function Privacy() {
 
   
 
-    </ContainerBase>
+    </Container>
   );
 }
 

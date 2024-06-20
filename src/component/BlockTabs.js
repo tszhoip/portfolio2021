@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ThemeProvider } from "styled-components";
 import { base } from '../theme';
-import { Wrap,ContainerBase } from './Core';
+import { Wrap,Container } from './Core';
 
 
 

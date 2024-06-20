@@ -65,4 +65,5 @@ export const base = {
     spaces,
     widths,
     fonts,
+    flexDirection,
   };

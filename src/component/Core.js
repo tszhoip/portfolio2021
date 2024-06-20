@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import { color, typography, space, layout, flexbox, position, width, variant, border, compose } from "styled-system"
 
 
-export const ContainerBase = styled.div`
+export const Container = styled.div`
 display: flex; 
 ${compose(space, width, color, layout, typography, flexbox, border, position)};
 `
+
+
 
 // W R A P
 
@@ -92,7 +94,14 @@ const buttonVariants = {
   footer: {
     color: 'grey',
     backgroundColor: "rgb(0 0 0 / 0)",
-    backdropFilter: "blur(2px)"
+    backdropFilter: "blur(2px)",
+    border: "0px solid",
+  },
+  footerDisable: {
+    color: '#333',
+    backgroundColor: "rgb(0 0 0 / 0)",
+    backdropFilter: "blur(2px)",
+    border: "0px solid",
   },
   primary: {
     backgroundColor: "rgb(215 215 215 / 0.4)",
@@ -142,7 +151,6 @@ const hoverVariants = {
 export const Button = styled.button`
 border: none;
 ${compose(space, color, layout, typography, flexbox, border)};
-padding: 16px 24px;
   ${variant({
   variants: buttonVariants,
 })};

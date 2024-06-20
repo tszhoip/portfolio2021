@@ -22,7 +22,7 @@ import { BlockImg } from '../component/BlockImgLR'
 
 import set1 from '../Assets/font/air/airproset.jpg';
 
-import { ContainerBase, Wrap, Button, H1, Text, Spacer } from '../component/Core';
+import { Container, Wrap, Button, H1, Text, Spacer } from '../component/Core';
 import { BlockList, BlockHeader } from '../component/Block';
 import { BlockTabs } from '../component/BlockTabs'
 
@@ -107,7 +107,7 @@ export const Airpro = (props) => {
 
   return (
     <ThemeProvider theme={base}>
-      <ContainerBase width='100%' flexDirection='column' flexWrap="wrap" alignItems='center' justifyContent="center" bg="#f5f5f5">
+      <Container width='100%' flexDirection='column' flexWrap="wrap" alignItems='center' justifyContent="center" bg="#f5f5f5">
 
         <BlockHeader title="AIR PRO™" description="A Modern Version of Air Force font" handleBuyClick={handleBuyClick} buttonText='BUY' />
 
@@ -162,7 +162,7 @@ export const Airpro = (props) => {
           <BlockImg images={ga} />
         </Wrap>
 
-      </ContainerBase>
+      </Container>
     </ThemeProvider>
   )
 }

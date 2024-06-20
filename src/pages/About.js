@@ -10,7 +10,7 @@ import lo7 from '../Assets/feed/feed-7.jpg';
 import lo8 from '../Assets/feed/feed-8.jpg';
 import lo9 from '../Assets/feed/feed-9.jpg';
 
-import { ContainerBase, Wrap, Button, H1, Text, Spacer } from '../component/Core';
+import { Container, Wrap, Button, H1, Text, Spacer } from '../component/Core';
 import { base } from '../theme';
 import { ThemeProvider, isStyledComponent } from "styled-components";
 import { BlockList, BlockHeader } from '../component/Block';
@@ -35,17 +35,11 @@ const ImgLogo = [
 function About() {
   return (
     <ThemeProvider theme={base}>
-      <ContainerBase width='100%' flexDirection='column' flexWrap="wrap" alignItems='center' justifyContent="center">
+      <Container width='100%' flexDirection='column' flexWrap="wrap" alignItems='center' justifyContent="center">
 
       <Wrap width={[1, 1, 2 / 3, 1 / 2]} flexDirection='column' height="auto" justifyContent="space-between">
 
-      <Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">
-            <Text fontFamily={[0]} color={['blk50']} variant='indent' fontSize={[2]}>Introducing AIR™, a versatile and clean font inspired by the United States Air Force font. AIR™ retains the simplicity and limited character set of its inspiration, but has been further refined to offer a range of weight options.
-              It works very well in combo or solo. It is made up of six styles, from cap light to cap bold.</Text>
-              <Spacer height="16px" />
-              <Text fontFamily={[0]} color={['blk50']} variant='indent' fontSize={[2]}>
-              Our goal with AIR™ was to create a font that is both functional and visually appealing, with as little design as possible to maximize utility. We believe that the best fonts are those that can be used in a variety of contexts, from branding and marketing to product packaging and signage.</Text>
-          </Wrap>
+ 
 
 <Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">
   <Wrap flexDirection='row' height="auto">
@@ -70,7 +64,7 @@ function About() {
 
         <BlockImgPlay images={ImgLogo} gtcD="repeat(4, 25%)" gtcM="repeat(2, 50%)" />
 
-      </ContainerBase>
+      </Container>
     </ThemeProvider>
   );
 }

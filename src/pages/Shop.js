@@ -1,37 +1,36 @@
 import React from "react";
 import { base } from '../theme';
 import { ThemeProvider } from "styled-components";
-import { ContainerBase, Button, Wrap } from "../component/Core";
-import { BlockThumbFont } from "../component/Block"
+import { Container, Button, Wrap } from "../component/Core";
+import { BlockThumb } from '../component/Block';
+
+import air from '../Assets/shop/thumbair.jpg';
+import mono from '../Assets/shop/thumbmono.jpg';
+import CanooP from '../Assets/CanooP/LCanooP.jpg';
 
 
 
 function Shop() {
 
-  const handleAir = () => {
-    window.location.href = '/f-airpro';
-  };
-  const handleCA = () => {
-    window.location.href = '/f-California';
-  };
-  const handlePix = () => {
-    window.location.href = '/f-airpro';
-  };
+  // const handleAir = () => {
+  //   window.location.href = '/f-airpro';
+  // };
+  // const handleCA = () => {
+  //   window.location.href = 'https://www.google.com/';
+  // };
+  // const handlePix = () => {
+  //   window.location.href = '/f-airpro';
+  // };
 
   return (
     <ThemeProvider theme={base}>
-      <ContainerBase flexDirection={['column', 'row', 'row', 'row']} flexWrap="wrap" justifyContent="center" width={['100vw']}>
-      <Wrap flexGrow='1' flexDirection='column' justifyContent="center">
-        <Button fontFamily={[1]} fontSize={[4,4,5,5]} height={['50vh']} variant="primary" width={['100vw', '100vw', '100%', '100%']} onClick={handleAir} >AIR PRO</Button>
-        <Button fontFamily={[2]} fontSize={[4,4,5,5]} height={['50vh']} variant="primary" width={['100vw', '100vw', '100%', '100%']} onClick={handleCA} >CALI</Button>
-        <Button fontFamily={[3]} fontSize={[4,4,5,5]} height={['50vh']} variant="primary" width={['100vw', '100vw', '100%', '100%']} onClick={handleAir} >SN MONO</Button>
-        <Button fontFamily={[1]} fontSize={[4]} height={['50vh']} variant="primary" width={['100vw', '100vw', '100%', '100%']} onClick={handleAir} >AIR PRO</Button>
-        <Button fontFamily={[2]} fontSize={[4]} height={['50vh']} variant="primary" width={['100vw', '100vw', '100%', '100%']} onClick={handleCA} >CALI</Button>
-        <Button fontFamily={[3]} fontSize={[4]} height={['50vh']} variant="primary" width={['100vw', '100vw', '100%', '100%']} onClick={handleAir} >SN MONO</Button>
+      <Container flexDirection={['row', 'row', 'row', 'row']} flexWrap="wrap" justifyContent="center" width={['100vw']}>
+        <BlockThumb img={air} to="https://zbynoname.gumroad.com/l/air-font" title="air" />
+        <BlockThumb img={mono} to="https://www.google.com/" title="mono" />
 
 
-        </Wrap>
-      </ContainerBase>
+
+      </Container>
     </ThemeProvider>
   );
 }
