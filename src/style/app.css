@@ -42,3 +42,7 @@ body {
     height: 300px;
     max-height: 100vh;
 }
+
+.blockThumbFull {
+    background-size: contain;
+  }

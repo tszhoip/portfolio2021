@@ -24,9 +24,8 @@ const ImageGallery = styled.div`
 const ImgGrid = styled.img`
     object-fit: contain;
     cursor: pointer;
-    width: calc(100% - 16px);
-    padding: 8px;
-    border: 0.5px solid #f5f5f5;
+    width: calc(100% - 32px);
+    padding: 16px;
     grid-column: span ${props => props.colSpan};
     grid-row: span ${props => props.colRow};
     &:hover{
@@ -171,7 +170,7 @@ export const BlockImgProj = (props) => {
               key={index}
               original={img}
               BlockThumb={img}
-              width="3000"
+              width="2000"
               height="2000"
               
             >

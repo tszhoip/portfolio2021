@@ -1,32 +1,27 @@
 import React from "react";
 import { base } from '../theme';
 import { ThemeProvider } from "styled-components";
-import { Container, Button, Wrap } from "../component/Core";
-import { BlockThumb } from '../component/Block';
-
+import { Container } from "../component/Core";
+import { BlockThumbFont } from '../component/Block';
 import air from '../Assets/shop/thumbair.jpg';
 import mono from '../Assets/shop/thumbmono.jpg';
-import CanooP from '../Assets/CanooP/LCanooP.jpg';
+import porter from '../Assets/shop/thumbporter.jpg';
 
 
 
 function Shop() {
 
-  // const handleAir = () => {
-  //   window.location.href = '/f-airpro';
-  // };
-  // const handleCA = () => {
-  //   window.location.href = 'https://www.google.com/';
-  // };
-  // const handlePix = () => {
-  //   window.location.href = '/f-airpro';
-  // };
+  BlockThumbFont.defaultProps = {
+    width: [1, 1, 1, 1],
+    height: ['auto'],
+  };
 
   return (
     <ThemeProvider theme={base}>
-      <Container flexDirection={['row', 'row', 'row', 'row']} flexWrap="wrap" justifyContent="center" width={['100vw']}>
-        <BlockThumb img={air} to="https://zbynoname.gumroad.com/l/air-font" title="air" />
-        <BlockThumb img={mono} to="https://www.google.com/" title="mono" />
+      <Container flexDirection={['row', 'row', 'row', 'row']} flexWrap="wrap" maxWidth="1440px" justifyContent="center" width={['100vw']}>
+        <BlockThumbFont img={air} to="https://zbynoname.gumroad.com/l/air-font" title="air" />
+        <BlockThumbFont img={mono} to="https://www.google.com/" title="mono" />
+        <BlockThumbFont img={porter} to="https://www.google.com/" title="porter" />
 
 
 

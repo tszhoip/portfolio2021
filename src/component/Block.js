@@ -4,7 +4,7 @@ import styled, { ThemeProvider } from "styled-components";
 import { color, space, layout, flexbox, position, width, zIndex } from "styled-system";
 
 import { base } from '../theme';
-import { Thumbnail, Wrap, H1, Text, Button, Container } from './Core';
+import { Thumbnail, ThumbnailFont, Wrap, H1, Text, Button, Container } from './Core';
 
 export const Block = styled.div`
 background-color: ${(props) => props.theme.colors.gre10};
@@ -33,7 +33,7 @@ ${layout};
 
 export const CenterWrap = styled.div`
 ${layout};
-${width}
+${width};
 ${position};
 ${flexbox};
 `
@@ -48,9 +48,8 @@ const BImage = styled.img`
 
 const ImgBlock2 = styled.img`
     flex-grow: 1;
-    width: 100%;
-    height: auto;
     object-fit: cover;
+    object-position: center;
     ${space};
     ${layout};
 `
@@ -92,11 +91,11 @@ export const BlockTwoLn100 = (props) => {
 export const Blockitem = (props) => {
   return (
     <ThemeProvider theme={base}>
-        <Wrap padding={[3]} pb={[3]} flexDirection="column">
-          <ImgBlock2 src={props.image} pb={[1]} />
-          <Text pb="1" fontFamily={[0]} color="lightgrey" fontSize={[0,0,1,2]}>{props.title}</Text>
-          <Text pb=""  pr={[0,3,4,5]} fontFamily={[0]} color="black" fontSize={[0,0,1,2]}>{props.body}</Text>
-        </Wrap>
+      <Wrap padding={[3]} pb={[3]} flexDirection="column">
+        <ImgBlock2 src={props.image} pb={[1]} />
+        <Text pb="1" fontFamily={[0]} color="lightgrey" fontSize={[0, 0, 1, 2]}>{props.title}</Text>
+        <Text pb="" pr={[0, 3, 4, 5]} fontFamily={[0]} color="black" fontSize={[0, 0, 1, 2]}>{props.body}</Text>
+      </Wrap>
     </ThemeProvider>
   )
 };
@@ -121,7 +120,7 @@ export const BlockMenu = (props) => {
     <ThemeProvider theme={base}>
       <Wrap width="100%">
         <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateHome}> Noname </Button>
-        <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateSnap}> Snap </Button>
+        <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateSnap}> Archive </Button>
         <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateAbout}> About </Button>
         <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateShop}> Shop </Button>
       </Wrap>
@@ -148,14 +147,14 @@ export const BlockFooter = (props) => {
     <ThemeProvider theme={base}>
       <Wrap className="block-footer" justifyContent="start" flexDirection={["row"]} flexWrap="wrap" zIndex="1" width={[1]} pt="3" pb="4" bg="#000" color="grey">
 
-          <Button width={[1/2,1/2,1/4,1/4]} padding={[3]} fontFamily={[0]} fontSize={[1]}  variant="footer"   textAlign="left" onClick={navigatePrivacy}> Privacy </Button>
-          <Button width={[1/2,1/2,1/4,1/4]} padding={[3]}  fontFamily={[0]} fontSize={[1]}  variant="footer"  textAlign="left" onClick={navigateLicense}> License </Button>
-          <Button width={[1/2,1/2,1/4,1/4]} padding={[3]}  fontFamily={[0]} fontSize={[1]}  variant="footer"  textAlign="left" onClick={navigateLicense}> Shipping </Button>
-          <Button width={[1/2,1/2,1/4,1/4]} padding={[3]} fontFamily={[0]} fontSize={[1]}  variant="footer"  textAlign="left" onClick={navigatePrivacy}> Instagram </Button>
-          <Button width={[1/2,1/2,1/4,1/4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footer"  textAlign="left" onClick={navigateLicense}> Savee.it </Button>
-          <Button width={[1/2,1/2,1/4,1/4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footer"  textAlign="left" onClick={navigateLicense}> Red </Button>
-          <Button width={[1/2,1/2,1/4,1/4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footerDisable" textAlign="left" > 626 390 2555 </Button>
-          <Button width={[1/2,1/2,1/4,1/4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footerDisable" textAlign="left" > info@noname.com </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footer" textAlign="left" onClick={navigatePrivacy}> Privacy </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footer" textAlign="left" onClick={navigateLicense}> License </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footer" textAlign="left" onClick={navigateLicense}> Shipping </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footer" textAlign="left" onClick={navigatePrivacy}> Instagram </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footer" textAlign="left" onClick={navigateLicense}> Savee.it </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footer" textAlign="left" onClick={navigateLicense}> Red </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footerDisable" textAlign="left" > 626 390 2555 </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footerDisable" textAlign="left" > info@noname.com </Button>
       </Wrap>
     </ThemeProvider>
   )
@@ -163,25 +162,43 @@ export const BlockFooter = (props) => {
 
 
 export const BlockThumb = (props) => {
+  const { width, ...restProps } = props;
   return (
     <ThemeProvider theme={base}>
-      <Thumbnail width={[1/2, 1/2, 1/3, 1/3]} display="flex" flexDirection="row" flexWrap="wrap" justifyContent="start" to={props.to}>
-        <ImgBlock2 src={props.img} to={props.linkto} side={props.side} />
+      <Thumbnail {...restProps} width={width} height={['auto']} display="flex" flexDirection="column" to={props.to}>
+        <ImgBlock2 height={props.height} src={props.img} to={props.linkto} side={props.side} />
+        <Text fontFamily={[0]} fontSize={[1]} p={[3]} >{props.title}</Text>
+      </Thumbnail>
+    </ThemeProvider>
+  )
+}
+
+export const BlockThumbFont = (props) => {
+  const { width, ...restProps } = props;
+  return (
+    <ThemeProvider theme={base}>
+      <ThumbnailFont {...restProps} width={width} height={['auto']} display="flex" flexDirection="column" to={props.to}>
+        <ImgBlock2 height={props.height} src={props.img} to={props.linkto} side={props.side} />
+        <Container display="flex" flexDirection="row" justifyContent={"space-between"} alignItems={["center"]}>
+        <Text fontFamily={[0]} fontSize={[1]} p={[3]} >{props.title}</Text>
+        <Button padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footer" to={props.to} > BUY IT </Button>
+        </Container>
+      </ThumbnailFont>
+    </ThemeProvider>
+  )
+}
+
+export const BlockThumbFull = (props) => {
+  const { width, ...restProps } = props;
+  return (
+    <ThemeProvider theme={base}>
+      <Thumbnail {...restProps} width={width} height={["350px","400px", "450px","500px"]}to={props.to}>
         <Text fontFamily={[0]} fontSize={[1]} p={[3]}>{props.title}</Text>
       </Thumbnail>
     </ThemeProvider>
   )
 }
 
-export const BlockThumbFont = ({ fontFamily, title, to }) => {
-  return (
-    <ThemeProvider theme={base}>
-      <Thumbnail width={[1, 1, 1, 1]} display="flex" flexDirection="column" flexWrap="wrap" bg="#d0d0c6" height={['50vh']} alignItems="center" justifyContent="center" to={to}>
-        <Wrap fontFamily={fontFamily} fontSize={[3]} p={[2]} >{title}</Wrap>
-      </Thumbnail>
-    </ThemeProvider>
-  )
-}
 
 export const BlockType = (props) => {
   return (
@@ -216,12 +233,12 @@ export const BlockList = ({ title, description }) => {
   return (
     <ThemeProvider theme={base}>
       <Wrap width={["100%"]} borderBottom="1px grey solid">
-      <Wrap flexGrow='4' width={["50%"]} pt={[2]} pb={[2]} flexDirection='row' justifyContent="left">
-        <Text fontFamily={[0]} color={['blk70']} variant='' fontSize={[1]}>{title}</Text>
-      </Wrap>
-      <Wrap flexGrow='4' width={["50%"]} pt={[2]} pb={[2]} flexDirection='row' justifyContent="left">
-        <Text fontFamily={[0]} color={['blk50']} variant='' fontSize={[1]}>{description}</Text>
-      </Wrap>
+        <Wrap flexGrow='4' width={["50%"]} pt={[2]} pb={[2]} flexDirection='row' justifyContent="left">
+          <Text fontFamily={[0]} color={['blk70']} variant='' fontSize={[1]}>{title}</Text>
+        </Wrap>
+        <Wrap flexGrow='4' width={["50%"]} pt={[2]} pb={[2]} flexDirection='row' justifyContent="left">
+          <Text fontFamily={[0]} color={['blk50']} variant='' fontSize={[1]}>{description}</Text>
+        </Wrap>
       </Wrap>
     </ThemeProvider>
   )

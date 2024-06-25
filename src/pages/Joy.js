@@ -1,79 +1,75 @@
 import React from 'react';
-import f1 from '../Assets/figs/f-1.jpg';
-import f2 from '../Assets/figs/f-2.jpg';
-import f3 from '../Assets/figs/f-3.jpg';
-import f4 from '../Assets/figs/f-4.jpg';
-import f5 from '../Assets/figs/f-5.jpg';
-import f6 from '../Assets/figs/f-6.jpg';
-import f7 from '../Assets/figs/f-7.jpg';
-import f8 from '../Assets/figs/f-8.jpg';
-import f9 from '../Assets/figs/f-9.jpg';
-import f10 from '../Assets/figs/f-10.jpg';
-import f11 from '../Assets/figs/f-11.jpg';
-import f12 from '../Assets/figs/f-12.jpg';
-
-import sl1 from '../Assets/font/air/air1-1.jpg';
-import sl2 from '../Assets/font/air/air1-2.jpg';
-import sl3 from '../Assets/font/air/air1-3.jpg';
-import sl4 from '../Assets/font/air/air1-4.jpg';
-
-import sl7 from '../Assets/font/air/air2-1.jpg';
-import sl8 from '../Assets/font/air/air2-2.jpg';
-import sl9 from '../Assets/font/air/air2-3.jpg';
-import sl10 from '../Assets/font/air/air2-4.jpg';
-
-import { ProductSliderFull } from '../component/ProductSlider';
+import { BlockImg, Blockitem } from '../component/Block';
+import { Container } from '../component/Core';
+import ca1 from '../Assets/CanooB/1.01.jpg';
+import ca2 from '../Assets/CanooB/1.02.jpg';
+import ca3 from '../Assets/CanooB/1.03.jpg';
+import ca4 from '../Assets/CanooB/1.04.jpg';
+import ca5 from '../Assets/CanooB/1.05.jpg';
+import ca6 from '../Assets/CanooB/1.06.jpg';
+import ca7 from '../Assets/CanooB/1.07.jpg';
+import ca8 from '../Assets/CanooB/1.08.jpg';
+import ca9 from '../Assets/CanooB/1.09.jpg';
+import ca10 from '../Assets/CanooB/1.10.jpg';
+import { flexDirection } from 'styled-system';
 
 
-import { BlockImgProj } from '../component/BlockImgPlay';
-import { BlockTwoLn100 } from '../component/Block';
+function CanooB() {
 
-import { Container, Wrap, Button, H1, Text } from '../component/Core';
+  const ImgCanooB = [
+    { img: ca1, colSpan: 2, rowSpan: 1 },
+    { img: ca2 },
+    { img: ca3 },
+    { img: ca4 },
+    { img: ca5 },
+    { img: ca6 },
+    { img: ca7 },
+    { img: ca8 },
+    { img: ca9 },
+    { img: ca10 }
+  ]
 
-const ImgFig = [
-  f1,
-  f2,
-  f3,
-  f4,
-  f5,
-  f6,
-  f7,
-  f8,
-  f9,
-  f10,
-  f11,
-  f12
-]
-
-const slider1 = [
-  sl1,
-  sl2,
-  sl3,
-  sl4
-]
-
-const slider2 = [
-  sl7,
-  sl8,
-  sl9,
-  sl10
-]
-
-function Joy() {
   return (
-    <div>
-       <BlockTwoLn100 title="We are duo designer couple resides in Los Angeles. Believing design is a process of solving problem. Attitude is essential element of our design. Just like we don’t need an entity to define us, Our work does.
-    Whenever we are not working, we love drinking fruity coffee and enjoying southern Asian food."/>
-      <BlockTwoLn100 title="我们是一对设计师夫妇，居住在 Los Angeles 。相信设计是解决问题的过程。态度是我们设计的基本要素。就像我们不需要一个实体来定义我们一样，我们的工作就是如此。当我们不工作时，我们喜欢喝果味咖啡和享受南亚美食。"/>
-      
-      <BlockImgProj images={ImgFig}  gtcD="repeat(2, 50%)" gtcM="repeat(1, 100%)"/>
-
-      <Wrap width={["100%"]} flexDirection={['row']}>
-          <ProductSliderFull images={slider1} objfit="cover" /><ProductSliderFull images={slider2} objfit="cover" />
-        </Wrap>
-      
-    </div>
+    <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center">
+      <BlockImg image={ca1} />
+      <Container width={[1]} flexWrap="wrap" maxWidth={["1440px"]} pb={[0, 4, 4, 5]}>
+        <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
+          <Blockitem
+            title="Title"
+            body="CanooB Brand Identity"
+          />
+          <Blockitem
+            title="Credit"
+            body="Program Lead - Nathan Smith
+                  Design Lead - Tsz Ho Ip"
+          />
+          <Blockitem
+            title="Yr"
+            body="2024"
+          />
+        </Container>
+        <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
+          <Blockitem
+            title="Description / EN "
+            body="CanooB, an electric vehicle startup, has been at the forefront of innovative mobility solutions since 2018. Initially focusing on niche markets like urban commute and subscription services, the company shifted its priority to commercial vehicles post-IPO. This strategic pivot necessitated a reevaluation of the brand's visual identity. The Brand Vision project aims to realign the visual and brand messaging to better reflect the company's evolving ethos and motto."
+          />
+          <Blockitem
+            title="説明 / JP"
+            body="CanooBは、2018年以来革新的なモビリティソリューションの先駆者である電気自動車のスタートアップです。当初は都市通勤やサブスクリプションサービスなどのニッチ市場に焦点を当てていましたが、IPO後に商用車を優先する方針に転換しました。この戦略的な転換に伴い、ブランドのビジュアルアイデンティティを見直す必要がありました。ブランドビジョンプロジェクトは、企業の進化する理念やモットーによりよく適合するように、ビジュアルとブランドメッセージを正しく調整することを目的としています。"
+          />
+        </Container>
+      </Container>
+      <BlockImg image={ca2} />
+      <BlockImg image={ca3} />
+      <BlockImg image={ca4} />
+      <BlockImg image={ca5} />
+      <BlockImg image={ca6} />
+      <BlockImg image={ca7} />
+      <BlockImg image={ca8} />
+      <BlockImg image={ca9} />
+      <BlockImg image={ca10} />
+    </Container>
   );
 }
 
-export default Joy;
+export default CanooB;

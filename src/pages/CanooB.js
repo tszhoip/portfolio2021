@@ -11,13 +11,17 @@ import ca7 from '../Assets/CanooB/1.07.jpg';
 import ca8 from '../Assets/CanooB/1.08.jpg';
 import ca9 from '../Assets/CanooB/1.09.jpg';
 import ca10 from '../Assets/CanooB/1.10.jpg';
+import ca11 from '../Assets/CanooB/1.11.jpg';
+import ca12 from '../Assets/CanooB/1.12.jpg';
+import ca13 from '../Assets/CanooB/1.13.jpg';
 import { flexDirection } from 'styled-system';
 
 
 function CanooB() {
-
+  const Thumb = [
+    { img: ca1 }
+  ]
   const ImgCanooB = [
-    { img: ca1, colSpan: 2, rowSpan: 1 },
     { img: ca2 },
     { img: ca3 },
     { img: ca4 },
@@ -26,7 +30,10 @@ function CanooB() {
     { img: ca7 },
     { img: ca8 },
     { img: ca9 },
-    { img: ca10 }
+    { img: ca10 },
+    { img: ca11 },
+    { img: ca12 },
+    { img: ca13 }
   ]
 
   return (
@@ -59,15 +66,9 @@ function CanooB() {
           />
         </Container>
       </Container>
-      <BlockImg image={ca2} />
-      <BlockImg image={ca3} />
-      <BlockImg image={ca4} />
-      <BlockImg image={ca5} />
-      <BlockImg image={ca6} />
-      <BlockImg image={ca7} />
-      <BlockImg image={ca8} />
-      <BlockImg image={ca9} />
-      <BlockImg image={ca10} />
+      {ImgCanooB.map((imageObj, index) => (
+        <BlockImg key={index} image={imageObj.img} />
+      ))}
     </Container>
   );
 }

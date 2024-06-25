@@ -1,45 +1,68 @@
 import React from 'react';
-import f1 from '../Assets/inn/inn1.jpg';
-import f2 from '../Assets/inn/inn2.jpg';
-import f3 from '../Assets/inn/inn3.jpg';
-import f4 from '../Assets/figs/f-4.jpg';
-import f5 from '../Assets/figs/f-5.jpg';
-import f6 from '../Assets/figs/f-6.jpg';
-import f7 from '../Assets/figs/f-7.jpg';
-import f8 from '../Assets/figs/f-8.jpg';
-import f9 from '../Assets/figs/f-9.jpg';
-import f10 from '../Assets/figs/f-10.jpg';
-import f11 from '../Assets/figs/f-11.jpg';
-import f12 from '../Assets/figs/f-12.jpg';
-import { BlockImgProj } from '../component/BlockImgPlay';
-import { BlockTwoLn100 } from '../component/Block';
+import { BlockImg, Blockitem } from '../component/Block';
+import { Container } from '../component/Core';
+import ca1 from '../Assets/inn/9.01.jpg';
+import ca2 from '../Assets/inn/9.02.jpg';
+import ca3 from '../Assets/inn/9.03.jpg';
+import ca4 from '../Assets/inn/9.04.jpg';
+import ca5 from '../Assets/inn/9.05.jpg';
+import ca6 from '../Assets/inn/9.06.jpg';
+import ca7 from '../Assets/inn/9.07.jpg';
+import ca8 from '../Assets/inn/9.08.jpg';
 
-const ImgFig = [
-  { img: f1, colSpan: 2, rowSpan: 1 },
-  { img: f2 },
-  { img: f3 },
-  { img: f4 },
-  { img: f5 },
-  { img: f6 },
-  { img: f7 },
-  { img: f8 },
-  { img: f9 },
-  { img: f10 },
-  { img: f11 },
-  { img: f12 }
-]
 
-function Inno() {
+function CanooB() {
+
+  const ImgCanooB = [
+    { img: ca1, colSpan: 2, rowSpan: 1 },
+    { img: ca2 },
+    { img: ca3 },
+    { img: ca4 },
+    { img: ca5 },
+    { img: ca6 },
+    { img: ca7 },
+    { img: ca8 }
+  ]
+
   return (
-    <div>
- <BlockTwoLn100 title="We are duo designer couple resides in Los Angeles. Believing design is a process of solving problem. Attitude is essential element of our design. Just like we don’t need an entity to define us, Our work does.
-    Whenever we are not working, we love drinking fruity coffee and enjoying southern Asian food."/>
-      <BlockTwoLn100 title="我们是一对设计师夫妇，居住在 Los Angeles 。相信设计是解决问题的过程。态度是我们设计的基本要素。就像我们不需要一个实体来定义我们一样，我们的工作就是如此。当我们不工作时，我们喜欢喝果味咖啡和享受南亚美食。"/>
-         
-      <BlockImgProj images={ImgFig}  gtcD="repeat(3, 33.3%)" gtcM="repeat(2, 50%)"/>
-      
-    </div>
+    <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center">
+      <BlockImg image={ca1} />
+      <Container width={[1]} flexWrap="wrap" maxWidth={["1440px"]} pb={[0, 4, 4, 5]}>
+        <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
+          <Blockitem
+            title="Title"
+            body="CanooB Brand Identity"
+          />
+          <Blockitem
+            title="Credit"
+            body="Program Lead - Nathan Smith
+                  Design Lead - Tsz Ho Ip"
+          />
+          <Blockitem
+            title="Yr"
+            body="2024"
+          />
+        </Container>
+        <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
+          <Blockitem
+            title="Description / EN "
+            body="CanooB, an electric vehicle startup, has been at the forefront of innovative mobility solutions since 2018. Initially focusing on niche markets like urban commute and subscription services, the company shifted its priority to commercial vehicles post-IPO. This strategic pivot necessitated a reevaluation of the brand's visual identity. The Brand Vision project aims to realign the visual and brand messaging to better reflect the company's evolving ethos and motto."
+          />
+          <Blockitem
+            title="説明 / JP"
+            body="CanooBは、2018年以来革新的なモビリティソリューションの先駆者である電気自動車のスタートアップです。当初は都市通勤やサブスクリプションサービスなどのニッチ市場に焦点を当てていましたが、IPO後に商用車を優先する方針に転換しました。この戦略的な転換に伴い、ブランドのビジュアルアイデンティティを見直す必要がありました。ブランドビジョンプロジェクトは、企業の進化する理念やモットーによりよく適合するように、ビジュアルとブランドメッセージを正しく調整することを目的としています。"
+          />
+        </Container>
+      </Container>
+      <BlockImg image={ca2} />
+      <BlockImg image={ca3} />
+      <BlockImg image={ca4} />
+      <BlockImg image={ca5} />
+      <BlockImg image={ca6} />
+      <BlockImg image={ca7} />
+      <BlockImg image={ca8} />
+    </Container>
   );
 }
 
-export default Inno;
+export default CanooB;

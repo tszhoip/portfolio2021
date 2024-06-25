@@ -1,38 +1,75 @@
 import React from 'react';
-import Projimgadv from '../style/projimgadv.js'
-import n1 from '../Assets/n-1.jpg';
-import n2 from '../Assets/n-2.jpg';
-import n4 from '../Assets/n-4.jpg';
-import n6 from '../Assets/n-6.jpg';
-import n7 from '../Assets/n-7.jpg';
-import n9 from '../Assets/n-9.jpg';
-import n10 from '../Assets/n-10.jpg';
-import n15 from '../Assets/n-15.jpg';
-import n16 from '../Assets/n-16.jpg';
-import nv3 from '../Assets/n-v-3.mp4';
-import {  BlockTwoLn100 } from '../component/Block';
+import { BlockImg, Blockitem } from '../component/Block';
+import { Container } from '../component/Core';
+import ca1 from '../Assets/CanooB/1.01.jpg';
+import ca2 from '../Assets/CanooB/1.02.jpg';
+import ca3 from '../Assets/CanooB/1.03.jpg';
+import ca4 from '../Assets/CanooB/1.04.jpg';
+import ca5 from '../Assets/CanooB/1.05.jpg';
+import ca6 from '../Assets/CanooB/1.06.jpg';
+import ca7 from '../Assets/CanooB/1.07.jpg';
+import ca8 from '../Assets/CanooB/1.08.jpg';
+import ca9 from '../Assets/CanooB/1.09.jpg';
+import ca10 from '../Assets/CanooB/1.10.jpg';
+import { flexDirection } from 'styled-system';
 
-function Nike() {
+
+function CanooB() {
+
+  const ImgCanooB = [
+    { img: ca1, colSpan: 2, rowSpan: 1 },
+    { img: ca2 },
+    { img: ca3 },
+    { img: ca4 },
+    { img: ca5 },
+    { img: ca6 },
+    { img: ca7 },
+    { img: ca8 },
+    { img: ca9 },
+    { img: ca10 }
+  ]
+
   return (
-    <div>
-            <Projimgadv theme={{ bgcolor: "#2F2F2F", imgp: "center" }} ><img src={n1} width="80%" height="80%" alt=""/></Projimgadv>
-
-       <BlockTwoLn100 title="We are duo designer couple resides in Los Angeles. Believing design is a process of solving problem. Attitude is essential element of our design. Just like we don’t need an entity to define us, Our work does.
-    Whenever we are not working, we love drinking fruity coffee and enjoying southern Asian food."/>
-      <BlockTwoLn100 title="我们是一对设计师夫妇，居住在 Los Angeles 。相信设计是解决问题的过程。态度是我们设计的基本要素。就像我们不需要一个实体来定义我们一样，我们的工作就是如此。当我们不工作时，我们喜欢喝果味咖啡和享受南亚美食。"/>
-      
-      <Projimgadv theme={{ bgcolor: "#2F2F2F", imgp: "center" }} ><img src={n1} width="80%" height="80%" alt=""/></Projimgadv>
-      <Projimgadv theme={{ bgcolor: "#2F2F2F", imgp: "center" }} ><img src={n2} width="80%" height="80%" alt=""/></Projimgadv>
-      <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center" }} ><img src={n4} width="80%" height="80%" alt=""/></Projimgadv>
-      <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center", vidw: "100%" }} ><video autoPlay muted loop ><source src={nv3} t2="video/mp4" /></video></Projimgadv>
-      <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center" }} ><img src={n15} width="80%" height="80%" alt=""/></Projimgadv>
-      <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center" }} ><img src={n6} width="80%" height="80%" alt=""/></Projimgadv>
-      <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center" }} ><img src={n10} width="80%" height="80%" alt=""/></Projimgadv>
-      <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center" }} ><img src={n7} width="80%" height="80%" alt=""/></Projimgadv>
-      <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center" }} ><img src={n16} width="80%" height="80%" alt=""/></Projimgadv>
-      <Projimgadv theme={{ bgcolor: "#ffffff", imgp: "center" }} ><img src={n9} width="80%" height="80%" alt=""/></Projimgadv>
-    </div>
+    <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center">
+      <BlockImg image={ca1} />
+      <Container width={[1]} flexWrap="wrap" maxWidth={["1440px"]} pb={[0, 4, 4, 5]}>
+        <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
+          <Blockitem
+            title="Title"
+            body="CanooB Brand Identity"
+          />
+          <Blockitem
+            title="Credit"
+            body="Program Lead - Nathan Smith
+                  Design Lead - Tsz Ho Ip"
+          />
+          <Blockitem
+            title="Yr"
+            body="2024"
+          />
+        </Container>
+        <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
+          <Blockitem
+            title="Description / EN "
+            body="CanooB, an electric vehicle startup, has been at the forefront of innovative mobility solutions since 2018. Initially focusing on niche markets like urban commute and subscription services, the company shifted its priority to commercial vehicles post-IPO. This strategic pivot necessitated a reevaluation of the brand's visual identity. The Brand Vision project aims to realign the visual and brand messaging to better reflect the company's evolving ethos and motto."
+          />
+          <Blockitem
+            title="説明 / JP"
+            body="CanooBは、2018年以来革新的なモビリティソリューションの先駆者である電気自動車のスタートアップです。当初は都市通勤やサブスクリプションサービスなどのニッチ市場に焦点を当てていましたが、IPO後に商用車を優先する方針に転換しました。この戦略的な転換に伴い、ブランドのビジュアルアイデンティティを見直す必要がありました。ブランドビジョンプロジェクトは、企業の進化する理念やモットーによりよく適合するように、ビジュアルとブランドメッセージを正しく調整することを目的としています。"
+          />
+        </Container>
+      </Container>
+      <BlockImg image={ca2} />
+      <BlockImg image={ca3} />
+      <BlockImg image={ca4} />
+      <BlockImg image={ca5} />
+      <BlockImg image={ca6} />
+      <BlockImg image={ca7} />
+      <BlockImg image={ca8} />
+      <BlockImg image={ca9} />
+      <BlockImg image={ca10} />
+    </Container>
   );
 }
 
-export default Nike;
+export default CanooB;

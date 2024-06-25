@@ -22,10 +22,33 @@ ${width};
 ${layout};
 ${flexbox};
 ${color};
-color: black;
+${space};
+background-image: url(${props => props.backgroundImage});
+background-size: cover;
+background-position: center;
+color: rgba(0, 0, 0, 0.4);
 &:hover{
   filter: grayscale(100%);
-  color: white;
+  color: rgba(0, 0, 0, 1);
+}
+ &:active{
+    filter: grayscale(50%); 
+}
+`
+
+export const ThumbnailFont = styled(Link)`
+${width};
+${layout};
+${flexbox};
+${color};
+${space};
+background-image: url(${props => props.backgroundImage});
+background-size: cover;
+background-position: center;
+color: rgba(0, 0, 0, 0.4);
+&:hover{
+  filter: grayscale(100%);
+  color: rgba(255, 255, 255, 1);
   background-color: black;
 }
  &:active{
@@ -135,7 +158,7 @@ const hoverVariants = {
   footer: css`
   &:hover {
     backdrop-filter: blur(8px);
-    color: red;
+    color: white;
   }
 `,
   primaryR: css`
