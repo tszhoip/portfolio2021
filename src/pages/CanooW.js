@@ -1,32 +1,19 @@
 import React from 'react';
 import { BlockImg, Blockitem } from '../component/Block';
 import { Container } from '../component/Core';
-import ca1 from '../Assets/CanooB/1.01.jpg';
-import ca2 from '../Assets/CanooB/1.02.jpg';
-import ca3 from '../Assets/CanooB/1.03.jpg';
-import ca4 from '../Assets/CanooB/1.04.jpg';
-import ca5 from '../Assets/CanooB/1.05.jpg';
-import ca6 from '../Assets/CanooB/1.06.jpg';
-import ca7 from '../Assets/CanooB/1.07.jpg';
-import ca8 from '../Assets/CanooB/1.08.jpg';
-import ca9 from '../Assets/CanooB/1.09.jpg';
-import ca10 from '../Assets/CanooB/1.10.jpg';
-import { flexDirection } from 'styled-system';
+import ca1 from '../Assets/CanooW/2.01.jpg';
+import ca2 from '../Assets/CanooW/2.02.jpg';
+import ca3 from '../Assets/CanooW/2.03.jpg';
+import ca4 from '../Assets/CanooW/2.04.jpg';
 
 
-function CanooB() {
 
-  const ImgCanooB = [
-    { img: ca1, colSpan: 2, rowSpan: 1 },
+function CanooW() {
+  const ImgSet = [
+    { img: ca1 },
     { img: ca2 },
     { img: ca3 },
-    { img: ca4 },
-    { img: ca5 },
-    { img: ca6 },
-    { img: ca7 },
-    { img: ca8 },
-    { img: ca9 },
-    { img: ca10 }
+    { img: ca4 }
   ]
 
   return (
@@ -59,17 +46,11 @@ function CanooB() {
           />
         </Container>
       </Container>
-      <BlockImg image={ca2} />
-      <BlockImg image={ca3} />
-      <BlockImg image={ca4} />
-      <BlockImg image={ca5} />
-      <BlockImg image={ca6} />
-      <BlockImg image={ca7} />
-      <BlockImg image={ca8} />
-      <BlockImg image={ca9} />
-      <BlockImg image={ca10} />
+      {ImgSet.map((imageObj, index) => (
+        <BlockImg key={index} image={imageObj.img} />
+      ))}
     </Container>
   );
 }
 
-export default CanooB;
+export default CanooW;

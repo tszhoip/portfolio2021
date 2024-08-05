@@ -1,15 +1,14 @@
 import React from 'react';
-import { BlockImg, Blockitem } from '../component/Block';
-import { Container } from '../component/Core';
-import f1 from '../Assets/nike/5.01.jpg';
-import f2 from '../Assets/nike/5.02.jpg';
-import f3 from '../Assets/nike/5.03.jpg';
-import f4 from '../Assets/nike/5.04.jpg';
-import f5 from '../Assets/nike/5.05.jpg';
+import { BlockImg, Blockitem } from '../../component/Block';
+import { Container } from '../../component/Core';
+import f1 from '../../Assets/shopify/10.1.jpg';
+import f2 from '../../Assets/shopify/10.2.jpg';
+import f3 from '../../Assets/shopify/10.3.jpg';
+import f4 from '../../Assets/shopify/10.4.jpg';
+import f5 from '../../Assets/shopify/10.5.jpg';
 
 
-
-function Nike() {
+function Shopify() {
 
   const ImgCanooB = [
     f1,
@@ -25,25 +24,25 @@ function Nike() {
         <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
           <Blockitem
             title="Title"
-            body="nike: "
+            body="shopify: case study"
           />
           <Blockitem
             title="Credit"
-            body="Design Lead - Tsz Ho Ip, Supermorebetter studio"
+            body="Design Lead - Tsz Ho Ip"
           />
           <Blockitem
             title="Yr"
-            body="2019"
+            body="2019 ~ present"
           />
         </Container>
         <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
           <Blockitem
             title="Description / EN "
-            body="We partnered with the studio, supermorebetter on a pitch for a nike campaign, translating the 2D elements into 3D fixtures and graphics for the spatial design of Nike SoHo."
+            body="Case study for major shopify brand, the idea is to optimize user expereience for online shopping experience"
           />
           <Blockitem
             title="説明 / JP"
-            body="スタジオと提携し、ナイキ キャンペーンのピッチでスーパーモアベターを行い、ナイキ ソーホーの空間デザインのために 2D 要素を 3D 備品やグラフィックに変換しました。"
+            body="大手 Shopify ブランドのケーススタディ、アイデアはオンライン ショッピング エクスペリエンスのユーザー エクスペリエンスを最適化することです"
           />
         </Container>
       </Container>
@@ -56,4 +55,4 @@ function Nike() {
   );
 }
 
-export default Nike;
+export default Shopify;

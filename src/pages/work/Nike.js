@@ -1,11 +1,11 @@
 import React from 'react';
-import { BlockImg, Blockitem } from '../component/Block';
-import { Container } from '../component/Core';
-import f1 from '../Assets/nike/5.01.jpg';
-import f2 from '../Assets/nike/5.02.jpg';
-import f3 from '../Assets/nike/5.03.jpg';
-import f4 from '../Assets/nike/5.04.jpg';
-import f5 from '../Assets/nike/5.05.jpg';
+import { BlockImg, Blockitem } from '../../component/Block';
+import { Container } from '../../component/Core';
+import f1 from '../../Assets/nike/5.01.jpg';
+import f2 from '../../Assets/nike/5.02.jpg';
+import f3 from '../../Assets/nike/5.03.jpg';
+import f4 from '../../Assets/nike/5.04.jpg';
+import f5 from '../../Assets/nike/5.05.jpg';
 
 
 

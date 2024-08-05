@@ -21,7 +21,7 @@ function CanooB() {
   const Thumb = [
     { img: ca1 }
   ]
-  const ImgCanooB = [
+  const ImgSet = [
     { img: ca2 },
     { img: ca3 },
     { img: ca4 },
@@ -66,7 +66,7 @@ function CanooB() {
           />
         </Container>
       </Container>
-      {ImgCanooB.map((imageObj, index) => (
+      {ImgSet.map((imageObj, index) => (
         <BlockImg key={index} image={imageObj.img} />
       ))}
     </Container>

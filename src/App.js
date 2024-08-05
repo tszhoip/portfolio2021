@@ -6,7 +6,7 @@ import Work from './pages/Work';
 import About from './pages/About';
 import Figs from './pages/Figs';
 import Nike from './pages/Nike';
-import Tree from './pages/work/treedom'
+import Shopify from './pages/Shopify'
 import CanooB from './pages/CanooB';
 import CanooW from './pages/CanooW';
 import CanooP from './pages/CanooP';
@@ -37,7 +37,7 @@ function App() {
           <Route path="/Shop" element={<PageWrapper component={<Shop />} />} />
           <Route path="/f-airpro" element={<PageWrapper component={<Airpro />} />} />
           <Route path="/figs" element={<PageWrapper component={<Figs />} />} />
-          <Route path="/work/treedom" element={<PageWrapper component={<Tree />} />} />
+          <Route path="/shopify" element={<PageWrapper component={<Shopify />} />} />
           <Route path="/nike" element={<PageWrapper component={<Nike />} />} />
           <Route path="/Inno" element={<PageWrapper component={<Inno />} />} />
           <Route path="/logo" element={<PageWrapper component={<Logo/>} />} />

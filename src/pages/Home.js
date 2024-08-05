@@ -4,7 +4,7 @@ import logo from '../Assets/logo/Llogo.jpg';
 import nike from '../Assets/nike/LNike.jpg';
 import joy from '../Assets/Joy/LJoy.jpg';
 import inno from '../Assets/inn/LInno.jpg';
-import tree from '../Assets/treedom/LTree.jpg';
+import shop from '../Assets/shopify/LShop.jpg';
 import CanooB from '../Assets/CanooB/LCanooB.jpg';
 import CanooW from '../Assets/CanooW/LCanooW.jpg';
 import CanooP from '../Assets/CanooP/LCanooP.jpg';
@@ -26,7 +26,7 @@ function Home() {
       <BlockThumb img={CanooP} to="/CanooP" title="Canoo, Processs" />
       <BlockThumb width={[1,1/2,1/2,1/2]}  img={joy} to="/joy" title="Joy & peace, Product" />
       <BlockThumb img={inno} to="/inno" title="Innocell, App" />
-      <BlockThumb img={tree} to="work/treedom" title="Treedom, Brand" />
+      <BlockThumb img={shop} to="/shopify" title="shopify, Ecommerce" />
       <BlockThumb img={nike} to="/nike" title="nike, Art Direction" />
       <BlockThumb img={logo} to="/logo" title="Logos" />
     </Container>
