@@ -16,7 +16,7 @@ function CanooB() {
     { img: ca3 },
     { img: ca4 },
     { img: ca5 },
-    { img: ca6 }
+    { img: ca6 },
   ]
 
   return (
