@@ -165,8 +165,7 @@ export const BlockThumb = (props) => {
   const { width, ...restProps } = props;
   return (
     <ThemeProvider theme={base}>
-      <Thumbnail {...restProps} width={width} height={['auto']} display="flex" flexDirection="column" to={props.to}>
-        <ImgBlock2 height={props.height} src={props.img} to={props.linkto} side={props.side} />
+      <Thumbnail {...restProps} width={width} height={props.height || ['auto']} display="flex" flexDirection="column" to={props.to} backgroundImage={props.img}>
         <Text fontFamily={[0]} fontSize={[1]} p={[3]} >{props.title}</Text>
       </Thumbnail>
     </ThemeProvider>
