@@ -10,6 +10,7 @@ import Shopify from './pages/Shopify'
 import CanooB from './pages/CanooB';
 import CanooW from './pages/CanooW';
 import CanooP from './pages/CanooP';
+import CanooDesignSystem from './pages/CanooDesignSystem';
 import Logo from './pages/Logo';
 import Inno from './pages/inno';
 import Snap from './pages/Snap';
@@ -43,6 +44,7 @@ function App() {
           <Route path="/logo" element={<PageWrapper component={<Logo/>} />} />
           <Route path="/CanooB" element={<PageWrapper component={<CanooB/>} />} />
           <Route path="/CanooW" element={<PageWrapper component={<CanooW/>} />} />
+          <Route path="/CanooDesignSystem" element={<PageWrapper component={<CanooDesignSystem/>} />} />
           <Route path="/CanooP" element={<PageWrapper component={<CanooP/>} />} />
           <Route path="/snap" element={<PageWrapper component={<Snap/>} />} />
           <Route path="/joy" element={<PageWrapper component={<Joy/>} />} />

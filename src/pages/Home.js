@@ -10,6 +10,7 @@ import CanooP from '../assets/logo/lo01.jpg';
 import { Container } from '../component/Core';
 
 const CanooB = '/canoob-thumb.jpg';
+const CanooDesignSystem = '/canoo-design-system-thumb.jpg';
 
 
 function Home() {
@@ -23,6 +24,7 @@ function Home() {
   return (
     <Container width={[1]}display="flex" flexDirection="row" flexWrap="wrap" justifyContent="center">
       <BlockThumb width={[1,1,1/2,1/2]} img={CanooB} to="/CanooB" title="Canoo, Brand" />
+      <BlockThumb img={CanooDesignSystem} to="/CanooDesignSystem" title="Canoo, Design System" />
       <BlockThumb img={CanooW} to="/CanooW" title="Canoo, Web" />
       <BlockThumb img={CanooP} to="/CanooP" title="Canoo, Processs" />
       <BlockThumb width={[1,1/2,1/2,1/2]}  img={joy} to="/joy" title="Joy & peace, Product" />
