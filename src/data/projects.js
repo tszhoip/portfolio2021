@@ -29,9 +29,9 @@ export const projects = [
   },
   {
     id: 3,
-    title: 'Canoo, Process',
+    title: 'Aboard, Visual Identity',
     thumbnail: '/project-3-thumb.jpg',
-    hasContent: false,
+    hasContent: true,
     route: '/work/project-3'
   },
   {
