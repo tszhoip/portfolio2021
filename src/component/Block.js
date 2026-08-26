@@ -109,8 +109,8 @@ export const BlockMenu = (props) => {
   const navigateAbout = () => {
     navigate('/about');
   };
-  const navigateSnap = () => {
-    navigate('/snap');
+  const navigateArchive = () => {
+    window.open('https://cosmos-feed-swart.vercel.app/', '_blank');
   };
   const navigateShop = () => {
     navigate('/Shop');
@@ -120,7 +120,7 @@ export const BlockMenu = (props) => {
     <ThemeProvider theme={base}>
       <Wrap width="100%">
         <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateHome}> Noname </Button>
-        <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateSnap}> Archive </Button>
+        <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateArchive}> Archive </Button>
         <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateAbout}> About </Button>
         <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateShop}> Shop </Button>
       </Wrap>
