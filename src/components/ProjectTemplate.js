@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BlockImg, Blockitem } from './Block';
-import { Container } from './Core';
+import { BlockImg, Blockitem } from '../component/Block';
+import { Container } from '../component/Core';
 import { ThemeProvider } from "styled-components";
 import { base } from '../theme';
 
