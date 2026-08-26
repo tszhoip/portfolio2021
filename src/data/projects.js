@@ -36,18 +36,12 @@ export const projects = [
   },
   {
     id: 4,
-    title: 'Joy & Peace, Product',
+    title: 'Coco Robotics, Branding',
     thumbnail: '/project-4-thumb.jpg',
-    hasContent: false,
+    hasContent: true,
     route: '/work/project-4'
   },
-  {
-    id: 5,
-    title: 'Nike, Art Direction',
-    thumbnail: '/project-5-thumb.jpg',
-    hasContent: false,
-    route: '/work/project-5'
-  },
+  // Project 5 coming soon - add to Google Sheet first
   // Add new projects here:
   // {
   //   id: 6,
