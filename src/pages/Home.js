@@ -1,8 +1,5 @@
 import React from 'react';
 import { BlockThumb } from '../component/Block';
-import logo from '../assets/logo/lo01.jpg';
-import inno from '../assets/logo/lo01.jpg';
-import shop from '../assets/logo/lo01.jpg';
 import { Container } from '../component/Core';
 import projects from '../data/projects';
 
@@ -14,7 +11,7 @@ function Home() {
 
   return (
     <Container width={[1]} display="flex" flexDirection="row" flexWrap="wrap" justifyContent="center">
-      {/* Dynamically render project cards */}
+      {/* Dynamically render project cards from works/ folders */}
       {projects.map((project) => (
         <BlockThumb
           key={project.id}
@@ -25,11 +22,6 @@ function Home() {
           opacity={project.hasContent ? 1 : 0.5}
         />
       ))}
-
-      {/* Static cards */}
-      <BlockThumb img={inno} to="/inno" title="Innocell, App" />
-      <BlockThumb img={shop} to="/shopify" title="shopify, Ecommerce" />
-      <BlockThumb img={logo} to="/logo" title="Logos" />
     </Container>
   );
 }
