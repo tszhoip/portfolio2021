@@ -16,39 +16,39 @@ export const projects = [
   {
     id: 1,
     title: 'Canoo, Brand',
-    thumbnail: '/project-1-thumb.jpg',
+    thumbnail: '/images/project-1/thumb.jpg',
     hasContent: true,
     route: '/work/project-1'
   },
   {
     id: 2,
     title: 'Canoo, Design System',
-    thumbnail: '/project-2-thumb.jpg',
+    thumbnail: '/images/project-2/thumb.jpg',
     hasContent: true,
     route: '/work/project-2'
   },
   {
     id: 3,
     title: 'Aboard, Visual Identity',
-    thumbnail: '/project-3-thumb.jpg',
+    thumbnail: '/images/project-3/thumb.jpg',
     hasContent: true,
     route: '/work/project-3'
   },
   {
     id: 4,
     title: 'Coco Robotics, Branding',
-    thumbnail: '/project-4-thumb.jpg',
+    thumbnail: '/images/project-4/thumb.jpg',
     hasContent: true,
     route: '/work/project-4'
   },
-  // Project 5 coming soon - add to Google Sheet first
+  // Project 5+ coming soon - add to Google Sheet first
   // Add new projects here:
   // {
-  //   id: 6,
-  //   title: 'Project 6',
-  //   thumbnail: '/project-6-thumb.jpg',
+  //   id: 5,
+  //   title: 'Project 5',
+  //   thumbnail: '/images/project-5/thumb.jpg',
   //   hasContent: false,
-  //   route: '/work/project-6'
+  //   route: '/work/project-5'
   // }
 ];
 
