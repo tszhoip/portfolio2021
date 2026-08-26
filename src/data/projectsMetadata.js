@@ -47,6 +47,13 @@ export const projectsMetadata = {
     deliverable: 'Concept Design, Art Direction',
     descEN: 'Innocell is a hostel and coworking space located right next to the university. The hotel embraces a tech-forward experience where anything can be controlled through an app. The art direction features a nomadic style with neumorphism elements, creating a modern and intuitive visual language that resonates with digital natives.',
     descCN: 'Innocell是一个位于大学旁边的青年旅舍和共享办公空间。这家酒店拥抱技术前沿的体验,任何东西都可以通过应用程序控制。艺术方向采用游牧风格和神经拟态元素,创造了一个现代化和直观的视觉语言,与数字一代产生共鸣。'
+  },
+  6: {
+    title: 'Project 6',
+    role: 'Designer',
+    deliverable: 'TBD',
+    descEN: 'Project description coming soon. Please update from Google Sheet.',
+    descCN: '项目描述即将推出。请从 Google Sheet 更新。'
   }
 };
 

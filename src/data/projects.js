@@ -47,6 +47,13 @@ export const projects = [
     thumbnail: '/images/project-5/thumb.jpg',
     hasContent: true,
     route: '/work/project-5'
+  },
+  {
+    id: 6,
+    title: 'Project 6',
+    thumbnail: '/images/project-6/thumb.jpg',
+    hasContent: true,
+    route: '/work/project-6'
   }
 ];
 

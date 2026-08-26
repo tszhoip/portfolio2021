@@ -16,6 +16,7 @@ import Project2 from './pages/work/Project2';
 import Project3 from './pages/work/Project3';
 import Project4 from './pages/work/Project4';
 import Project5 from './pages/work/Project5';
+import Project6 from './pages/work/Project6';
 import Logo from './pages/Logo';
 import Inno from './pages/inno';
 import Snap from './pages/Snap';
@@ -58,6 +59,7 @@ function App() {
           <Route path="/work/project-3" element={<PageWrapper component={<Project3/>} />} />
           <Route path="/work/project-4" element={<PageWrapper component={<Project4/>} />} />
           <Route path="/work/project-5" element={<PageWrapper component={<Project5/>} />} />
+          <Route path="/work/project-6" element={<PageWrapper component={<Project6/>} />} />
           <Route path="/license" element={<PageWrapper component={<License/>} />} />
           <Route path="/Privacy" element={<PageWrapper component={<Privacy/>} />} />
         </Routes>
