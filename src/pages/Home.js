@@ -1,6 +1,6 @@
 import React from 'react';
 import { BlockThumb, BlockThumbFull } from '../component/Block';
-import logo from '../Assets/logo/lo01.jpg';
+import logo from '../assets/logo/lo01.jpg';
 import nike from '../Assets/nike/5.01.jpg';
 import joy from '../Assets/Joy/11.01.jpg';
 import inno from '../Assets/inn/9.01.jpg';
