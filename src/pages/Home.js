@@ -1,16 +1,16 @@
 import React from 'react';
 import { BlockThumb, BlockThumbFull } from '../component/Block';
 import logo from '../assets/logo/lo01.jpg';
-import nike from '../assets/logo/lo01.jpg';
-import joy from '../assets/logo/lo01.jpg';
 import inno from '../assets/logo/lo01.jpg';
 import shop from '../assets/logo/lo01.jpg';
-import CanooW from '../assets/logo/lo01.jpg';
-import CanooP from '../assets/logo/lo01.jpg';
 import { Container } from '../component/Core';
 
-const CanooB = '/canoob-thumb.jpg';
-const CanooDesignSystem = '/canoo-design-system-thumb.jpg';
+// Project thumbnails from public folder
+const project1 = '/project-1-thumb.jpg';
+const project2 = '/project-2-thumb.jpg';
+const project3 = '/project-3-thumb.jpg';
+const project4 = '/project-4-thumb.jpg';
+const project5 = '/project-5-thumb.jpg';
 
 
 function Home() {
@@ -23,14 +23,13 @@ function Home() {
   };
   return (
     <Container width={[1]}display="flex" flexDirection="row" flexWrap="wrap" justifyContent="center">
-      <BlockThumb width={[1,1,1/2,1/2]} img={CanooB} to="/CanooB" title="Canoo, Brand" />
-      <BlockThumb img={CanooDesignSystem} to="/CanooDesignSystem" title="Canoo, Design System" />
-      <BlockThumb img={CanooW} to="/CanooW" title="Canoo, Web" />
-      <BlockThumb img={CanooP} to="/CanooP" title="Canoo, Processs" />
-      <BlockThumb width={[1,1/2,1/2,1/2]}  img={joy} to="/joy" title="Joy & peace, Product" />
+      <BlockThumb width={[1,1,1/2,1/2]} img={project1} to="/work/project-1" title="Canoo, Brand" />
+      <BlockThumb img={project2} to="/work/project-2" title="Canoo, Design System" />
+      <BlockThumb img={project3} to="/work/project-3" title="Canoo, Process" />
+      <BlockThumb width={[1,1/2,1/2,1/2]}  img={project4} to="/work/project-4" title="Joy & peace, Product" />
+      <BlockThumb img={project5} to="/work/project-5" title="Nike, Art Direction" />
       <BlockThumb img={inno} to="/inno" title="Innocell, App" />
       <BlockThumb img={shop} to="/shopify" title="shopify, Ecommerce" />
-      <BlockThumb img={nike} to="/nike" title="nike, Art Direction" />
       <BlockThumb img={logo} to="/logo" title="Logos" />
     </Container>
   );
