@@ -1,6 +1,7 @@
 import React from 'react';
-import { BlockImg, Blockitem } from '../component/Block';
+import { BlockImg, Blockitem, BlockThumb } from '../component/Block';
 import { Container } from '../component/Core';
+import { useNavigate } from 'react-router-dom';
 import ca1 from '../assets/canoob/CB-1-01.jpg';
 import ca2 from '../assets/canoob/CB-1-02.jpg';
 import ca3 from '../assets/canoob/CB-1-03.jpg';
@@ -18,6 +19,8 @@ import { flexDirection } from 'styled-system';
 
 
 function CanooB() {
+  const navigate = useNavigate();
+
   const Thumb = [
     { img: ca1 }
   ]
@@ -34,6 +37,11 @@ function CanooB() {
     { img: ca11 },
     { img: ca12 },
     { img: ca13 }
+  ]
+
+  const relatedProjects = [
+    { img: ca1, to: "/work/CanooW", title: "Canoo Showroom" },
+    { img: ca1, to: "/work/CanooP", title: "Canoo Process" },
   ]
 
   return (
@@ -69,6 +77,38 @@ function CanooB() {
       {ImgSet.map((imageObj, index) => (
         <BlockImg key={index} image={imageObj.img} />
       ))}
+
+      {/* Credit Section */}
+      <Container width={[1]} flexWrap="wrap" maxWidth={["1440px"]} pb={[0, 4, 4, 5]} mt={[4, 5, 5, 5]} borderTop="1px solid #e0e0e0">
+        <Container width={[1]} flexDirection={[1]} flexWrap="wrap" pt={[4]}>
+          <Blockitem
+            title="Team"
+            body="Nathan Smith - Program Lead
+Tsz Ho Ip - Design Lead"
+          />
+          <Blockitem
+            title="Role"
+            body="Brand Strategy, Visual Identity, Design Direction"
+          />
+          <Blockitem
+            title="Deliverables"
+            body="Brand Guidelines, Logo System, Color Palette, Typography, Marketing Materials"
+          />
+        </Container>
+      </Container>
+
+      {/* Related Projects */}
+      <Container width={[1]} display="flex" flexDirection="column" alignItems="center" pb={[5]} mt={[5]}>
+        <Container width={[1]} maxWidth={["1440px"]} px={[3]}>
+          <h2 style={{ textAlign: 'left', marginBottom: '24px', fontSize: '18px', fontFamily: 'Helvetica' }}>
+            Related Projects
+          </h2>
+        </Container>
+        <Container width={[1]} display="flex" flexDirection="row" flexWrap="wrap" justifyContent="center" gap="16px">
+          <BlockThumb width={[1, 1, 1 / 2, 1 / 3]} img={ca1} to="/work/CanooW" title="Canoo Showroom" />
+          <BlockThumb width={[1, 1, 1 / 2, 1 / 3]} img={ca1} to="/work/CanooP" title="Canoo Process" />
+        </Container>
+      </Container>
     </Container>
   );
 }
