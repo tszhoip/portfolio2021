@@ -10,7 +10,7 @@ fontSizes.l = fontSizes[4];
 fontSizes.xl = fontSizes[5];
 fontSizes.xxl = fontSizes[6];
 
-const fonts = ["Helvetica", "AIR", "Hong", "PIX"];
+const fonts = ["Helvetica", "Inter", "Inter", "Inter"];
 fonts.helvetica = fonts[0];
 fonts.air = fonts[1];
 fonts.hong = fonts[2];

@@ -1,23 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400&family=Roboto:wght@400;500&display=swap');
-@font-face {
-    font-family: 'AIR';
-    src: local('AIR'),
-     url('../assets/font/AirPro.ttf') format('truetype');
-    font-weight: heavy;
-   }
-   @font-face {
-    font-family: 'Hong';
-    src: local('Hong'),
-     url('../assets/font/NewFont-Regular.ttf') format('truetype');
-    font-weight: Regular;
-   }
-   @font-face {
-    font-family: 'PIX';
-    src: local('PIX'),
-     url('../assets/font/N1MONO-MONO.ttf') format('truetype');
-    font-weight: Regular;
-   }
-   
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400&family=Roboto:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Custom fonts mapped to Inter fallback */
+/* AIR -> Inter */
+/* Hong -> Inter */
+/* PIX -> Inter (monospace) */
+
 
 img {
     width: 100%;
