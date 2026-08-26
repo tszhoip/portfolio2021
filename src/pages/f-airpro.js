@@ -3,24 +3,24 @@ import { ProductSliderFull } from '../component/ProductSlider';
 import { base } from '../theme';
 import { ThemeProvider, useTheme } from "styled-components";
 
-import ban1 from '../Assets/font/air/airpro-01.jpg';
-import ban2 from '../Assets/font/air/airpro-02.jpg';
-import ban3 from '../Assets/font/air/airpro-03.jpg';
-import ban4 from '../Assets/font/air/airpro-04.jpg';
+import ban1 from '../assets/font/air/airpro-01.jpg';
+import ban2 from '../assets/font/air/airpro-02.jpg';
+import ban3 from '../assets/font/air/airpro-03.jpg';
+import ban4 from '../assets/font/air/airpro-04.jpg';
 
-import ban1m from '../Assets/font/air/airpro-01-m.jpg';
-import ban2m from '../Assets/font/air/airpro-02-m.jpg';
-import ban3m from '../Assets/font/air/airpro-03-m.jpg';
-import ban4m from '../Assets/font/air/airpro-04-m.jpg';
+import ban1m from '../assets/font/air/airpro-01-m.jpg';
+import ban2m from '../assets/font/air/airpro-02-m.jpg';
+import ban3m from '../assets/font/air/airpro-03-m.jpg';
+import ban4m from '../assets/font/air/airpro-04-m.jpg';
 
-import ga1 from '../Assets/font/air/airpro-ga-1.jpg';
-import ga2 from '../Assets/font/air/airpro-ga-2.jpg';
-import ga3 from '../Assets/font/air/airpro-ga-3.jpg';
-import ga4 from '../Assets/font/air/airpro-ga-4.jpg';
+import ga1 from '../assets/font/air/airpro-ga-1.jpg';
+import ga2 from '../assets/font/air/airpro-ga-2.jpg';
+import ga3 from '../assets/font/air/airpro-ga-3.jpg';
+import ga4 from '../assets/font/air/airpro-ga-4.jpg';
 
 import { BlockImg } from '../component/BlockImgLR'
 
-import set1 from '../Assets/font/air/airproset.jpg';
+import set1 from '../assets/font/air/airproset.jpg';
 
 import { Container, Wrap, Button, H1, Text, Spacer } from '../component/Core';
 import { BlockList, BlockHeader } from '../component/Block';

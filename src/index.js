@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { ThemeProvider } from 'styled-components';
 import { base } from './theme';
-import '../src/Assets/font/AirPro.ttf';
-import '../src/Assets/font/NewFont-Regular.ttf';
-import '../src/Assets/font/N1MONO-MONO.ttf';
+import '../src/assets/font/AirPro.ttf';
+import '../src/assets/font/NewFont-Regular.ttf';
+import '../src/assets/font/N1MONO-MONO.ttf';
 
 ReactDOM.render(
   <React.StrictMode>
