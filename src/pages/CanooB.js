@@ -8,12 +8,12 @@ import ca4 from '../assets/canoob/CB-1-04.jpg';
 import ca5 from '../assets/canoob/CB-1-05.jpg';
 import ca6 from '../assets/canoob/CB-1-06.jpg';
 import ca7 from '../assets/canoob/CB-1-07.jpg';
-import ca8 from '../assets/logo/lo01.jpg';
-import ca9 from '../assets/logo/lo01.jpg';
-import ca10 from '../assets/logo/lo01.jpg';
-import ca11 from '../assets/logo/lo01.jpg';
-import ca12 from '../assets/logo/lo01.jpg';
-import ca13 from '../assets/logo/lo01.jpg';
+import ca8 from '../assets/canoob/1.08.jpg';
+import ca9 from '../assets/canoob/1.09.jpg';
+import ca10 from '../assets/canoob/1.10.jpg';
+import ca11 from '../assets/canoob/1.11.jpg';
+import ca12 from '../assets/canoob/1.12.jpg';
+import ca13 from '../assets/canoob/1.13.jpg';
 import { flexDirection } from 'styled-system';
 
 
