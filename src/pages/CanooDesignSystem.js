@@ -1,27 +1,40 @@
 import React from 'react';
-import lo from '../assets/logo/lo01.jpg';
-import { Blockitem, BlockTwoLn100 } from '../component/Block';
+import cd1 from '../assets/canood/CD-1- 1.jpg';
+import cd2 from '../assets/canood/CD-1- 2.jpg';
+import cd3 from '../assets/canood/CD-1- 3.jpg';
+import cd4 from '../assets/canood/CD-1- 4.jpg';
+import cd5 from '../assets/canood/CD-1- 5.jpg';
+import cd6 from '../assets/canood/CD-1- 6.jpg';
+import cd7 from '../assets/canood/CD-1- 7.jpg';
+import cd8 from '../assets/canood/CD-1- 8.jpg';
+import cd9 from '../assets/canood/CD-1- 9.jpg';
+import cd10 from '../assets/canood/CD-1- 10.jpg';
+import cd11 from '../assets/canood/CD-1- 11.jpg';
+import cd12 from '../assets/canood/CD-1- 12.jpg';
+import cd13 from '../assets/canood/CD-1- 13.jpg';
+import cd14 from '../assets/canood/CD-1- 14.jpg';
+import cd15 from '../assets/canood/CD-1- 15.jpg';
+import { Blockitem } from '../component/Block';
 import { Container, Wrap, H1, Text } from '../component/Core';
 import { base } from '../theme';
 import { ThemeProvider } from "styled-components";
 
-// Placeholder images - replace with CD-1-01.jpg through CD-1-15.jpg when ready
 const ImgSet = [
-  { img: lo, title: "Design System Overview", body: "" },
-  { img: lo, title: "Component Library", body: "" },
-  { img: lo, title: "Style Guide", body: "" },
-  { img: lo, title: "Color System", body: "" },
-  { img: lo, title: "Typography", body: "" },
-  { img: lo, title: "Icons", body: "" },
-  { img: lo, title: "Buttons", body: "" },
-  { img: lo, title: "Forms", body: "" },
-  { img: lo, title: "Cards", body: "" },
-  { img: lo, title: "Navigation", body: "" },
-  { img: lo, title: "Layout", body: "" },
-  { img: lo, title: "Spacing", body: "" },
-  { img: lo, title: "Motion", body: "" },
-  { img: lo, title: "Accessibility", body: "" },
-  { img: lo, title: "Implementation", body: "" },
+  { img: cd1, title: "", body: "" },
+  { img: cd2, title: "", body: "" },
+  { img: cd3, title: "", body: "" },
+  { img: cd4, title: "", body: "" },
+  { img: cd5, title: "", body: "" },
+  { img: cd6, title: "", body: "" },
+  { img: cd7, title: "", body: "" },
+  { img: cd8, title: "", body: "" },
+  { img: cd9, title: "", body: "" },
+  { img: cd10, title: "", body: "" },
+  { img: cd11, title: "", body: "" },
+  { img: cd12, title: "", body: "" },
+  { img: cd13, title: "", body: "" },
+  { img: cd14, title: "", body: "" },
+  { img: cd15, title: "", body: "" },
 ];
 
 function CanooDesignSystem() {
