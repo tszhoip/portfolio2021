@@ -3,17 +3,18 @@ import { BlockImg, Blockitem } from '../component/Block';
 import { Container } from '../component/Core';
 import { ThemeProvider } from "styled-components";
 import { base } from '../theme';
+import { getProjectMetadata } from '../data/projectsMetadata';
 
 /**
  * ProjectTemplate - Reusable project detail page component
  *
  * Props:
  *   - projectNumber: 1-5 (or higher)
- *   - metadata: {title, role, deliverable, descEN, descCN}
  *
- * Automatically loads images from works/project-{n}/1.jpg through however many exist
+ * Metadata is fetched from centralized projectsMetadata.js (synced with Google Sheet)
+ * Automatically loads images from public/images/project-{n}/1.jpg through however many exist
  */
-export const ProjectTemplate = ({ projectNumber, metadata }) => {
+export const ProjectTemplate = ({ projectNumber }) => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -48,16 +49,14 @@ export const ProjectTemplate = ({ projectNumber, metadata }) => {
     loadImages();
   }, [projectNumber]);
 
-  // Default metadata if not provided
-  const defaultMetadata = {
+  // Fetch metadata from centralized data source
+  const m = getProjectMetadata(projectNumber) || {
     title: `Project ${projectNumber}`,
     role: 'Design Lead',
     deliverable: 'Art Direction, Design System',
     descEN: 'Project description in English',
     descCN: '项目中文描述'
   };
-
-  const m = metadata || defaultMetadata;
 
   return (
     <ThemeProvider theme={base}>
