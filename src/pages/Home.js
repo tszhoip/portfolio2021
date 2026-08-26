@@ -2,7 +2,7 @@ import React from 'react';
 import { BlockThumb, BlockThumbFull } from '../component/Block';
 import logo from '../assets/logo/lo01.jpg';
 import nike from '../assets/logo/lo01.jpg';
-import joy from '../assets/Joy/11.01.jpg';
+import joy from '../assets/logo/11.01.jpg';
 import inno from '../assets/logo/lo03.jpg';
 import shop from '../assets/logo/lo04.jpg';
 import CanooB from '../assets/logo/lo06.jpg';
