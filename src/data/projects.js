@@ -41,15 +41,13 @@ export const projects = [
     hasContent: true,
     route: '/work/project-4'
   },
-  // Project 5+ coming soon - add to Google Sheet first
-  // Add new projects here:
-  // {
-  //   id: 5,
-  //   title: 'Project 5',
-  //   thumbnail: '/images/project-5/thumb.jpg',
-  //   hasContent: false,
-  //   route: '/work/project-5'
-  // }
+  {
+    id: 5,
+    title: 'Innocell, Brand Concept',
+    thumbnail: '/images/project-5/thumb.jpg',
+    hasContent: true,
+    route: '/work/project-5'
+  }
 ];
 
 export default projects;
