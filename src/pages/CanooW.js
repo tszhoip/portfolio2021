@@ -1,10 +1,10 @@
 import React from 'react';
 import { BlockImg, Blockitem } from '../component/Block';
 import { Container } from '../component/Core';
-import ca1 from '../Assets/logo/lo01.jpg';
-import ca2 from '../Assets/logo/lo01.jpg';
-import ca3 from '../Assets/logo/lo01.jpg';
-import ca4 from '../Assets/logo/lo01.jpg';
+import ca1 from '../assets/logo/lo01.jpg';
+import ca2 from '../assets/logo/lo01.jpg';
+import ca3 from '../assets/logo/lo01.jpg';
+import ca4 from '../assets/logo/lo01.jpg';
 
 
 

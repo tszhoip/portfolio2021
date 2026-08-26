@@ -3,24 +3,24 @@ import { ProductSliderFull } from '../component/ProductSlider';
 import { base } from '../theme';
 import { ThemeProvider, useTheme } from "styled-components";
 
-import ban1 from '../Assets/logo/lo01.jpg';
-import ban2 from '../Assets/logo/lo01.jpg';
-import ban3 from '../Assets/logo/lo01.jpg';
-import ban4 from '../Assets/logo/lo01.jpg';
+import ban1 from '../assets/logo/lo01.jpg';
+import ban2 from '../assets/logo/lo01.jpg';
+import ban3 from '../assets/logo/lo01.jpg';
+import ban4 from '../assets/logo/lo01.jpg';
 
-import ban1m from '../Assets/logo/lo01.jpg';
-import ban2m from '../Assets/logo/lo01.jpg';
-import ban3m from '../Assets/logo/lo01.jpg';
-import ban4m from '../Assets/logo/lo01.jpg';
+import ban1m from '../assets/logo/lo01.jpg';
+import ban2m from '../assets/logo/lo01.jpg';
+import ban3m from '../assets/logo/lo01.jpg';
+import ban4m from '../assets/logo/lo01.jpg';
 
-import ga1 from '../Assets/logo/lo01.jpg';
-import ga2 from '../Assets/logo/lo01.jpg';
-import ga3 from '../Assets/logo/lo01.jpg';
-import ga4 from '../Assets/logo/lo01.jpg';
+import ga1 from '../assets/logo/lo01.jpg';
+import ga2 from '../assets/logo/lo01.jpg';
+import ga3 from '../assets/logo/lo01.jpg';
+import ga4 from '../assets/logo/lo01.jpg';
 
 import { BlockImg } from '../component/BlockImgLR'
 
-import set1 from '../Assets/logo/lo01.jpg';
+import set1 from '../assets/logo/lo01.jpg';
 
 import { Container, Wrap, Button, H1, Text, Spacer } from '../component/Core';
 import { BlockList, BlockHeader } from '../component/Block';
