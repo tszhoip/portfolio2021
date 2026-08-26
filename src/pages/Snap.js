@@ -1,20 +1,20 @@
 import React from 'react';
 import { BlockImgCon } from '../component/BlockImgPlay';
-import lo1 from '../assets/tokyo/001.jpg';
-import lo2 from '../assets/tokyo/002.jpg';
-import lo3 from '../assets/tokyo/003.jpg';
-import lo4 from '../assets/tokyo/004.jpg';
-import lo5 from '../assets/tokyo/005.jpg';
-import lo6 from '../assets/tokyo/006.jpg';
-import lo7 from '../assets/tokyo/007.jpg';
-import lo8 from '../assets/tokyo/008.jpg';
-import lo9 from '../assets/tokyo/009.jpg';
-import lo10 from '../assets/tokyo/010.jpg';
-import lo11 from '../assets/tokyo/011.jpg';
-import lo12 from '../assets/tokyo/013.jpg';
-import lo13 from '../assets/tokyo/014.jpg';
-import lo14 from '../assets/tokyo/013.jpg';
-import lo15 from '../assets/tokyo/014.jpg';
+import lo1 from '../assets/tokyo/tokyo3-01.jpg';
+import lo2 from '../assets/tokyo/tokyo3-01.jpg';
+import lo3 from '../assets/tokyo/tokyo3-01.jpg';
+import lo4 from '../assets/tokyo/tokyo3-01.jpg';
+import lo5 from '../assets/tokyo/tokyo3-01.jpg';
+import lo6 from '../assets/tokyo/tokyo3-01.jpg';
+import lo7 from '../assets/tokyo/tokyo3-01.jpg';
+import lo8 from '../assets/tokyo/tokyo3-01.jpg';
+import lo9 from '../assets/tokyo/tokyo3-01.jpg';
+import lo10 from '../assets/tokyo/tokyo3-01.jpg';
+import lo11 from '../assets/tokyo/tokyo3-01.jpg';
+import lo12 from '../assets/tokyo/tokyo3-01.jpg';
+import lo13 from '../assets/tokyo/tokyo3-01.jpg';
+import lo14 from '../assets/tokyo/tokyo3-01.jpg';
+import lo15 from '../assets/tokyo/tokyo3-01.jpg';
 
 
 
