@@ -79,8 +79,8 @@ function CanooB() {
       ))}
 
       {/* Credit Section */}
-      <Container width={[1]} flexWrap="wrap" maxWidth={["1440px"]} pb={[0, 4, 4, 5]} mt={[4, 5, 5, 5]} borderTop="1px solid #e0e0e0">
-        <Container width={[1]} flexDirection={[1]} flexWrap="wrap" pt={[4]}>
+      <Container width={[1]} flexWrap="wrap" maxWidth={["1440px"]} pb={[0, 4, 4, 5]} mt={[4, 5, 5, 5]} pt={[4]}>
+        <Container width={[1]} flexDirection={[1]} flexWrap="wrap">
           <Blockitem
             title="Team"
             body="Nathan Smith - Program Lead
@@ -104,7 +104,7 @@ Tsz Ho Ip - Design Lead"
             Related Projects
           </h2>
         </Container>
-        <Container width={[1]} display="flex" flexDirection="row" flexWrap="wrap" justifyContent="center" gap="16px">
+        <Container width={[1]} display="flex" flexDirection="row" flexWrap="wrap" justifyContent="center">
           <BlockThumb width={[1, 1, 1 / 2, 1 / 3]} img={ca1} to="/work/CanooW" title="Canoo Showroom" />
           <BlockThumb width={[1, 1, 1 / 2, 1 / 3]} img={ca1} to="/work/CanooP" title="Canoo Process" />
         </Container>
