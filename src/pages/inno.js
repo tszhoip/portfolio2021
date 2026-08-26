@@ -1,14 +1,14 @@
 import React from 'react';
 import { BlockImg, Blockitem } from '../component/Block';
 import { Container } from '../component/Core';
-import ca1 from '../Assets/inn/9.01.jpg';
-import ca2 from '../Assets/inn/9.02.jpg';
-import ca3 from '../Assets/inn/9.03.jpg';
-import ca4 from '../Assets/inn/9.04.jpg';
-import ca5 from '../Assets/inn/9.05.jpg';
-import ca6 from '../Assets/inn/9.06.jpg';
-import ca7 from '../Assets/inn/9.07.jpg';
-import ca8 from '../Assets/inn/9.08.jpg';
+import ca1 from '../assets/inn/9.01.jpg';
+import ca2 from '../assets/inn/9.02.jpg';
+import ca3 from '../assets/inn/9.03.jpg';
+import ca4 from '../assets/inn/9.04.jpg';
+import ca5 from '../assets/inn/9.05.jpg';
+import ca6 from '../assets/inn/9.06.jpg';
+import ca7 from '../assets/inn/9.07.jpg';
+import ca8 from '../assets/inn/9.08.jpg';
 
 
 function CanooB() {
