@@ -1,7 +1,6 @@
 import React from 'react';
-import { BlockImg, Blockitem, BlockThumb } from '../component/Block';
+import { BlockImg, Blockitem } from '../component/Block';
 import { Container } from '../component/Core';
-import { useNavigate } from 'react-router-dom';
 import ca1 from '../assets/canoob/CB-1-01.jpg';
 import ca2 from '../assets/canoob/CB-1-02.jpg';
 import ca3 from '../assets/canoob/CB-1-03.jpg';
@@ -19,34 +18,23 @@ import { flexDirection } from 'styled-system';
 
 
 function CanooB() {
-  const navigate = useNavigate();
-
-  const Thumb = [
-    { img: ca1 }
-  ]
   const ImgSet = [
-    { img: ca2 },
-    { img: ca3 },
-    { img: ca4 },
-    { img: ca5 },
-    { img: ca6 },
-    { img: ca7 },
-    { img: ca8 },
-    { img: ca9 },
-    { img: ca10 },
-    { img: ca11 },
-    { img: ca12 },
-    { img: ca13 }
-  ]
-
-  const relatedProjects = [
-    { img: ca1, to: "/work/CanooW", title: "Canoo Showroom" },
-    { img: ca1, to: "/work/CanooP", title: "Canoo Process" },
+    ca2,
+    ca3,
+    ca4,
+    ca5,
+    ca6,
+    ca7,
+    ca8,
+    ca9,
+    ca10,
+    ca11,
+    ca12,
+    ca13
   ]
 
   return (
     <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center">
-      <BlockImg image={ca1} />
       <Container width={[1]} flexWrap="wrap" maxWidth={["1440px"]} pb={[0, 4, 4, 5]}>
         <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
           <Blockitem
@@ -74,41 +62,9 @@ function CanooB() {
           />
         </Container>
       </Container>
-      {ImgSet.map((imageObj, index) => (
-        <BlockImg key={index} image={imageObj.img} />
+      {ImgSet.map((image, index) => (
+        <BlockImg key={index} image={image} />
       ))}
-
-      {/* Credit Section */}
-      <Container width={[1]} flexWrap="wrap" maxWidth={["1440px"]} pb={[0, 4, 4, 5]} mt={[4, 5, 5, 5]} pt={[4]}>
-        <Container width={[1]} flexDirection={[1]} flexWrap="wrap">
-          <Blockitem
-            title="Team"
-            body="Nathan Smith - Program Lead
-Tsz Ho Ip - Design Lead"
-          />
-          <Blockitem
-            title="Role"
-            body="Brand Strategy, Visual Identity, Design Direction"
-          />
-          <Blockitem
-            title="Deliverables"
-            body="Brand Guidelines, Logo System, Color Palette, Typography, Marketing Materials"
-          />
-        </Container>
-      </Container>
-
-      {/* Related Projects */}
-      <Container width={[1]} display="flex" flexDirection="column" alignItems="center" pb={[5]} mt={[5]}>
-        <Container width={[1]} maxWidth={["1440px"]} px={[3]}>
-          <h2 style={{ textAlign: 'left', marginBottom: '24px', fontSize: '18px', fontFamily: 'Helvetica' }}>
-            Related Projects
-          </h2>
-        </Container>
-        <Container width={[1]} display="flex" flexDirection="row" flexWrap="wrap" justifyContent="center">
-          <BlockThumb width={[1, 1, 1 / 2, 1 / 3]} img={ca1} to="/CanooW" title="Canoo Showroom" />
-          <BlockThumb width={[1, 1, 1 / 2, 1 / 3]} img={ca1} to="/CanooP" title="Canoo Process" />
-        </Container>
-      </Container>
     </Container>
   );
 }
