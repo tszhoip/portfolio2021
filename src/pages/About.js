@@ -13,7 +13,7 @@ import lo9 from '../assets/feed/feed-9.jpg';
 import { Container, Wrap, Button, H1, Text, Spacer } from '../component/Core';
 import { base } from '../theme';
 import { ThemeProvider, isStyledComponent } from "styled-components";
-import { BlockList, BlockHeader } from '../component/Block';
+import { BlockList, BlockHeader, BlockThumb } from '../component/Block';
 
 const ImgLogo = [
   { img: lo1 },
@@ -63,6 +63,10 @@ function About() {
 </Wrap>
 
         <BlockImgPlay images={ImgLogo} gtcD="repeat(4, 25%)" gtcM="repeat(2, 50%)" />
+
+        <Wrap mt={[4]} mb={[4]}>
+          <BlockThumb img={'/canoob-thumb.jpg'} to="/CanooB" title="Canoo Brand (Test)" />
+        </Wrap>
 
       </Container>
     </ThemeProvider>
