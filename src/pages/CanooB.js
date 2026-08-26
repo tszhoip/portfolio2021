@@ -105,8 +105,8 @@ Tsz Ho Ip - Design Lead"
           </h2>
         </Container>
         <Container width={[1]} display="flex" flexDirection="row" flexWrap="wrap" justifyContent="center">
-          <BlockThumb width={[1, 1, 1 / 2, 1 / 3]} img={ca1} to="/work/CanooW" title="Canoo Showroom" />
-          <BlockThumb width={[1, 1, 1 / 2, 1 / 3]} img={ca1} to="/work/CanooP" title="Canoo Process" />
+          <BlockThumb width={[1, 1, 1 / 2, 1 / 3]} img={ca1} to="/CanooW" title="Canoo Showroom" />
+          <BlockThumb width={[1, 1, 1 / 2, 1 / 3]} img={ca1} to="/CanooP" title="Canoo Process" />
         </Container>
       </Container>
     </Container>
