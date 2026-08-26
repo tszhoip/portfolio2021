@@ -1,19 +1,19 @@
 import React from 'react';
 import { BlockImg, Blockitem } from '../component/Block';
 import { Container } from '../component/Core';
-import ca1 from '../assets/CanooB/1.01.jpg';
-import ca2 from '../assets/CanooB/1.02.jpg';
-import ca3 from '../assets/CanooB/1.03.jpg';
-import ca4 from '../assets/CanooB/1.04.jpg';
-import ca5 from '../assets/CanooB/1.05.jpg';
-import ca6 from '../assets/CanooB/1.06.jpg';
-import ca7 from '../assets/CanooB/1.07.jpg';
-import ca8 from '../assets/CanooB/1.08.jpg';
-import ca9 from '../assets/CanooB/1.09.jpg';
-import ca10 from '../assets/CanooB/1.10.jpg';
-import ca11 from '../assets/CanooB/1.11.jpg';
-import ca12 from '../assets/CanooB/1.12.jpg';
-import ca13 from '../assets/CanooB/1.13.jpg';
+import ca1 from '../assets/logo/lo06.jpg';
+import ca2 from '../assets/logo/lo06.jpg';
+import ca3 from '../assets/logo/lo06.jpg';
+import ca4 from '../assets/logo/lo06.jpg';
+import ca5 from '../assets/logo/lo06.jpg';
+import ca6 from '../assets/logo/lo06.jpg';
+import ca7 from '../assets/logo/lo06.jpg';
+import ca8 from '../assets/logo/lo06.jpg';
+import ca9 from '../assets/logo/lo06.jpg';
+import ca10 from '../assets/logo/lo06.jpg';
+import ca11 from '../assets/logo/lo06.jpg';
+import ca12 from '../assets/logo/lo06.jpg';
+import ca13 from '../assets/logo/lo06.jpg';
 import { flexDirection } from 'styled-system';
 
 

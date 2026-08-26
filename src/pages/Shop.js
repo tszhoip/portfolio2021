@@ -3,9 +3,9 @@ import { base } from '../theme';
 import { ThemeProvider } from "styled-components";
 import { Container } from "../component/Core";
 import { BlockThumbFont } from '../component/Block';
-import air from '../assets/shop/thumbair.jpg';
-import mono from '../assets/shop/thumbmono.jpg';
-import porter from '../assets/shop/thumbporter.jpg';
+import air from '../assets/logo/lo05.jpg';
+import mono from '../assets/logo/lo05.jpg';
+import porter from '../assets/logo/lo05.jpg';
 
 
 

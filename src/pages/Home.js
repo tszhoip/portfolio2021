@@ -1,13 +1,13 @@
 import React from 'react';
 import { BlockThumb, BlockThumbFull } from '../component/Block';
 import logo from '../assets/logo/lo01.jpg';
-import nike from '../assets/nike/5.01.jpg';
+import nike from '../assets/logo/lo01.jpg';
 import joy from '../assets/Joy/11.01.jpg';
-import inno from '../assets/inn/9.01.jpg';
-import shop from '../assets/shopify/10.1.jpg';
-import CanooB from '../assets/CanooB/1.01.jpg';
-import CanooW from '../assets/CanooW/2.01.jpg';
-import CanooP from '../assets/CanooP/4.01.jpg';
+import inno from '../assets/logo/lo03.jpg';
+import shop from '../assets/logo/lo04.jpg';
+import CanooB from '../assets/logo/lo06.jpg';
+import CanooW from '../assets/logo/lo07.jpg';
+import CanooP from '../assets/logo/lo08.jpg';
 import { Container } from '../component/Core';
 
 
