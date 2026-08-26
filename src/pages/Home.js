@@ -5,10 +5,11 @@ import nike from '../assets/logo/lo01.jpg';
 import joy from '../assets/logo/lo01.jpg';
 import inno from '../assets/logo/lo01.jpg';
 import shop from '../assets/logo/lo01.jpg';
-import CanooB from '../assets/logo/lo01.jpg';
 import CanooW from '../assets/logo/lo01.jpg';
 import CanooP from '../assets/logo/lo01.jpg';
 import { Container } from '../component/Core';
+
+const CanooB = '/canoob-thumb.jpg';
 
 
 function Home() {
