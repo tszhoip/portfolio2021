@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "plugin:storybook/recommended"
+  ],
+  "rules": {
+    "no-unused-vars": "warn"
+  }
+}
