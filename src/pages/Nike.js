@@ -1,11 +1,11 @@
 import React from 'react';
 import { BlockImg, Blockitem } from '../component/Block';
 import { Container } from '../component/Core';
-import f1 from '../assets/logo/lo01.jpg';
-import f2 from '../assets/logo/lo01.jpg';
-import f3 from '../assets/logo/lo01.jpg';
-import f4 from '../assets/logo/lo01.jpg';
-import f5 from '../assets/logo/lo01.jpg';
+import f1 from '../Assets/logo/lo01.jpg';
+import f2 from '../Assets/logo/lo01.jpg';
+import f3 from '../Assets/logo/lo01.jpg';
+import f4 from '../Assets/logo/lo01.jpg';
+import f5 from '../Assets/logo/lo01.jpg';
 
 
 
