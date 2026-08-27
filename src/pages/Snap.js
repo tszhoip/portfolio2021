@@ -64,6 +64,7 @@ const MessageContainer = styled.div`
 function Snap() {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isDemo, setIsDemo] = useState(false);
 
   useEffect(() => {
     const fetchAreNaContent = async () => {
@@ -79,6 +80,21 @@ function Snap() {
           }
         }
       } catch (err) {
+        // Fallback: Use demo data on local dev if REACT_APP_DEMO_MODE is set
+        if (process.env.REACT_APP_DEMO_MODE === 'true') {
+          setIsDemo(true);
+          // Sample ARE.NA posts for demo
+          setImages([
+            { url: 'https://d2w9rnfcy7mm78.cloudfront.net/17372957/original_4cc3c6e7b0cdbe2fa8e3b7c4f49b59eb.jpg', title: 'Design 1' },
+            { url: 'https://d2w9rnfcy7mm78.cloudfront.net/17372958/original_4cc3c6e7b0cdbe2fa8e3b7c4f49b59ec.jpg', title: 'Design 2' },
+            { url: 'https://d2w9rnfcy7mm78.cloudfront.net/17372959/original_4cc3c6e7b0cdbe2fa8e3b7c4f49b59ed.jpg', title: 'Design 3' },
+            { url: 'https://d2w9rnfcy7mm78.cloudfront.net/17372960/original_4cc3c6e7b0cdbe2fa8e3b7c4f49b59ee.jpg', title: 'Design 4' },
+            { url: 'https://d2w9rnfcy7mm78.cloudfront.net/17372961/original_4cc3c6e7b0cdbe2fa8e3b7c4f49b59ef.jpg', title: 'Design 5' },
+            { url: 'https://d2w9rnfcy7mm78.cloudfront.net/17372962/original_4cc3c6e7b0cdbe2fa8e3b7c4f49b59f0.jpg', title: 'Design 6' },
+            { url: 'https://d2w9rnfcy7mm78.cloudfront.net/17372963/original_4cc3c6e7b0cdbe2fa8e3b7c4f49b59f1.jpg', title: 'Design 7' },
+            { url: 'https://d2w9rnfcy7mm78.cloudfront.net/17372964/original_4cc3c6e7b0cdbe2fa8e3b7c4f49b59f2.jpg', title: 'Design 8' },
+          ]);
+        }
         console.log('Archive: Serverless function not available (expected on local dev)');
       } finally {
         setLoading(false);
