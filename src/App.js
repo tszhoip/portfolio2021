@@ -53,6 +53,7 @@ function App() {
           <Route path="/CanooDesignSystem" element={<PageWrapper component={<CanooDesignSystem/>} />} />
           <Route path="/CanooP" element={<PageWrapper component={<CanooP/>} />} />
           <Route path="/snap" element={<PageWrapper component={<Snap/>} />} />
+          <Route path="/archive" element={<PageWrapper component={<Snap/>} />} />
           <Route path="/joy" element={<PageWrapper component={<Joy/>} />} />
           <Route path="/work/project-1" element={<PageWrapper component={<Project1/>} />} />
           <Route path="/work/project-2" element={<PageWrapper component={<Project2/>} />} />

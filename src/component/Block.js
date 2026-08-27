@@ -110,7 +110,7 @@ export const BlockMenu = (props) => {
     navigate('/about');
   };
   const navigateArchive = () => {
-    window.open('https://cosmos-feed-swart.vercel.app/', '_blank');
+    navigate('/archive');
   };
   const navigateShop = () => {
     navigate('/Shop');
