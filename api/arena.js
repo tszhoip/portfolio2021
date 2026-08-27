@@ -36,18 +36,41 @@ export default async function handler(req, res) {
       timeout: 30000
     });
 
+    // Scroll to load all lazy-loaded images
+    let previousHeight = 0;
+    let attempts = 0;
+    const maxAttempts = 10;
+
+    while (attempts < maxAttempts) {
+      // Get current page height
+      const currentHeight = await page.evaluate(() => document.body.scrollHeight);
+
+      if (currentHeight === previousHeight) {
+        break; // No more content to load
+      }
+
+      previousHeight = currentHeight;
+
+      // Scroll to bottom
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+
+      // Wait for images to load
+      await page.waitForTimeout(500);
+      attempts++;
+    }
+
     // Extract image URLs from rendered DOM
     const images = await page.evaluate(() => {
-      const imageElements = document.querySelectorAll('img[src*="cloudfront.net"]');
+      // Look for img tags and also check background images
+      const imageElements = document.querySelectorAll('img');
       const images = [];
       const seenUrls = new Set();
 
       imageElements.forEach(img => {
         let url = img.src || img.dataset.src;
 
-        // Clean up URL - remove query params but keep the image ID
+        // Clean up URL - remove query params
         if (url && url.includes('cloudfront.net')) {
-          // Extract just the base URL without tracking params
           const baseUrl = url.split('?')[0];
 
           if (baseUrl && !seenUrls.has(baseUrl)) {
