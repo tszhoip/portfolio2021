@@ -75,21 +75,6 @@ function Snap() {
           }
         }
       } catch (err) {
-        // Fallback: Use demo data on local dev if REACT_APP_DEMO_MODE is set
-        if (process.env.REACT_APP_DEMO_MODE === 'true') {
-          setIsDemo(true);
-          // Sample ARE.NA posts for demo (using placeholder service)
-          setImages([
-            { url: 'https://picsum.photos/400/400?random=1', title: 'Design 1' },
-            { url: 'https://picsum.photos/400/400?random=2', title: 'Design 2' },
-            { url: 'https://picsum.photos/400/400?random=3', title: 'Design 3' },
-            { url: 'https://picsum.photos/400/400?random=4', title: 'Design 4' },
-            { url: 'https://picsum.photos/400/400?random=5', title: 'Design 5' },
-            { url: 'https://picsum.photos/400/400?random=6', title: 'Design 6' },
-            { url: 'https://picsum.photos/400/400?random=7', title: 'Design 7' },
-            { url: 'https://picsum.photos/400/400?random=8', title: 'Design 8' },
-          ]);
-        }
         console.log('Archive: Serverless function not available (expected on local dev)');
       } finally {
         setLoading(false);
@@ -128,10 +113,10 @@ function Snap() {
               {isLocalhost ? (
                 <>
                   <p style={{ fontSize: '14px', color: '#666', marginBottom: '15px' }}>
-                    💡 On <strong>Vercel production</strong>, Archive displays all 39 ARE.NA posts in a grid
+                    ✅ On <strong>Vercel production</strong>, this grid displays your 39 ARE.NA posts
                   </p>
                   <p style={{ fontSize: '14px', color: '#666', marginBottom: '20px' }}>
-                    On local development, view your posts at:
+                    View your actual posts at:
                   </p>
                   <a
                     href="https://www.are.na/tsz-ho-ip/mastertaste"
@@ -139,7 +124,7 @@ function Snap() {
                     rel="noopener noreferrer"
                     style={{
                       display: 'inline-block',
-                      padding: '10px 20px',
+                      padding: '12px 24px',
                       backgroundColor: '#0066cc',
                       color: 'white',
                       textDecoration: 'none',
@@ -148,7 +133,7 @@ function Snap() {
                       fontWeight: '500'
                     }}
                   >
-                    View 39 Posts on ARE.NA
+                    View 39 Posts on ARE.NA →
                   </a>
                 </>
               ) : (
