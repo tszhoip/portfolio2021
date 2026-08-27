@@ -1,35 +1,70 @@
 /**
- * Serverless function to scrape ARE.NA channel data
- * Scrapes live HTML instead of using deprecated v2 API
+ * Serverless function to fetch ARE.NA channel data using Puppeteer
+ * Renders the live page to extract posts after JavaScript loads
  * Automatically syncs with https://www.are.na/tsz-ho-ip/mastertaste
  */
+
+import puppeteer from 'puppeteer';
+
+// Reuse browser connection across function invocations
+let browserWSEndpoint = null;
 
 export default async function handler(req, res) {
   try {
     const channelUrl = 'https://www.are.na/tsz-ho-ip/mastertaste';
 
-    // Fetch ARE.NA channel HTML
-    const response = await fetch(channelUrl, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; portfolio-archive/1.0)'
-      },
-      signal: AbortSignal.timeout(10000)
+    // Launch or connect to browser
+    const browser = await puppeteer.launch({
+      headless: 'new',
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-gpu'
+      ]
     });
 
-    if (!response.ok) {
-      console.error(`ARE.NA fetch error: ${response.status}`);
-      return res.status(500).json({
-        error: `Failed to fetch ARE.NA page: ${response.status}`,
-        images: []
+    const page = await browser.newPage();
+
+    // Set viewport and user agent
+    await page.setViewport({ width: 1280, height: 800 });
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36');
+
+    // Navigate to channel
+    await page.goto(channelUrl, {
+      waitUntil: 'networkidle2',
+      timeout: 30000
+    });
+
+    // Extract image URLs from rendered DOM
+    const images = await page.evaluate(() => {
+      const imageElements = document.querySelectorAll('img[src*="cloudfront.net"]');
+      const images = [];
+      const seenUrls = new Set();
+
+      imageElements.forEach(img => {
+        let url = img.src || img.dataset.src;
+
+        // Clean up URL - remove query params but keep the image ID
+        if (url && url.includes('cloudfront.net')) {
+          // Extract just the base URL without tracking params
+          const baseUrl = url.split('?')[0];
+
+          if (baseUrl && !seenUrls.has(baseUrl)) {
+            seenUrls.add(baseUrl);
+            images.push({
+              url: baseUrl,
+              title: img.alt || 'Design post',
+              sourceUrl: 'https://www.are.na/tsz-ho-ip/mastertaste'
+            });
+          }
+        }
       });
-    }
 
-    const html = await response.text();
+      return images;
+    });
 
-    // Extract image data from HTML
-    // ARE.NA stores image data in data attributes and script tags
-    // Pattern: Look for image URLs in the JSON embedded in the page
-    const images = extractImagesFromHtml(html);
+    await browser.close();
 
     res.status(200).json({
       images,
@@ -38,53 +73,10 @@ export default async function handler(req, res) {
       lastUpdated: new Date().toISOString()
     });
   } catch (error) {
-    console.error('Error scraping ARE.NA:', error);
+    console.error('Error fetching ARE.NA with Puppeteer:', error);
     res.status(500).json({
-      error: error.message || 'Failed to scrape ARE.NA',
+      error: error.message || 'Failed to fetch ARE.NA',
       images: []
     });
   }
-}
-
-/**
- * Extract image URLs from ARE.NA HTML
- * Looks for image blocks in the HTML structure
- */
-function extractImagesFromHtml(html) {
-  const images = [];
-
-  // Pattern 1: Look for image URLs in data attributes
-  // ARE.NA embeds image data in various formats
-  const imageUrlPattern = /https:\/\/d2w9rnfcy7mm78\.cloudfront\.net\/[\w\-/]+\.(jpg|jpeg|png|gif|webp)/gi;
-  let match;
-
-  while ((match = imageUrlPattern.exec(html)) !== null) {
-    const url = match[0];
-    if (!images.some(img => img.url === url)) {
-      images.push({
-        url: url,
-        title: 'Design post',
-        sourceUrl: 'https://www.are.na/tsz-ho-ip/mastertaste'
-      });
-    }
-  }
-
-  // Pattern 2: Look for image data in Next.js props or JSON
-  // ARE.NA uses Next.js, so check for __NEXT_DATA__ or similar
-  const jsonPattern = /"original_url":"(https:\/\/[^"]+)"/g;
-  while ((match = jsonPattern.exec(html)) !== null) {
-    const url = match[1];
-    // Only add ARE.NA CDN images
-    if (url.includes('cloudfront.net') && !images.some(img => img.url === url)) {
-      images.push({
-        url: url,
-        title: 'Design post',
-        sourceUrl: 'https://www.are.na/tsz-ho-ip/mastertaste'
-      });
-    }
-  }
-
-  // Remove duplicates and return first 100
-  const uniqueImages = Array.from(new Map(images.map(img => [img.url, img])).values());
-  return uniqueImages.slice(0, 100);
 }
