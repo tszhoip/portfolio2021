@@ -7,8 +7,10 @@ import { Wrap } from '../component/Core';
  * Archive Page - Displays ARE.NA mastertaste channel posts
  * Channel: https://www.are.na/tsz-ho-ip/mastertaste
  *
- * Fetches posts via serverless function (Vercel production)
- * Displays in custom grid layout with site menu preserved
+ * On Vercel production: Fetches via serverless function (/api/arena.js)
+ * On local dev: Shows helpful message with link to ARE.NA
+ *
+ * ARE.NA blocks client-side requests (CORS), so server-side fetch is required
  */
 
 const GridContainer = styled(Wrap)`
@@ -62,30 +64,22 @@ const MessageContainer = styled.div`
 function Snap() {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isDev, setIsDev] = useState(false);
 
   useEffect(() => {
-    // Check if running on localhost (development)
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    setIsDev(isLocalhost);
-
     const fetchAreNaContent = async () => {
       try {
         setLoading(true);
-        // Try serverless function (works on Vercel production)
+        // Fetch from serverless function (only works on Vercel, not on local dev)
         const response = await fetch('/api/arena', { signal: AbortSignal.timeout(5000) });
 
-        if (!response.ok) {
-          throw new Error(`Server error: ${response.status}`);
-        }
-
-        const data = await response.json();
-        if (data.images && data.images.length > 0) {
-          setImages(data.images);
+        if (response.ok) {
+          const data = await response.json();
+          if (data?.images && data.images.length > 0) {
+            setImages(data.images);
+          }
         }
       } catch (err) {
-        console.log('Archive fetch note:', err.message, '(This is expected in development)');
-        // On dev/localhost, serverless function won't work, show helpful message
+        console.log('Archive: Serverless function not available (expected on local dev)');
       } finally {
         setLoading(false);
       }
@@ -93,6 +87,9 @@ function Snap() {
 
     fetchAreNaContent();
   }, []);
+
+  const isLocalhost = typeof window !== 'undefined' &&
+    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
 
   return (
     <ThemeProvider theme={base}>
@@ -113,26 +110,17 @@ function Snap() {
               </ImageItem>
             ))}
           </GridContainer>
-        ) : loading ? (
-          // Loading state
-          <MessageContainer>
-            <div>
-              <p style={{ fontSize: '16px', color: '#666', marginBottom: '10px' }}>
-                Loading archive from ARE.NA...
-              </p>
-            </div>
-          </MessageContainer>
         ) : (
-          // Dev/Error state
+          // Dev or loading state
           <MessageContainer>
             <div>
-              {isDev ? (
+              {isLocalhost ? (
                 <>
                   <p style={{ fontSize: '14px', color: '#666', marginBottom: '15px' }}>
-                    ℹ️ Archive fetches live data from ARE.NA on production (Vercel)
+                    💡 On <strong>Vercel production</strong>, Archive displays all 39 ARE.NA posts in a grid
                   </p>
                   <p style={{ fontSize: '14px', color: '#666', marginBottom: '20px' }}>
-                    On local development, view your 39 posts at:
+                    On local development, view your posts at:
                   </p>
                   <a
                     href="https://www.are.na/tsz-ho-ip/mastertaste"
@@ -145,16 +133,17 @@ function Snap() {
                       color: 'white',
                       textDecoration: 'none',
                       borderRadius: '4px',
-                      fontSize: '14px'
+                      fontSize: '14px',
+                      fontWeight: '500'
                     }}
                   >
-                    View on ARE.NA
+                    View 39 Posts on ARE.NA
                   </a>
                 </>
               ) : (
                 <>
-                  <p style={{ fontSize: '14px', color: '#666', marginBottom: '20px' }}>
-                    Unable to load archive
+                  <p style={{ fontSize: '16px', color: '#666', marginBottom: '20px' }}>
+                    {loading ? 'Loading archive...' : 'Unable to load archive'}
                   </p>
                   <a
                     href="https://www.are.na/tsz-ho-ip/mastertaste"
