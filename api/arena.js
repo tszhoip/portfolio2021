@@ -10,17 +10,19 @@ import puppeteer from 'puppeteer';
 let browserWSEndpoint = null;
 
 export default async function handler(req, res) {
+  let browser;
   try {
     const channelUrl = 'https://www.are.na/tsz-ho-ip/mastertaste';
 
-    // Launch or connect to browser
-    const browser = await puppeteer.launch({
+    // Launch browser with optimized settings for Vercel
+    browser = await puppeteer.launch({
       headless: 'new',
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--disable-dev-shm-usage',
-        '--disable-gpu'
+        '--disable-gpu',
+        '--disable-web-security'
       ]
     });
 
@@ -29,6 +31,10 @@ export default async function handler(req, res) {
     // Set viewport and user agent
     await page.setViewport({ width: 1280, height: 800 });
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36');
+
+    // Set timeout
+    page.setDefaultTimeout(20000);
+    page.setDefaultNavigationTimeout(20000);
 
     // Navigate to channel
     await page.goto(channelUrl, {
@@ -55,7 +61,7 @@ export default async function handler(req, res) {
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
 
       // Wait for images to load
-      await page.waitForTimeout(500);
+      await new Promise(resolve => setTimeout(resolve, 500));
       attempts++;
     }
 
@@ -87,7 +93,9 @@ export default async function handler(req, res) {
       return images;
     });
 
-    await browser.close();
+    if (browser) {
+      await browser.close();
+    }
 
     res.status(200).json({
       images,
@@ -97,6 +105,13 @@ export default async function handler(req, res) {
     });
   } catch (error) {
     console.error('Error fetching ARE.NA with Puppeteer:', error);
+    if (browser) {
+      try {
+        await browser.close();
+      } catch (e) {
+        console.error('Error closing browser:', e);
+      }
+    }
     res.status(500).json({
       error: error.message || 'Failed to fetch ARE.NA',
       images: []
