@@ -44,11 +44,6 @@ const ImageItem = styled.div`
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.2s;
-
-    &:hover {
-      transform: scale(1.05);
-    }
   }
 `;
 
