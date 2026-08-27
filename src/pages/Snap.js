@@ -5,12 +5,14 @@ import React, { useEffect } from 'react';
  * Channel: https://www.are.na/tsz-ho-ip/mastertaste
  *
  * Displays 39 blocks of curated modern minimalist & wabi-sabi graphical design
- * including graphic illustration, typography, and branding identity
+ * ARE.NA APIs have CORS restrictions and deprecated endpoints,
+ * so we redirect directly to the live channel for the best UX
  */
 function Snap() {
   useEffect(() => {
     // Redirect to ARE.NA archive channel
-    // ARE.NA APIs are being phased out, so we link directly to the channel
+    // This is the most reliable way to display ARE.NA content
+    // given API limitations and CORS restrictions
     window.location.href = 'https://www.are.na/tsz-ho-ip/mastertaste';
   }, []);
 
