@@ -4,21 +4,28 @@ import { BlockImgCon } from '../component/BlockImgPlay';
 /**
  * Archive Page - Displays curated content from ARE.NA channel
  * Channel: https://www.are.na/tsz-ho-ip/mastertaste
- * Auto-updates when channel changes (no code edits needed)
+ * Uses ARE.NA Electron API (current stable endpoint)
  */
 function Snap() {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch blocks from ARE.NA channel
-    fetch('https://api.are.na/v2/channels/tsz-ho-ip/mastertaste')
-      .then(res => res.json())
+    // Use ARE.NA Electron API - their current stable endpoint
+    fetch('https://www.are.na/tsz-ho-ip/mastertaste.json')
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return res.json();
+      })
       .then(data => {
-        // Filter to image blocks only and extract URLs
-        const imageBlocks = data.contents
-          .filter(block => block.image && block.image.display && block.image.display.url)
-          .map(block => block.image.display.url);
+        // Extract image URLs from blocks
+        const imageBlocks = (data.contents || [])
+          .filter(block => block.image)
+          .map(block => {
+            // ARE.NA returns image URLs in different formats
+            return block.image.display?.url || block.image.url || block.image;
+          })
+          .filter(url => url && typeof url === 'string');
 
         setImages(imageBlocks);
       })
@@ -42,8 +49,9 @@ function Snap() {
       {images.length > 0 ? (
         <BlockImgCon images={images} gtcD="repeat(4, 25%)" gtcM="repeat(2, 50%)" />
       ) : (
-        <div style={{ padding: '40px', textAlign: 'center' }}>
-          <p>No images in archive yet. Check your ARE.NA channel!</p>
+        <div style={{ padding: '40px', textAlign: 'center', color: '#666' }}>
+          <p>📌 <a href="https://www.are.na/tsz-ho-ip/mastertaste" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'underline' }}>View Archive on ARE.NA</a></p>
+          <p style={{ fontSize: '14px', marginTop: '10px' }}>Add images to your mastertaste channel to populate the archive</p>
         </div>
       )}
     </div>
