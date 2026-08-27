@@ -1,10 +1,11 @@
 /**
  * Serverless function to fetch ARE.NA channel data using Puppeteer
- * Renders the live page to extract posts after JavaScript loads
+ * Uses @sparticuz/chromium for Vercel serverless optimization
  * Automatically syncs with https://www.are.na/tsz-ho-ip/mastertaste
  */
 
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
+import chromium from '@sparticuz/chromium';
 
 // Reuse browser connection across function invocations
 let browserWSEndpoint = null;
@@ -14,16 +15,13 @@ export default async function handler(req, res) {
   try {
     const channelUrl = 'https://www.are.na/tsz-ho-ip/mastertaste';
 
-    // Launch browser with optimized settings for Vercel
+    // Launch browser with Vercel-optimized Chromium
     browser = await puppeteer.launch({
-      headless: 'new',
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--disable-gpu',
-        '--disable-web-security'
-      ]
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+      ignoreHTTPSErrors: true
     });
 
     const page = await browser.newPage();
