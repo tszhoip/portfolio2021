@@ -119,10 +119,11 @@ const buttonVariants = {
     transition: "background-color 0.2s ease",
   },
   footer: {
-    color: 'grey',
-    backgroundColor: "rgb(0 0 0 / 0)",
+    color: '#f5f5f5',
+    backgroundColor: "#111",
     backdropFilter: "blur(2px)",
     border: "0px solid",
+    transition: "all 0.2s ease",
   },
   footerDisable: {
     color: '#333',
@@ -161,8 +162,9 @@ const hoverVariants = {
   `,
   footer: css`
   &:hover {
-    backdrop-filter: blur(8px);
-    color: white;
+    background-color: #000;
+    color: #FFF;
+    backdrop-filter: blur(4px);
   }
 `,
   primaryR: css`
