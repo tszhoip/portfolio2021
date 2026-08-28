@@ -113,9 +113,10 @@ ${variant({
 const buttonVariants = {
   default: {
     color: 'black',
-    backgroundColor: "rgb(230 230 230 / 0.8)",
+    backgroundColor: "#f5f5f5",
     backdropFilter: "blur(2px)",
     padding: "16px",
+    transition: "background-color 0.2s ease",
   },
   footer: {
     color: 'grey',
@@ -147,7 +148,7 @@ const buttonVariants = {
 const hoverVariants = {
   default: css`
    &:hover {
-      background-color: rgb(230 230 230 / 0.6);
+      background-color: #FFF;
       backdrop-filter: blur(4px);
     }
   `,
