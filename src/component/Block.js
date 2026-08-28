@@ -158,7 +158,7 @@ export const BlockFooter = (props) => {
 
   return (
     <ThemeProvider theme={base}>
-      <Wrap className="block-footer" justifyContent="start" flexDirection={["row"]} flexWrap="wrap" zIndex="1" width={[1]} pt="3" pb="4" bg="#000" color="grey">
+      <Wrap className="block-footer" justifyContent="start" flexDirection={["row"]} flexWrap="wrap" zIndex="1" width={[1]} pt="0" pb="4" bg="#000" color="grey">
 
         <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footer" textAlign="left" onClick={navigatePrivacy}> Privacy </Button>
         <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={[1]} variant="footer" textAlign="left" onClick={navigateLicense}> License </Button>

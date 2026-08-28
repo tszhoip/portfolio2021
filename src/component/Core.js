@@ -119,7 +119,7 @@ const buttonVariants = {
     transition: "background-color 0.2s ease",
   },
   footer: {
-    color: '#f5f5f5',
+    color: '#EAEAEA',
     backgroundColor: "#111",
     backdropFilter: "blur(2px)",
     border: "0px solid",
