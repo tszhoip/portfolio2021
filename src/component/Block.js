@@ -64,6 +64,16 @@ const MenuWrapper = styled.div`
         background-color: #FFF;
     }
 `
+
+const ThumbnailTitle = styled.div`
+    width: 100%;
+    background-color: #f5f5f5;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: #FFF;
+    }
+`
 export const BlockImg = (props) => {
   return (
     <ThemeProvider theme={base}>
@@ -246,7 +256,9 @@ export const BlockThumb = (props) => {
         backgroundImageHover={imgHover}
       >
         <ImgBlock2 height={props.height} src={displayImage} to={props.linkto} side={props.side} />
-        <Text fontFamily={[0]} fontSize={[1]} p={[3]} >{props.title}</Text>
+        <ThumbnailTitle>
+          <Text fontFamily={[0]} fontSize={[1]} p={[3]} >{props.title}</Text>
+        </ThumbnailTitle>
       </Thumbnail>
     </ThemeProvider>
   )
