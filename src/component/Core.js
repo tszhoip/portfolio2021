@@ -35,6 +35,9 @@ transition: background-color 0.2s ease, background-image 0.3s ease, filter 0.2s 
   color: black;
   background-image: url(${props => props.backgroundImageHover || props.backgroundImage});
 }
+&:hover > div {
+  background-color: #FFF;
+}
  &:active{
     filter: grayscale(50%);
 }
