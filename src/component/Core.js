@@ -27,12 +27,12 @@ background-image: url(${props => props.backgroundImage});
 background-size: cover;
 background-position: center;
 background-color: #f5f5f5;
-color: rgba(0, 0, 0, 0.4);
+color: black;
 transition: background-color 0.2s ease;
 &:hover{
   filter: grayscale(100%);
   background-color: #FFF;
-  color: rgba(0, 0, 0, 1);
+  color: black;
 }
  &:active{
     filter: grayscale(50%);
