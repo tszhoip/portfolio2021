@@ -17,6 +17,7 @@ function Home() {
           key={project.id}
           width={project.id === 1 ? [1,1,1/2,1/2] : undefined}
           img={project.thumbnail}
+          imgHover={project.thumbnailHover}
           to={project.route}
           title={project.title}
           opacity={project.hasContent ? 1 : 0.5}

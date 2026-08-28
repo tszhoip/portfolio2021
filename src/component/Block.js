@@ -175,11 +175,77 @@ export const BlockFooter = (props) => {
 
 
 export const BlockThumb = (props) => {
-  const { width, ...restProps } = props;
+  const { width, imgHover, ...restProps } = props;
+  const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  // Detect mobile on mount and resize
+  useEffect(() => {
+    const handleResize = () => {
+      const isSmallScreen = window.innerWidth < 900;
+      setIsMobile(isSmallScreen);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Preload both images
+  useEffect(() => {
+    if (!props.img) return;
+
+    const preloadImages = async () => {
+      const images = [];
+
+      // Preload primary image
+      const img1 = new Image();
+      img1.src = props.img;
+      images.push(
+        new Promise((resolve) => {
+          img1.onload = resolve;
+          img1.onerror = resolve;
+        })
+      );
+
+      // Preload hover image if provided
+      if (imgHover) {
+        const img2 = new Image();
+        img2.src = imgHover;
+        images.push(
+          new Promise((resolve) => {
+            img2.onload = resolve;
+            img2.onerror = resolve;
+          })
+        );
+      }
+
+      await Promise.allSettled(images);
+      setImagesLoaded(true);
+    };
+
+    preloadImages();
+  }, [props.img, imgHover]);
+
+  // Determine which image to display
+  const displayImage = isMobile && imgHover ? imgHover : isHovered && imgHover ? imgHover : props.img;
+
   return (
     <ThemeProvider theme={base}>
-      <Thumbnail {...restProps} width={width} height={['auto']} display="flex" flexDirection="column" to={props.to}>
-        <ImgBlock2 height={props.height} src={props.img} to={props.linkto} side={props.side} />
+      <Thumbnail
+        {...restProps}
+        width={width}
+        height={['auto']}
+        display="flex"
+        flexDirection="column"
+        to={props.to}
+        onMouseEnter={() => imgHover && setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        backgroundImage={displayImage}
+        backgroundImageHover={imgHover}
+      >
+        <ImgBlock2 height={props.height} src={displayImage} to={props.linkto} side={props.side} />
         <Text fontFamily={[0]} fontSize={[1]} p={[3]} >{props.title}</Text>
       </Thumbnail>
     </ThemeProvider>

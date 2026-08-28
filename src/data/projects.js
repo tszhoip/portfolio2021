@@ -9,6 +9,7 @@
  * - id: project number (1, 2, 3, etc.)
  * - title: display title
  * - thumbnail: public path to thumbnail
+ * - thumbnailHover: (optional) path to hover/mobile alternate image
  * - hasContent: true if project has metadata/images, false if placeholder
  */
 
@@ -17,6 +18,7 @@ export const projects = [
     id: 1,
     title: 'Canoo, Brand',
     thumbnail: '/images/project-1/thumb.jpg',
+    thumbnailHover: '/images/project-1/thumb-hover.jpg',
     hasContent: true,
     route: '/work/project-1'
   },
