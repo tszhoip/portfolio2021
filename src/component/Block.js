@@ -53,6 +53,17 @@ const ImgBlock2 = styled.img`
     ${space};
     ${layout};
 `
+
+const MenuWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    background-color: #f5f5f5;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: #FFF;
+    }
+`
 export const BlockImg = (props) => {
   return (
     <ThemeProvider theme={base}>
@@ -118,12 +129,14 @@ export const BlockMenu = (props) => {
 
   return (
     <ThemeProvider theme={base}>
-      <Wrap width="100%">
-        <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateHome}> Noname </Button>
-        <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateArchive}> Archive </Button>
-        <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateAbout}> About </Button>
-        <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateShop}> Shop </Button>
-      </Wrap>
+      <MenuWrapper>
+        <Wrap width="100%">
+          <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateHome}> Noname </Button>
+          <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateArchive}> Archive </Button>
+          <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateAbout}> About </Button>
+          <Button fontFamily={[0]} width="25%" fontSize={[1]} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateShop}> Shop </Button>
+        </Wrap>
+      </MenuWrapper>
     </ThemeProvider>
   )
 };
