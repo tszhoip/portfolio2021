@@ -24,6 +24,7 @@ import Joy from './pages/Joy';
 import Shop from './pages/Shop';
 import License from './pages/License';
 import Privacy from './pages/Privacy';
+import Library from './pages/Library';
 import { Airpro } from './pages/f-airpro';
 
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
@@ -63,6 +64,7 @@ function App() {
           <Route path="/work/project-6" element={<PageWrapper component={<Project6/>} />} />
           <Route path="/license" element={<PageWrapper component={<License/>} />} />
           <Route path="/Privacy" element={<PageWrapper component={<Privacy/>} />} />
+          <Route path="/library" element={<PageWrapper component={<Library/>} />} />
         </Routes>
         <BlockMenu />
         <BlockFooter />

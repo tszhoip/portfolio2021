@@ -124,7 +124,7 @@ const buttonVariants = {
   },
   footer: {
     color: '#EAEAEA',
-    backgroundColor: "#111",
+    backgroundColor: "#222",
     backdropFilter: "blur(2px)",
     border: "0px solid",
     transition: "all 0.2s ease",
