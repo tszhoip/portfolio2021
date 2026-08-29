@@ -7,13 +7,23 @@ import {  BlockMenu } from './Block';
 
 
 const MenuWrapper = styled.div`
-position: ${({ isSticky }) => (isSticky ? 'fixed' : 'absolute')};
-bottom: ${({ isSticky }) => (isSticky ? '0' : '-1000px')};
+position: fixed;
 bottom: 0;
-left: 0; 
-width: 100vw; 
+left: 0;
+width: 100vw;
 height: auto;
-z-index: 999;
+z-index: ${({ isSticky }) => (isSticky ? '1' : '99')};
+transition: z-index 0.3s ease;
+animation: slideUp 0.5s ease-out;
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 `;
 
 export const BlockMenuFloating = ({ footerHeight }) => {
