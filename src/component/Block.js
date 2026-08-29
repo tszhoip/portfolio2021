@@ -82,6 +82,32 @@ export const BlockImg = (props) => {
   )
 };
 
+const BVideo = styled.video`
+  flex-grow: 1;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  ${space};
+  ${layout};
+`;
+
+export const BlockVideo = (props) => {
+  return (
+    <ThemeProvider theme={base}>
+      <BVideo
+        src={props.video}
+        pb={[0]}
+        controls
+        style={{ aspectRatio: '16 / 9' }}
+        onError={(e) => {
+          console.error('Video failed to load:', props.video);
+          e.target.style.display = 'none';
+        }}
+      />
+    </ThemeProvider>
+  )
+};
+
 export const BlockTwoLn50 = (props) => {
   return (
     <ThemeProvider theme={base}>

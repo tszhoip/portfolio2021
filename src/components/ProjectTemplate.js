@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { BlockImg, Blockitem } from '../component/Block';
+import { BlockImg, BlockVideo, Blockitem } from '../component/Block';
 import { Container } from '../component/Core';
 import { ThemeProvider } from "styled-components";
 import { base } from '../theme';
 import { getProjectMetadata } from '../data/projectsMetadata';
+import { parseMediaArray } from './MediaGalleryBuilder';
 
 /**
  * ProjectTemplate - Reusable project detail page component
@@ -12,41 +13,21 @@ import { getProjectMetadata } from '../data/projectsMetadata';
  *   - projectNumber: 1-5 (or higher)
  *
  * Metadata is fetched from centralized projectsMetadata.js (synced with Google Sheet)
- * Automatically loads images from public/images/project-{n}/1.jpg through however many exist
+ * Automatically loads images from public/images/project-{n}/1.jpg and videos from metadata
+ * Renders media in order specified by order field
  */
 export const ProjectTemplate = ({ projectNumber }) => {
-  const [images, setImages] = useState([]);
+  const [mediaArray, setMediaArray] = useState([]);
 
   useEffect(() => {
-    // Dynamically discover how many images exist for this project
-    // by trying to load images 1.jpg through 15.jpg
-    const loadImages = async () => {
-      const loadedImages = [];
-      for (let i = 1; i <= 15; i++) {
-        const imagePath = `/images/project-${projectNumber}/${i}.jpg`;
-
-        // Test if image exists by creating an Image object
-        const img = new Image();
-        img.onload = () => {
-          loadedImages[i - 1] = imagePath;
-        };
-        img.onerror = () => {
-          // Stop when we hit the first missing image
-          if (i === 1) {
-            setImages(loadedImages.filter(Boolean));
-          }
-        };
-        img.src = imagePath;
-      }
-
-      // Give images time to load, then filter and sort
-      setTimeout(() => {
-        const sortedImages = loadedImages.filter(Boolean);
-        setImages(sortedImages);
-      }, 500);
+    // Load metadata and build media array
+    const loadMedia = async () => {
+      const metadata = getProjectMetadata(projectNumber);
+      const media = await parseMediaArray(projectNumber, metadata);
+      setMediaArray(media);
     };
 
-    loadImages();
+    loadMedia();
   }, [projectNumber]);
 
   // Fetch metadata from centralized data source
@@ -91,9 +72,13 @@ export const ProjectTemplate = ({ projectNumber }) => {
           </Container>
         </Container>
 
-        {/* Image Gallery - Full Width */}
-        {images.map((imagePath, index) => (
-          <BlockImg key={index} image={imagePath} />
+        {/* Media Gallery - Images + Videos - Full Width */}
+        {mediaArray.map((media, index) => (
+          media.type === 'image' ? (
+            <BlockImg key={index} image={media.file} />
+          ) : (
+            <BlockVideo key={index} video={media.url} />
+          )
         ))}
       </Container>
     </ThemeProvider>
