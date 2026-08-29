@@ -176,12 +176,6 @@ export const BlockMenu = (props) => {
   const navigateHome = () => {
     navigate('/');
   };
-  const navigateAbout = () => {
-    navigate('/about');
-  };
-  const navigateArchive = () => {
-    navigate('/archive');
-  };
   const navigateShop = () => {
     navigate('/Shop');
   };
@@ -191,8 +185,6 @@ export const BlockMenu = (props) => {
       <MenuWrapper>
         <Wrap width="100%">
           <Button fontFamily={[0]} width="25%" fontSize="12px" fontWeight="500" padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateHome}> Noname </Button>
-          <Button fontFamily={[0]} width="25%" fontSize="12px" fontWeight="500" padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateArchive}> Archive </Button>
-          <Button fontFamily={[0]} width="25%" fontSize="12px" fontWeight="500" padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateAbout}> About </Button>
           <Button fontFamily={[0]} width="25%" fontSize="12px" fontWeight="500" padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateShop}> Shop </Button>
         </Wrap>
       </MenuWrapper>
@@ -207,14 +199,26 @@ export const BlockMenu = (props) => {
 export const BlockFooter = (props) => {
   const navigate = useNavigate();
 
+  const navigateTerms = () => {
+    navigate('/terms');
+  };
+  const navigateContact = () => {
+    navigate('/contact');
+  };
+  const navigateLinkedIn = () => {
+    window.open('https://www.linkedin.com/in/tszhoip/', '_blank');
+  };
+  const navigateSaveIt = () => {
+    window.open('https://www.are.na/tsz-ho-ip/mastertaste', '_blank');
+  };
+  const navigateArchive = () => {
+    navigate('/archive');
+  };
+  const navigateAbout = () => {
+    navigate('/about');
+  };
   const navigateLibrary = () => {
     navigate('/library');
-  };
-  const navigateLicense = () => {
-    navigate('/License');
-  };
-  const navigatePrivacy = () => {
-    navigate('/Privacy');
   };
 
 
@@ -222,15 +226,13 @@ export const BlockFooter = (props) => {
     <ThemeProvider theme={base}>
       <Wrap className="block-footer" justifyContent="start" flexDirection={["row"]} flexWrap="wrap" zIndex="1" width={[1]} pt="0" pb="4" bg="#000" color="grey">
 
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateLibrary}> Library </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigatePrivacy}> Privacy </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateLicense}> License </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateLicense}> Shipping </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigatePrivacy}> Instagram </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateLicense}> Savee.it </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateLicense}> Red </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footerDisable" textAlign="left" > 626 390 2555 </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footerDisable" textAlign="left" > info@noname.com </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateTerms}> Terms </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateSaveIt}> Savee.it </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateLinkedIn}> LinkedIn </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateContact}> Contact </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateArchive}> Archive </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateAbout}> About </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateLibrary}> Library </Button>
       </Wrap>
     </ThemeProvider>
   )
