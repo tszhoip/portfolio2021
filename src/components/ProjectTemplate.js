@@ -3,8 +3,9 @@ import { BlockImg, BlockVideo, Blockitem } from '../component/Block';
 import { Container } from '../component/Core';
 import { ThemeProvider } from "styled-components";
 import { base } from '../theme';
-import { getProjectMetadata } from '../data/projectsMetadata';
+import { getProjectMetadata, projectsMetadata } from '../data/projectsMetadata';
 import { parseMediaArray } from './MediaGalleryBuilder';
+import { FeaturedProjects } from './FeaturedProjects';
 
 /**
  * ProjectTemplate - Reusable project detail page component
@@ -80,6 +81,9 @@ export const ProjectTemplate = ({ projectNumber }) => {
             <BlockVideo key={index} video={media.url} />
           )
         ))}
+
+        {/* Featured Projects Section */}
+        <FeaturedProjects currentProjectNumber={projectNumber} allProjects={projectsMetadata} />
       </Container>
     </ThemeProvider>
   );
