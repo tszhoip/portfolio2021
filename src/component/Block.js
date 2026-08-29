@@ -47,7 +47,7 @@ const BImage = styled.img`
 `
 
 const ImgBlock2 = styled.img`
-    grid-row: 1;
+    grid-row: 1 / 2;
     grid-column: 1;
     width: 100%;
     height: 100%;
@@ -69,11 +69,11 @@ const MenuWrapper = styled.div`
 `
 
 const ThumbnailTitle = styled.div`
-    grid-row: 1;
+    grid-row: 2;
     grid-column: 1;
     width: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     position: relative;
     z-index: 10;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
