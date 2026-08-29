@@ -110,7 +110,7 @@ export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
   }
 
   const handleCardClick = (projectNumber) => {
-    navigate(`/project-${projectNumber}`);
+    navigate(`/work/project-${projectNumber}`);
   };
 
   return (
