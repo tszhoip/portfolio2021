@@ -38,7 +38,9 @@ export const BlockMenuFloating = ({ footerHeight }) => {
     const footerTopPosition = footerElement.getBoundingClientRect().top;
     const viewportHeight = window.innerHeight;
     const distanceFromBottom = footerTopPosition - viewportHeight;
-    setIsSticky(distanceFromBottom > 0);
+    // isSticky = true when footer IS visible (switch to absolute)
+    // isSticky = false when footer NOT visible (keep fixed at bottom)
+    setIsSticky(distanceFromBottom < 0);
   };
 
   useEffect(() => {
