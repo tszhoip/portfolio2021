@@ -52,10 +52,11 @@ export const buildMediaArray = async (projectNumber, metadata) => {
 
 /**
  * Discover images in project folder
- * Tries 1.jpg through 15.jpg
+ * Tries 1.jpg through 15.jpg (skips videos at position 1)
  */
 const discoverImages = async (projectNumber) => {
   const images = [];
+  let consecutiveMisses = 0;
 
   for (let i = 1; i <= 15; i++) {
     const imagePath = `/images/project-${projectNumber}/${i}.jpg`;
@@ -63,9 +64,13 @@ const discoverImages = async (projectNumber) => {
 
     if (exists) {
       images.push(imagePath);
-    } else if (i === 1) {
-      // Stop if first image doesn't exist
-      break;
+      consecutiveMisses = 0; // Reset counter when we find an image
+    } else {
+      consecutiveMisses++;
+      // Stop after 2 consecutive misses (allows for videos mixed in)
+      if (consecutiveMisses >= 2) {
+        break;
+      }
     }
   }
 
