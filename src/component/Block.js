@@ -68,11 +68,25 @@ const MenuWrapper = styled.div`
 const ThumbnailTitle = styled.div`
     width: 100%;
     background-color: #f5f5f5;
-    transition: background-color 0.2s ease;
+    background-size: cover;
+    background-position: center;
+    transition: background-color 0.2s ease, color 0.2s ease, background-image 0.3s ease;
 
-    &:hover {
-        background-color: #FFF;
+    /* Text color default: black */
+    > p {
+        color: black;
+        transition: color 0.2s ease;
     }
+
+    /* On parent hover: image bleeds in with white text */
+    ${({ isHovered, backgroundImage }) => isHovered && `
+        background-color: transparent;
+        background-image: url(${backgroundImage});
+
+        > p {
+            color: white;
+        }
+    `}
 `
 export const BlockImg = (props) => {
   return (
@@ -286,7 +300,7 @@ export const BlockThumb = (props) => {
         backgroundImageHover={imgHover}
       >
         <ImgBlock2 height={props.height} src={displayImage} to={props.linkto} side={props.side} />
-        <ThumbnailTitle>
+        <ThumbnailTitle isHovered={isHovered && imgHover} backgroundImage={displayImage}>
           <Text fontFamily={[0]} fontSize={[1]} p={[3]} >{props.title}</Text>
         </ThumbnailTitle>
       </Thumbnail>
