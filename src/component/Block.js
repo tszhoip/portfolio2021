@@ -47,7 +47,10 @@ const BImage = styled.img`
 `
 
 const ImgBlock2 = styled.img`
-    flex-grow: 1;
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
     ${space};
@@ -66,11 +69,16 @@ const MenuWrapper = styled.div`
 `
 
 const ThumbnailTitle = styled.div`
+    grid-row: 1;
+    grid-column: 1;
     width: 100%;
-    background-color: #f5f5f5;
-    background-size: cover;
-    background-position: center;
-    transition: background-color 0.2s ease, color 0.2s ease, background-image 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    z-index: 10;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+    transition: background 0.2s ease;
+    padding-bottom: 0;
 
     /* Text color default: black */
     > p {
@@ -78,10 +86,9 @@ const ThumbnailTitle = styled.div`
         transition: color 0.2s ease;
     }
 
-    /* On parent hover: image bleeds in with white text */
-    ${({ isHovered, backgroundImage }) => isHovered && `
-        background-color: transparent;
-        background-image: url(${backgroundImage});
+    /* On parent hover: darken background for better white text contrast */
+    ${({ isHovered }) => isHovered && `
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
 
         > p {
             color: white;
