@@ -27,14 +27,13 @@ background-size: cover;
 background-position: center;
 background-color: #f5f5f5;
 color: black;
-transition: background-color 0.2s ease, background-image 0.3s ease, filter 0.2s ease;
+transition: background-color 0.2s ease, background-image 0.3s ease;
 position: relative;
 overflow: hidden;
 display: grid;
 grid-template-rows: 1fr;
 grid-template-columns: 1fr;
 &:hover{
-  filter: grayscale(100%);
   background-color: #FFF;
   color: black;
   background-image: url(${props => props.backgroundImageHover || props.backgroundImage});
