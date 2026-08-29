@@ -72,10 +72,12 @@ const ProjectInfo = styled.div`
 
 const ProjectTitle = styled.h3`
   margin: 0;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 500;
   color: #000;
-  line-height: 1.4;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
 `;
 
 export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
