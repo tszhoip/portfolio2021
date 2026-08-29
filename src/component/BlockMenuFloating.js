@@ -7,13 +7,13 @@ import {  BlockMenu } from './Block';
 
 
 const MenuWrapper = styled.div`
-position: fixed;
+position: ${({ isSticky }) => (isSticky ? 'absolute' : 'fixed')};
 bottom: 0;
 left: 0;
 width: 100vw;
 height: auto;
-z-index: ${({ isSticky }) => (isSticky ? '1' : '99')};
-transition: z-index 0.3s ease;
+z-index: 99;
+transition: position 0.3s ease;
 animation: slideUp 0.5s ease-out;
 
 @keyframes slideUp {
