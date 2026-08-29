@@ -77,8 +77,19 @@ const ThumbnailTitle = styled.div`
     position: relative;
     z-index: 10;
     background: transparent;
-    transition: color 0.2s ease, text-shadow 0.2s ease;
+    transition: opacity 0.2s ease;
     padding-bottom: 0;
+
+    /* Desktop (>900px): Hide text by default */
+    @media (min-width: 901px) {
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    /* Mobile/Tablet (<900px): Show text by default */
+    @media (max-width: 900px) {
+        opacity: 1;
+    }
 
     /* Text color default: black with shadow for readability */
     > p {
@@ -87,13 +98,26 @@ const ThumbnailTitle = styled.div`
         text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
     }
 
-    /* On parent hover: white text WITHOUT shadow */
-    ${({ isHovered }) => isHovered && `
-        > p {
-            color: white;
-            text-shadow: none;
-        }
-    `}
+    /* On desktop hover: Show text with white color */
+    @media (min-width: 901px) {
+        ${({ isHovered }) => isHovered && `
+            opacity: 1;
+            > p {
+                color: white;
+                text-shadow: none;
+            }
+        `}
+    }
+
+    /* On mobile/tablet hover: Just change text color */
+    @media (max-width: 900px) {
+        ${({ isHovered }) => isHovered && `
+            > p {
+                color: white;
+                text-shadow: none;
+            }
+        `}
+    }
 `
 export const BlockImg = (props) => {
   return (
