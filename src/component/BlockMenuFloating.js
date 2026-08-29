@@ -10,6 +10,7 @@ const MenuWrapper = styled.div`
 position: ${({ isSticky }) => (isSticky ? 'absolute' : 'fixed')};
 bottom: 0;
 left: 0;
+top: auto;
 width: 100vw;
 height: auto;
 z-index: 99;
