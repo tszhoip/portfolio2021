@@ -7,14 +7,13 @@ import {  BlockMenu } from './Block';
 
 
 const MenuWrapper = styled.div`
-position: ${({ isSticky }) => (isSticky ? 'absolute' : 'fixed')};
-bottom: 0;
+position: fixed;
+bottom: ${({ bottomOffset }) => bottomOffset}px;
 left: 0;
-top: auto;
 width: 100vw;
 height: auto;
 z-index: 99;
-transition: position 0.3s ease;
+transition: bottom 0.3s ease;
 animation: slideUp 0.5s ease-out;
 
 @keyframes slideUp {
@@ -28,7 +27,7 @@ animation: slideUp 0.5s ease-out;
 `;
 
 export const BlockMenuFloating = ({ footerHeight }) => {
-  const [isSticky, setIsSticky] = useState(false);
+  const [bottomOffset, setBottomOffset] = useState(0);
   const navigate = useNavigate();
 
 
@@ -39,9 +38,16 @@ export const BlockMenuFloating = ({ footerHeight }) => {
     const footerTopPosition = footerElement.getBoundingClientRect().top;
     const viewportHeight = window.innerHeight;
     const distanceFromBottom = footerTopPosition - viewportHeight;
-    // isSticky = true when footer IS visible (switch to absolute)
-    // isSticky = false when footer NOT visible (keep fixed at bottom)
-    setIsSticky(distanceFromBottom < 0);
+
+    // If footer is visible (distanceFromBottom < 0), calculate how much menu should move up
+    // Otherwise, keep menu at bottom of viewport (offset = 0)
+    if (distanceFromBottom < 0) {
+      // Footer is visible: move menu up by the overlap distance
+      setBottomOffset(Math.abs(distanceFromBottom));
+    } else {
+      // Footer is not visible: keep menu at viewport bottom
+      setBottomOffset(0);
+    }
   };
 
   useEffect(() => {
@@ -53,7 +59,7 @@ export const BlockMenuFloating = ({ footerHeight }) => {
 
   return (
     <ThemeProvider theme={base}>
-        <MenuWrapper isSticky={isSticky} footerHeight={footerHeight}>
+        <MenuWrapper bottomOffset={bottomOffset} footerHeight={footerHeight}>
 <BlockMenu />
         </MenuWrapper>
     </ThemeProvider>
