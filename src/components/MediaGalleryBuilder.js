@@ -22,11 +22,17 @@ export const buildMediaArray = async (projectNumber, metadata) => {
   // Add images (1.jpg, 2.jpg, etc.)
   const images = await discoverImages(projectNumber);
   mediaArray.push(
-    ...images.map((file, idx) => ({
-      type: 'image',
-      file,
-      order: (idx + 1) * 10, // Default order: 10, 20, 30, etc. (leaves room for videos in between)
-    }))
+    ...images.map((file) => {
+      // Extract numeric prefix from filename (e.g., "3.jpg" → order: 30)
+      const filename = file.split('/').pop();
+      const match = filename.match(/^(\d+)/);
+      const order = match ? parseInt(match[1]) * 10 : 999;
+      return {
+        type: 'image',
+        file,
+        order,
+      };
+    })
   );
 
   // Add video if it exists
