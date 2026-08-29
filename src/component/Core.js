@@ -31,7 +31,7 @@ transition: background-color 0.2s ease, background-image 0.3s ease;
 position: relative;
 overflow: hidden;
 display: grid;
-grid-template-rows: 1fr auto;
+grid-template-rows: 1fr;
 grid-template-columns: 1fr;
 &:hover{
   background-color: #FFF;
@@ -39,7 +39,7 @@ grid-template-columns: 1fr;
   background-image: url(${props => props.backgroundImageHover || props.backgroundImage});
 }
 &:hover > div {
-  background-color: #FFF;
+  background-color: transparent;
 }
  &:active{
     filter: grayscale(50%);

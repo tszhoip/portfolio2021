@@ -69,29 +69,29 @@ const MenuWrapper = styled.div`
 `
 
 const ThumbnailTitle = styled.div`
-    grid-row: 2;
+    grid-row: 1;
     grid-column: 1;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     position: relative;
     z-index: 10;
     background: transparent;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
     padding-bottom: 0;
 
-    /* Text color default: black */
+    /* Text color default: black with shadow for readability */
     > p {
         color: black;
-        transition: color 0.2s ease;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
         text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
     }
 
-    /* On parent hover: white text with shadow */
+    /* On parent hover: white text WITHOUT shadow */
     ${({ isHovered }) => isHovered && `
         > p {
             color: white;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: none;
         }
     `}
 `
