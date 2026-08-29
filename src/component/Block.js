@@ -118,7 +118,9 @@ export const BlockVideo = (props) => {
       <BVideo
         src={props.video}
         pb={[0]}
-        controls
+        autoPlay
+        muted
+        loop
         style={{ aspectRatio: '16 / 9' }}
         onError={(e) => {
           console.error('Video failed to load:', props.video);
