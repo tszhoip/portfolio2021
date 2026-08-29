@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BlockImgPlay } from '../component/BlockImgPlay'
 import lo1 from '../assets/feed/feed-1.jpg';
 import lo2 from '../assets/feed/feed-2.jpg';
@@ -33,6 +34,12 @@ const ImgLogo = [
 ]
 
 function About() {
+  const navigate = useNavigate();
+
+  const navigateLibrary = () => {
+    navigate('/library');
+  };
+
   return (
     <ThemeProvider theme={base}>
       <Container width='100%' flexDirection='column' flexWrap="wrap" alignItems='center' justifyContent="center">
@@ -66,6 +73,19 @@ function About() {
 
         <Wrap mt={[4]} mb={[4]}>
           <BlockThumb img={'/canoob-thumb.jpg'} to="/CanooB" title="Canoo Brand (Test)" />
+        </Wrap>
+
+        <Wrap mt={[4]} mb={[4]} width={[1]} justifyContent="center">
+          <Button
+            padding={[3]}
+            fontFamily={[0]}
+            fontSize="12px"
+            fontWeight="500"
+            variant="default"
+            onClick={navigateLibrary}
+          >
+            Library
+          </Button>
         </Wrap>
 
       </Container>
