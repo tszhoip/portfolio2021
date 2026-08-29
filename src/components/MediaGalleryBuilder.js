@@ -31,10 +31,15 @@ export const buildMediaArray = async (projectNumber, metadata) => {
 
   // Add video if it exists
   if (metadata.video) {
+    // Extract numeric prefix from video filename (e.g., "2-vid.mp4" → order: 20)
+    const videoFilename = metadata.video.split('/').pop(); // Get filename
+    const videoMatch = videoFilename.match(/^(\d+)/); // Extract leading digits
+    const videoOrder = videoMatch ? parseInt(videoMatch[1]) * 10 : 999; // Convert to order (1→10, 2→20, etc.)
+
     mediaArray.push({
       type: 'video',
       url: metadata.video,
-      order: 999, // Default to end (can be overridden by metadata)
+      order: videoOrder,
     });
   }
 
