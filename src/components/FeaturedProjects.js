@@ -13,20 +13,22 @@ import { base } from '../theme';
  */
 
 const FeaturedContainer = styled.div`
-  width: 100%;
-  padding: 32px 0;
+  width: 100vw;
   background-color: transparent;
+  margin-left: calc(-50vw + 50%);
 `;
 
 const FeaturedGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 16px;
+  gap: 0;
+  width: 100%;
 
   @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -44,6 +46,8 @@ const ProjectCard = styled.div`
   cursor: pointer;
   transition: background-color 0.2s ease;
   border-radius: 0;
+  margin: 0;
+  gap: 0;
 
   &:hover {
     background-color: #fff;
@@ -68,18 +72,10 @@ const ProjectInfo = styled.div`
 
 const ProjectTitle = styled.h3`
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #000;
   line-height: 1.4;
-  margin-bottom: 4px;
-`;
-
-const ProjectType = styled.p`
-  margin: 0;
-  font-size: 12px;
-  color: #888;
-  font-weight: 400;
 `;
 
 export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
@@ -130,7 +126,6 @@ export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
               />
               <ProjectInfo>
                 <ProjectTitle>{project.title}</ProjectTitle>
-                <ProjectType>{project.type}</ProjectType>
               </ProjectInfo>
             </ProjectCard>
           ))}
