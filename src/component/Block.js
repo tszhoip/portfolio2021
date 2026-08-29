@@ -224,15 +224,16 @@ export const BlockFooter = (props) => {
 
   return (
     <ThemeProvider theme={base}>
-      <Wrap className="block-footer" justifyContent="start" flexDirection={["row"]} flexWrap="wrap" zIndex="1" width={[1]} pt="0" pb="4" bg="#000" color="grey">
+      <Wrap className="block-footer" justifyContent="start" flexDirection={["row"]} flexWrap="wrap" zIndex="1" width={[1]} pt="0" pb="0" bg="#000" color="grey">
 
-        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateTerms}> Terms </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateSaveIt}> Savee.it </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateLinkedIn}> LinkedIn </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateContact}> Contact </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateArchive}> Archive </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateAbout}> About </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 7, 1 / 7]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateLibrary}> Library </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateTerms}> Terms </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateSaveIt}> Savee.it </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateLinkedIn}> LinkedIn </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateContact}> Contact </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateArchive}> Archive </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateAbout}> About </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateLibrary}> Library </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footerDisable" textAlign="left"> All right reserved. 2026 Mhz design office </Button>
       </Wrap>
     </ThemeProvider>
   )
