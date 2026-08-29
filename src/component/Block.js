@@ -76,22 +76,22 @@ const ThumbnailTitle = styled.div`
     align-items: center;
     position: relative;
     z-index: 10;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
-    transition: background 0.2s ease;
+    background: transparent;
+    transition: color 0.2s ease;
     padding-bottom: 0;
 
     /* Text color default: black */
     > p {
         color: black;
         transition: color 0.2s ease;
+        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
     }
 
-    /* On parent hover: darken background for better white text contrast */
+    /* On parent hover: white text with shadow */
     ${({ isHovered }) => isHovered && `
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
-
         > p {
             color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
     `}
 `
