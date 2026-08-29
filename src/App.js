@@ -31,7 +31,7 @@ import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import { Container } from './component/Core';
 
 import PageWrapper from './pages/PageWrapper';
-import { BlockFooter, BlockMenu } from './component/Block';
+import { BlockFooter } from './component/Block';
 
 
 function App() {
@@ -66,7 +66,6 @@ function App() {
           <Route path="/Privacy" element={<PageWrapper component={<Privacy/>} />} />
           <Route path="/library" element={<PageWrapper component={<Library/>} />} />
         </Routes>
-        <BlockMenu />
         <BlockFooter />
       </Container>
     </Router>
