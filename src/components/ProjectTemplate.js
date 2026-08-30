@@ -47,14 +47,6 @@ export const ProjectTemplate = ({ projectNumber }) => {
 
   return (
     <ThemeProvider theme={base}>
-      {/* SubNav - Sticky navigation at bottom */}
-      <SubNav
-        projectNumber={projectNumber}
-        projectTitle={m.title}
-        onProjectInfoClick={() => setInfoModalOpen(true)}
-        onAllProjectsClick={() => setAllProjectsModalOpen(true)}
-      />
-
       {/* Project Info Modal */}
       <ProjectInfoModal
         isOpen={infoModalOpen}
@@ -70,7 +62,7 @@ export const ProjectTemplate = ({ projectNumber }) => {
         currentProjectNumber={projectNumber}
       />
 
-      <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center" pb={[8]}>
+      <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center" pb={[0]}>
         <Container width={[1]} flexWrap="wrap" maxWidth={["1440px"]} pb={[0, 4, 4, 5]}>
           {/* Left Column - Project Info */}
           <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
@@ -113,6 +105,14 @@ export const ProjectTemplate = ({ projectNumber }) => {
         {/* Featured Projects Section */}
         <FeaturedProjects currentProjectNumber={projectNumber} allProjects={projectsMetadata} />
       </Container>
+
+      {/* SubNav - Sticky navigation at bottom */}
+      <SubNav
+        projectNumber={projectNumber}
+        projectTitle={m.title}
+        onProjectInfoClick={() => setInfoModalOpen(true)}
+        onAllProjectsClick={() => setAllProjectsModalOpen(true)}
+      />
     </ThemeProvider>
   );
 };

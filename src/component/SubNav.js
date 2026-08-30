@@ -14,7 +14,6 @@ const SubNavWrapper = styled.div`
   left: 0;
   right: 0;
   z-index: 100;
-  border-top: 1px solid #e0e0e0;
 
   &:hover {
     background-color: #fff;
