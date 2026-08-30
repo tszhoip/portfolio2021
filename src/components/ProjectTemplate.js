@@ -6,6 +6,9 @@ import { base } from '../theme';
 import { getProjectMetadata, projectsMetadata } from '../data/projectsMetadata';
 import { parseMediaArray } from './MediaGalleryBuilder';
 import { FeaturedProjects } from './FeaturedProjects';
+import SubNav from '../component/SubNav';
+import ProjectInfoModal from '../component/ProjectInfoModal';
+import AllProjectsModal from '../component/AllProjectsModal';
 
 /**
  * ProjectTemplate - Reusable project detail page component
@@ -19,6 +22,8 @@ import { FeaturedProjects } from './FeaturedProjects';
  */
 export const ProjectTemplate = ({ projectNumber }) => {
   const [mediaArray, setMediaArray] = useState([]);
+  const [infoModalOpen, setInfoModalOpen] = useState(false);
+  const [allProjectsModalOpen, setAllProjectsModalOpen] = useState(false);
 
   useEffect(() => {
     // Load metadata and build media array
@@ -42,7 +47,30 @@ export const ProjectTemplate = ({ projectNumber }) => {
 
   return (
     <ThemeProvider theme={base}>
-      <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center">
+      {/* SubNav - Sticky navigation at bottom */}
+      <SubNav
+        projectNumber={projectNumber}
+        projectTitle={m.title}
+        onProjectInfoClick={() => setInfoModalOpen(true)}
+        onAllProjectsClick={() => setAllProjectsModalOpen(true)}
+      />
+
+      {/* Project Info Modal */}
+      <ProjectInfoModal
+        isOpen={infoModalOpen}
+        onClose={() => setInfoModalOpen(false)}
+        projectData={m}
+      />
+
+      {/* All Projects Modal */}
+      <AllProjectsModal
+        isOpen={allProjectsModalOpen}
+        onClose={() => setAllProjectsModalOpen(false)}
+        allProjects={projectsMetadata}
+        currentProjectNumber={projectNumber}
+      />
+
+      <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center" pb={[8]}>
         <Container width={[1]} flexWrap="wrap" maxWidth={["1440px"]} pb={[0, 4, 4, 5]}>
           {/* Left Column - Project Info */}
           <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
