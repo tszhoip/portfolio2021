@@ -3,12 +3,39 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ThemeProvider } from "styled-components";
 import { base } from '../theme';
-import { Wrap, Button, Text } from './Core';
+import { Wrap, Text } from './Core';
+
+const SubNavButton = styled.button`
+  width: 25%;
+  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 12px;
+  background-color: transparent;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s ease;
+  letter-spacing: -0.02em;
+
+  &:hover {
+    color: white;
+  }
+`;
+
+const SubNavText = styled(Text)`
+  width: 25%;
+  padding: 12px;
+  background-color: transparent;
+  cursor: default;
+  margin: 0;
+`;
 
 const SubNavWrapper = styled.div`
   width: 100%;
   display: flex;
-  background-color: #000;
+  background-color: #f5f5f5;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -17,6 +44,11 @@ const SubNavWrapper = styled.div`
   opacity: ${(props) => props.isUnsticking ? 0 : 1};
   pointer-events: ${(props) => props.isUnsticking ? 'none' : 'auto'};
   z-index: 100;
+  border-top: 1px solid #e0e0e0;
+
+  &:hover {
+    background-color: #fff;
+  }
 `;
 
 export const SubNav = ({
@@ -57,72 +89,31 @@ export const SubNav = ({
   return (
     <ThemeProvider theme={base}>
       <SubNavWrapper isUnsticking={isUnsticking}>
-        <Wrap width="100%">
+        <Wrap width="100%" style={{ gap: 0 }}>
           {/* Back Button */}
-          <Button
-            fontFamily={[0]}
-            width="25%"
-            fontSize="12px"
-            fontWeight="500"
-            padding={[3]}
-            variant="footer"
-            flexGrow="1"
-            textAlign="left"
-            onClick={navigateBack}
-          >
+          <SubNavButton onClick={navigateBack}>
             Back
-          </Button>
+          </SubNavButton>
 
           {/* Project Title */}
-          <Wrap
-            width="25%"
-            padding={[3]}
-            flexDirection="column"
-            justifyContent="center"
-            backgroundColor="#000"
-            cursor="default"
+          <SubNavText
+            fontFamily={[0]}
+            fontSize="12px"
+            fontWeight="500"
+            color="#000"
           >
-            <Text
-              fontFamily={[0]}
-              fontSize="12px"
-              fontWeight="500"
-              color="#888"
-              margin="0"
-              padding="0"
-            >
-              {projectTitle}
-            </Text>
-          </Wrap>
+            {projectTitle}
+          </SubNavText>
 
           {/* Project Info Button */}
-          <Button
-            fontFamily={[0]}
-            width="25%"
-            fontSize="12px"
-            fontWeight="500"
-            padding={[3]}
-            variant="footer"
-            flexGrow="1"
-            textAlign="left"
-            onClick={onProjectInfoClick}
-          >
+          <SubNavButton onClick={onProjectInfoClick}>
             Project Info
-          </Button>
+          </SubNavButton>
 
           {/* All Projects Button */}
-          <Button
-            fontFamily={[0]}
-            width="25%"
-            fontSize="12px"
-            fontWeight="500"
-            padding={[3]}
-            variant="footer"
-            flexGrow="1"
-            textAlign="left"
-            onClick={onAllProjectsClick}
-          >
+          <SubNavButton onClick={onAllProjectsClick}>
             All Projects
-          </Button>
+          </SubNavButton>
         </Wrap>
       </SubNavWrapper>
     </ThemeProvider>
