@@ -63,36 +63,6 @@ export const ProjectTemplate = ({ projectNumber }) => {
       />
 
       <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center" pb={[0]}>
-        <Container width={[1]} flexWrap="wrap" maxWidth={["1440px"]} pb={[0, 4, 4, 5]}>
-          {/* Left Column - Project Info */}
-          <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
-            <Blockitem
-              title="Title"
-              body={m.title}
-            />
-            <Blockitem
-              title="Role"
-              body={m.role}
-            />
-            <Blockitem
-              title="Deliverable"
-              body={m.deliverable}
-            />
-          </Container>
-
-          {/* Right Column - Description */}
-          <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
-            <Blockitem
-              title="Project / EN"
-              body={m.descEN}
-            />
-            <Blockitem
-              title="项目 / CN"
-              body={m.descCN}
-            />
-          </Container>
-        </Container>
-
         {/* Media Gallery - Images + Videos - Full Width */}
         {mediaArray.map((media, index) => (
           media.type === 'image' ? (
