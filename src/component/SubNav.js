@@ -20,11 +20,10 @@ const SubNavWrapper = styled.div`
   }
 `;
 
-const SubNavTitle = styled.button`
-  width: 25%;
+const InfoButton = styled.button`
+  width: 50%;
   padding: 12px 16px;
   background-color: #f5f5f5;
-  cursor: default;
   margin: 0;
   font-size: 12px;
   font-weight: 500;
@@ -32,15 +31,30 @@ const SubNavTitle = styled.button`
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
   letter-spacing: -0.02em;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   border: none;
   flex-grow: 1;
   text-align: left;
+  cursor: pointer;
 
   &:hover {
-    background-color: #f5f5f5;
-    cursor: default;
+    background-color: #fff;
   }
+`;
+
+const InfoTitle = styled.div`
+  font-size: 12px;
+  font-weight: 500;
+  color: black;
+  margin-bottom: 4px;
+`;
+
+const InfoLabel = styled.div`
+  font-size: 11px;
+  font-weight: 400;
+  color: #888;
 `;
 
 export const SubNav = ({
@@ -74,25 +88,11 @@ export const SubNav = ({
             Back
           </Button>
 
-          {/* Project Title - Deactivated Button */}
-          <SubNavTitle disabled>
-            {projectTitle}
-          </SubNavTitle>
-
-          {/* Project Info Button */}
-          <Button
-            fontFamily={[0]}
-            width="25%"
-            fontSize="12px"
-            fontWeight="500"
-            padding={[3]}
-            variant="default"
-            flexGrow="1"
-            textAlign="left"
-            onClick={onProjectInfoClick}
-          >
-            Project Info
-          </Button>
+          {/* Project Title + Info Button (Merged) */}
+          <InfoButton onClick={onProjectInfoClick}>
+            <InfoTitle>{projectTitle}</InfoTitle>
+            <InfoLabel>Project Info</InfoLabel>
+          </InfoButton>
 
           {/* All Projects Button */}
           <Button
