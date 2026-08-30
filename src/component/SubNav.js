@@ -31,9 +31,7 @@ const InfoButton = styled.button`
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
   letter-spacing: -0.02em;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
   border: none;
   flex-grow: 1;
   text-align: left;
@@ -42,19 +40,6 @@ const InfoButton = styled.button`
   &:hover {
     background-color: #fff;
   }
-`;
-
-const InfoTitle = styled.div`
-  font-size: 12px;
-  font-weight: 500;
-  color: black;
-  margin-bottom: 4px;
-`;
-
-const InfoLabel = styled.div`
-  font-size: 11px;
-  font-weight: 400;
-  color: #888;
 `;
 
 export const SubNav = ({
@@ -73,28 +58,12 @@ export const SubNav = ({
     <ThemeProvider theme={base}>
       <SubNavWrapper>
         <Wrap width="100%">
-          {/* Back Button */}
-          <Button
-            fontFamily={[0]}
-            width="25%"
-            fontSize="12px"
-            fontWeight="500"
-            padding={[3]}
-            variant="default"
-            flexGrow="1"
-            textAlign="left"
-            onClick={navigateBack}
-          >
-            Back
-          </Button>
-
-          {/* Project Title + Info Button (Merged) */}
+          {/* Project Title + Info Button (Merged, 50%) */}
           <InfoButton onClick={onProjectInfoClick}>
-            <InfoTitle>{projectTitle}</InfoTitle>
-            <InfoLabel>Project Info</InfoLabel>
+            {projectTitle}, Info
           </InfoButton>
 
-          {/* All Projects Button */}
+          {/* All Projects Button (25%) */}
           <Button
             fontFamily={[0]}
             width="25%"
@@ -107,6 +76,21 @@ export const SubNav = ({
             onClick={onAllProjectsClick}
           >
             All Projects
+          </Button>
+
+          {/* Back Button (25%) */}
+          <Button
+            fontFamily={[0]}
+            width="25%"
+            fontSize="12px"
+            fontWeight="500"
+            padding={[3]}
+            variant="default"
+            flexGrow="1"
+            textAlign="left"
+            onClick={navigateBack}
+          >
+            Back
           </Button>
         </Wrap>
       </SubNavWrapper>
