@@ -24,10 +24,10 @@ const SubNavWrapper = styled.div`
   }
 `;
 
-const SubNavTitle = styled(Text)`
+const SubNavTitle = styled.button`
   width: 25%;
   padding: 12px 16px;
-  background-color: transparent;
+  background-color: #f5f5f5;
   cursor: default;
   margin: 0;
   font-size: 12px;
@@ -37,6 +37,14 @@ const SubNavTitle = styled(Text)`
   letter-spacing: -0.02em;
   display: flex;
   align-items: center;
+  border: none;
+  flex-grow: 1;
+  text-align: left;
+
+  &:hover {
+    background-color: #f5f5f5;
+    cursor: default;
+  }
 `;
 
 export const SubNav = ({
@@ -93,8 +101,8 @@ export const SubNav = ({
             Back
           </Button>
 
-          {/* Project Title */}
-          <SubNavTitle>
+          {/* Project Title - Deactivated Button */}
+          <SubNavTitle disabled>
             {projectTitle}
           </SubNavTitle>
 
