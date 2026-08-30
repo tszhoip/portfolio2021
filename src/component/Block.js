@@ -208,7 +208,7 @@ export const BlockMenu = (props) => {
     <ThemeProvider theme={base}>
       <MenuWrapper>
         <Wrap width="100%">
-          <Button fontFamily={[0]} width="25%" fontSize="12px" fontWeight="500" padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateHome}> Noname </Button>
+          <Button fontFamily={[0]} width="25%" fontSize="12px" fontWeight="500" padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateHome}> Work </Button>
           <Button fontFamily={[0]} width="25%" fontSize="12px" fontWeight="500" padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateShop}> Shop </Button>
         </Wrap>
       </MenuWrapper>
