@@ -122,7 +122,7 @@ const ThumbnailTitle = styled.div`
 export const BlockImg = (props) => {
   return (
     <ThemeProvider theme={base}>
-      <BImage src={props.image} pb={[0]} />
+      <BImage src={props.image} pt={[0]} pb={[0]} />
     </ThemeProvider>
   )
 };
