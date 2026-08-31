@@ -78,6 +78,10 @@ const ProjectTitle = styled.h3`
   line-height: 1.15;
   letter-spacing: -0.02em;
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
