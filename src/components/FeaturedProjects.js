@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -82,6 +82,25 @@ const ProjectTitle = styled.h3`
 
 export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 900;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    // Set initial state
+    setIsMobile(window.innerWidth < 900);
+
+    // Handle resize
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 900);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   if (!allProjects || !currentProjectNumber) {
     return null;
@@ -102,8 +121,9 @@ export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
     }))
     .sort((a, b) => a.number - b.number);
 
-  // Get first 4 projects for desktop, or as many as available
-  const displayedProjects = featured.slice(0, 4);
+  // Get first 2 projects on mobile/tablet, 4 on desktop
+  const projectCount = isMobile ? 2 : 4;
+  const displayedProjects = featured.slice(0, projectCount);
 
   if (displayedProjects.length === 0) {
     return null;
