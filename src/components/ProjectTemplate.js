@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BlockImg, BlockVideo, Blockitem } from '../component/Block';
 import { Container } from '../component/Core';
 import { ThemeProvider } from "styled-components";
+import styled from 'styled-components';
 import { base } from '../theme';
 import { getProjectMetadata, projectsMetadata } from '../data/projectsMetadata';
 import { parseMediaArray } from './MediaGalleryBuilder';
@@ -9,6 +10,36 @@ import { FeaturedProjects } from './FeaturedProjects';
 import SubNav from '../component/SubNav';
 import ProjectInfoModal from '../component/ProjectInfoModal';
 import AllProjectsModal from '../component/AllProjectsModal';
+
+const HeadlineTextSection = styled.div`
+  width: 75%;
+  margin: 0 auto;
+  padding: 16px 16px 48px 16px;
+  background-color: #fff;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+`;
+
+const HeadlineTitle = styled.h2`
+  margin: 0 0 16px 0;
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  letter-spacing: -0.02em;
+`;
+
+const HeadlineTagline = styled.p`
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000;
+  line-height: 1.4;
+  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  letter-spacing: -0.02em;
+`;
 
 /**
  * ProjectTemplate - Reusable project detail page component
@@ -65,6 +96,12 @@ export const ProjectTemplate = ({ projectNumber }) => {
       <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center" pb={[0]}>
         {/* Headline Image - Optional section if 1-headline.jpg exists */}
         <BlockImg image={`/images/project-${projectNumber}/1-headline.jpg`} />
+
+        {/* Headline Text Section - Hardcoded content */}
+        <HeadlineTextSection>
+          <HeadlineTitle>{m.title}</HeadlineTitle>
+          <HeadlineTagline>A BRAND IDENTITY THAT DO NOT WANT TO FEEL LIKE A CAR BRAND.</HeadlineTagline>
+        </HeadlineTextSection>
 
         {/* Media Gallery - Images + Videos - Full Width */}
         {mediaArray.map((media, index) => (
