@@ -63,6 +63,9 @@ export const ProjectTemplate = ({ projectNumber }) => {
       />
 
       <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center" pb={[0]}>
+        {/* Headline Image - Optional section if 1-headline.jpg exists */}
+        <BlockImg image={`/images/project-${projectNumber}/1-headline.jpg`} />
+
         {/* Media Gallery - Images + Videos - Full Width */}
         {mediaArray.map((media, index) => (
           media.type === 'image' ? (
