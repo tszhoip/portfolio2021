@@ -48,6 +48,28 @@ const MediaGalleryWrapper = styled.div`
   align-items: center;
 `;
 
+const HeadlineImageSection = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  padding: 16px 16px 48px 16px;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+`;
+
+const HeadlineImage = styled.img`
+  width: 75%;
+  height: auto;
+  object-fit: cover;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+`;
+
 /**
  * ProjectTemplate - Reusable project detail page component
  *
@@ -101,22 +123,23 @@ export const ProjectTemplate = ({ projectNumber }) => {
       />
 
       <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center" pb={[0]}>
-        {/* Headline Text Section - Hardcoded content */}
-        <HeadlineTextSection>
-          <HeadlineTitle>Canoo, brand</HeadlineTitle>
-          <HeadlineTagline>A brand identity that do not want to feel like a car brand.</HeadlineTagline>
-        </HeadlineTextSection>
-
         {/* Media Gallery and Featured Projects Wrapper */}
         <MediaGalleryWrapper>
-          {/* Media Gallery - Images + Videos */}
-          {mediaArray.map((media, index) => (
-            media.type === 'image' ? (
-              <BlockImg key={index} image={media.file} />
-            ) : (
-              <BlockVideo key={index} video={media.url} />
-            )
-          ))}
+          {/* Media Gallery - Headline Images, Regular Images + Videos */}
+          {mediaArray.map((media, index) => {
+            if (media.type === 'headline') {
+              return (
+                <HeadlineImageSection key={index}>
+                  <HeadlineImage src={media.file} />
+                </HeadlineImageSection>
+              );
+            } else if (media.type === 'image') {
+              return <BlockImg key={index} image={media.file} />;
+            } else if (media.type === 'video') {
+              return <BlockVideo key={index} video={media.url} />;
+            }
+            return null;
+          })}
 
           {/* Featured Projects Section */}
           <FeaturedProjects currentProjectNumber={projectNumber} allProjects={projectsMetadata} />

@@ -12,80 +12,87 @@
  * Returns array of media objects: { type: 'image'|'video', file/url, order }
  */
 export const buildMediaArray = async (projectNumber, metadata) => {
-  const mediaArray = [];
-
-  // If no metadata provided, just load images
-  if (!metadata) {
-    return loadImagesOnly(projectNumber);
-  }
-
-  // Add images (1.jpg, 2.jpg, etc.)
-  const images = await discoverImages(projectNumber);
-  mediaArray.push(
-    ...images.map((file) => {
-      // Extract numeric prefix from filename (e.g., "3.jpg" → order: 30)
-      const filename = file.split('/').pop();
-      const match = filename.match(/^(\d+)/);
-      const order = match ? parseInt(match[1]) * 10 : 999;
-      return {
-        type: 'image',
-        file,
-        order,
-      };
-    })
-  );
-
-  // Add video if it exists
-  if (metadata.video) {
-    // Extract numeric prefix from video filename (e.g., "2-vid.mp4" → order: 20)
-    const videoFilename = metadata.video.split('/').pop(); // Get filename
-    const videoMatch = videoFilename.match(/^(\d+)/); // Extract leading digits
-    const videoOrder = videoMatch ? parseInt(videoMatch[1]) * 10 : 999; // Convert to order (1→10, 2→20, etc.)
-
-    mediaArray.push({
-      type: 'video',
-      url: metadata.video,
-      order: videoOrder,
-    });
-  }
-
-  // Re-sort by order field if metadata provides ordering
-  if (metadata.media && Array.isArray(metadata.media)) {
-    // If metadata has explicit media ordering, use it
+  // If metadata has explicit media ordering, use it
+  if (metadata && metadata.media && Array.isArray(metadata.media)) {
     return metadata.media;
   }
 
-  // Sort by order field
-  mediaArray.sort((a, b) => a.order - b.order);
+  // Otherwise, discover media with priority order:
+  // 1. X-vid.mp4 (video)
+  // 2. X-headline.jpg (headline image)
+  // 3. X.jpg (regular image)
+  const discoveredMedia = await discoverMedia(projectNumber);
 
-  return mediaArray;
+  // Sort by order field
+  discoveredMedia.sort((a, b) => a.order - b.order);
+
+  return discoveredMedia;
 };
 
 /**
- * Discover images in project folder
- * Tries 1.jpg through 15.jpg (skips videos at position 1)
+ * Discover media for project folder with priority order:
+ * 1. X-vid.mp4 (video) - highest priority
+ * 2. X-headline.jpg (headline image) - second priority
+ * 3. X.jpg (regular image) - lowest priority
  */
-const discoverImages = async (projectNumber) => {
-  const images = [];
+const discoverMedia = async (projectNumber) => {
+  const mediaItems = [];
   let consecutiveMisses = 0;
 
   for (let i = 1; i <= 15; i++) {
-    const imagePath = `/images/project-${projectNumber}/${i}.jpg`;
-    const exists = await imageExists(imagePath);
+    let found = false;
 
-    if (exists) {
-      images.push(imagePath);
-      consecutiveMisses = 0; // Reset counter when we find an image
-    } else {
+    // Priority 1: Check for video
+    const videoPath = `/images/project-${projectNumber}/${i}-vid.mp4`;
+    if (await videoExists(videoPath)) {
+      mediaItems.push({
+        type: 'video',
+        url: videoPath,
+        order: i * 10
+      });
+      found = true;
+      consecutiveMisses = 0;
+    }
+    // Priority 2: Check for headline image
+    else if (await imageExists(`/images/project-${projectNumber}/${i}-headline.jpg`)) {
+      mediaItems.push({
+        type: 'headline',
+        file: `/images/project-${projectNumber}/${i}-headline.jpg`,
+        order: i * 10
+      });
+      found = true;
+      consecutiveMisses = 0;
+    }
+    // Priority 3: Check for regular image
+    else if (await imageExists(`/images/project-${projectNumber}/${i}.jpg`)) {
+      mediaItems.push({
+        type: 'image',
+        file: `/images/project-${projectNumber}/${i}.jpg`,
+        order: i * 10
+      });
+      found = true;
+      consecutiveMisses = 0;
+    }
+
+    // Track consecutive misses
+    if (!found) {
       consecutiveMisses++;
-      // Stop after 3 consecutive misses (allows for videos and gaps in numbering)
+      // Stop after 3 consecutive misses
       if (consecutiveMisses >= 3) {
         break;
       }
     }
   }
 
-  return images;
+  return mediaItems;
+};
+
+/**
+ * Legacy function - redirect to discoverMedia
+ */
+const discoverImages = async (projectNumber) => {
+  const media = await discoverMedia(projectNumber);
+  return media.filter(m => m.type === 'image').map(m => m.file);
 };
 
 /**
@@ -97,6 +104,18 @@ const imageExists = (src) => {
     img.onload = () => resolve(true);
     img.onerror = () => resolve(false);
     img.src = src;
+  });
+};
+
+/**
+ * Check if video exists
+ */
+const videoExists = (src) => {
+  return new Promise((resolve) => {
+    const video = document.createElement('video');
+    video.onloadedmetadata = () => resolve(true);
+    video.onerror = () => resolve(false);
+    video.src = src;
   });
 };
 
