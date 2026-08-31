@@ -78,8 +78,8 @@ const discoverImages = async (projectNumber) => {
       consecutiveMisses = 0; // Reset counter when we find an image
     } else {
       consecutiveMisses++;
-      // Stop after 2 consecutive misses (allows for videos mixed in)
-      if (consecutiveMisses >= 2) {
+      // Stop after 3 consecutive misses (allows for videos and gaps in numbering)
+      if (consecutiveMisses >= 3) {
         break;
       }
     }
