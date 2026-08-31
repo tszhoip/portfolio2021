@@ -39,10 +39,9 @@ const FeaturedGrid = styled.div`
 
 const ProjectCard = styled.div`
   display: flex;
-  align-items: stretch;
-  height: 160px;
+  flex-direction: column;
   background-color: #f5f5f5;
-  padding: 16px;
+  padding: 0;
   cursor: pointer;
   transition: background-color 0.2s ease;
   border-radius: 0;
@@ -55,19 +54,18 @@ const ProjectCard = styled.div`
 `;
 
 const ProjectImage = styled.img`
-  width: 50%;
-  height: 100%;
+  width: 100%;
+  height: auto;
   object-fit: cover;
-  margin-right: 16px;
   aspect-ratio: 3 / 2;
+  display: block;
 `;
 
 const ProjectInfo = styled.div`
-  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-left: 0;
+  padding: 8px 12px;
 `;
 
 const ProjectTitle = styled.h3`
@@ -78,10 +76,6 @@ const ProjectTitle = styled.h3`
   line-height: 1.15;
   letter-spacing: -0.02em;
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-
-  @media (max-width: 900px) {
-    display: none;
-  }
 `;
 
 export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
