@@ -22,7 +22,7 @@ const HeadlineTextSection = styled.div`
   }
 `;
 
-const HeadlineTitle = styled.h2`
+const HeadlineTitle = styled.h1`
   margin: 0 0 16px 0;
   font-size: 32px;
   font-weight: 600;
@@ -31,7 +31,7 @@ const HeadlineTitle = styled.h2`
   letter-spacing: -0.02em;
 `;
 
-const HeadlineTagline = styled.p`
+const HeadlineTagline = styled.h1`
   margin: 0;
   font-size: 18px;
   font-weight: 400;
@@ -39,6 +39,13 @@ const HeadlineTagline = styled.p`
   line-height: 1.4;
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
   letter-spacing: -0.02em;
+`;
+
+const MediaGalleryWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 /**
@@ -94,26 +101,26 @@ export const ProjectTemplate = ({ projectNumber }) => {
       />
 
       <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center" pb={[0]}>
-        {/* Headline Image - Optional section if 1-headline.jpg exists */}
-        <BlockImg image={`/images/project-${projectNumber}/1-headline.jpg`} />
-
         {/* Headline Text Section - Hardcoded content */}
         <HeadlineTextSection>
-          <HeadlineTitle>{m.title}</HeadlineTitle>
-          <HeadlineTagline>A BRAND IDENTITY THAT DO NOT WANT TO FEEL LIKE A CAR BRAND.</HeadlineTagline>
+          <HeadlineTitle>Canoo, brand</HeadlineTitle>
+          <HeadlineTagline>A brand identity that do not want to feel like a car brand.</HeadlineTagline>
         </HeadlineTextSection>
 
-        {/* Media Gallery - Images + Videos - Full Width */}
-        {mediaArray.map((media, index) => (
-          media.type === 'image' ? (
-            <BlockImg key={index} image={media.file} />
-          ) : (
-            <BlockVideo key={index} video={media.url} />
-          )
-        ))}
+        {/* Media Gallery and Featured Projects Wrapper */}
+        <MediaGalleryWrapper>
+          {/* Media Gallery - Images + Videos */}
+          {mediaArray.map((media, index) => (
+            media.type === 'image' ? (
+              <BlockImg key={index} image={media.file} />
+            ) : (
+              <BlockVideo key={index} video={media.url} />
+            )
+          ))}
 
-        {/* Featured Projects Section */}
-        <FeaturedProjects currentProjectNumber={projectNumber} allProjects={projectsMetadata} />
+          {/* Featured Projects Section */}
+          <FeaturedProjects currentProjectNumber={projectNumber} allProjects={projectsMetadata} />
+        </MediaGalleryWrapper>
       </Container>
 
       {/* SubNav - Sticky navigation at bottom */}
