@@ -58,30 +58,10 @@ export const SubNav = ({
     <ThemeProvider theme={base}>
       <SubNavWrapper>
         <Wrap width="100%">
-          {/* Project Title + Info Button (Merged, 50%) */}
-          <InfoButton onClick={onProjectInfoClick}>
-            {projectTitle}, Info
-          </InfoButton>
-
-          {/* All Projects Button (25%) */}
+          {/* Back Button (Left, 50%) */}
           <Button
             fontFamily={[0]}
-            width="25%"
-            fontSize="12px"
-            fontWeight="500"
-            padding={[3]}
-            variant="default"
-            flexGrow="1"
-            textAlign="left"
-            onClick={onAllProjectsClick}
-          >
-            All Projects
-          </Button>
-
-          {/* Back Button (25%) */}
-          <Button
-            fontFamily={[0]}
-            width="25%"
+            width="50%"
             fontSize="12px"
             fontWeight="500"
             padding={[3]}
@@ -92,6 +72,11 @@ export const SubNav = ({
           >
             Back
           </Button>
+
+          {/* Project Title + Info Button (Right, 50%) */}
+          <InfoButton onClick={onProjectInfoClick}>
+            {projectTitle}, Info
+          </InfoButton>
         </Wrap>
       </SubNavWrapper>
     </ThemeProvider>
