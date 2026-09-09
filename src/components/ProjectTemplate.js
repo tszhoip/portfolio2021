@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BlockImg, BlockVideo, Blockitem } from '../component/Block';
+import { BlockImg, BlockVideo, Blockitem, BlockMenu } from '../component/Block';
 import { Container } from '../component/Core';
 import { ThemeProvider } from "styled-components";
 import styled from 'styled-components';
@@ -7,67 +7,52 @@ import { base } from '../theme';
 import { getProjectMetadata, projectsMetadata } from '../data/projectsMetadata';
 import { parseMediaArray } from './MediaGalleryBuilder';
 import { FeaturedProjects } from './FeaturedProjects';
+import { HeadlineSection } from './HeadlineSection';
+import { MediaGridPair } from './MediaGridPair';
 import SubNav from '../component/SubNav';
 import ProjectInfoModal from '../component/ProjectInfoModal';
 import AllProjectsModal from '../component/AllProjectsModal';
-
-const HeadlineTextSection = styled.div`
-  width: 75%;
-  margin: 0 auto;
-  padding: 16px 16px 48px 16px;
-  background-color: #fff;
-
-  @media (max-width: 900px) {
-    width: 100%;
-  }
-`;
-
-const HeadlineTitle = styled.h1`
-  margin: 0 0 16px 0;
-  font-size: 32px;
-  font-weight: 600;
-  color: #000;
-  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-  letter-spacing: -0.02em;
-`;
-
-const HeadlineTagline = styled.h1`
-  margin: 0;
-  font-size: 18px;
-  font-weight: 400;
-  color: #000;
-  line-height: 1.4;
-  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-  letter-spacing: -0.02em;
-`;
 
 const MediaGalleryWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 `;
 
-const HeadlineImageSection = styled.div`
+const MediaGallerySectionWrapper = styled.div`
+  width: 100%;
+  position: relative;
+`;
+
+const FeaturedProjectsWrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
-  background-color: #fff;
-  padding: 16px 16px 48px 16px;
-
-  @media (max-width: 900px) {
-    width: 100%;
-  }
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 `;
 
-const HeadlineImage = styled.img`
-  width: 75%;
-  height: auto;
-  object-fit: cover;
+const FeaturedProjectsSectionWrapper = styled.div`
+  width: 100%;
+  position: relative;
+`;
 
-  @media (max-width: 900px) {
-    width: 100%;
-  }
+
+const SubNavWrapper = styled.div`
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  z-index: 101;
+`;
+
+const MainMenuWrapper = styled.div`
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  z-index: 101;
+  background-color: #f5f5f5;
 `;
 
 /**
@@ -123,36 +108,61 @@ export const ProjectTemplate = ({ projectNumber }) => {
       />
 
       <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center" pb={[0]}>
-        {/* Media Gallery and Featured Projects Wrapper */}
-        <MediaGalleryWrapper>
-          {/* Media Gallery - Headline Images, Regular Images + Videos */}
-          {mediaArray.map((media, index) => {
-            if (media.type === 'headline') {
-              return (
-                <HeadlineImageSection key={index}>
-                  <HeadlineImage src={media.file} />
-                </HeadlineImageSection>
-              );
-            } else if (media.type === 'image') {
-              return <BlockImg key={index} image={media.file} />;
-            } else if (media.type === 'video') {
-              return <BlockVideo key={index} video={media.url} />;
-            }
-            return null;
-          })}
+        {/* Media Gallery Section with SubNav */}
+        <MediaGallerySectionWrapper>
+          {/* Media Gallery - Headline Text Sections, Regular Images + Videos */}
+          <MediaGalleryWrapper>
+            {mediaArray.map((media, index) => {
+              if (media.type === 'headline') {
+                // Render headline TEXT section instead of image
+                return (
+                  <HeadlineSection
+                    key={index}
+                    title={m.headline?.title || m.title}
+                    tagline={m.headline?.tagline || m.descEN}
+                  />
+                );
+              } else if (media.type === 'image') {
+                return <BlockImg key={index} image={media.file} />;
+              } else if (media.type === 'video') {
+                return <BlockVideo key={index} video={media.url} />;
+              } else if (media.type === 'grid') {
+                // Render A/B variant grid (2-column layout)
+                return (
+                  <MediaGridPair
+                    key={index}
+                    imageA={media.files[0]}
+                    imageB={media.files[1]}
+                  />
+                );
+              }
+              return null;
+            })}
+          </MediaGalleryWrapper>
 
-          {/* Featured Projects Section */}
-          <FeaturedProjects currentProjectNumber={projectNumber} allProjects={projectsMetadata} />
-        </MediaGalleryWrapper>
+          {/* SubNav - Sticky to bottom of media gallery section */}
+          <SubNavWrapper>
+            <SubNav
+              projectNumber={projectNumber}
+              projectTitle={m.title}
+              onProjectInfoClick={() => setInfoModalOpen(true)}
+              onAllProjectsClick={() => setAllProjectsModalOpen(true)}
+            />
+          </SubNavWrapper>
+        </MediaGallerySectionWrapper>
+
+        {/* Featured Projects Section with Main Menu */}
+        <FeaturedProjectsSectionWrapper>
+          <FeaturedProjectsWrapper>
+            <FeaturedProjects currentProjectNumber={projectNumber} allProjects={projectsMetadata} />
+          </FeaturedProjectsWrapper>
+
+          {/* Main Menu - Sticky to bottom of featured projects section */}
+          <MainMenuWrapper>
+            <BlockMenu />
+          </MainMenuWrapper>
+        </FeaturedProjectsSectionWrapper>
       </Container>
-
-      {/* SubNav - Sticky navigation at bottom */}
-      <SubNav
-        projectNumber={projectNumber}
-        projectTitle={m.title}
-        onProjectInfoClick={() => setInfoModalOpen(true)}
-        onAllProjectsClick={() => setAllProjectsModalOpen(true)}
-      />
     </ThemeProvider>
   );
 };

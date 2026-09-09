@@ -8,37 +8,70 @@ import { Wrap, Button, Text } from './Core';
 const SubNavWrapper = styled.div`
   width: 100%;
   display: flex;
-  background-color: #f5f5f5;
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+  background-color: #000;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
-    background-color: #fff;
+    background-color: #1a1a1a;
   }
 `;
 
-const InfoButton = styled.button`
-  width: 50%;
-  padding: 12px 16px;
-  background-color: #f5f5f5;
-  margin: 0;
-  font-size: 12px;
-  font-weight: 500;
-  color: black;
-  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-  letter-spacing: -0.02em;
+const SubNavContent = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  gap: 12px;
+`;
+
+const BackButton = styled.button`
+  flex: 1;
+  background-color: #000;
   border: none;
-  flex-grow: 1;
-  text-align: left;
+  color: #fff;
+  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
   cursor: pointer;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 
   &:hover {
-    background-color: #fff;
+    background-color: #1a1a1a;
+  }
+`;
+
+const Divider = styled.span`
+  color: #888;
+  font-size: 12px;
+`;
+
+const InfoButton = styled.button`
+  flex: 1;
+  background-color: #000;
+  border: none;
+  color: #fff;
+  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  &:hover {
+    background-color: #1a1a1a;
   }
 `;
 
@@ -57,27 +90,20 @@ export const SubNav = ({
   return (
     <ThemeProvider theme={base}>
       <SubNavWrapper>
-        <Wrap width="100%">
-          {/* Back Button (Left, 50%) */}
-          <Button
-            fontFamily={[0]}
-            width="50%"
-            fontSize="12px"
-            fontWeight="500"
-            padding={[3]}
-            variant="default"
-            flexGrow="1"
-            textAlign="left"
-            onClick={navigateBack}
-          >
-            Back
-          </Button>
+        <SubNavContent>
+          {/* Back Arrow Button (Left) */}
+          <BackButton onClick={navigateBack}>
+            ←
+          </BackButton>
 
-          {/* Project Title + Info Button (Right, 50%) */}
+          {/* Divider */}
+          <Divider>|</Divider>
+
+          {/* Info Button (Right) */}
           <InfoButton onClick={onProjectInfoClick}>
-            {projectTitle}, Info
+            Info
           </InfoButton>
-        </Wrap>
+        </SubNavContent>
       </SubNavWrapper>
     </ThemeProvider>
   );

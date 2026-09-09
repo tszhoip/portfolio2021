@@ -42,6 +42,7 @@ const BImage = styled.img`
     width: 100%;
     height: auto;
     object-fit: cover;
+    margin: 0;
     ${space};
     ${layout};
 `
@@ -122,7 +123,7 @@ const ThumbnailTitle = styled.div`
 export const BlockImg = (props) => {
   return (
     <ThemeProvider theme={base}>
-      <BImage src={props.image} pt={[0]} pb={[0]} />
+      <BImage src={props.image} p={[0]} />
     </ThemeProvider>
   )
 };
@@ -132,6 +133,7 @@ const BVideo = styled.video`
   width: 100%;
   height: auto;
   object-fit: cover;
+  margin: 0;
   ${space};
   ${layout};
 `;
@@ -141,7 +143,7 @@ export const BlockVideo = (props) => {
     <ThemeProvider theme={base}>
       <BVideo
         src={props.video}
-        pb={[0]}
+        p={[0]}
         autoPlay
         muted
         loop

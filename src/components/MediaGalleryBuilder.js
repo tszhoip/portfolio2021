@@ -63,7 +63,21 @@ const discoverMedia = async (projectNumber) => {
       found = true;
       consecutiveMisses = 0;
     }
-    // Priority 3: Check for regular image
+    // Priority 3: Check for A/B variant pair (NEW)
+    else if (await imageExists(`/images/project-${projectNumber}/${i}A.jpg`) &&
+             await imageExists(`/images/project-${projectNumber}/${i}B.jpg`)) {
+      mediaItems.push({
+        type: 'grid',
+        files: [
+          `/images/project-${projectNumber}/${i}A.jpg`,
+          `/images/project-${projectNumber}/${i}B.jpg`
+        ],
+        order: i * 10
+      });
+      found = true;
+      consecutiveMisses = 0;
+    }
+    // Priority 4: Check for regular image (moved down due to A/B priority)
     else if (await imageExists(`/images/project-${projectNumber}/${i}.jpg`)) {
       mediaItems.push({
         type: 'image',

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import styled, { ThemeProvider } from "styled-components";
 
 import { base } from '../theme';
@@ -24,6 +25,15 @@ const MenuWrapper = styled.div`
 `;
 
 export const BlockMenuFloating = () => {
+  const location = useLocation();
+
+  // Hide BlockMenuFloating on project detail pages (MainMenuWrapper will show instead)
+  const isProjectPage = location.pathname.startsWith('/work/project-');
+
+  if (isProjectPage) {
+    return null;
+  }
+
   return (
     <ThemeProvider theme={base}>
       <MenuWrapper>

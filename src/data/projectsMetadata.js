@@ -17,6 +17,10 @@
 export const projectsMetadata = {
   1: {
     title: 'Canoo, Brand',
+    headline: {
+      title: 'Canoo',
+      tagline: 'A brand identity that do not want to feel like a car brand.'
+    },
     role: 'Design Lead',
     deliverable: 'Brand Identity, Visual Language',
     descEN: 'CanooB, an electric vehicle startup, has been at the forefront of innovative mobility solutions since 2018. Initially focusing on niche markets like urban commute and subscription services, the company shifted its priority to commercial vehicles post-IPO. This strategic pivot necessitated a reevaluation of the brand\'s visual identity. The Brand Vision project aims to realign the visual and brand messaging to better reflect the company\'s evolving ethos and motto.',
@@ -27,6 +31,10 @@ export const projectsMetadata = {
   },
   2: {
     title: 'Canoo, Design System',
+    headline: {
+      title: 'Design System',
+      tagline: 'A comprehensive design system rooted in functionalism.'
+    },
     role: 'Design Lead',
     deliverable: 'Art Direction, Design System',
     descEN: 'To enhance Canoo\'s design and development processes, we aim to establish a comprehensive design system rooted in functionalism. By addressing the current challenges of misalignment, slow turnaround times, and inconsistent aesthetics, we can streamline workflows, improve code quality, and ensure adherence to our company\'s minimalist design philosophy. Our solution involves creating a centralized repository of reusable components, developing a detailed style guide, implementing a version control system, and providing ongoing training and support. This approach will foster collaboration between design and development teams, accelerate project timelines, and deliver high-quality products that align with our brand identity.',
@@ -36,6 +44,10 @@ export const projectsMetadata = {
   },
   3: {
     title: 'Aboard, Visual Identity',
+    headline: {
+      title: 'Aboard',
+      tagline: 'A distinctive visual identity for electric recreational vehicles.'
+    },
     role: 'Logo Designer',
     deliverable: 'Logos',
     descEN: 'Aboard is an RV company that has a whole new idea for EV RV. We created a distinctive visual identity that captures their innovative approach to electric recreational vehicles. The design reflects their commitment to combining adventure with sustainability, establishing a strong brand presence in the emerging EV RV market.',
@@ -45,6 +57,10 @@ export const projectsMetadata = {
   },
   4: {
     title: 'Coco Robotics, Branding',
+    headline: {
+      title: 'Coco Robotics',
+      tagline: 'Precision, innovation, and reliability in robotics.'
+    },
     role: 'Brand designer',
     deliverable: 'Logos, Design System',
     descEN: 'Coco Robotics is an innovative company focused on robotic solutions. Through strategic branding and visual identity design, we established a comprehensive design system that reflects their cutting-edge technology and forward-thinking approach to robotics. The brand identity conveys precision, innovation, and reliability in the robotics industry.',
@@ -54,6 +70,10 @@ export const projectsMetadata = {
   },
   5: {
     title: 'Innocell, Brand Concept',
+    headline: {
+      title: 'Innocell',
+      tagline: 'Tech-forward hostel and coworking experience.'
+    },
     role: 'Design Consultant',
     deliverable: 'Concept Design, Art Direction',
     descEN: 'Innocell is a hostel and coworking space located right next to the university. The hotel embraces a tech-forward experience where anything can be controlled through an app. The art direction features a nomadic style with neumorphism elements, creating a modern and intuitive visual language that resonates with digital natives.',
@@ -63,6 +83,10 @@ export const projectsMetadata = {
   },
   6: {
     title: 'Project 6',
+    headline: {
+      title: 'Project 6',
+      tagline: 'Project description coming soon.'
+    },
     role: 'Designer',
     deliverable: 'TBD',
     descEN: 'Project description coming soon. Please update from Google Sheet.',
