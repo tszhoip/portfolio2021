@@ -8,12 +8,13 @@ import { Wrap, Button, Text } from './Core';
 const SubNavWrapper = styled.div`
   width: 100%;
   display: flex;
-  background-color: #000;
+  background-color: #f5f5f5;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #1a1a1a;
+    background-color: #fff;
   }
 `;
 
@@ -23,55 +24,52 @@ const SubNavContent = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 8px 12px;
-  gap: 12px;
+  gap: 0;
 `;
 
 const BackButton = styled.button`
   flex: 1;
-  background-color: #000;
+  background-color: transparent;
   border: none;
-  color: #fff;
+  color: #000;
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: -0.02em;
   cursor: pointer;
-  padding: 0;
+  padding: 8px 12px;
   margin: 0;
   text-align: left;
   display: flex;
   align-items: center;
   gap: 6px;
+  transition: color 0.2s ease;
 
   &:hover {
-    background-color: #1a1a1a;
+    color: #000;
   }
-`;
-
-const Divider = styled.span`
-  color: #888;
-  font-size: 12px;
 `;
 
 const InfoButton = styled.button`
   flex: 1;
-  background-color: #000;
+  background-color: transparent;
   border: none;
-  color: #fff;
+  color: #000;
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: -0.02em;
   cursor: pointer;
-  padding: 0;
+  padding: 8px 12px;
   margin: 0;
   text-align: right;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  transition: color 0.2s ease;
 
   &:hover {
-    background-color: #1a1a1a;
+    color: #000;
   }
 `;
 
@@ -95,9 +93,6 @@ export const SubNav = ({
           <BackButton onClick={navigateBack}>
             ←
           </BackButton>
-
-          {/* Divider */}
-          <Divider>|</Divider>
 
           {/* Info Button (Right) */}
           <InfoButton onClick={onProjectInfoClick}>
