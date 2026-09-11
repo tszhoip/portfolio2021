@@ -5,9 +5,9 @@ import { ThemeProvider } from 'styled-components';
 import { base } from '../theme';
 
 /**
- * FeaturedProjects - Clean thumbnail design
- * Image (3:2 landscape) + Text with 16px padding
- * Hover: #f5f5f5 → #fff background
+ * FeaturedProjects - Card/Frame Design
+ * 16px padding creating frame effect
+ * Image (3:2) + Text with full-card hover state
  */
 
 const FeaturedContainer = styled.div`
@@ -35,13 +35,17 @@ const FeaturedGrid = styled.div`
   }
 `;
 
-const ProjectThumbnail = styled.div`
+// Card wrapper with 16px padding and full background
+const ProjectCard = styled.div`
+  padding: 16px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
   display: flex;
   flex-direction: column;
-  background-color: transparent;
-  cursor: pointer;
 `;
 
+// Image inside the card
 const ProjectImage = styled.img`
   width: 100%;
   height: auto;
@@ -52,21 +56,17 @@ const ProjectImage = styled.img`
   padding: 0;
 `;
 
+// Text section inside the card
 const ProjectTitle = styled.h3`
   margin: 0;
-  padding: 16px;
+  margin-top: 12px;
+  padding: 0;
   font-size: 12px;
   font-weight: 500;
   color: #000;
   line-height: 1.15;
   letter-spacing: -0.02em;
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-  background-color: #f5f5f5;
-  transition: background-color 0.2s ease;
-
-  ${ProjectThumbnail}:hover & {
-    background-color: #fff;
-  }
 `;
 
 export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
@@ -120,9 +120,15 @@ export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
       <FeaturedContainer>
         <FeaturedGrid>
           {displayedProjects.map((project) => (
-            <ProjectThumbnail
+            <ProjectCard
               key={project.number}
               onClick={() => handleCardClick(project.number)}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#fff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#f5f5f5';
+              }}
             >
               <ProjectImage
                 src={`/images/project-${project.number}/thumb.jpg`}
@@ -130,7 +136,7 @@ export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
                 loading="lazy"
               />
               <ProjectTitle>{project.title}</ProjectTitle>
-            </ProjectThumbnail>
+            </ProjectCard>
           ))}
         </FeaturedGrid>
       </FeaturedContainer>
