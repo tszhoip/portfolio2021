@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import { base } from '../theme';
-import { Wrap } from '../component/Core';
+import styled from 'styled-components';
+import { Wrap, Text, H1, Container } from '../component/Core';
 
 /**
  * Archive Page
@@ -10,17 +9,20 @@ import { Wrap } from '../component/Core';
  * Images are read straight from /public/images/archive/, named 1.jpg,
  * 2.jpg, ... using the same numeric-probe approach as MediaGalleryBuilder.
  * No API, no auth, nothing to expire.
+ *
+ * With the folder empty the page shows a skeleton of the grid it will
+ * become. Drop files in and it swaps to the real thing on its own.
  */
 
 const MAX_IMAGES = 120;
 const BATCH = 12;
 const EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp'];
+const SKELETON_TILES = 8;
 
-const GridContainer = styled(Wrap)`
+const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  padding: 0;
   width: 100%;
 
   @media (max-width: 1200px) {
@@ -32,15 +34,15 @@ const GridContainer = styled(Wrap)`
   }
 
   @media (max-width: 480px) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
-const ImageItem = styled.div`
+const Tile = styled.div`
   width: 100%;
   aspect-ratio: 1;
   overflow: hidden;
-  background-color: #f0f0f0;
+  background-color: ${(props) => props.theme.colors.gre10};
 
   img {
     width: 100%;
@@ -50,13 +52,8 @@ const ImageItem = styled.div`
   }
 `;
 
-const MessageContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 60vh;
-  text-align: center;
-  padding: 2rem;
+const SkeletonTile = styled(Tile)`
+  box-shadow: 0 0 0 1px ${(props) => props.theme.colors.gre20} inset;
 `;
 
 const exists = (src) =>
@@ -117,33 +114,55 @@ function Snap() {
     };
   }, []);
 
+  const isEmpty = !loading && images.length === 0;
+
   return (
-    <ThemeProvider theme={base}>
-      <Wrap width={[1]} display="flex" flexDirection="column">
-        <Wrap padding={[3]} textAlign="center">
-          <h2 style={{ fontSize: '24px', marginBottom: '10px' }}>Archive</h2>
-          <p style={{ fontSize: '14px', color: '#666', marginBottom: '20px' }}>
-            A curated collection of modern minimalist &amp; wabi-sabi graphical design
-          </p>
-        </Wrap>
+    <Container
+      width={['100%', '100%', '100%', '80%']}
+      flexDirection={['column']}
+      p="4"
+      flexWrap="wrap"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Wrap width="100%" flexDirection="column" justifyContent="start" alignItems="start">
+        <H1 fontFamily={[0]} color={['blk40']} fontSize={[2]} marginBottom="8px">
+          Archive
+        </H1>
+
+        <Text fontFamily={[0]} color={['blk40']} fontSize={[1]} marginBottom="32px">
+          A curated collection of modern minimalist &amp; wabi-sabi graphical design
+        </Text>
 
         {images.length > 0 ? (
-          <GridContainer>
+          <Grid>
             {images.map((src) => (
-              <ImageItem key={src}>
+              <Tile key={src}>
                 <img src={src} alt="" loading="lazy" />
-              </ImageItem>
+              </Tile>
             ))}
-          </GridContainer>
+          </Grid>
         ) : (
-          <MessageContainer>
-            <p style={{ fontSize: '14px', color: '#666' }}>
-              {loading ? 'Loading archive…' : 'Coming soon.'}
-            </p>
-          </MessageContainer>
+          <Grid>
+            {Array.from({ length: SKELETON_TILES }, (unused, i) => (
+              <SkeletonTile key={`skeleton-${i}`} />
+            ))}
+          </Grid>
         )}
+
+        <Text
+          fontFamily={[0]}
+          color={['blk60']}
+          fontSize={[1]}
+          marginTop="16px"
+          marginBottom="0"
+        >
+          {loading ? 'Loading archive' : null}
+          {isEmpty ? 'Coming soon' : null}
+          {!loading && images.length > 0 ? `${images.length} saved` : null}
+        </Text>
       </Wrap>
-    </ThemeProvider>
+    </Container>
   );
 }
 
