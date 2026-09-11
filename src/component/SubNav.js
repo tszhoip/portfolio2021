@@ -11,7 +11,7 @@ const SubNavWrapper = styled.div`
   background-color: transparent;
   align-items: stretch;
   justify-content: stretch;
-  height: auto;
+  height: 46px;
 `;
 
 const SubNavContent = styled.div`
