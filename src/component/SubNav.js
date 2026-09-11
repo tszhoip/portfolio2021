@@ -8,14 +8,9 @@ import { Wrap, Button, Text } from './Core';
 const SubNavWrapper = styled.div`
   width: 100%;
   display: flex;
-  background-color: #f5f5f5;
+  background-color: transparent;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: #fff;
-  }
 `;
 
 const SubNavContent = styled.div`
@@ -23,13 +18,13 @@ const SubNavContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
+  padding: 0;
   gap: 0;
 `;
 
 const BackButton = styled.button`
   flex: 1;
-  background-color: transparent;
+  background-color: #f5f5f5;
   border: none;
   color: #000;
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
@@ -43,16 +38,16 @@ const BackButton = styled.button`
   display: flex;
   align-items: center;
   gap: 6px;
-  transition: color 0.2s ease;
+  transition: background-color 0.2s ease;
 
   &:hover {
-    color: #000;
+    background-color: #fff;
   }
 `;
 
 const InfoButton = styled.button`
   flex: 1;
-  background-color: transparent;
+  background-color: #f5f5f5;
   border: none;
   color: #000;
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
@@ -66,10 +61,10 @@ const InfoButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  transition: color 0.2s ease;
+  transition: background-color 0.2s ease;
 
   &:hover {
-    color: #000;
+    background-color: #fff;
   }
 `;
 
