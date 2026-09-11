@@ -92,11 +92,11 @@ const ThumbnailTitle = styled.div`
         opacity: 1;
     }
 
-    /* Text color default: black with shadow for readability */
+    /* Text color default: black without shadow */
     > p {
         color: black;
         transition: color 0.2s ease, text-shadow 0.2s ease;
-        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+        text-shadow: none;
     }
 
     /* On desktop hover: Show text with white color */
@@ -123,7 +123,7 @@ const ThumbnailTitle = styled.div`
 export const BlockImg = (props) => {
   return (
     <ThemeProvider theme={base}>
-      <BImage src={props.image} p={[0]} />
+      <BImage src={props.image} p={[0]} loading="lazy" />
     </ThemeProvider>
   )
 };
@@ -144,9 +144,10 @@ export const BlockVideo = (props) => {
       <BVideo
         src={props.video}
         p={[0]}
-        autoPlay
-        muted
-        loop
+        autoPlay={true}
+        muted={true}
+        loop={true}
+        playsInline={true}
         style={{ aspectRatio: '16 / 9' }}
         onError={(e) => {
           console.error('Video failed to load:', props.video);
