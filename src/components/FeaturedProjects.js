@@ -5,11 +5,9 @@ import { ThemeProvider } from 'styled-components';
 import { base } from '../theme';
 
 /**
- * FeaturedProjects
- * Display featured projects in a responsive grid at the end of project pages
- * - Desktop: 4 columns
- * - Mobile/Tablet: 2 columns
- * - Each card: 3:2 landscape image + title/type
+ * FeaturedProjects - Clean thumbnail design
+ * Image (3:2 landscape) + Text with 16px padding
+ * Hover: #f5f5f5 → #fff background
  */
 
 const FeaturedContainer = styled.div`
@@ -37,47 +35,38 @@ const FeaturedGrid = styled.div`
   }
 `;
 
+const ProjectThumbnail = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  cursor: pointer;
+`;
+
 const ProjectImage = styled.img`
   width: 100%;
   height: auto;
   object-fit: cover;
   aspect-ratio: 3 / 2;
   display: block;
-`;
-
-const ProjectInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 12px 16px;
-  background-color: #f5f5f5;
-  min-height: 48px;
-  transition: background-color 0.2s ease;
-`;
-
-const ProjectCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: transparent;
-  padding: 0;
-  cursor: pointer;
-  border-radius: 0;
   margin: 0;
-  gap: 0;
-
-  &:hover ${ProjectInfo} {
-    background-color: #fff;
-  }
+  padding: 0;
 `;
 
 const ProjectTitle = styled.h3`
   margin: 0;
+  padding: 16px;
   font-size: 12px;
   font-weight: 500;
   color: #000;
   line-height: 1.15;
   letter-spacing: -0.02em;
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background-color: #f5f5f5;
+  transition: background-color 0.2s ease;
+
+  ${ProjectThumbnail}:hover & {
+    background-color: #fff;
+  }
 `;
 
 export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
@@ -90,10 +79,8 @@ export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
   });
 
   useEffect(() => {
-    // Set initial state
     setIsMobile(window.innerWidth < 900);
 
-    // Handle resize
     const handleResize = () => {
       setIsMobile(window.innerWidth < 900);
     };
@@ -106,14 +93,10 @@ export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
     return null;
   }
 
-  // Filter: get featured projects but exclude current project
   const featured = Object.entries(allProjects)
     .filter(([projectNum, project]) => {
       const num = parseInt(projectNum, 10);
-      return (
-        num !== currentProjectNumber && // Exclude self
-        project.feature === true // Only featured projects
-      );
+      return num !== currentProjectNumber && project.feature === true;
     })
     .map(([projectNum, project]) => ({
       number: parseInt(projectNum, 10),
@@ -121,7 +104,6 @@ export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
     }))
     .sort((a, b) => a.number - b.number);
 
-  // Get first 2 projects on mobile/tablet, 4 on desktop
   const projectCount = isMobile ? 2 : 4;
   const displayedProjects = featured.slice(0, projectCount);
 
@@ -138,18 +120,17 @@ export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
       <FeaturedContainer>
         <FeaturedGrid>
           {displayedProjects.map((project) => (
-            <ProjectCard
+            <ProjectThumbnail
               key={project.number}
               onClick={() => handleCardClick(project.number)}
             >
               <ProjectImage
-                src={`/images/project-${project.number}/thumb-hover.jpg`}
+                src={`/images/project-${project.number}/thumb.jpg`}
                 alt={project.title}
+                loading="lazy"
               />
-              <ProjectInfo>
-                <ProjectTitle>{project.title}</ProjectTitle>
-              </ProjectInfo>
-            </ProjectCard>
+              <ProjectTitle>{project.title}</ProjectTitle>
+            </ProjectThumbnail>
           ))}
         </FeaturedGrid>
       </FeaturedContainer>
