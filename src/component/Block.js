@@ -148,7 +148,7 @@ export const BlockVideo = (props) => {
         muted={true}
         loop={true}
         playsInline={true}
-        style={{ aspectRatio: '16 / 9' }}
+        style={{ aspectRatio: '3 / 2' }}
         onError={(e) => {
           console.error('Video failed to load:', props.video);
           e.target.style.display = 'none';
