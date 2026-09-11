@@ -37,21 +37,6 @@ const FeaturedGrid = styled.div`
   }
 `;
 
-const ProjectCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: transparent;
-  padding: 0;
-  cursor: pointer;
-  border-radius: 0;
-  margin: 0;
-  gap: 0;
-
-  &:hover ${ProjectInfo} {
-    background-color: #fff;
-  }
-`;
-
 const ProjectImage = styled.img`
   width: 100%;
   height: auto;
@@ -68,6 +53,21 @@ const ProjectInfo = styled.div`
   background-color: #f5f5f5;
   min-height: 48px;
   transition: background-color 0.2s ease;
+`;
+
+const ProjectCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 0;
+  margin: 0;
+  gap: 0;
+
+  &:hover ${ProjectInfo} {
+    background-color: #fff;
+  }
 `;
 
 const ProjectTitle = styled.h3`
