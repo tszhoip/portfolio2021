@@ -40,15 +40,14 @@ const FeaturedGrid = styled.div`
 const ProjectCard = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #f5f5f5;
+  background-color: transparent;
   padding: 0;
   cursor: pointer;
-  transition: background-color 0.2s ease;
   border-radius: 0;
   margin: 0;
   gap: 0;
 
-  &:hover {
+  &:hover ${ProjectInfo} {
     background-color: #fff;
   }
 `;
@@ -64,8 +63,11 @@ const ProjectImage = styled.img`
 const ProjectInfo = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 8px 12px;
+  justify-content: center;
+  padding: 12px 16px;
+  background-color: #f5f5f5;
+  min-height: 48px;
+  transition: background-color 0.2s ease;
 `;
 
 const ProjectTitle = styled.h3`
