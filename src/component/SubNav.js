@@ -9,15 +9,16 @@ const SubNavWrapper = styled.div`
   width: 100%;
   display: flex;
   background-color: transparent;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: stretch;
+  height: auto;
 `;
 
 const SubNavContent = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: stretch;
+  justify-content: stretch;
   padding: 0;
   gap: 0;
 `;
@@ -32,13 +33,14 @@ const BackButton = styled.button`
   font-weight: 500;
   letter-spacing: -0.02em;
   cursor: pointer;
-  padding: 8px 12px;
+  padding: 12px 16px;
   margin: 0;
   text-align: left;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   transition: background-color 0.2s ease;
+  height: 100%;
 
   &:hover {
     background-color: #fff;
@@ -55,13 +57,14 @@ const InfoButton = styled.button`
   font-weight: 500;
   letter-spacing: -0.02em;
   cursor: pointer;
-  padding: 8px 12px;
+  padding: 12px 16px;
   margin: 0;
   text-align: right;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   transition: background-color 0.2s ease;
+  height: 100%;
 
   &:hover {
     background-color: #fff;
