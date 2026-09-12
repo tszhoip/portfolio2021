@@ -114,14 +114,8 @@ export const ProjectTemplate = ({ projectNumber }) => {
           <MediaGalleryWrapper>
             {mediaArray.map((media, index) => {
               if (media.type === 'headline') {
-                // Render headline TEXT section instead of image
-                return (
-                  <HeadlineSection
-                    key={index}
-                    title={m.headline?.title || m.title}
-                    tagline={m.headline?.tagline || m.descEN}
-                  />
-                );
+                // Render headline IMAGE
+                return <BlockImg key={index} image={media.file} />;
               } else if (media.type === 'image') {
                 return <BlockImg key={index} image={media.file} />;
               } else if (media.type === 'video') {
