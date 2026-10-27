@@ -83,6 +83,15 @@ const SubmitButton = styled.button`
   }
 `;
 
+// Kept in the DOM for bots to find, but never shown or focusable
+const HoneypotGroup = styled.div`
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+`;
+
 const MessageBox = styled.div`
   padding: 16px;
   margin-top: 24px;
@@ -97,8 +106,10 @@ const MessageBox = styled.div`
 function Contact() {
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     subject: '',
-    message: ''
+    message: '',
+    company: '' // honeypot, hidden from real users
   });
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -122,24 +133,26 @@ function Contact() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          name: formData.name,
-          subject: formData.subject,
-          message: formData.message,
-          email: 'tszhoip@gmail.com'
-        })
+        body: JSON.stringify(formData)
       });
 
-      if (response.ok) {
+      // The dev server has no serverless runtime and answers /api with the SPA
+      // shell, so a 200 alone does not mean the mail went out. Require JSON.
+      const contentType = response.headers.get('content-type') || '';
+      const result = contentType.includes('application/json') ? await response.json() : null;
+
+      if (response.ok && result?.success) {
         setStatus({
           type: 'success',
           message: 'Thank you! Your message has been sent successfully.'
         });
-        setFormData({ name: '', subject: '', message: '' });
+        setFormData({ name: '', email: '', subject: '', message: '', company: '' });
       } else {
         setStatus({
           type: 'error',
-          message: 'There was an error sending your message. Please try again later.'
+          message: result?.error
+            ? `Could not send your message: ${result.error}`
+            : 'There was an error sending your message. Please try again later.'
         });
       }
     } catch (error) {
@@ -179,6 +192,32 @@ function Contact() {
                 required
               />
             </FormGroup>
+
+            <FormGroup>
+              <Label htmlFor="email">Email *</Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </FormGroup>
+
+            <HoneypotGroup aria-hidden="true">
+              <label htmlFor="company">Company</label>
+              <input
+                id="company"
+                name="company"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                value={formData.company}
+                onChange={handleChange}
+              />
+            </HoneypotGroup>
 
             <FormGroup>
               <Label htmlFor="subject">Subject *</Label>
