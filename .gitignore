@@ -24,3 +24,4 @@ yarn-error.log*
 
 # files removed by Claude - safe to delete
 _removed/
+.vercel
