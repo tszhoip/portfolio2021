@@ -11,6 +11,7 @@
  * - thumbnail: public path to thumbnail
  * - thumbnailHover: (optional) path to hover/mobile alternate image
  * - hasContent: true if project has metadata/images, false if placeholder
+ * - wide: (optional) card spans the full row below 900px instead of sitting 2-up
  */
 
 export const projects = [
@@ -20,6 +21,7 @@ export const projects = [
     thumbnail: '/images/project-1/thumb.jpg',
     thumbnailHover: '/images/project-1/thumb-hover.jpg',
     hasContent: true,
+    wide: true,
     route: '/work/project-1'
   },
   {
@@ -44,6 +46,7 @@ export const projects = [
     thumbnail: '/images/project-4/thumb.jpg',
     thumbnailHover: '/images/project-4/thumb-hover.jpg',
     hasContent: true,
+    wide: true,
     route: '/work/project-4'
   },
   {

@@ -15,7 +15,7 @@ function Home() {
       {projects.map((project) => (
         <BlockThumb
           key={project.id}
-          width={project.id === 1 ? [1,1,1/2,1/2] : undefined}
+          width={project.wide ? [1, 1, 1 / 2, 1 / 2] : undefined}
           img={project.thumbnail}
           imgHover={project.thumbnailHover}
           to={project.route}
