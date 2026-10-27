@@ -1,94 +1,220 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { BlockImgPlay } from '../component/BlockImgPlay'
-import lo1 from '../assets/feed/feed-1.jpg';
-import lo2 from '../assets/feed/feed-2.jpg';
-import lo3 from '../assets/feed/feed-3.jpg';
-import lo4 from '../assets/feed/feed-4.jpg';
-import lo5 from '../assets/feed/feed-5.jpg';
-import lo6 from '../assets/feed/feed-6.jpg';
-import lo7 from '../assets/feed/feed-7.jpg';
-import lo8 from '../assets/feed/feed-8.jpg';
-import lo9 from '../assets/feed/feed-9.jpg';
-
-import { Container, Wrap, Button, H1, Text, Spacer } from '../component/Core';
+import styled from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { base } from '../theme';
-import { ThemeProvider, isStyledComponent } from "styled-components";
-import { BlockList, BlockHeader, BlockThumb } from '../component/Block';
 
-const ImgLogo = [
-  { img: lo1 },
-  { img: lo2 },
-  { img: lo3, colSpan: 3, rowSpan: 2 },
-  { img: lo4 },
-  { img: lo5 },
-  { img: lo6 },
-  { img: lo7 },
-  { img: lo8 },
-  { img: lo9 },
-  { img: lo5 },
-  { img: lo6 },
-  { img: lo7 },
-  { img: lo8 },
-  { img: lo9 },
-]
+/**
+ * About - MHZ design office
+ *
+ * Structure:
+ *   Lead statement → studio approach → clients → founder profiles
+ *   Profile images are full-bleed, sourced from /images/about/
+ */
+
+const FONT = `'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif`;
+
+const AboutContainer = styled.div`
+  width: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+`;
+
+// Text sections share one padded column so copy lines up edge to edge
+const Section = styled.section`
+  width: 100%;
+  box-sizing: border-box;
+  padding: 48px 16px;
+
+  @media (max-width: 900px) {
+    padding: 32px 16px;
+  }
+`;
+
+const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #d5d5d5;
+`;
+
+const LeadStatement = styled.h1`
+  margin: 0;
+  max-width: 900px;
+  font-family: ${FONT};
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #000;
+
+  @media (max-width: 900px) {
+    font-size: 24px;
+  }
+`;
+
+const Statement = styled.p`
+  margin: 0;
+  max-width: 640px;
+  font-family: ${FONT};
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: #000;
+
+  @media (max-width: 900px) {
+    font-size: 18px;
+  }
+`;
+
+// Small label type, matching the 12px nav/menu scale used across the site
+const Label = styled.h2`
+  margin: 0 0 24px 0;
+  font-family: ${FONT};
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #000;
+`;
+
+const ClientGrid = styled.ul`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px 16px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
+const ClientName = styled.li`
+  font-family: ${FONT};
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  color: #000;
+`;
+
+const ProfileImage = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 3 / 2;
+  display: block;
+  margin: 0;
+`;
+
+// Name sits in a narrow left column, bio in the wider right column
+const ProfileText = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 16px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+`;
+
+const ProfileName = styled.h3`
+  margin: 0;
+  font-family: ${FONT};
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: #000;
+`;
+
+const ProfileBio = styled.p`
+  margin: 0;
+  max-width: 640px;
+  font-family: ${FONT};
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: #000;
+`;
+
+const clients = [
+  'Elephant',
+  'Huge Inc.',
+  'Hyundai',
+  'Microsoft',
+  'Apple Music',
+  'Figs',
+  'Nike',
+  'Joy & Peace',
+  'Treedom',
+  'VW',
+  'Innocell',
+  'Canoo',
+];
+
+const people = [
+  {
+    name: 'Tsz Ho Ip',
+    image: '/images/about/tsz.jpg',
+    bio: "My expertise extends beyond aesthetics to the creation of robust design systems that seamlessly integrate across various media. Whether it's a rapid branding initiative or a deeply emotive storytelling campaign, I possess the versatility to tailor my approach to meet the unique needs of each project.",
+  },
+  {
+    name: 'Michelle Han',
+    image: '/images/about/mh.jpg',
+    bio: "Michelle's expertise lies in crafting immersive brand experiences that seamlessly connect digital and physical interactions. Her bespoke approach ensures that every solution is meticulously tailored to align with business objectives, delivering impactful results across all dimensions of the brand experience.",
+  },
+];
 
 function About() {
-  const navigate = useNavigate();
-
-  const navigateLibrary = () => {
-    navigate('/library');
-  };
-
   return (
     <ThemeProvider theme={base}>
-      <Container width='100%' flexDirection='column' flexWrap="wrap" alignItems='center' justifyContent="center">
+      <AboutContainer>
+        <Section>
+          <LeadStatement>
+            At MHZ design office, we craft brands that make a statement. By merging the
+            timeless precision of Bauhaus with bold strategy, we create brands that connect
+            deeply with modern audiences and leave a lasting impression.
+          </LeadStatement>
+        </Section>
 
-      <Wrap width={[1, 1, 2 / 3, 1 / 2]} flexDirection='column' height="auto" justifyContent="space-between">
+        <Divider />
 
- 
+        <Section>
+          <Statement>
+            We believe in keeping things straightforward. By prioritizing simplicity, we start
+            with a clear and structured process. Taking the time to understand your business
+            and its purpose ensures that our work is grounded in genuine insight.
+          </Statement>
+        </Section>
 
-<Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">
-  <Wrap flexDirection='row' height="auto">
-    <BlockList title="formats" description={"OTF, TTF (variable), WOFF, WOFF2"} />
-  </Wrap>
+        <Divider />
 
-  <Wrap flexDirection='row' height="auto">
-    <BlockList title="Glyph" description={"40"} />
-  </Wrap>
+        <Section>
+          <Label>Clients</Label>
+          <ClientGrid>
+            {clients.map((client) => (
+              <ClientName key={client}>{client}</ClientName>
+            ))}
+          </ClientGrid>
+        </Section>
 
-  <Wrap flexDirection='row' height="auto">
-    <BlockList title="Release date" description={"Aug 2023 (1.0.0)"} />
-  </Wrap>
-
-  <Wrap flexDirection='row' height="auto">
-    <BlockList title="Licensing" description={"A basic license purchased via this website combines desktop and web license. Desktop covers installation on a given number of workstations. Web allows you to self-host webfont files for a single domain with no time limitation. For more information, please check FAQ or get in touch."} />
-  </Wrap>
-
-</Wrap>
-
-</Wrap>
-
-        <BlockImgPlay images={ImgLogo} gtcD="repeat(4, 25%)" gtcM="repeat(2, 50%)" />
-
-        <Wrap mt={[4]} mb={[4]}>
-          <BlockThumb img={'/canoob-thumb.jpg'} to="/CanooB" title="Canoo Brand (Test)" />
-        </Wrap>
-
-        <Wrap mt={[4]} mb={[4]} width={[1]} justifyContent="center">
-          <Button
-            padding={[3]}
-            fontFamily={[0]}
-            fontSize="12px"
-            fontWeight="500"
-            variant="default"
-            onClick={navigateLibrary}
-          >
-            Library
-          </Button>
-        </Wrap>
-
-      </Container>
+        {people.map((person) => (
+          <React.Fragment key={person.name}>
+            <ProfileImage src={person.image} alt={person.name} loading="lazy" />
+            <Section>
+              <ProfileText>
+                <ProfileName>{person.name}</ProfileName>
+                <ProfileBio>{person.bio}</ProfileBio>
+              </ProfileText>
+            </Section>
+          </React.Fragment>
+        ))}
+      </AboutContainer>
     </ThemeProvider>
   );
 }
