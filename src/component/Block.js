@@ -249,7 +249,7 @@ export const BlockFooter = (props) => {
         <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateContact}> Contact </Button>
         <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footer" textAlign="left" onClick={navigateTerms}> Terms </Button>
 
-        <Button width={[1, 1, 1, 1]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footerDisable" textAlign="left"> All right reserved. 2026 Mhz design office </Button>
+        <Button width={[1, 1, 1, 1]} padding={[3]} fontFamily={[0]} fontSize="12px" fontWeight="500" variant="footerDisable" textAlign="left"> © 2026 MHZ Design Office. All rights reserved.</Button>
       </Wrap>
     </ThemeProvider>
   )

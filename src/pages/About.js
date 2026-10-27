@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 import { base } from '../theme';
 
 /**
- * About - MHZ design office
+ * About - MHZ Design Office
  *
  * Structure:
  *   Lead statement → studio approach → clients → founder profiles
@@ -161,22 +161,33 @@ const people = [
   {
     name: 'Tsz Ho Ip',
     image: '/images/about/tsz.jpg',
-    bio: "My expertise extends beyond aesthetics to the creation of robust design systems that seamlessly integrate across various media. Whether it's a rapid branding initiative or a deeply emotive storytelling campaign, I possess the versatility to tailor my approach to meet the unique needs of each project.",
+    bio: "Tsz Ho's work goes beyond aesthetics into robust design systems that hold up across every medium. From fast-turnaround branding to emotionally driven campaigns, he adapts his approach to what each project actually needs.",
   },
   {
     name: 'Michelle Han',
     image: '/images/about/mh.jpg',
-    bio: "Michelle's expertise lies in crafting immersive brand experiences that seamlessly connect digital and physical interactions. Her bespoke approach ensures that every solution is meticulously tailored to align with business objectives, delivering impactful results across all dimensions of the brand experience.",
+    bio: "Michelle builds brand experiences that move fluidly between digital and physical touchpoints. Her approach is tailored to each client's business goals, so the design doesn't just look right, it works.",
   },
 ];
 
+const SITE_TITLE = 'MHZ Design Office';
+
 function About() {
+  // index.html carries the site-wide title, so set the page title here and
+  // restore it on unmount rather than leaving it on other routes
+  useEffect(() => {
+    document.title = `About — ${SITE_TITLE}`;
+    return () => {
+      document.title = SITE_TITLE;
+    };
+  }, []);
+
   return (
     <ThemeProvider theme={base}>
       <AboutContainer>
         <Section>
           <LeadStatement>
-            At MHZ design office, we craft brands that make a statement. By merging the
+            At MHZ Design Office, we craft brands that make a statement. By merging the
             timeless precision of Bauhaus with bold strategy, we create brands that connect
             deeply with modern audiences and leave a lasting impression.
           </LeadStatement>
