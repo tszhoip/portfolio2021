@@ -66,9 +66,25 @@ export default async function handler(req, res) {
       },
     });
   } else {
-    // Fail loudly rather than reporting success for mail that was never sent
+    // Fail loudly rather than reporting success for mail that was never sent.
+    // TEMPORARY: report which mail-ish variable NAMES the function can see so a
+    // misnamed or wrongly-scoped var is distinguishable from one that is absent.
+    // Names only, never values. Remove once delivery is confirmed.
+    const visibleNames = Object.keys(process.env)
+      .filter((key) => /GMAIL|SMTP|MAIL/i.test(key))
+      .sort();
+
     console.error('Mail transport is not configured: set GMAIL_USER and GMAIL_APP_PASSWORD.');
-    return res.status(500).json({ error: 'Mail service is not configured' });
+
+    return res.status(500).json({
+      error: 'Mail service is not configured',
+      diagnostic: {
+        GMAIL_USER: Boolean(process.env.GMAIL_USER),
+        GMAIL_APP_PASSWORD: Boolean(process.env.GMAIL_APP_PASSWORD),
+        mailRelatedNamesVisible: visibleNames,
+        vercelEnv: process.env.VERCEL_ENV || null,
+      },
+    });
   }
 
   try {
