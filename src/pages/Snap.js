@@ -17,7 +17,6 @@ import { Wrap, Text, H1, Container } from '../component/Core';
 const MAX_IMAGES = 120;
 const BATCH = 12;
 const EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp'];
-const SKELETON_TILES = 8;
 
 const Grid = styled.div`
   display: grid;
@@ -52,8 +51,15 @@ const Tile = styled.div`
   }
 `;
 
-const SkeletonTile = styled(Tile)`
-  box-shadow: 0 0 0 1px ${(props) => props.theme.colors.gre20} inset;
+// Closed state. The global footer sits below this, so leave room for it
+// rather than filling the whole viewport, which would push the text high.
+const Centred = styled(Wrap)`
+  width: 100%;
+  min-height: 70vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 `;
 
 const exists = (src) =>
@@ -114,8 +120,6 @@ function Snap() {
     };
   }, []);
 
-  const isEmpty = !loading && images.length === 0;
-
   return (
     <Container
       width={['100%', '100%', '100%', '80%']}
@@ -125,16 +129,29 @@ function Snap() {
       alignItems="center"
       justifyContent="center"
     >
-      <Wrap width="100%" flexDirection="column" justifyContent="start" alignItems="start">
-        <H1 fontFamily={[0]} color={['blk40']} fontSize={[2]} marginBottom="8px">
-          Archive
-        </H1>
+      {images.length === 0 ? (
+        // Nothing in /public/images/archive yet, so the page reads as closed.
+        // Dropping files in swaps this for the grid below with no code change.
+        <Centred>
+          <H1 fontFamily={[0]} color={['blk40']} fontSize={[2]} marginBottom="8px">
+            Archive
+          </H1>
 
-        <Text fontFamily={[0]} color={['blk40']} fontSize={[1]} marginBottom="32px">
-          A curated collection of modern minimalist &amp; wabi-sabi graphical design
-        </Text>
+          {/* rendered while loading too, so the heading does not shift */}
+          <Text fontFamily={[0]} color={['blk40']} fontSize={[1]} margin="0">
+            {loading ? '' : 'Coming soon'}
+          </Text>
+        </Centred>
+      ) : (
+        <Wrap width="100%" flexDirection="column" justifyContent="start" alignItems="start">
+          <H1 fontFamily={[0]} color={['blk40']} fontSize={[2]} marginBottom="8px">
+            Archive
+          </H1>
 
-        {images.length > 0 ? (
+          <Text fontFamily={[0]} color={['blk40']} fontSize={[1]} marginBottom="32px">
+            A curated collection of modern minimalist &amp; wabi-sabi graphical design
+          </Text>
+
           <Grid>
             {images.map((src) => (
               <Tile key={src}>
@@ -142,26 +159,18 @@ function Snap() {
               </Tile>
             ))}
           </Grid>
-        ) : (
-          <Grid>
-            {Array.from({ length: SKELETON_TILES }, (unused, i) => (
-              <SkeletonTile key={`skeleton-${i}`} />
-            ))}
-          </Grid>
-        )}
 
-        <Text
-          fontFamily={[0]}
-          color={['blk60']}
-          fontSize={[1]}
-          marginTop="16px"
-          marginBottom="0"
-        >
-          {loading ? 'Loading archive' : null}
-          {isEmpty ? 'Coming soon' : null}
-          {!loading && images.length > 0 ? `${images.length} saved` : null}
-        </Text>
-      </Wrap>
+          <Text
+            fontFamily={[0]}
+            color={['blk40']}
+            fontSize={[1]}
+            marginTop="16px"
+            marginBottom="0"
+          >
+            {`${images.length} saved`}
+          </Text>
+        </Wrap>
+      )}
     </Container>
   );
 }
