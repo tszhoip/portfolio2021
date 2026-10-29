@@ -31,12 +31,6 @@ const Section = styled.section`
   }
 `;
 
-const Divider = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: #d5d5d5;
-`;
-
 const LeadStatement = styled.h1`
   margin: 0;
   max-width: 900px;
@@ -52,27 +46,11 @@ const LeadStatement = styled.h1`
   }
 `;
 
-const Statement = styled.p`
-  margin: 0;
-  max-width: 640px;
-  font-family: ${FONT};
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.02em;
-  color: #000;
-
-  @media (max-width: 900px) {
-    font-size: 18px;
-  }
-`;
-
-// Small label type, matching the 12px nav/menu scale used across the site
 const Label = styled.h2`
   margin: 0 0 24px 0;
   font-family: ${FONT};
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: #000;
@@ -93,8 +71,8 @@ const ClientGrid = styled.ul`
 
 const ClientName = styled.li`
   font-family: ${FONT};
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 1.6;
   letter-spacing: -0.02em;
   color: #000;
@@ -124,8 +102,8 @@ const ProfileText = styled.div`
 const ProfileName = styled.h3`
   margin: 0;
   font-family: ${FONT};
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.02em;
   color: #000;
@@ -135,7 +113,7 @@ const ProfileBio = styled.p`
   margin: 0;
   max-width: 640px;
   font-family: ${FONT};
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.45;
   letter-spacing: -0.02em;
@@ -187,23 +165,11 @@ function About() {
       <AboutContainer>
         <Section>
           <LeadStatement>
-            At MHZ Design Office, we craft brands that make a statement. By merging the
+            At mhz design office, we craft brands that make a statement. By merging the
             timeless precision of Bauhaus with bold strategy, we create brands that connect
             deeply with modern audiences and leave a lasting impression.
           </LeadStatement>
         </Section>
-
-        <Divider />
-
-        <Section>
-          <Statement>
-            We believe in keeping things straightforward. By prioritizing simplicity, we start
-            with a clear and structured process. Taking the time to understand your business
-            and its purpose ensures that our work is grounded in genuine insight.
-          </Statement>
-        </Section>
-
-        <Divider />
 
         <Section>
           <Label>Clients</Label>
