@@ -8,11 +8,14 @@ const CONTACT_EMAIL = 'm@mhzdesignoffice.com';
 const EFFECTIVE_DATE = 'October 27, 2026';
 const SITE_DOMAIN = 'mhzdesignoffice.com';
 
-// Without border-box the 32px padding is added to the 100% width, so the
-// container overruns the viewport and both padding edges fall off-screen.
+// Padding is set here rather than through the `p` scale prop: the theme's
+// own scale and styled-system's default disagree at that index. Without
+// border-box it would be added to the 100% width, overrunning the viewport
+// and pushing both padding edges off-screen.
 // The footer and floating menu sit outside this, so they stay edge to edge.
 const Page = styled(Container)`
   box-sizing: border-box;
+  padding: 16px;
   min-height: 100vh;
 `;
 
@@ -81,7 +84,7 @@ function Terms() {
   const [activeTab, setActiveTab] = useState('privacy');
 
   return (
-    <Page width={['100%', '100%', '100%', '80%']} flexDirection={['column', 'column', 'row', 'row']} p='4' flexWrap="no wrap" alignItems='start' justifyContent="center">
+    <Page width={['100%', '100%', '100%', '80%']} flexDirection={['column', 'column', 'row', 'row']} flexWrap="no wrap" alignItems='start' justifyContent="center">
 
       <Wrap width="100%" flexDirection='column' justifyContent="start">
 
