@@ -8,7 +8,11 @@ const CONTACT_EMAIL = 'm@mhzdesignoffice.com';
 const EFFECTIVE_DATE = 'October 27, 2026';
 const SITE_DOMAIN = 'mhzdesignoffice.com';
 
+// Without border-box the 32px padding is added to the 100% width, so the
+// container overruns the viewport and both padding edges fall off-screen.
+// The footer and floating menu sit outside this, so they stay edge to edge.
 const Page = styled(Container)`
+  box-sizing: border-box;
   min-height: 100vh;
 `;
 
