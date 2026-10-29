@@ -33,7 +33,7 @@ const Section = styled.section`
 
 const LeadStatement = styled.h1`
   margin: 0;
-  max-width: 900px;
+  max-width: 680px;
   font-family: ${FONT};
   font-size: 32px;
   font-weight: 500;
@@ -139,12 +139,13 @@ const people = [
   {
     name: 'Tsz Ho Ip',
     image: '/images/about/tsz.jpg',
-    bio: "Tsz Ho's work goes beyond aesthetics into robust design systems that hold up across every medium. From fast-turnaround branding to emotionally driven campaigns, he adapts his approach to what each project actually needs.",
+    // the name is the heading beside the bio, so the copy opens on a pronoun
+    bio: 'His work goes beyond aesthetics into robust design systems that hold up across every medium. From fast-turnaround branding to emotionally driven campaigns, he adapts his approach to what each project actually needs.',
   },
   {
     name: 'Michelle Han',
     image: '/images/about/mh.jpg',
-    bio: "Michelle builds brand experiences that move fluidly between digital and physical touchpoints. Her approach is tailored to each client's business goals, so the design doesn't just look right, it works.",
+    bio: "She builds brand experiences that move fluidly between digital and physical touchpoints. Her approach is tailored to each client's business goals, so the design doesn't just look right, it works.",
   },
 ];
 
