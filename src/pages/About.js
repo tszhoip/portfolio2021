@@ -143,7 +143,7 @@ const people = [
     bio: 'His work goes beyond aesthetics into robust design systems that hold up across every medium. From fast-turnaround branding to emotionally driven campaigns, he adapts his approach to what each project actually needs.',
   },
   {
-    name: 'Michelle Han',
+    name: 'Michelle W Han',
     image: '/images/about/mh.jpg',
     bio: "She builds brand experiences that move fluidly between digital and physical touchpoints. Her approach is tailored to each client's business goals, so the design doesn't just look right, it works.",
   },
