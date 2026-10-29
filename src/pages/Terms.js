@@ -17,6 +17,7 @@ const Page = styled(Container)`
   box-sizing: border-box;
   padding: 16px;
   min-height: 100vh;
+  background-color: #fff;
 `;
 
 const TabRow = styled.div`
