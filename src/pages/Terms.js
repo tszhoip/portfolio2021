@@ -36,9 +36,9 @@ const Tab = styled.button`
   cursor: pointer;
   font-family: ${(props) => props.theme.fonts[0]};
   font-size: 14px;
-  font-weight: ${(props) => (props.active ? '700' : '400')};
+  font-weight: 700;
   letter-spacing: -0.02em;
-  color: ${(props) => (props.active ? '#000' : props.theme.colors.blk40)};
+  color: ${(props) => props.theme.colors.blk40};
   text-decoration: ${(props) => (props.active ? 'underline' : 'none')};
   text-underline-offset: 4px;
 
