@@ -51,7 +51,7 @@ export const projects = [
   },
   {
     id: 5,
-    title: 'Innocell, Brand Concept',
+    title: 'Nike, Holiday Campaign',
     thumbnail: '/images/project-5/thumb.jpg',
     thumbnailHover: '/images/project-5/thumb-hover.jpg',
     hasContent: true,

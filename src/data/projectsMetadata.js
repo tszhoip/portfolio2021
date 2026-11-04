@@ -69,16 +69,16 @@ export const projectsMetadata = {
     feature: true
   },
   5: {
-    title: 'Innocell, Brand Concept',
+    title: 'Nike, Holiday Campaign',
     headline: {
-      title: 'Innocell',
-      tagline: 'Tech-forward hostel and coworking experience.'
+      title: 'Nike Holiday Campaign 2019',
+      tagline: 'A holiday campaign for Nike SoHo — one tape graphic, carried across space, motion, and fixture.'
     },
-    role: 'Design Consultant',
-    deliverable: 'Concept Design, Art Direction',
-    descEN: 'Innocell is a hostel and coworking space located right next to the university. The hotel embraces a tech-forward experience where anything can be controlled through an app. The art direction features a nomadic style with neumorphism elements, creating a modern and intuitive visual language that resonates with digital natives.',
-    descCN: 'Innocell是一个位于大学旁边的青年旅舍和共享办公空间。这家酒店拥抱技术前沿的体验,任何东西都可以通过应用程序控制。艺术方向采用游牧风格和神经拟态元素,创造了一个现代化和直观的视觉语言,与数字一代产生共鸣。',
-    type: 'Brand Concept',
+    role: 'Art Director',
+    deliverable: 'Art Direction, Environmental Graphics, Motion',
+    descEN: 'Nike\'s 2019 holiday campaign needed to live in the SoHo store, not just hang on its walls. We took the campaign\'s tape graphic — a repeating band of swoosh and headline type — and treated it as the one device that could travel: into floor graphics that redraw the retail floor as a court, up into wall-height typography, through the motion on the in-store displays, and onto the fixtures themselves. The headline, It\'s Only A Crazy Dream Until You Do It, scales from a single strip of tape to the full height of the ground floor, with athlete lockups carrying the secondary message at eye level.',
+    descCN: '耐克 2019 节日营销需要真正落地于 SoHo 门店，而不只是挂在墙上。我们以campaign的胶带图形——由 Swoosh 与标语重复排列而成的条带——作为唯一贯穿始终的视觉装置：延伸为将零售地面重新绘制成球场的地贴，向上放大为整墙字体，进入店内屏幕的动态内容，最终落到陈列道具之上。主标语 It\'s Only A Crazy Dream Until You Do It 从一条胶带放大到首层通高的尺度，运动员组合图则在视平线高度承载次级信息。',
+    type: 'Campaign',
     feature: true
   },
   6: {
