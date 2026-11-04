@@ -28,7 +28,7 @@ const GridImage = styled.img`
 
 /**
  * MediaGridPair - Display two images in a 2-column grid
- * Used when XXA.jpg and XXB.jpg variants are found
+ * Used when XXa.jpg and XXb.jpg variants are found
  *
  * Props:
  *   - imageA: Path to first image

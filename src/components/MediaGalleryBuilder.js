@@ -64,13 +64,13 @@ const discoverMedia = async (projectNumber) => {
       consecutiveMisses = 0;
     }
     // Priority 3: Check for A/B variant pair (NEW)
-    else if (await imageExists(`/images/project-${projectNumber}/${i}A.jpg`) &&
-             await imageExists(`/images/project-${projectNumber}/${i}B.jpg`)) {
+    else if (await imageExists(`/images/project-${projectNumber}/${i}a.jpg`) &&
+             await imageExists(`/images/project-${projectNumber}/${i}b.jpg`)) {
       mediaItems.push({
         type: 'grid',
         files: [
-          `/images/project-${projectNumber}/${i}A.jpg`,
-          `/images/project-${projectNumber}/${i}B.jpg`
+          `/images/project-${projectNumber}/${i}a.jpg`,
+          `/images/project-${projectNumber}/${i}b.jpg`
         ],
         order: i * 10
       });
