@@ -13,21 +13,18 @@ import styled, { css } from 'styled-components';
  * what "bleed" opts out of.
  */
 
-const VERTICAL_PADDING = '48px';
-const VERTICAL_PADDING_SM = '32px';
-
 const variants = {
   fit: css`
-    padding-top: ${VERTICAL_PADDING};
-    padding-bottom: ${VERTICAL_PADDING};
+    padding-top: ${(props) => props.theme.layout.sectionPadding[1]};
+    padding-bottom: ${(props) => props.theme.layout.sectionPadding[1]};
 
-    @media (max-width: 900px) {
-      padding-top: ${VERTICAL_PADDING_SM};
-      padding-bottom: ${VERTICAL_PADDING_SM};
+    @media (max-width: ${(props) => props.theme.breakpoints[1]}) {
+      padding-top: ${(props) => props.theme.layout.sectionPadding[0]};
+      padding-bottom: ${(props) => props.theme.layout.sectionPadding[0]};
     }
   `,
   full: css`
-    min-height: 100vh;
+    min-height: ${(props) => props.theme.layout.fullHeight};
     display: flex;
     flex-direction: column;
     justify-content: center;

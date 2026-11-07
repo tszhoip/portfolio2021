@@ -28,11 +28,11 @@ const Grid = styled.div`
   gap: 0;
   width: 100%;
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${(props) => props.theme.breakpoints[2]}) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${(props) => props.theme.breakpoints[1]}) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;
@@ -126,7 +126,7 @@ function Snap() {
       <Page>
         <Section>
           <Lead>Archive</Lead>
-          <Body color="#5D5F68">
+          <Body muted>
             A curated collection of modern minimalist &amp; wabi-sabi graphical design
           </Body>
         </Section>
@@ -142,7 +142,7 @@ function Snap() {
         </Section>
 
         <Section>
-          <Body color="#5D5F68">{`${images.length} saved`}</Body>
+          <Body muted>{`${images.length} saved`}</Body>
         </Section>
       </Page>
     </ThemeProvider>

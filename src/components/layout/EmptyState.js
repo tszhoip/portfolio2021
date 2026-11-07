@@ -13,13 +13,13 @@ import { Lead, Body } from './Text';
 
 const Centred = styled.div`
   width: 100%;
-  min-height: 70vh;
+  min-height: ${(props) => props.theme.layout.closedHeight};
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 8px;
+  gap: ${(props) => props.theme.layout.gap};
 `;
 
 export const EmptyState = ({ title, note }) => (
@@ -27,7 +27,7 @@ export const EmptyState = ({ title, note }) => (
     <Centred>
       <Lead>{title}</Lead>
       {/* rendered even when empty so the heading does not shift on load */}
-      <Body color="#5D5F68">{note}</Body>
+      <Body muted>{note}</Body>
     </Centred>
   </Section>
 );

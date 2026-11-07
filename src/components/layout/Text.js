@@ -5,6 +5,8 @@ import styled, { css } from 'styled-components';
  * place instead of in each page's own styled-components.
  */
 
+// `muted` switches to the secondary text colour; both come from the theme,
+// so neither a hex nor a size appears in a page file.
 const token = (name) => css`
   margin: 0;
   font-family: ${(props) => props.theme.layout.fontStack};
@@ -12,7 +14,8 @@ const token = (name) => css`
   font-weight: ${(props) => props.theme.text[name].fontWeight};
   line-height: ${(props) => props.theme.text[name].lineHeight};
   letter-spacing: ${(props) => props.theme.text[name].letterSpacing};
-  color: ${(props) => props.color || '#000'};
+  color: ${(props) =>
+    props.muted ? props.theme.colors.blk40 : props.theme.text[name].color};
 `;
 
 export const Lead = styled.h1`
