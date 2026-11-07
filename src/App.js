@@ -25,6 +25,7 @@ import Shop from './pages/Shop';
 import License from './pages/License';
 import Privacy from './pages/Privacy';
 import Library from './pages/Library';
+import DesignSystem from './pages/DesignSystem';
 import Terms from './pages/Terms';
 import Contact from './pages/Contact';
 import { Airpro } from './pages/f-airpro';
@@ -69,6 +70,7 @@ function App() {
           <Route path="/terms" element={<PageWrapper component={<Terms/>} />} />
           <Route path="/contact" element={<PageWrapper component={<Contact/>} />} />
           <Route path="/library" element={<PageWrapper component={<Library/>} />} />
+          <Route path="/system" element={<PageWrapper component={<DesignSystem/>} />} />
         </Routes>
         <BlockFooter />
       </Container>
