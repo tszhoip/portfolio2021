@@ -1,0 +1,52 @@
+{
+  "fontSizes": {
+    "0": 1,
+    "1": 52,
+    "2": 15,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0
+  },
+  "spaces": {
+    "0": 10,
+    "1": 2,
+    "2": 9,
+    "3": 8,
+    "4": 4,
+    "5": 1
+  },
+  "colors": {
+    "nav10": 0,
+    "nav20": 0,
+    "nav30": 0,
+    "yel10": 0,
+    "yel20": 0,
+    "yel30": 0,
+    "gre10": 4,
+    "gre20": 2,
+    "blk00": 0,
+    "blk10": 0,
+    "blk20": 0,
+    "blk30": 0,
+    "blk40": 57,
+    "blk50": 3,
+    "blk60": 0,
+    "blk70": 1
+  },
+  "layout": {
+    "maxWidth": 1,
+    "gutter": 6,
+    "sectionPadding": 4,
+    "fullHeight": 1,
+    "closedHeight": 1,
+    "gap": 1,
+    "background": 1,
+    "fontStack": 2
+  },
+  "text": {
+    "lead": 2,
+    "title": 0,
+    "body": 3
+  }
+}

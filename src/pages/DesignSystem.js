@@ -1,83 +1,118 @@
 import React, { useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { base } from '../theme';
+import usage from '../data/tokenUsage.json';
 import { Page } from '../components/layout/Page';
 import { Section } from '../components/layout/Section';
-import { Lead, Title, Body } from '../components/layout/Text';
+import { Lead, Body } from '../components/layout/Text';
 
 /**
- * Design System - a live reference for every token and layout component.
+ * Design System - every token as a row, every breakpoint as a column.
  *
- * Everything here is derived from `base` in theme.js rather than retyped, so
- * the page cannot drift from the real values. Add a colour to the theme and
- * it shows up here on its own.
+ * Values come from `base` in theme.js and counts from tokenUsage.json, which
+ * `npm run tokens` regenerates by scanning src/. Nothing here is retyped, so
+ * the page cannot drift the way /library did.
  *
- * This is deliberately separate from /library, which hardcodes a palette that
- * does not exist in the theme.
+ * A row whose cells all read the same value is the point, not noise: it says
+ * that token does not respond to viewport. Only gutter and sectionPadding do.
  */
 
-const Stack = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${(props) => props.theme.layout.sectionPadding[0]};
-`;
+// Four breakpoints make five ranges in mobile-first CSS, so "base" covers
+// everything below S.
+const COLUMNS = ['base', 'S', 'M', 'L', 'XL'];
 
-const Row = styled.div`
+const Grid = styled.div`
   display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: ${(props) => props.theme.layout.gap};
-  padding: ${(props) => props.theme.layout.gap} 0;
-  border-bottom: 1px solid ${(props) => props.theme.colors.blk70};
+  grid-template-columns: 1.6fr repeat(${COLUMNS.length}, 1fr);
+  column-gap: ${(props) => props.theme.layout.gap};
+  align-items: baseline;
 
   @media (max-width: ${(props) => props.theme.breakpoints[0]}) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1.4fr repeat(${COLUMNS.length}, 1fr);
+    font-size: 10px;
   }
 `;
 
-const Mono = styled.code`
+const Head = styled.div`
+  font-family: ${(props) => props.theme.layout.fontStack};
+  font-size: ${(props) => props.theme.text.title.fontSize};
+  font-weight: ${(props) => props.theme.text.title.fontWeight};
+  letter-spacing: ${(props) => props.theme.text.title.letterSpacing};
+  padding-bottom: ${(props) => props.theme.layout.gap};
+  border-bottom: 1px solid ${(props) => props.theme.colors.blk40};
+  text-align: ${(props) => (props.$name ? 'left' : 'right')};
+`;
+
+const GroupLabel = styled.div`
+  grid-column: 1 / -1;
+  font-family: ${(props) => props.theme.layout.fontStack};
+  font-size: ${(props) => props.theme.text.title.fontSize};
+  font-weight: ${(props) => props.theme.text.title.fontWeight};
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: ${(props) => props.theme.layout.sectionPadding[0]} 0
+    ${(props) => props.theme.layout.gap};
+`;
+
+const Cell = styled.div`
   font-family: 'Courier New', monospace;
   font-size: ${(props) => props.theme.text.body.fontSize};
+  line-height: 2;
+  text-align: right;
   color: ${(props) => props.theme.colors.blk40};
+  border-bottom: 1px solid ${(props) => props.theme.colors.blk70};
 `;
 
-const Swatches = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: ${(props) => props.theme.layout.gap};
+const NameCell = styled(Cell)`
+  text-align: left;
+  color: #000;
 `;
 
-const Chip = styled.div`
-  height: 72px;
-  border-radius: 2px;
+// dimmed when zero, so an unused token reads as unused at a glance
+const Count = styled.span`
+  color: ${(props) => (props.$n ? props.theme.colors.blk50 : props.theme.colors.blk70)};
+`;
+
+const Swatch = styled.span`
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+  vertical-align: baseline;
   background-color: ${(props) => props.$hex};
   border: 1px solid ${(props) => props.theme.colors.blk70};
 `;
 
-const Bar = styled.div`
-  height: 16px;
-  background-color: ${(props) => props.theme.colors.blk40};
-  width: ${(props) => props.$size};
-`;
-
-// Outlined so the variant's own box is visible rather than just its contents
-const Demo = styled.div`
-  outline: 1px dashed ${(props) => props.theme.colors.blk60};
-  outline-offset: -1px;
-`;
-
 const Note = styled.div`
   padding: ${(props) => props.theme.layout.gap};
+  margin-top: ${(props) => props.theme.layout.sectionPadding[0]};
   background-color: ${(props) => props.theme.colors.gre10};
   border-left: 2px solid ${(props) => props.theme.colors.blk40};
 `;
 
-// theme scales carry named aliases alongside their numeric indices
-// (breakpoints.S === breakpoints[0]). Find the name for a given value so the
-// page prints the alias rather than a position.
-const aliasOf = (scale, value) =>
-  Object.keys(scale).find((key) => !/^\d+$/.test(key) && scale[key] === value);
-
 const SITE_TITLE = 'MHZ Design Office';
+
+/**
+ * Expand a token to one value per column. A plain string does not respond to
+ * viewport, so it fills every column. An array steps through its values and
+ * holds the last one for the remaining columns.
+ */
+const perColumn = (value) => {
+  if (!Array.isArray(value)) return COLUMNS.map(() => value);
+  return COLUMNS.map((_, i) => value[Math.min(i, value.length - 1)]);
+};
+
+const Row = ({ name, value, count, swatch }) => (
+  <>
+    <NameCell>
+      {swatch && <Swatch $hex={swatch} />}
+      {name} <Count $n={count}>({count})</Count>
+    </NameCell>
+    {perColumn(value).map((v, i) => (
+      <Cell key={COLUMNS[i]}>{v}</Cell>
+    ))}
+  </>
+);
 
 function DesignSystem() {
   useEffect(() => {
@@ -95,212 +130,95 @@ function DesignSystem() {
         <Section>
           <Lead>Design System</Lead>
           <Body muted>
-            Every value below is read from theme.js at render time. Change a token there
-            and this page follows.
+            Values read from theme.js, counts from npm run tokens. Brackets are how many
+            times a token is referenced in src/. A row of identical cells means that token
+            does not respond to viewport.
           </Body>
         </Section>
 
-        {/* ---------- layout ---------- */}
         <Section>
-          <Stack>
-            <Title>Layout</Title>
-            <div>
-              <Row>
-                <Mono>gutter</Mono>
-                <Mono>{layout.gutter.join('  /  ')}&nbsp;&nbsp;(sm / md / lg)</Mono>
-              </Row>
-              <Row>
-                <Mono>sectionPadding</Mono>
-                <Mono>{layout.sectionPadding.join('  /  ')}&nbsp;&nbsp;(under 900 / default)</Mono>
-              </Row>
-              <Row>
-                <Mono>fullHeight</Mono>
-                <Mono>{layout.fullHeight}</Mono>
-              </Row>
-              <Row>
-                <Mono>closedHeight</Mono>
-                <Mono>{layout.closedHeight}</Mono>
-              </Row>
-              <Row>
-                <Mono>gap</Mono>
-                <Mono>{layout.gap}</Mono>
-              </Row>
-              <Row>
-                <Mono>background</Mono>
-                <Mono>{layout.background}</Mono>
-              </Row>
-              <Row>
-                <Mono>fontStack</Mono>
-                <Mono>{layout.fontStack.split(',')[0]}</Mono>
-              </Row>
-            </div>
-          </Stack>
-        </Section>
+          <Grid>
+            <Head $name>
+              Breakpoints
+              <br />
+              max width {layout.maxWidth}
+            </Head>
+            {COLUMNS.map((col) => (
+              <Head key={col}>{col}</Head>
+            ))}
+            {/* ---------- type ---------- */}
+            <GroupLabel>Type</GroupLabel>
+            {fontSizes.map((size, i) => (
+              <Row
+                key={`f${i}`}
+                name={`fontSizes[${i}]`}
+                value={size}
+                count={usage.fontSizes[i] ?? 0}
+              />
+            ))}
+            {Object.entries(text).map(([name, t]) => (
+              <Row key={name} name={`text.${name}`} value={t.fontSize} count={usage.text[name] ?? 0} />
+            ))}
 
-        {/* ---------- type ---------- */}
-        <Section>
-          <Stack>
-            <Title>Type</Title>
-            <div>
-              {Object.entries(text).map(([name, t]) => (
-                <Row key={name}>
-                  <Mono>{name}</Mono>
-                  <div>
-                    <div
-                      style={{
-                        fontFamily: layout.fontStack,
-                        fontSize: t.fontSize,
-                        fontWeight: t.fontWeight,
-                        lineHeight: t.lineHeight,
-                        letterSpacing: t.letterSpacing,
-                        color: t.color,
-                      }}
-                    >
-                      The quick brown fox
-                    </div>
-                    <Mono>
-                      {t.fontSize} / {t.fontWeight} / {t.lineHeight} / {t.letterSpacing} /{' '}
-                      {t.color}
-                    </Mono>
-                  </div>
-                </Row>
-              ))}
-            </div>
-            <Body muted>
-              Body also takes a <Mono>muted</Mono> flag, which swaps the colour for
-              colors.blk40 ({colors.blk40}).
+            {/* ---------- spacing ---------- */}
+            <GroupLabel>Spacing</GroupLabel>
+            <Row name="layout.gutter" value={layout.gutter} count={usage.layout.gutter} />
+            {/* the small value applies below M, not below S, so the columns
+                are listed rather than stepped through */}
+            <Row
+              name="layout.sectionPadding"
+              value={[
+                layout.sectionPadding[0],
+                layout.sectionPadding[0],
+                layout.sectionPadding[1],
+                layout.sectionPadding[1],
+                layout.sectionPadding[1],
+              ]}
+              count={usage.layout.sectionPadding}
+            />
+            <Row name="layout.gap" value={layout.gap} count={usage.layout.gap} />
+            {spaces.map((size, i) => {
+              const actual = [0, 4, 8, 16, 32, 64, 128][i];
+              return (
+                <Row
+                  key={`s${i}`}
+                  name={`spaces[${i}] → ${actual}px`}
+                  value={size}
+                  count={usage.spaces[i] ?? 0}
+                />
+              );
+            })}
+
+            {/* ---------- layout ---------- */}
+            <GroupLabel>Layout</GroupLabel>
+            <Row name="layout.maxWidth" value={layout.maxWidth} count={usage.layout.maxWidth} />
+            <Row name="layout.fullHeight" value={layout.fullHeight} count={usage.layout.fullHeight} />
+            <Row name="layout.closedHeight" value={layout.closedHeight} count={usage.layout.closedHeight} />
+            <Row name="layout.background" value={layout.background} count={usage.layout.background} />
+
+            {/* ---------- colour ---------- */}
+            <GroupLabel>Colour</GroupLabel>
+            {Object.entries(colors).map(([name, hex]) => (
+              <Row key={name} name={name} value={hex} count={usage.colors[name] ?? 0} swatch={hex} />
+            ))}
+          </Grid>
+
+          <Note>
+            <Body>
+              spaces is exported under the key <code>spaces</code>, but styled-system reads{' '}
+              <code>theme.space</code>. That is undefined, so p and m props fall back to
+              styled-system&rsquo;s own scale — the arrow in each name is what actually
+              renders. They agree at index 4 and nowhere else.
             </Body>
-          </Stack>
-        </Section>
+          </Note>
 
-        {/* ---------- colour ---------- */}
-        <Section>
-          <Stack>
-            <Title>Colour — {Object.keys(colors).length} tokens</Title>
-            <Swatches>
-              {Object.entries(colors).map(([name, hex]) => (
-                <div key={name}>
-                  <Chip $hex={hex} />
-                  <Mono>
-                    {name}
-                    <br />
-                    {hex}
-                  </Mono>
-                </div>
-              ))}
-            </Swatches>
-            <Body muted>
-              The layout system currently uses blk40 for muted text and gre10 for tinted
-              panels. The rest are unused by the new components.
+          <Note>
+            <Body>
+              Counts come from a static scan, so they see literal references only. Run{' '}
+              <code>npm run tokens</code> after adding or removing usage; start and build
+              run it automatically.
             </Body>
-          </Stack>
-        </Section>
-
-        {/* ---------- breakpoints ---------- */}
-        <Section>
-          <Stack>
-            <Title>Breakpoints</Title>
-            <div>
-              {breakpoints.map((bp) => (
-                <Row key={bp}>
-                  {/* the alias is looked up by value, so renaming one in the
-                      theme renames it here with no edit */}
-                  <Mono>breakpoints[{aliasOf(breakpoints, bp)}]</Mono>
-                  <Mono>{bp}</Mono>
-                </Row>
-              ))}
-              <Row>
-                <Mono>maxWidth</Mono>
-                <Mono>{layout.maxWidth}</Mono>
-              </Row>
-            </div>
-          </Stack>
-        </Section>
-
-        {/* ---------- components ---------- */}
-        <Section>
-          <Stack>
-            <Title>Section variants</Title>
-
-            <Body muted>
-              variant=&quot;fit&quot; — content height, {layout.sectionPadding[1]} top and
-              bottom. This is the default.
-            </Body>
-            <Demo>
-              <Section>
-                <Body>Content sits here, capped at {layout.maxWidth} and centred.</Body>
-              </Section>
-            </Demo>
-
-            <Body muted>
-              variant=&quot;bleed&quot; — no gutter, no cap. For galleries and full-width
-              media.
-            </Body>
-            <Demo>
-              <Section variant="bleed">
-                <Bar $size="100%" />
-              </Section>
-            </Demo>
-
-            <Body muted>
-              variant=&quot;full&quot; — {layout.fullHeight} tall, contents vertically
-              centred. Not rendered here, as it would fill the screen.
-            </Body>
-          </Stack>
-        </Section>
-
-        {/* ---------- legacy ---------- */}
-        <Section>
-          <Stack>
-            <Title>Legacy scales — read before using</Title>
-
-            <Note>
-              <Body>
-                These two arrays are read by styled-system props on the 20 pages that have
-                not moved to the layout system. Their indices are load bearing: adding or
-                reordering an entry shifts every one of those pages at once.
-              </Body>
-            </Note>
-
-            <Body muted>
-              fontSizes — note there is no 14px entry, which is why body copy on newer
-              pages is written as a literal.
-            </Body>
-            <div>
-              {/* keyed by index, not value: the scale repeats sizes */}
-              {fontSizes.map((size, i) => (
-                <Row key={i}>
-                  <Mono>fontSizes[{i}]</Mono>
-                  <Mono>{size}</Mono>
-                </Row>
-              ))}
-            </div>
-
-            <Note>
-              <Body>
-                spaces is exported under the key <Mono>spaces</Mono>, but styled-system
-                reads <Mono>theme.space</Mono>. That is undefined, so p and m props fall
-                back to styled-system&rsquo;s own scale [0, 4, 8, 16, 32, 64, 128]. The two
-                agree at index 4 and nowhere else — the column on the right is what you
-                actually get.
-              </Body>
-            </Note>
-            <div>
-              {spaces.map((size, i) => {
-                const actual = [0, 4, 8, 16, 32, 64, 128][i];
-                const agrees = `${actual}px` === size;
-                return (
-                  <Row key={i}>
-                    <Mono>spaces[{i}]</Mono>
-                    <Mono>
-                      theme says {size} → actually renders {actual}px{' '}
-                      {agrees ? '✓' : '⚠'}
-                    </Mono>
-                  </Row>
-                );
-              })}
-            </div>
-          </Stack>
+          </Note>
         </Section>
       </Page>
     </ThemeProvider>

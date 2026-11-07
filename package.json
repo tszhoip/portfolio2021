@@ -20,7 +20,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "tokens": "node scripts/token-usage.js",
+    "prestart": "node scripts/token-usage.js",
+    "prebuild": "node scripts/token-usage.js"
   },
   "eslintConfig": {
     "extends": [
