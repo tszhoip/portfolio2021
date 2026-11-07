@@ -1,7 +1,7 @@
 import { flex } from "styled-system";
 
 
-const fontSizes = ["9px","12px", "16px", "32px","48px","64px","80px"];
+const fontSizes = ["10px","10px", "14px", "14px","32px","48px","64px"];
 fontSizes.xxs = fontSizes[0];
 fontSizes.xs = fontSizes[1];
 fontSizes.s = fontSizes[2];
@@ -47,7 +47,7 @@ flexDirection.column = flexDirection[1];
 // read by styled-system props on the older pages, where the indices are load
 // bearing. Adding to them would move every page at once.
 const layout = {
-  maxWidth: '1400px',
+  maxWidth: '2000px',
   gutter: ['16px', '24px', '32px'],
   // vertical rhythm of a <Section>: [under 900px, default]
   sectionPadding: ['32px', '48px'],

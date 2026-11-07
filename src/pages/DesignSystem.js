@@ -106,10 +106,6 @@ function DesignSystem() {
             <Title>Layout</Title>
             <div>
               <Row>
-                <Mono>maxWidth</Mono>
-                <Mono>{layout.maxWidth}</Mono>
-              </Row>
-              <Row>
                 <Mono>gutter</Mono>
                 <Mono>{layout.gutter.join('  /  ')}&nbsp;&nbsp;(sm / md / lg)</Mono>
               </Row>
@@ -213,6 +209,10 @@ function DesignSystem() {
                   <Mono>{bp}</Mono>
                 </Row>
               ))}
+              <Row>
+                <Mono>maxWidth</Mono>
+                <Mono>{layout.maxWidth}</Mono>
+              </Row>
             </div>
           </Stack>
         </Section>
@@ -267,8 +267,9 @@ function DesignSystem() {
               pages is written as a literal.
             </Body>
             <div>
+              {/* keyed by index, not value: the scale repeats sizes */}
               {fontSizes.map((size, i) => (
-                <Row key={size}>
+                <Row key={i}>
                   <Mono>fontSizes[{i}]</Mono>
                   <Mono>{size}</Mono>
                 </Row>
@@ -289,7 +290,7 @@ function DesignSystem() {
                 const actual = [0, 4, 8, 16, 32, 64, 128][i];
                 const agrees = `${actual}px` === size;
                 return (
-                  <Row key={size}>
+                  <Row key={i}>
                     <Mono>spaces[{i}]</Mono>
                     <Mono>
                       theme says {size} → actually renders {actual}px{' '}
