@@ -40,7 +40,30 @@ const flexDirection = ["row", "column"];
 flexDirection.row = flexDirection[0];
 flexDirection.column = flexDirection[1];
 
+// Layout tokens for the <Page>/<Section> system. Site-wide width and gutters
+// live here and nowhere else, so changing the cap is a one-line edit.
+//
+// Deliberately separate from the `spaces`/`fontSizes` arrays below: those are
+// read by styled-system props on the older pages, where the indices are load
+// bearing. Adding to them would move every page at once.
+const layout = {
+  maxWidth: '1400px',
+  gutter: ['16px', '24px', '32px'],
+  background: '#fff',
+  fontStack: `'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif`,
+};
+
+// Type tokens, taken from what About and Terms already render so the new
+// system starts out matching the pages it will absorb.
+const text = {
+  lead: { fontSize: '32px', fontWeight: 500, lineHeight: 1.25, letterSpacing: '-0.02em' },
+  title: { fontSize: '14px', fontWeight: 700, lineHeight: 1.4, letterSpacing: '-0.02em' },
+  body: { fontSize: '14px', fontWeight: 400, lineHeight: 1.5, letterSpacing: '-0.02em' },
+};
+
 export const base = {
+  layout,
+  text,
   colors: {
     nav10: "#3D63C6",
     nav20: "#0E2E81",

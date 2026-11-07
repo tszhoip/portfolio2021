@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { Wrap, Text, H1, Container } from '../component/Core';
+import styled, { ThemeProvider } from 'styled-components';
+import { base } from '../theme';
+import { Page } from '../components/layout/Page';
+import { Section } from '../components/layout/Section';
+import { EmptyState } from '../components/layout/EmptyState';
+import { Lead, Body } from '../components/layout/Text';
 
 /**
  * Archive Page
@@ -10,8 +14,8 @@ import { Wrap, Text, H1, Container } from '../component/Core';
  * 2.jpg, ... using the same numeric-probe approach as MediaGalleryBuilder.
  * No API, no auth, nothing to expire.
  *
- * With the folder empty the page shows a skeleton of the grid it will
- * become. Drop files in and it swaps to the real thing on its own.
+ * With the folder empty the page shows a closed state. Drop files in and it
+ * swaps to the grid on its own.
  */
 
 const MAX_IMAGES = 120;
@@ -31,10 +35,6 @@ const Grid = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  @media (max-width: 480px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
 `;
 
 const Tile = styled.div`
@@ -49,17 +49,6 @@ const Tile = styled.div`
     object-fit: cover;
     display: block;
   }
-`;
-
-// Closed state. The global footer sits below this, so leave room for it
-// rather than filling the whole viewport, which would push the text high.
-const Centred = styled(Wrap)`
-  width: 100%;
-  min-height: 70vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 `;
 
 const exists = (src) =>
@@ -120,38 +109,29 @@ function Snap() {
     };
   }, []);
 
+  // Nothing in /public/images/archive yet, so the page reads as closed.
+  // Dropping files in swaps this for the grid with no code change.
+  if (images.length === 0) {
+    return (
+      <ThemeProvider theme={base}>
+        <Page>
+          <EmptyState title="Archive" note={loading ? '' : 'Coming soon'} />
+        </Page>
+      </ThemeProvider>
+    );
+  }
+
   return (
-    <Container
-      width={['100%', '100%', '100%', '80%']}
-      flexDirection={['column']}
-      p="4"
-      flexWrap="wrap"
-      alignItems="center"
-      justifyContent="center"
-    >
-      {images.length === 0 ? (
-        // Nothing in /public/images/archive yet, so the page reads as closed.
-        // Dropping files in swaps this for the grid below with no code change.
-        <Centred>
-          <H1 fontFamily={[0]} color={['blk40']} fontSize={[2]} marginBottom="8px">
-            Archive
-          </H1>
-
-          {/* rendered while loading too, so the heading does not shift */}
-          <Text fontFamily={[0]} color={['blk40']} fontSize={[1]} margin="0">
-            {loading ? '' : 'Coming soon'}
-          </Text>
-        </Centred>
-      ) : (
-        <Wrap width="100%" flexDirection="column" justifyContent="start" alignItems="start">
-          <H1 fontFamily={[0]} color={['blk40']} fontSize={[2]} marginBottom="8px">
-            Archive
-          </H1>
-
-          <Text fontFamily={[0]} color={['blk40']} fontSize={[1]} marginBottom="32px">
+    <ThemeProvider theme={base}>
+      <Page>
+        <Section>
+          <Lead>Archive</Lead>
+          <Body color="#5D5F68">
             A curated collection of modern minimalist &amp; wabi-sabi graphical design
-          </Text>
+          </Body>
+        </Section>
 
+        <Section variant="bleed">
           <Grid>
             {images.map((src) => (
               <Tile key={src}>
@@ -159,19 +139,13 @@ function Snap() {
               </Tile>
             ))}
           </Grid>
+        </Section>
 
-          <Text
-            fontFamily={[0]}
-            color={['blk40']}
-            fontSize={[1]}
-            marginTop="16px"
-            marginBottom="0"
-          >
-            {`${images.length} saved`}
-          </Text>
-        </Wrap>
-      )}
-    </Container>
+        <Section>
+          <Body color="#5D5F68">{`${images.length} saved`}</Body>
+        </Section>
+      </Page>
+    </ThemeProvider>
   );
 }
 
