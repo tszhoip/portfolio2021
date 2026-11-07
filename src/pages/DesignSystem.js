@@ -71,6 +71,12 @@ const Note = styled.div`
   border-left: 2px solid ${(props) => props.theme.colors.blk40};
 `;
 
+// theme scales carry named aliases alongside their numeric indices
+// (breakpoints.S === breakpoints[0]). Find the name for a given value so the
+// page prints the alias rather than a position.
+const aliasOf = (scale, value) =>
+  Object.keys(scale).find((key) => !/^\d+$/.test(key) && scale[key] === value);
+
 const SITE_TITLE = 'MHZ Design Office';
 
 function DesignSystem() {
@@ -199,9 +205,11 @@ function DesignSystem() {
           <Stack>
             <Title>Breakpoints</Title>
             <div>
-              {breakpoints.map((bp, i) => (
+              {breakpoints.map((bp) => (
                 <Row key={bp}>
-                  <Mono>breakpoints[{i}]</Mono>
+                  {/* the alias is looked up by value, so renaming one in the
+                      theme renames it here with no edit */}
+                  <Mono>breakpoints[{aliasOf(breakpoints, bp)}]</Mono>
                   <Mono>{bp}</Mono>
                 </Row>
               ))}

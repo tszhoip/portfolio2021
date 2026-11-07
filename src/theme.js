@@ -18,10 +18,10 @@ fonts.pix = fonts[3];
 
 
 const breakpoints = ["600px", "900px", "1400px", "1800px"];
-breakpoints.sm = breakpoints[0];
-breakpoints.md = breakpoints[1];
-breakpoints.lg = breakpoints[2];
-breakpoints.xl = breakpoints[3];
+breakpoints.S = breakpoints[0];
+breakpoints.M = breakpoints[1];
+breakpoints.L = breakpoints[2];
+breakpoints.XL = breakpoints[3];
 
 const spaces = ["8px", "12px", "16px", "24px", "32px", "56px"];
 spaces.smaller = spaces[0];

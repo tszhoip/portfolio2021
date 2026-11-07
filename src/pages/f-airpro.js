@@ -68,7 +68,7 @@ export const Airpro = (props) => {
     window.location.href = '/license';
   };
   const theme = useTheme();
-  const isMobile = window.innerWidth <= parseInt(theme.breakpoints.md, 10);
+  const isMobile = window.innerWidth <= parseInt(theme.breakpoints.M, 10);
   const tabsBLK = [
     {
       label: 'Title',
