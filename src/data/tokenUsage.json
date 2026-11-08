@@ -46,12 +46,12 @@
   },
   "text": {
     "size.S": 63,
-    "size.M": 43,
-    "size.L": 5,
-    "weight.reg": 7,
+    "size.M": 42,
+    "size.L": 6,
+    "weight.reg": 8,
     "weight.bold": 17,
     "leading.tight": 0,
-    "leading.snug": 0,
+    "leading.snug": 1,
     "leading.loose": 0
   }
 }

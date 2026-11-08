@@ -125,7 +125,7 @@ function About() {
     <ThemeProvider theme={base}>
       <AboutContainer>
         <Section>
-          <LeadStatement as="h1" size="M">
+          <LeadStatement as="h1" size="L" weight="reg" leading="snug">
             At mhz design office, we craft brands that make a statement. By merging the
             timeless precision of Bauhaus with bold strategy, we create brands that connect
             deeply with modern audiences and leave a lasting impression.
