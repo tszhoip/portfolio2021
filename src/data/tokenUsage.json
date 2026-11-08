@@ -35,13 +35,12 @@
     "blk70": 1
   },
   "layout": {
-    "maxWidth": 1,
     "gutter": 6,
     "sectionPadding": 4,
     "fullHeight": 1,
-    "closedHeight": 1,
+    "fitContent": 2,
     "gap": 1,
-    "background": 1,
+    "paragraphGap": 1,
     "fontStack": 7
   },
   "text": {
@@ -53,5 +52,6 @@
     "leading.tight": 0,
     "leading.snug": 1,
     "leading.loose": 0
-  }
+  },
+  "maxWidth": 1
 }

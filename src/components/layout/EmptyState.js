@@ -7,13 +7,13 @@ import { Type } from './Type';
  * EmptyState - the "closed" state Shop and Archive share.
  *
  * Both pages carried a byte-identical copy of this wrapper before; it now
- * lives here once. The global footer sits below, so this leaves room for it
- * rather than filling the viewport, which would push the text visually high.
+ * lives here once. It is content height: the heading and note take the room
+ * they need and the global footer follows directly below.
  */
 
 const Centred = styled.div`
   width: 100%;
-  min-height: ${(props) => props.theme.layout.closedHeight};
+  min-height: ${(props) => props.theme.layout.fitContent};
   display: flex;
   flex-direction: column;
   align-items: center;

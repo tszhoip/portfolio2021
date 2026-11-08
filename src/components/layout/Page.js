@@ -14,13 +14,16 @@ import styled from 'styled-components';
  *
  * Width is NOT capped here. The cap lives inside <Section> so that a section
  * can carry a full-bleed background while its text still stops at maxWidth.
+ *
+ * No background either: the page is white because the document is white, set
+ * once on body in style/app.css. A page that wants another colour sets it on
+ * its own wrapper.
  */
 export const Page = styled.div`
   width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background-color: ${(props) => props.background || props.theme.layout.background};
   font-family: ${(props) => props.theme.layout.fontStack};
 `;
 

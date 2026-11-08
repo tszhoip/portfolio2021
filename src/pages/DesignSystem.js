@@ -122,7 +122,7 @@ function DesignSystem() {
     };
   }, []);
 
-  const { layout, text, colors, breakpoints, spaces } = base;
+  const { maxWidth, layout, text, colors, breakpoints, spaces } = base;
 
   return (
     <ThemeProvider theme={base}>
@@ -141,7 +141,7 @@ function DesignSystem() {
             <Head $name>
               Breakpoints
               <br />
-              max width {layout.maxWidth}
+              max width {maxWidth}
             </Head>
             {COLUMNS.map((col) => (
               <Head key={col}>{col}</Head>
@@ -211,10 +211,10 @@ function DesignSystem() {
 
             {/* ---------- layout ---------- */}
             <GroupLabel>Layout</GroupLabel>
-            <Row name="layout.maxWidth" value={layout.maxWidth} count={usage.layout.maxWidth} />
+            <Row name="maxWidth" value={maxWidth} count={usage.maxWidth} />
+            {/* the only two heights a section can be */}
             <Row name="layout.fullHeight" value={layout.fullHeight} count={usage.layout.fullHeight} />
-            <Row name="layout.closedHeight" value={layout.closedHeight} count={usage.layout.closedHeight} />
-            <Row name="layout.background" value={layout.background} count={usage.layout.background} />
+            <Row name="layout.fitContent" value={layout.fitContent} count={usage.layout.fitContent} />
 
             {/* ---------- colour ---------- */}
             <GroupLabel>Colour</GroupLabel>

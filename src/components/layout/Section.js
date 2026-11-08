@@ -15,6 +15,7 @@ import styled, { css } from 'styled-components';
 
 const variants = {
   fit: css`
+    min-height: ${(props) => props.theme.layout.fitContent};
     padding-top: ${(props) => props.theme.layout.sectionPadding[1]};
     padding-bottom: ${(props) => props.theme.layout.sectionPadding[1]};
 
@@ -44,7 +45,7 @@ const Outer = styled.section`
 const Inner = styled.div`
   width: 100%;
   box-sizing: border-box;
-  max-width: ${(props) => props.theme.layout.maxWidth};
+  max-width: ${(props) => props.theme.maxWidth};
   margin: 0 auto;
   padding-left: ${(props) => props.theme.layout.gutter[0]};
   padding-right: ${(props) => props.theme.layout.gutter[0]};

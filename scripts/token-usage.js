@@ -48,7 +48,7 @@ const files = walk(SRC)
 
 const sources = files.map((f) => f.body).join('\n');
 
-const usage = { fontSizes: {}, spaces: {}, colors: {}, layout: {}, text: {} };
+const usage = { fontSizes: {}, spaces: {}, colors: {}, layout: {}, text: {}, maxWidth: 0 };
 
 // fontSize={[n]} and the named alias
 const FONT_ALIASES = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'];
@@ -81,9 +81,12 @@ for (const name of COLORS) {
     countAll(sources, `colors.${name}`);
 }
 
-for (const name of ['maxWidth','gutter','sectionPadding','fullHeight','closedHeight','gap','background','fontStack']) {
+for (const name of ['gutter','sectionPadding','fullHeight','fitContent','gap','paragraphGap','fontStack']) {
   usage.layout[name] = countAll(sources, `layout.${name}`);
 }
+
+// maxWidth sits at the root of the theme, not inside layout
+usage.maxWidth = countAll(sources, 'theme.maxWidth') + countAll(sources, 'base.maxWidth');
 
 // Type tokens are reached as props on <Type>, plus direct theme reads for
 // the UI chrome that takes a size without the responsive step-up.
@@ -104,7 +107,9 @@ fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, `${JSON.stringify(usage, null, 2)}\n`);
 
 const total = Object.values(usage).reduce(
-  (sum, group) => sum + Object.values(group).reduce((a, b) => a + b, 0),
+  (sum, group) =>
+    sum +
+    (typeof group === 'number' ? group : Object.values(group).reduce((a, b) => a + b, 0)),
   0
 );
 console.log(`token-usage: ${total} references across ${Object.keys(usage).length} scales -> ${path.relative(process.cwd(), OUT)}`);

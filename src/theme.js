@@ -40,24 +40,28 @@ const flexDirection = ["row", "column"];
 flexDirection.row = flexDirection[0];
 flexDirection.column = flexDirection[1];
 
-// Layout tokens for the <Page>/<Section> system. Site-wide width and gutters
-// live here and nowhere else, so changing the cap is a one-line edit.
+// The site-wide cap. Its own token rather than part of `layout`, because it
+// is the one number that defines the page itself; everything in `layout`
+// describes what happens inside it.
+const maxWidth = '2000px';
+
+// Layout tokens for the <Page>/<Section> system.
+//
+// A section is one of two heights and nothing else: it fills the viewport, or
+// it is as tall as its content. Both are named here so the pair reads as a
+// choice rather than one token and one default.
 //
 // Deliberately separate from the `spaces`/`fontSizes` arrays below: those are
 // read by styled-system props on the older pages, where the indices are load
 // bearing. Adding to them would move every page at once.
 const layout = {
-  maxWidth: '2000px',
+  fullHeight: '100vh',
+  fitContent: 'auto',
   gutter: ['16px', '24px', '32px'],
   // vertical rhythm of a <Section>: [under 900px, default]
   sectionPadding: ['32px', '48px'],
-  fullHeight: '100vh',
-  // a closed state leaves room for the global footer rather than filling the
-  // viewport, which would push its text visually high
-  closedHeight: '70vh',
   gap: '8px',
   paragraphGap: '16px',
-  background: '#fff',
   fontStack: `'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif`,
 };
 
@@ -84,6 +88,7 @@ const text = {
 };
 
 export const base = {
+  maxWidth,
   layout,
   text,
   colors: {
