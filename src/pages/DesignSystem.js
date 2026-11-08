@@ -24,7 +24,7 @@ const COLUMNS = ['base', 'S', 'M', 'L', 'XL'];
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1.6fr repeat(${COLUMNS.length}, 1fr);
-  column-gap: ${(props) => props.theme.layout.gap};
+  column-gap: 0;
   align-items: baseline;
 
   @media (max-width: ${(props) => props.theme.breakpoints[0]}) {
