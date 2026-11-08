@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Wrap, Text, H1, Container, Button } from '../component/Core'
+import { Wrap, Container, Button } from '../component/Core'
+import { Type } from '../components/layout/Type'
 import styled from 'styled-components'
 
 const FormContainer = styled.div`
@@ -15,8 +16,8 @@ const FormGroup = styled.div`
 `;
 
 const Label = styled.label`
-  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 14px;
+  font-family: ${(props) => props.theme.layout.fontStack};
+  font-size: ${(props) => props.theme.text.size.M};
   font-weight: 500;
   margin-bottom: 8px;
   color: #333;
@@ -26,8 +27,8 @@ const Input = styled.input`
   padding: 12px 16px;
   border: 1px solid #e0e0e0;
   border-radius: 0;
-  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 14px;
+  font-family: ${(props) => props.theme.layout.fontStack};
+  font-size: ${(props) => props.theme.text.size.M};
   transition: all 0.2s ease;
 
   &:focus {
@@ -45,8 +46,8 @@ const Textarea = styled.textarea`
   padding: 12px 16px;
   border: 1px solid #e0e0e0;
   border-radius: 0;
-  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 14px;
+  font-family: ${(props) => props.theme.layout.fontStack};
+  font-size: ${(props) => props.theme.text.size.M};
   min-height: 150px;
   resize: vertical;
   transition: all 0.2s ease;
@@ -67,8 +68,8 @@ const SubmitButton = styled.button`
   background-color: #000;
   color: #fff;
   border: none;
-  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 14px;
+  font-family: ${(props) => props.theme.layout.fontStack};
+  font-size: ${(props) => props.theme.text.size.M};
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -96,8 +97,8 @@ const MessageBox = styled.div`
   padding: 16px;
   margin-top: 24px;
   border-radius: 4px;
-  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 14px;
+  font-family: ${(props) => props.theme.layout.fontStack};
+  font-size: ${(props) => props.theme.text.size.M};
   background-color: ${props => props.type === 'success' ? '#f0f9ff' : '#fef2f2'};
   color: ${props => props.type === 'success' ? '#065f46' : '#7f1d1d'};
   border: 1px solid ${props => props.type === 'success' ? '#d1fae5' : '#fee2e2'};
@@ -170,13 +171,13 @@ function Contact() {
     <Container width={['100%', '100%', '100%', '80%']} flexDirection={['column']} p='4' flexWrap="wrap" alignItems='center' justifyContent="center">
       <Wrap width="100%" flexDirection='column' justifyContent="start" alignItems="start">
 
-        <H1 fontFamily={[0]} color={['blk40']} fontSize={[2]} marginBottom="32px">
+        <Type as="h1" size="M" weight="bold" muted marginBottom="32px">
           Contact Us
-        </H1>
+        </Type>
 
-        <Text fontFamily={[0]} color={['blk40']} variant='indentpb' fontSize={[1]} marginBottom="32px">
+        <Type size="S" muted marginBottom="32px">
           Have a question or want to get in touch? Fill out the form below and we'll get back to you as soon as possible.
-        </Text>
+        </Type>
 
         <FormContainer>
           <form onSubmit={handleSubmit}>

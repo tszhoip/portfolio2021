@@ -4,7 +4,7 @@ import { base } from '../theme';
 import { Page } from '../components/layout/Page';
 import { Section } from '../components/layout/Section';
 import { EmptyState } from '../components/layout/EmptyState';
-import { Lead, Body } from '../components/layout/Text';
+import { Type } from '../components/layout/Type';
 
 /**
  * Archive Page
@@ -125,10 +125,10 @@ function Snap() {
     <ThemeProvider theme={base}>
       <Page>
         <Section>
-          <Lead>Archive</Lead>
-          <Body muted>
+          <Type as="h1" size="L">Archive</Type>
+          <Type size="M" muted>
             A curated collection of modern minimalist &amp; wabi-sabi graphical design
-          </Body>
+          </Type>
         </Section>
 
         <Section variant="bleed">
@@ -142,7 +142,7 @@ function Snap() {
         </Section>
 
         <Section>
-          <Body muted>{`${images.length} saved`}</Body>
+          <Type size="M" muted>{`${images.length} saved`}</Type>
         </Section>
       </Page>
     </ThemeProvider>

@@ -43,7 +43,7 @@ const ModalHeader = styled.div`
 
 const ModalTitle = styled.h2`
   margin: 0;
-  font-size: 20px;
+  font-size: ${(props) => props.theme.text.size.M};
   font-weight: 600;
   color: #000;
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
@@ -144,7 +144,7 @@ const ProjectImage = styled.img`
 
 const ProjectTitle = styled(Text)`
   margin: 0;
-  font-size: 12px;
+  font-size: ${(props) => props.theme.text.size.S};
   font-weight: 500;
   color: #000;
   line-height: 1.15;

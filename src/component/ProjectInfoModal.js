@@ -62,7 +62,7 @@ const InfoSection = styled.div`
 `;
 
 const InfoLabel = styled(Text)`
-  font-size: 12px;
+  font-size: ${(props) => props.theme.text.size.S};
   font-weight: 500;
   color: #888;
   margin-bottom: 8px;
@@ -71,7 +71,7 @@ const InfoLabel = styled(Text)`
 `;
 
 const InfoValue = styled(Text)`
-  font-size: 14px;
+  font-size: ${(props) => props.theme.text.size.M};
   font-weight: 400;
   color: #000;
   line-height: 1.5;
@@ -94,7 +94,7 @@ export const ProjectInfoModal = ({ isOpen, onClose, projectData }) => {
         <ModalContent>
           <CloseButton onClick={onClose}>&times;</CloseButton>
 
-          <H1 fontFamily={[0]} fontSize={[2]} mb={[3]} fontWeight="600">
+          <H1 fontFamily={[0]} fontSize={base.text.size.M} mb={[3]} fontWeight={base.text.weight.bold}>
             {projectData.title}
           </H1>
 

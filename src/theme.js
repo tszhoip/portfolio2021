@@ -56,16 +56,31 @@ const layout = {
   // viewport, which would push its text visually high
   closedHeight: '70vh',
   gap: '8px',
+  paragraphGap: '16px',
   background: '#fff',
   fontStack: `'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif`,
 };
 
-// Type tokens, taken from what About and Terms already render so the new
-// system starts out matching the pages it will absorb.
+// Type tokens. Three sizes, two weights, three leadings — every style on the
+// site is one combination of these.
+//
+// `scale` is a multiplier per size per breakpoint rather than a second table
+// of values, so the responsive behaviour is a rule you can read rather than
+// nine numbers to keep in sync.
 const text = {
-  lead: { fontSize: '32px', fontWeight: 500, lineHeight: 1.25, letterSpacing: '-0.02em', color: '#000' },
-  title: { fontSize: '14px', fontWeight: 700, lineHeight: 1.4, letterSpacing: '-0.02em', color: '#000' },
-  body: { fontSize: '14px', fontWeight: 400, lineHeight: 1.5, letterSpacing: '-0.02em', color: '#000' },
+  size: { S: '10px', M: '14px', L: '24px' },
+  weight: { reg: 400, bold: 700 },
+  leading: { tight: 1, snug: 1.2, loose: 1.5 },
+  scale: {
+    S: { base: 1, L: 1, XL: 1 },
+    M: { base: 1, L: 1, XL: 1.5 },
+    L: { base: 1, L: 2, XL: 3 },
+  },
+  // leading paired to the size it was drawn against, so the common case needs
+  // no decision; pass `leading` to override.
+  defaultLeading: { S: 'loose', M: 'loose', L: 'snug' },
+  tracking: '-0.02em',
+  color: '#000',
 };
 
 export const base = {

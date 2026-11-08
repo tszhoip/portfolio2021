@@ -1,8 +1,8 @@
 {
   "fontSizes": {
-    "0": 1,
-    "1": 52,
-    "2": 15,
+    "0": 0,
+    "1": 0,
+    "2": 0,
     "3": 0,
     "4": 0,
     "5": 0,
@@ -29,7 +29,7 @@
     "blk10": 0,
     "blk20": 0,
     "blk30": 0,
-    "blk40": 57,
+    "blk40": 2,
     "blk50": 3,
     "blk60": 0,
     "blk70": 1
@@ -42,11 +42,16 @@
     "closedHeight": 1,
     "gap": 1,
     "background": 1,
-    "fontStack": 2
+    "fontStack": 7
   },
   "text": {
-    "lead": 2,
-    "title": 0,
-    "body": 3
+    "size.S": 72,
+    "size.M": 33,
+    "size.L": 6,
+    "weight.reg": 7,
+    "weight.bold": 17,
+    "leading.tight": 0,
+    "leading.snug": 0,
+    "leading.loose": 0
   }
 }

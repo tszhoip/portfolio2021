@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Wrap, Container } from '../component/Core'
 import styled from 'styled-components'
+import { Type } from '../components/layout/Type'
 
 // Single source for the address published in all three documents, so
 // changing where enquiries land is a one-line edit.
@@ -29,16 +30,11 @@ const TabRow = styled.div`
 
 // Tabs read as links rather than buttons: no fill, no box, the active
 // one simply underlined.
-const Tab = styled.button`
+const Tab = styled(Type).attrs((props) => ({ as: props.as || 'button', size: 'M', weight: 'bold', muted: true }))`
   padding: 0;
   background: none;
   border: none;
   cursor: pointer;
-  font-family: ${(props) => props.theme.fonts[0]};
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: ${(props) => props.theme.colors.blk40};
   text-decoration: ${(props) => (props.active ? 'underline' : 'none')};
   text-underline-offset: 4px;
 
@@ -47,26 +43,12 @@ const Tab = styled.button`
   }
 `;
 
-const SectionTitle = styled.h2`
-  margin: 0 0 8px 0;
-  font-family: ${(props) => props.theme.fonts[0]};
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: -0.02em;
-  color: ${(props) => props.theme.colors.blk40};
+const SectionTitle = styled(Type).attrs((props) => ({ as: props.as || 'h2', size: 'M', weight: 'bold', muted: true }))`
+  margin-bottom: 8px;
 `;
 
-// Long legal copy, so it runs at a readable leading rather than the
-// tight 1.15 the display type uses.
-const Body = styled.p`
-  margin: 0 0 24px 0;
-  font-family: ${(props) => props.theme.fonts[0]};
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  color: ${(props) => props.theme.colors.blk40};
+const Body = styled(Type).attrs((props) => ({ as: props.as || 'p', size: 'M', muted: true }))`
+  margin-bottom: 24px;
 `;
 
 const Num = styled.span`

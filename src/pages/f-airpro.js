@@ -22,7 +22,8 @@ import { BlockImg } from '../component/BlockImgLR'
 
 import set1 from '../assets/logo/lo01.jpg';
 
-import { Container, Wrap, Button, H1, Text, Spacer } from '../component/Core';
+import { Container, Wrap, Button, Spacer } from '../component/Core';
+import { Type } from '../components/layout/Type';
 import { BlockList, BlockHeader } from '../component/Block';
 import { BlockTabs } from '../component/BlockTabs'
 
@@ -74,15 +75,15 @@ export const Airpro = (props) => {
       label: 'Title',
       content:
         <Wrap flexDirection='column' height="100%" justifyContent="space-between" padding={[4]}>
-          <H1 pl={2} fontFamily={[1]} fontWeight={[700]} fontSize={[3, 3, 4, 4]} lineHeight={[1.4]} letterSpacing={["-4px"]} >
+          <Type as="h2" pl={2} fontFamily={[1]} fontWeight={[700]} size="L" >
             AIR FORCE 1
-          </H1>
-          <H1 pl={2} fontFamily={[1]} variant='indent' fontWeight={[700]} fontSize={[3, 3, 4, 4]} lineHeight={[1.4]} letterSpacing={["-4px"]} >
+          </Type>
+          <Type as="h2" pl={2} fontFamily={[1]} variant='indent' fontWeight={[700]} size="L" >
             (169)
-          </H1>
-          <Text pl={2} fontFamily={[1]} fontWeight={[700]} fontSize={[0, 0, 0, 0]} lineHeight={[1.6]} width="80%">
+          </Type>
+          <Type pl={2} fontFamily={[1]} fontWeight={[700]} size="S" width="80%">
             Air Force One is the official air traffic control designated call sign for a United States Air Force aircraft carrying the president of the United States. In common parlance, the term is used to denote U.S. Air Force aircraft modified and used to transport the president and a metonym for the primary presidential aircraft, VC-25, although it can be used to refer to any Air Force aircraft the president travels on.(1)(2)
-          </Text>
+          </Type>
           <BlockList title="formats" description={"OTF, TTF (variable), WOFF, WOFF2"} />
           <BlockList title="formats" description={"OTF, TTF (variable), WOFF, WOFF2"} />
           <BlockList title="formats" description={"OTF, TTF (variable), WOFF, WOFF2"} />
@@ -94,10 +95,10 @@ export const Airpro = (props) => {
     {
       label: 'Body',
       content:
-        <H1 pl={2} fontFamily={[1]} fontWeight={[700]} fontSize={[0, 0, 1, 1]} lineHeight={[1.6]} >
+        <Type as="h2" pl={2} fontFamily={[1]} fontWeight={[700]} size="S" >
           Lower priced for a reason. This phrase encapsulates how MUJI first began in 1980. We launched products that might almost be regarded as substandard if based on traditional criteria.<br /><br />Focusing on our three priorities of “selection of materials,” “streamlining of processes,” and “simplification of packages,” we have grown into a brand with over 7,000 no-frills quality products.
           This site introduces MUJI from various perspectives such as Message from MUJI / Products and Services / Stores / MUJI's Expanding Activities.<br /><br />
-        </H1>,
+        </Type>,
     },
     // Add more tabs as needed
   ];
@@ -123,11 +124,11 @@ export const Airpro = (props) => {
         <Wrap width={[1, 1, 2 / 3, 1 / 2]} flexDirection='column' height="auto" justifyContent="space-between">
 
           <Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">
-            <Text fontFamily={[0]} color={['blk50']} variant='indent' fontSize={[1]}>Introducing AIR™, a versatile and clean font inspired by the United States Air Force font. AIR™ retains the simplicity and limited character set of its inspiration, but has been further refined to offer a range of weight options.
-              It works very well in combo or solo. It is made up of six styles, from cap light to cap bold.</Text>
+            <Type fontFamily={[0]} color={['blk50']} variant='indent' size="S">Introducing AIR™, a versatile and clean font inspired by the United States Air Force font. AIR™ retains the simplicity and limited character set of its inspiration, but has been further refined to offer a range of weight options.
+              It works very well in combo or solo. It is made up of six styles, from cap light to cap bold.</Type>
             <Spacer height="16px" />
-            <Text fontFamily={[0]} color={['blk50']} variant='indent' fontSize={[1]}>
-              Our goal with AIR™ was to create a font that is both functional and visually appealing, with as little design as possible to maximize utility. We believe that the best fonts are those that can be used in a variety of contexts, from branding and marketing to product packaging and signage.</Text>
+            <Type fontFamily={[0]} color={['blk50']} variant='indent' size="S">
+              Our goal with AIR™ was to create a font that is both functional and visually appealing, with as little design as possible to maximize utility. We believe that the best fonts are those that can be used in a variety of contexts, from branding and marketing to product packaging and signage.</Type>
           </Wrap>
 
           <Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">

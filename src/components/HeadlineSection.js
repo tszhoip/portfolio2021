@@ -34,7 +34,7 @@ export const HeadlineSection = ({ title, tagline }) => {
         <HeadlineSectionContent>
           <H1
             fontFamily={[0]}
-            fontSize="20px"
+            fontSize={base.text.size.M}
             fontWeight="500"
             color="#fff"
             mb={[2]}
@@ -44,7 +44,7 @@ export const HeadlineSection = ({ title, tagline }) => {
           </H1>
           <H1
             fontFamily={[0]}
-            fontSize="20px"
+            fontSize={base.text.size.M}
             fontWeight="500"
             color="#fff"
             lineHeight="1.4"

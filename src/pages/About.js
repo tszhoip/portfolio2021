@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 import { base } from '../theme';
+import { Type } from '../components/layout/Type';
 
 /**
  * About - MHZ Design Office
@@ -10,8 +11,6 @@ import { base } from '../theme';
  *   Lead statement → studio approach → clients → founder profiles
  *   Profile images are full-bleed, sourced from /images/about/
  */
-
-const FONT = `'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif`;
 
 const AboutContainer = styled.div`
   width: 100%;
@@ -31,29 +30,12 @@ const Section = styled.section`
   }
 `;
 
-const LeadStatement = styled.h1`
-  margin: 0;
+const LeadStatement = styled(Type)`
   max-width: 680px;
-  font-family: ${FONT};
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  color: #000;
-
-  @media (max-width: 900px) {
-    font-size: 24px;
-  }
 `;
 
-const Label = styled.h2`
-  margin: 0 0 24px 0;
-  font-family: ${FONT};
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: #000;
+const Label = styled(Type)`
+  margin-bottom: 24px;
 `;
 
 const ClientGrid = styled.ul`
@@ -69,14 +51,7 @@ const ClientGrid = styled.ul`
   }
 `;
 
-const ClientName = styled.li`
-  font-family: ${FONT};
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.6;
-  letter-spacing: -0.02em;
-  color: #000;
-`;
+const ClientName = styled(Type)``;
 
 const ProfileImage = styled.img`
   width: 100%;
@@ -99,25 +74,10 @@ const ProfileText = styled.div`
   }
 `;
 
-const ProfileName = styled.h3`
-  margin: 0;
-  font-family: ${FONT};
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.4;
-  letter-spacing: -0.02em;
-  color: #000;
-`;
+const ProfileName = styled(Type)``;
 
-const ProfileBio = styled.p`
-  margin: 0;
+const ProfileBio = styled(Type)`
   max-width: 640px;
-  font-family: ${FONT};
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.45;
-  letter-spacing: -0.02em;
-  color: #000;
 `;
 
 const clients = [
@@ -165,7 +125,7 @@ function About() {
     <ThemeProvider theme={base}>
       <AboutContainer>
         <Section>
-          <LeadStatement>
+          <LeadStatement as="h1" size="L">
             At mhz design office, we craft brands that make a statement. By merging the
             timeless precision of Bauhaus with bold strategy, we create brands that connect
             deeply with modern audiences and leave a lasting impression.
@@ -173,10 +133,10 @@ function About() {
         </Section>
 
         <Section>
-          <Label>Clients</Label>
+          <Label as="h2" size="M">Clients</Label>
           <ClientGrid>
             {clients.map((client) => (
-              <ClientName key={client}>{client}</ClientName>
+              <ClientName as="li" size="M" key={client}>{client}</ClientName>
             ))}
           </ClientGrid>
         </Section>
@@ -186,8 +146,8 @@ function About() {
             <ProfileImage src={person.image} alt={person.name} loading="lazy" />
             <Section>
               <ProfileText>
-                <ProfileName>{person.name}</ProfileName>
-                <ProfileBio>{person.bio}</ProfileBio>
+                <ProfileName as="h3" size="M">{person.name}</ProfileName>
+                <ProfileBio size="M">{person.bio}</ProfileBio>
               </ProfileText>
             </Section>
           </React.Fragment>

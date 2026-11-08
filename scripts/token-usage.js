@@ -85,15 +85,19 @@ for (const name of ['maxWidth','gutter','sectionPadding','fullHeight','closedHei
   usage.layout[name] = countAll(sources, `layout.${name}`);
 }
 
-// Type tokens are reached through their components, so count only inside
-// files that import them. Terms.js defines its own local <Body>, which a
-// plain text scan would otherwise credit to the token 43 times over.
-// matches both '../components/layout/Text' and the sibling './Text'
-const importsText = (file) => /from\s+['"][^'"]*\/Text['"]/.test(file.body);
-for (const [token, tag] of [['lead', '<Lead'], ['title', '<Title'], ['body', '<Body']]) {
-  usage.text[token] = files
-    .filter(importsText)
-    .reduce((total, file) => total + countAll(file.body, tag), 0);
+// Type tokens are reached as props on <Type>, plus direct theme reads for
+// the UI chrome that takes a size without the responsive step-up.
+for (const size of ['S', 'M', 'L']) {
+  usage.text[`size.${size}`] =
+    countAll(sources, `size="${size}"`) + countAll(sources, `text.size.${size}`);
+}
+for (const weight of ['reg', 'bold']) {
+  usage.text[`weight.${weight}`] =
+    countAll(sources, `weight="${weight}"`) + countAll(sources, `text.weight.${weight}`);
+}
+for (const lead of ['tight', 'snug', 'loose']) {
+  usage.text[`leading.${lead}`] =
+    countAll(sources, `leading="${lead}"`) + countAll(sources, `text.leading.${lead}`);
 }
 
 fs.mkdirSync(path.dirname(OUT), { recursive: true });

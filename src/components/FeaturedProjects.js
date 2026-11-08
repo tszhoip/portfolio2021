@@ -61,7 +61,7 @@ const ProjectTitle = styled.h3`
   margin: 0;
   margin-top: 12px;
   padding: 0;
-  font-size: 12px;
+  font-size: ${(props) => props.theme.text.size.S};
   font-weight: 500;
   color: #000;
   line-height: 1.15;

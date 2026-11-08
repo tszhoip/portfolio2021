@@ -4,7 +4,7 @@ import { base } from '../theme';
 import usage from '../data/tokenUsage.json';
 import { Page } from '../components/layout/Page';
 import { Section } from '../components/layout/Section';
-import { Lead, Body } from '../components/layout/Text';
+import { Type } from '../components/layout/Type';
 
 /**
  * Design System - every token as a row, every breakpoint as a column.
@@ -35,9 +35,9 @@ const Grid = styled.div`
 
 const Head = styled.div`
   font-family: ${(props) => props.theme.layout.fontStack};
-  font-size: ${(props) => props.theme.text.title.fontSize};
-  font-weight: ${(props) => props.theme.text.title.fontWeight};
-  letter-spacing: ${(props) => props.theme.text.title.letterSpacing};
+  font-size: ${(props) => props.theme.text.size.M};
+  font-weight: ${(props) => props.theme.text.weight.bold};
+  letter-spacing: ${(props) => props.theme.text.tracking};
   padding-bottom: ${(props) => props.theme.layout.gap};
   border-bottom: 1px solid ${(props) => props.theme.colors.blk40};
   text-align: ${(props) => (props.$name ? 'left' : 'right')};
@@ -46,8 +46,8 @@ const Head = styled.div`
 const GroupLabel = styled.div`
   grid-column: 1 / -1;
   font-family: ${(props) => props.theme.layout.fontStack};
-  font-size: ${(props) => props.theme.text.title.fontSize};
-  font-weight: ${(props) => props.theme.text.title.fontWeight};
+  font-size: ${(props) => props.theme.text.size.M};
+  font-weight: ${(props) => props.theme.text.weight.bold};
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: ${(props) => props.theme.layout.sectionPadding[0]} 0
@@ -56,7 +56,7 @@ const GroupLabel = styled.div`
 
 const Cell = styled.div`
   font-family: 'Courier New', monospace;
-  font-size: ${(props) => props.theme.text.body.fontSize};
+  font-size: ${(props) => props.theme.text.size.M};
   line-height: 2;
   text-align: right;
   color: ${(props) => props.theme.colors.blk40};
@@ -122,18 +122,18 @@ function DesignSystem() {
     };
   }, []);
 
-  const { layout, text, colors, breakpoints, fontSizes, spaces } = base;
+  const { layout, text, colors, breakpoints, spaces } = base;
 
   return (
     <ThemeProvider theme={base}>
       <Page>
         <Section>
-          <Lead>Design System</Lead>
-          <Body muted>
+          <Type as="h1" size="L">Design System</Type>
+          <Type size="M" muted>
             Values read from theme.js, counts from npm run tokens. Brackets are how many
             times a token is referenced in src/. A row of identical cells means that token
             does not respond to viewport.
-          </Body>
+          </Type>
         </Section>
 
         <Section>
@@ -147,17 +147,37 @@ function DesignSystem() {
               <Head key={col}>{col}</Head>
             ))}
             {/* ---------- type ---------- */}
-            <GroupLabel>Type</GroupLabel>
-            {fontSizes.map((size, i) => (
+            <GroupLabel>Type — size</GroupLabel>
+            {Object.entries(text.size).map(([name, value]) => (
               <Row
-                key={`f${i}`}
-                name={`fontSizes[${i}]`}
-                value={size}
-                count={usage.fontSizes[i] ?? 0}
+                key={name}
+                name={`size.${name}`}
+                value={COLUMNS.map((col) => {
+                  const step = text.scale[name][col] ?? text.scale[name].base;
+                  return `${parseFloat(value) * step}px`;
+                })}
+                count={usage.text[`size.${name}`] ?? 0}
               />
             ))}
-            {Object.entries(text).map(([name, t]) => (
-              <Row key={name} name={`text.${name}`} value={t.fontSize} count={usage.text[name] ?? 0} />
+
+            <GroupLabel>Type — weight</GroupLabel>
+            {Object.entries(text.weight).map(([name, value]) => (
+              <Row
+                key={name}
+                name={`weight.${name}`}
+                value={String(value)}
+                count={usage.text[`weight.${name}`] ?? 0}
+              />
+            ))}
+
+            <GroupLabel>Type — leading</GroupLabel>
+            {Object.entries(text.leading).map(([name, value]) => (
+              <Row
+                key={name}
+                name={`leading.${name}`}
+                value={`${value * 100}%`}
+                count={usage.text[`leading.${name}`] ?? 0}
+              />
             ))}
 
             {/* ---------- spacing ---------- */}
@@ -204,20 +224,20 @@ function DesignSystem() {
           </Grid>
 
           <Note>
-            <Body>
+            <Type size="M">
               spaces is exported under the key <code>spaces</code>, but styled-system reads{' '}
               <code>theme.space</code>. That is undefined, so p and m props fall back to
               styled-system&rsquo;s own scale — the arrow in each name is what actually
               renders. They agree at index 4 and nowhere else.
-            </Body>
+            </Type>
           </Note>
 
           <Note>
-            <Body>
+            <Type size="M">
               Counts come from a static scan, so they see literal references only. Run{' '}
               <code>npm run tokens</code> after adding or removing usage; start and build
               run it automatically.
-            </Body>
+            </Type>
           </Note>
         </Section>
       </Page>

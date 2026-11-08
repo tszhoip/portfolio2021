@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Section } from './Section';
-import { Lead, Body } from './Text';
+import { Type } from './Type';
 
 /**
  * EmptyState - the "closed" state Shop and Archive share.
@@ -25,9 +25,9 @@ const Centred = styled.div`
 export const EmptyState = ({ title, note }) => (
   <Section>
     <Centred>
-      <Lead>{title}</Lead>
+      <Type as="h1" size="L">{title}</Type>
       {/* rendered even when empty so the heading does not shift on load */}
-      <Body muted>{note}</Body>
+      <Type size="M" muted>{note}</Type>
     </Centred>
   </Section>
 );
