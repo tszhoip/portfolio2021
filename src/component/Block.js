@@ -212,8 +212,8 @@ export const BlockMenu = (props) => {
     <ThemeProvider theme={base}>
       <MenuWrapper>
         <Wrap width="100%">
-          <Button fontFamily={[0]} width="25%" fontSize={base.text.size.S} fontWeight={base.text.weight.reg} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateHome}> Work </Button>
-          <Button fontFamily={[0]} width="25%" fontSize={base.text.size.S} fontWeight={base.text.weight.reg} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateShop}> Shop </Button>
+          <Button fontFamily={[0]} width="25%" fontSize={base.text.size.M} fontWeight={base.text.weight.reg} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateHome}> Work </Button>
+          <Button fontFamily={[0]} width="25%" fontSize={base.text.size.M} fontWeight={base.text.weight.reg} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateShop}> Shop </Button>
         </Wrap>
       </MenuWrapper>
     </ThemeProvider>
@@ -245,12 +245,12 @@ export const BlockFooter = (props) => {
     <ThemeProvider theme={base}>
       <Wrap className="block-footer" justifyContent="start" flexDirection={["row"]} flexWrap="wrap" zIndex="1" width={[1]} pt="0" pb="0" bg="#000" color="grey">
 
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.S} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateAbout}> About </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.S} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateResource}> Resource </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.S} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateContact}> Contact </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.S} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateTerms}> Terms </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateAbout}> About </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateResource}> Resource </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateContact}> Contact </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateTerms}> Terms </Button>
 
-        <Button width={[1, 1, 1, 1]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.S} fontWeight={base.text.weight.reg} variant="footerDisable" textAlign="left"> © 2026 MHZ Design Office. All rights reserved.</Button>
+        <Button width={[1, 1, 1, 1]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footerDisable" textAlign="left"> © 2026 MHZ Design Office. All rights reserved.</Button>
       </Wrap>
     </ThemeProvider>
   )

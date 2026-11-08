@@ -29,7 +29,7 @@ const BackButton = styled.button`
   border: none;
   color: #000;
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-  font-size: ${(props) => props.theme.text.size.S};
+  font-size: ${(props) => props.theme.text.size.M};
   font-weight: 500;
   letter-spacing: -0.02em;
   cursor: pointer;
@@ -53,7 +53,7 @@ const InfoButton = styled.button`
   border: none;
   color: #000;
   font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-  font-size: ${(props) => props.theme.text.size.S};
+  font-size: ${(props) => props.theme.text.size.M};
   font-weight: 500;
   letter-spacing: -0.02em;
   cursor: pointer;
