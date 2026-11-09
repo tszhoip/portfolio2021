@@ -60,12 +60,15 @@ const MainMenuWrapper = styled.div`
  *
  * Props:
  *   - projectNumber: 1-5 (or higher)
+ *   - info: render the credits block below the gallery. Opt-in per page
+ *     rather than on by default, so pages take it as they are redesigned
+ *     instead of all six changing at once.
  *
  * Metadata is fetched from centralized projectsMetadata.js (synced with Google Sheet)
  * Automatically loads images from public/images/project-{n}/1.jpg and videos from metadata
  * Renders media in order specified by order field
  */
-export const ProjectTemplate = ({ projectNumber }) => {
+export const ProjectTemplate = ({ projectNumber, info = false }) => {
   const [mediaArray, setMediaArray] = useState([]);
   const [infoModalOpen, setInfoModalOpen] = useState(false);
   const [allProjectsModalOpen, setAllProjectsModalOpen] = useState(false);
@@ -144,6 +147,26 @@ export const ProjectTemplate = ({ projectNumber }) => {
             />
           </SubNavWrapper>
         </MediaGallerySectionWrapper>
+
+        {/* Credits block - the facts on the left, the writing on the right.
+            Same arrangement as the top of /nike, which is where it came from.
+            It closes the project itself, so it sits above Featured Projects
+            rather than below, which would put the credits after an invitation
+            to leave the page. */}
+        {info && (
+          <Container width={[1]} flexWrap="wrap" maxWidth={[base.maxWidth]} pb="loose">
+            <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
+              <Blockitem title="Title" body={m.title} />
+              <Blockitem title="Role" body={m.role} />
+              <Blockitem title="Deliverable" body={m.deliverable} />
+              <Blockitem title="Type" body={m.type} />
+            </Container>
+            <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
+              <Blockitem title="Description / EN" body={m.descEN} />
+              <Blockitem title="描述 / CN" body={m.descCN} />
+            </Container>
+          </Container>
+        )}
 
         {/* Featured Projects Section with Main Menu */}
         <FeaturedProjectsSectionWrapper>
