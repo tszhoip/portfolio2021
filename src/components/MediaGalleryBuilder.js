@@ -1,8 +1,10 @@
+import { projectMedia } from '../data/projectsMetadata';
+
 /**
  * MediaGalleryBuilder
  * Combines images and videos into a single ordered media array
  *
- * Scans /public/images/project-{n}/ for image files (1.jpg, 2.jpg, etc.)
+ * Scans /public/images/{slug}/ for image files (1.jpg, 2.jpg, etc.)
  * and combines them with video URL from metadata
  * Sorts by order field
  */
@@ -36,6 +38,8 @@ export const buildMediaArray = async (projectNumber, metadata) => {
  * 3. X.jpg (regular image) - lowest priority
  */
 const discoverMedia = async (projectNumber) => {
+  // the folder this project's files live in, named by its slug
+  const media = projectMedia(projectNumber);
   const mediaItems = [];
   let consecutiveMisses = 0;
 
@@ -43,7 +47,7 @@ const discoverMedia = async (projectNumber) => {
     let found = false;
 
     // Priority 1: Check for video
-    const videoPath = `/images/project-${projectNumber}/${i}-vid.mp4`;
+    const videoPath = `${media}/${i}-vid.mp4`;
     if (await videoExists(videoPath)) {
       mediaItems.push({
         type: 'video',
@@ -54,23 +58,23 @@ const discoverMedia = async (projectNumber) => {
       consecutiveMisses = 0;
     }
     // Priority 2: Check for headline image
-    else if (await imageExists(`/images/project-${projectNumber}/${i}-headline.jpg`)) {
+    else if (await imageExists(`${media}/${i}-headline.jpg`)) {
       mediaItems.push({
         type: 'headline',
-        file: `/images/project-${projectNumber}/${i}-headline.jpg`,
+        file: `${media}/${i}-headline.jpg`,
         order: i * 10
       });
       found = true;
       consecutiveMisses = 0;
     }
     // Priority 3: Check for A/B variant pair (NEW)
-    else if (await imageExists(`/images/project-${projectNumber}/${i}a.jpg`) &&
-             await imageExists(`/images/project-${projectNumber}/${i}b.jpg`)) {
+    else if (await imageExists(`${media}/${i}a.jpg`) &&
+             await imageExists(`${media}/${i}b.jpg`)) {
       mediaItems.push({
         type: 'grid',
         files: [
-          `/images/project-${projectNumber}/${i}a.jpg`,
-          `/images/project-${projectNumber}/${i}b.jpg`
+          `${media}/${i}a.jpg`,
+          `${media}/${i}b.jpg`
         ],
         order: i * 10
       });
@@ -78,10 +82,10 @@ const discoverMedia = async (projectNumber) => {
       consecutiveMisses = 0;
     }
     // Priority 4: Check for regular image (moved down due to A/B priority)
-    else if (await imageExists(`/images/project-${projectNumber}/${i}.jpg`)) {
+    else if (await imageExists(`${media}/${i}.jpg`)) {
       mediaItems.push({
         type: 'image',
-        file: `/images/project-${projectNumber}/${i}.jpg`,
+        file: `${media}/${i}.jpg`,
         order: i * 10
       });
       found = true;

@@ -18,11 +18,11 @@ export const projects = [
   {
     id: 1,
     title: 'Canoo, Brand',
-    thumbnail: '/images/project-1/thumb.jpg',
-    thumbnailHover: '/images/project-1/thumb-hover.jpg',
+    thumbnail: '/images/canoo-brand/thumb.jpg',
+    thumbnailHover: '/images/canoo-brand/thumb-hover.jpg',
     hasContent: true,
     wide: true,
-    route: '/work/project-1'
+    route: '/work/canoo-brand'
   },
   {
     id: 2,

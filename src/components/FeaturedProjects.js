@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { base } from '../theme';
+import { projectPath, projectMedia } from '../data/projectsMetadata';
 
 /**
  * FeaturedProjects - Card/Frame Design
@@ -112,7 +113,7 @@ export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
   }
 
   const handleCardClick = (projectNumber) => {
-    navigate(`/work/project-${projectNumber}`);
+    navigate(projectPath(projectNumber));
   };
 
   return (
@@ -131,7 +132,7 @@ export const FeaturedProjects = ({ currentProjectNumber, allProjects }) => {
               }}
             >
               <ProjectImage
-                src={`/images/project-${project.number}/thumb.jpg`}
+                src={`${projectMedia(project.number)}/thumb.jpg`}
                 alt={project.title}
                 loading="lazy"
               />

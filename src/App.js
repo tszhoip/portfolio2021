@@ -30,7 +30,7 @@ import Terms from './pages/Terms';
 import Contact from './pages/Contact';
 import { Airpro } from './pages/f-airpro';
 
-import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
+import { Routes, BrowserRouter as Router, Route, Navigate } from 'react-router-dom';
 import { Container } from './component/Core';
 
 import PageWrapper from './pages/PageWrapper';
@@ -59,7 +59,10 @@ function App() {
           <Route path="/snap" element={<PageWrapper component={<Snap/>} />} />
           <Route path="/archive" element={<PageWrapper component={<Snap/>} />} />
           <Route path="/joy" element={<PageWrapper component={<Joy/>} />} />
-          <Route path="/work/project-1" element={<PageWrapper component={<Project1/>} />} />
+          <Route path="/work/canoo-brand" element={<PageWrapper component={<Project1/>} />} />
+          {/* the old numbered URL is live and may be linked, so it redirects
+              rather than 404s. Keep one of these per renamed project. */}
+          <Route path="/work/project-1" element={<Navigate to="/work/canoo-brand" replace />} />
           <Route path="/work/project-2" element={<PageWrapper component={<Project2/>} />} />
           <Route path="/work/project-3" element={<PageWrapper component={<Project3/>} />} />
           <Route path="/work/project-4" element={<PageWrapper component={<Project4/>} />} />

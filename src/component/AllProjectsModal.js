@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
 import { base } from '../theme';
 import { Text } from './Core';
+import { projectPath, projectMedia } from '../data/projectsMetadata';
 
 const ModalBackdrop = styled.div`
   position: fixed;
@@ -166,7 +167,7 @@ export const AllProjectsModal = ({ isOpen, onClose, allProjects, currentProjectN
   };
 
   const handleCardClick = (projectNumber) => {
-    navigate(`/work/project-${projectNumber}`);
+    navigate(projectPath(projectNumber));
     onClose();
   };
 
@@ -195,7 +196,7 @@ export const AllProjectsModal = ({ isOpen, onClose, allProjects, currentProjectN
                   onClick={() => handleCardClick(project.number)}
                 >
                   <ProjectImage
-                    src={`/images/project-${project.number}/thumb-hover.jpg`}
+                    src={`${projectMedia(project.number)}/thumb-hover.jpg`}
                     alt={project.title}
                     onError={(e) => {
                       e.target.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 140'%3E%3Crect fill='%23f5f5f5' width='200' height='140'/%3E%3C/svg%3E`;

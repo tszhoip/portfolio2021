@@ -16,6 +16,7 @@
 
 export const projectsMetadata = {
   1: {
+    slug: 'canoo-brand',
     title: 'Canoo, Brand',
     headline: {
       title: 'Canoo',
@@ -25,7 +26,7 @@ export const projectsMetadata = {
     deliverable: 'Brand Identity, Visual Language',
     descEN: 'Canoo, an electric vehicle startup, has been at the forefront of innovative mobility solutions since 2018. Initially focusing on niche markets like urban commute and subscription services, the company shifted its priority to commercial vehicles post-IPO. This strategic pivot necessitated a reevaluation of the brand\'s visual identity. The Brand Vision project aims to realign the visual and brand messaging to better reflect the company\'s evolving ethos and motto.',
     descCN: 'Canoo是一家电动汽车初创公司，自2018年以来一直走在创新出行解决方案的前沿。该公司最初专注于城市通勤和订阅服务等利基市场，但在IPO后将优先级转向商用车辆。这一战略转变需要重新评估该品牌的视觉形象。品牌愿景项目旨在调整视觉和品牌信息，以更好地反映公司不断发展的精神和座右铭。',
-    video: '/images/project-1/2-vid.mp4',
+    video: '/images/canoo-brand/2-vid.mp4',
     type: 'Branding',
     feature: true
   },
@@ -99,5 +100,24 @@ export const projectsMetadata = {
 export const getProjectMetadata = (projectNumber) => {
   return projectsMetadata[projectNumber] || null;
 };
+
+/**
+ * A project's slug is its one identifier: it names the route AND the media
+ * folder, so /work/canoo-brand reads its images from /images/canoo-brand.
+ * Renaming a project is adding a `slug` here and renaming the folder to
+ * match - nothing else needs to know.
+ *
+ * A project without a slug keeps the project-{n} name it has always had.
+ */
+export const projectSlug = (projectNumber) =>
+  projectsMetadata[projectNumber]?.slug || `project-${projectNumber}`;
+
+export const projectPath = (projectNumber) => `/work/${projectSlug(projectNumber)}`;
+
+export const projectMedia = (projectNumber) => `/images/${projectSlug(projectNumber)}`;
+
+// every route that resolves to a project page, for callers that need to ask
+// "is this a project page?" without matching on the shape of the slug
+export const projectPaths = Object.keys(projectsMetadata).map(projectPath);
 
 export default projectsMetadata;

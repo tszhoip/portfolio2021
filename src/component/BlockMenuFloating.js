@@ -4,6 +4,7 @@ import styled, { ThemeProvider } from "styled-components";
 
 import { base } from '../theme';
 import { BlockMenu } from './Block';
+import { projectPaths } from '../data/projectsMetadata';
 
 const MenuWrapper = styled.div`
   position: sticky;
@@ -27,8 +28,12 @@ const MenuWrapper = styled.div`
 export const BlockMenuFloating = () => {
   const location = useLocation();
 
-  // Hide BlockMenuFloating on project detail pages (MainMenuWrapper will show instead)
-  const isProjectPage = location.pathname.startsWith('/work/project-');
+  // Hide BlockMenuFloating on project detail pages (MainMenuWrapper will show instead).
+  // Matched against the known project routes rather than a '/work/project-'
+  // prefix, so a renamed project still counts as one.
+  const isProjectPage = projectPaths.some(
+    (path) => path.toLowerCase() === location.pathname.toLowerCase()
+  );
 
   if (isProjectPage) {
     return null;
