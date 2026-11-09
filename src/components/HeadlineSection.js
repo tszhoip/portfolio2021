@@ -16,8 +16,8 @@ const HeadlineSectionWrapper = styled(Wrap)`
 `;
 
 const HeadlineSectionContent = styled(Wrap)`
-  width: 80%;
-  max-width: 400px;
+  width: 50%;
+  max-width: 720px;
   padding: 16px 16px 48px 16px;
   box-sizing: border-box;
   background-color: #000;
