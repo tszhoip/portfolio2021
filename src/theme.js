@@ -72,13 +72,21 @@ const layout = {
 // of values, so the responsive behaviour is a rule you can read rather than
 // nine numbers to keep in sync.
 const text = {
+  // `size` is the size from the narrowest width up. `steps` names only the
+  // breakpoints where it changes, and a size holds its last value until the
+  // next one - so the empty object against S is the statement that S never
+  // moves.
+  //
+  // These were multipliers, which read well until a step had to land on a
+  // value the base did not divide into: 56 is not a multiple of 24. Pixels
+  // say what renders, and that is what /system has to print anyway.
   size: { S: '10px', M: '14px', L: '24px' },
   weight: { reg: 400, bold: 700 },
   leading: { tight: 1, snug: 1.2, loose: 1.5 },
-  scale: {
-    S: { base: 1, L: 1, XL: 1 },
-    M: { base: 1, L: 1, XL: 1.5 },
-    L: { base: 1, L: 2, XL: 3 },
+  steps: {
+    S: {},
+    M: { XL: '21px' },
+    L: { M: '48px', XL: '64px' },
   },
   // leading paired to the size it was drawn against, so the common case needs
   // no decision; pass `leading` to override.

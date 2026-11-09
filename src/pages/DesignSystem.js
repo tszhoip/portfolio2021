@@ -148,17 +148,23 @@ function DesignSystem() {
             ))}
             {/* ---------- type ---------- */}
             <GroupLabel>Type — size</GroupLabel>
-            {Object.entries(text.size).map(([name, value]) => (
-              <Row
-                key={name}
-                name={`size.${name}`}
-                value={COLUMNS.map((col) => {
-                  const step = text.scale[name][col] ?? text.scale[name].base;
-                  return `${parseFloat(value) * step}px`;
-                })}
-                count={usage.text[`size.${name}`] ?? 0}
-              />
-            ))}
+            {Object.entries(text.size).map(([name, value]) => {
+              // a size holds its last value across the columns that name no
+              // step of their own, which is what makes a flat row readable
+              let current = value;
+              const perBreakpoint = COLUMNS.map((col) => {
+                current = text.steps[name][col] ?? current;
+                return current;
+              });
+              return (
+                <Row
+                  key={name}
+                  name={`size.${name}`}
+                  value={perBreakpoint}
+                  count={usage.text[`size.${name}`] ?? 0}
+                />
+              );
+            })}
 
             <GroupLabel>Type — weight</GroupLabel>
             {Object.entries(text.weight).map(([name, value]) => (
@@ -216,6 +222,15 @@ function DesignSystem() {
               <Row key={name} name={name} value={hex} count={usage.colors[name] ?? 0} swatch={hex} />
             ))}
           </Grid>
+
+          <Note>
+            <Type size="M">
+              A type row prints the size at each named width. Between two widths that
+              differ, the size ramps across the range below the larger one rather than
+              jumping at it — so size.L reads 24px to S, grows to 48px by M, holds, then
+              grows to 64px by XL.
+            </Type>
+          </Note>
 
           <Note>
             <Type size="M">

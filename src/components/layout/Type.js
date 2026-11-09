@@ -12,23 +12,63 @@ import styled, { css } from 'styled-components';
  * title that has to be an h1 on one page and an h2 on another is the same
  * <Type size="M" weight="bold"> either way.
  *
- * Size steps up at the L and XL breakpoints by the multiplier in
- * theme.text.scale, so the responsive behaviour lives in the token rather
- * than in a media query per component.
+ * Size steps up at the breakpoints named in theme.text.steps, so the
+ * responsive behaviour lives in the token rather than in a media query per
+ * component. A size with no steps emits no media query at all.
+ *
+ * The steps are not jumps. A size named at a breakpoint ramps into it across
+ * the range below, then holds:
+ *
+ *   size.L   24px ....../ 48px ------- 48px ...../ 64px -------
+ *            |      600 |          1400 |     1800
+ *            flat   ramp   flat     ramp     flat
+ *
+ * so a window being dragged wider grows the heading continuously instead of
+ * snapping. The named widths are still exactly the values in the token - the
+ * interpolation only fills the space between them.
  */
 
-const px = (value, multiplier) => `${parseFloat(value) * multiplier}px`;
+// narrowest first, so later rules win where two apply
+const BREAKPOINTS = ['S', 'M', 'L', 'XL'];
+
+const n = (value) => parseFloat(value);
+
+/**
+ * A step ramps from the breakpoint *before* the one it is named at, which is
+ * what makes `L: { M: '48px' }` mean "24 at S, 48 by M" rather than a jump at
+ * M. Without a preceding breakpoint there is nothing to ramp across, so the
+ * value simply takes effect.
+ */
+const sizeRules = (theme, size) => {
+  const rules = [];
+  let from = theme.text.size[size];
+
+  BREAKPOINTS.forEach((name, i) => {
+    const to = theme.text.steps[size][name];
+    if (!to) return;
+
+    const end = n(theme.breakpoints[name]);
+    const start = i > 0 ? n(theme.breakpoints[BREAKPOINTS[i - 1]]) : null;
+
+    if (start !== null && start < end) {
+      const delta = n(to) - n(from);
+      rules.push(
+        `@media (min-width: ${start}px) {` +
+          `font-size: calc(${n(from)}px + ${delta} * (100vw - ${start}px) / ${end - start});` +
+          `}`
+      );
+    }
+
+    rules.push(`@media (min-width: ${end}px) { font-size: ${to}; }`);
+    from = to;
+  });
+
+  return rules.join('\n');
+};
 
 const responsiveSize = (size) => css`
-  font-size: ${(props) => px(props.theme.text.size[size], props.theme.text.scale[size].base)};
-
-  @media (min-width: ${(props) => props.theme.breakpoints.L}) {
-    font-size: ${(props) => px(props.theme.text.size[size], props.theme.text.scale[size].L)};
-  }
-
-  @media (min-width: ${(props) => props.theme.breakpoints.XL}) {
-    font-size: ${(props) => px(props.theme.text.size[size], props.theme.text.scale[size].XL)};
-  }
+  font-size: ${(props) => props.theme.text.size[size]};
+  ${(props) => sizeRules(props.theme, size)};
 `;
 
 export const Type = styled.p`
