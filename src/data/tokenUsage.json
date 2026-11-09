@@ -44,13 +44,13 @@
   "space": {
     "none": 10,
     "tight": 11,
-    "snug": 19,
+    "snug": 20,
     "loose": 18
   },
   "gap": {
-    "none": 0,
-    "tight": 1,
-    "snug": 2,
+    "none": 1,
+    "tight": 2,
+    "snug": 5,
     "loose": 0
   },
   "maxWidth": 1

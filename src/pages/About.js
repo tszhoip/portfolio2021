@@ -34,20 +34,46 @@ const LeadStatement = styled(Type)`
   max-width: 680px;
 `;
 
-const Label = styled(Type)`
-  margin-bottom: 24px;
+/**
+ * Clients reads as four equal columns from L up, the label holding the first:
+ *
+ *   Clients | brand | brand | brand
+ *
+ * Below L the label stacks above a two-column list instead.
+ *
+ * The brands are a nested grid rather than three more cells, so that they
+ * wrap under each other and never under the label. That nesting is why the
+ * label column is sized by hand: a plain 1fr/3fr split leaves it wider than
+ * the brand columns by the gaps the inner grid spends. One quarter of the
+ * width minus the three gaps between four columns is the figure that makes
+ * all four the same.
+ */
+const ClientBlock = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: ${(props) => props.theme.layout.space.snug};
+
+  @media (min-width: ${(props) => props.theme.breakpoints.L}) {
+    grid-template-columns:
+      calc((100% - 3 * ${(props) => props.theme.layout.gap.snug}) / 4) 1fr;
+    column-gap: ${(props) => props.theme.layout.gap.snug};
+    row-gap: ${(props) => props.theme.layout.gap.none};
+  }
 `;
+
+const Label = styled(Type)``;
 
 const ClientGrid = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: ${(props) => props.theme.layout.gap.tight}
+    ${(props) => props.theme.layout.gap.snug};
 
-  @media (max-width: 900px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (min-width: ${(props) => props.theme.breakpoints.L}) {
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 
@@ -133,12 +159,14 @@ function About() {
         </Section>
 
         <Section>
-          <Label as="h2" size="M">Clients</Label>
-          <ClientGrid>
-            {clients.map((client) => (
-              <ClientName as="li" size="M" key={client}>{client}</ClientName>
-            ))}
-          </ClientGrid>
+          <ClientBlock>
+            <Label as="h2" size="M">Clients</Label>
+            <ClientGrid>
+              {clients.map((client) => (
+                <ClientName as="li" size="M" key={client}>{client}</ClientName>
+              ))}
+            </ClientGrid>
+          </ClientBlock>
         </Section>
 
         {people.map((person) => (
