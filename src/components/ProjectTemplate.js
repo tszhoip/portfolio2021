@@ -60,6 +60,8 @@ const MainMenuWrapper = styled.div`
  *
  * Props:
  *   - projectNumber: 1-5 (or higher)
+ *   - headline: render the project's headline title and tagline from
+ *     metadata, at the top of the gallery. Opt-in per page.
  *   - info: render the credits block below the gallery. Opt-in per page
  *     rather than on by default, so pages take it as they are redesigned
  *     instead of all six changing at once.
@@ -68,7 +70,7 @@ const MainMenuWrapper = styled.div`
  * Automatically loads images from public/images/project-{n}/1.jpg and videos from metadata
  * Renders media in order specified by order field
  */
-export const ProjectTemplate = ({ projectNumber, info = false }) => {
+export const ProjectTemplate = ({ projectNumber, headline = false, info = false }) => {
   const [mediaArray, setMediaArray] = useState([]);
   const [infoModalOpen, setInfoModalOpen] = useState(false);
   const [allProjectsModalOpen, setAllProjectsModalOpen] = useState(false);
@@ -134,6 +136,12 @@ export const ProjectTemplate = ({ projectNumber, info = false }) => {
         <MediaGallerySectionWrapper>
           {/* Media Gallery - Headline Text Sections, Regular Images + Videos */}
           <MediaGalleryWrapper>
+            {/* Opens the gallery, from metadata rather than from a file in
+                the media folder. */}
+            {headline && m.headline && (
+              <HeadlineSection title={m.headline.title} tagline={m.headline.tagline} />
+            )}
+
             {mediaArray.map((media, index) => {
               if (media.type === 'headline') {
                 // Render headline IMAGE

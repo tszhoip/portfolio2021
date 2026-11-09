@@ -42,8 +42,8 @@
     "leading.loose": 0
   },
   "space": {
-    "none": 10,
-    "tight": 11,
+    "none": 8,
+    "tight": 10,
     "snug": 21,
     "loose": 19
   },

@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 import { base } from '../theme';
-import { Wrap, H1 } from '../component/Core';
+import { Wrap } from '../component/Core';
+import { Type } from './layout/Type';
 
 const HeadlineSectionWrapper = styled(Wrap)`
   width: 100%;
@@ -32,26 +33,16 @@ export const HeadlineSection = ({ title, tagline }) => {
     <ThemeProvider theme={base}>
       <HeadlineSectionWrapper>
         <HeadlineSectionContent>
-          <H1
-            fontFamily={[0]}
-            fontSize={base.text.size.M}
-            fontWeight="500"
-            color="#fff"
-            mb="tight"
-            mt="none"
-          >
+          {/* Title and tagline are deliberately the same style. Only the
+              title is a heading - the tagline is a paragraph that happens to
+              look identical, which is the point of keeping tag and style on
+              separate axes. */}
+          <Type as="h1" size="M" color="#fff" mb>
             {title}
-          </H1>
-          <H1
-            fontFamily={[0]}
-            fontSize={base.text.size.M}
-            fontWeight="500"
-            color="#fff"
-            lineHeight="1.4"
-            m="none"
-          >
+          </Type>
+          <Type size="M" color="#fff">
             {tagline}
-          </H1>
+          </Type>
         </HeadlineSectionContent>
       </HeadlineSectionWrapper>
     </ThemeProvider>

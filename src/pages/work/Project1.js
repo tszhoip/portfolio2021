@@ -2,7 +2,7 @@ import React from 'react';
 import ProjectTemplate from '../../components/ProjectTemplate';
 
 const Project1 = () => {
-  return <ProjectTemplate projectNumber={1} info />;
+  return <ProjectTemplate projectNumber={1} headline info />;
 };
 
 export default Project1;
