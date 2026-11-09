@@ -191,8 +191,8 @@ export const Blockitem = (props) => {
     <ThemeProvider theme={base}>
       <Wrap padding="snug" pb="snug" flexDirection="column">
         <ImgBlock2 src={props.image} pb="tight" />
-        <Type pb="tight" fontFamily={[0]} color="lightgrey" size="S">{props.title}</Type>
-        <Type pb="" pr="loose" fontFamily={[0]} color="black" size="S">{props.body}</Type>
+        <Type pb="tight" fontFamily={[0]} color="lightgrey" size="M">{props.title}</Type>
+        <Type pb="" pr="loose" fontFamily={[0]} color="black" size="M">{props.body}</Type>
       </Wrap>
     </ThemeProvider>
   )
