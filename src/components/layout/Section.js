@@ -34,13 +34,8 @@ const heights = {
 };
 
 const rhythm = css`
-  padding-top: ${(props) => props.theme.layout.sectionPadding[1]};
-  padding-bottom: ${(props) => props.theme.layout.sectionPadding[1]};
-
-  @media (max-width: ${(props) => props.theme.breakpoints[1]}) {
-    padding-top: ${(props) => props.theme.layout.sectionPadding[0]};
-    padding-bottom: ${(props) => props.theme.layout.sectionPadding[0]};
-  }
+  padding-top: ${(props) => props.theme.layout.space.loose};
+  padding-bottom: ${(props) => props.theme.layout.space.loose};
 `;
 
 const Outer = styled.section`
@@ -50,24 +45,16 @@ const Outer = styled.section`
   ${(props) => !props.$bleed && rhythm};
 `;
 
-// Gutter steps with the viewport. theme.breakpoints is ["600px","900px",...]
+// The gutter is one value at every width. It used to step 16/24/32 with the
+// viewport; the scale is flat, so a wide screen now gets the same inset as a
+// phone and the cap does the work of keeping lines readable.
 const Inner = styled.div`
   width: 100%;
   box-sizing: border-box;
   max-width: ${(props) => props.theme.maxWidth};
   margin: 0 auto;
-  padding-left: ${(props) => props.theme.layout.gutter[0]};
-  padding-right: ${(props) => props.theme.layout.gutter[0]};
-
-  @media (min-width: ${(props) => props.theme.breakpoints[0]}) {
-    padding-left: ${(props) => props.theme.layout.gutter[1]};
-    padding-right: ${(props) => props.theme.layout.gutter[1]};
-  }
-
-  @media (min-width: ${(props) => props.theme.breakpoints[1]}) {
-    padding-left: ${(props) => props.theme.layout.gutter[2]};
-    padding-right: ${(props) => props.theme.layout.gutter[2]};
-  }
+  padding-left: ${(props) => props.theme.layout.gap.snug};
+  padding-right: ${(props) => props.theme.layout.gap.snug};
 `;
 
 export const Section = ({ variant = 'fit', bleed = false, children, ...rest }) => {

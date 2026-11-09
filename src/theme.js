@@ -54,14 +54,22 @@ const maxWidth = '2000px';
 // Deliberately separate from the `spaces`/`fontSizes` arrays below: those are
 // read by styled-system props on the older pages, where the indices are load
 // bearing. Adding to them would move every page at once.
+// Spacing is two scales of the same four steps, split by what they measure.
+// `space` is the room around things - padding and margin. `gap` is the room
+// between things - the gutter, and the gaps inside a grid or flex row.
+//
+// Same numbers, so the two always agree; separate names, so a change to the
+// gutter does not move every margin on the site with it.
+//
+// Flat across every breakpoint for now. Making a step respond to viewport
+// means giving that one step an array, not adding a token.
+const steps = { none: '0px', tight: '8px', snug: '16px', loose: '32px' };
+
 const layout = {
   fullHeight: '100vh',
   fitContent: 'auto',
-  gutter: ['16px', '24px', '32px'],
-  // vertical rhythm of a <Section>: [under 900px, default]
-  sectionPadding: ['32px', '48px'],
-  gap: '8px',
-  paragraphGap: '16px',
+  space: { ...steps },
+  gap: { ...steps },
   fontStack: `'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif`,
 };
 

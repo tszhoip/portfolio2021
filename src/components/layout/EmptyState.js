@@ -19,7 +19,7 @@ const Centred = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: ${(props) => props.theme.layout.gap};
+  gap: ${(props) => props.theme.layout.gap.tight};
 `;
 
 export const EmptyState = ({ title, note }) => (

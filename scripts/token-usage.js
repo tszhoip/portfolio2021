@@ -48,7 +48,16 @@ const files = walk(SRC)
 
 const sources = files.map((f) => f.body).join('\n');
 
-const usage = { fontSizes: {}, spaces: {}, colors: {}, layout: {}, text: {}, maxWidth: 0 };
+const usage = {
+  fontSizes: {},
+  spaces: {},
+  colors: {},
+  layout: {},
+  text: {},
+  space: {},
+  gap: {},
+  maxWidth: 0,
+};
 
 // fontSize={[n]} and the named alias
 const FONT_ALIASES = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'];
@@ -81,8 +90,15 @@ for (const name of COLORS) {
     countAll(sources, `colors.${name}`);
 }
 
-for (const name of ['gutter','sectionPadding','fullHeight','fitContent','gap','paragraphGap','fontStack']) {
+for (const name of ['fullHeight','fitContent','fontStack']) {
   usage.layout[name] = countAll(sources, `layout.${name}`);
+}
+
+// the two spacing scales share their step names, so each is counted against
+// its own prefix rather than the bare name
+for (const step of ['none', 'tight', 'snug', 'loose']) {
+  usage.space[step] = countAll(sources, `layout.space.${step}`);
+  usage.gap[step] = countAll(sources, `layout.gap.${step}`);
 }
 
 // maxWidth sits at the root of the theme, not inside layout

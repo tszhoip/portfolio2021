@@ -33,7 +33,7 @@ const responsiveSize = (size) => css`
 
 export const Type = styled.p`
   margin: 0;
-  margin-bottom: ${(props) => (props.mb ? props.theme.layout.paragraphGap : 0)};
+  margin-bottom: ${(props) => (props.mb ? props.theme.layout.space.snug : 0)};
   font-family: ${(props) => props.theme.layout.fontStack};
   letter-spacing: ${(props) => props.theme.text.tracking};
   font-weight: ${(props) => props.theme.text.weight[props.weight || 'reg']};

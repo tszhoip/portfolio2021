@@ -38,7 +38,7 @@ const Head = styled.div`
   font-size: ${(props) => props.theme.text.size.M};
   font-weight: ${(props) => props.theme.text.weight.bold};
   letter-spacing: ${(props) => props.theme.text.tracking};
-  padding-bottom: ${(props) => props.theme.layout.gap};
+  padding-bottom: ${(props) => props.theme.layout.gap.tight};
   border-bottom: 1px solid ${(props) => props.theme.colors.blk40};
   text-align: ${(props) => (props.$name ? 'left' : 'right')};
 `;
@@ -50,8 +50,8 @@ const GroupLabel = styled.div`
   font-weight: ${(props) => props.theme.text.weight.bold};
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: ${(props) => props.theme.layout.sectionPadding[0]} 0
-    ${(props) => props.theme.layout.gap};
+  padding: ${(props) => props.theme.layout.space.loose} 0
+    ${(props) => props.theme.layout.gap.tight};
 `;
 
 const Cell = styled.div`
@@ -84,8 +84,8 @@ const Swatch = styled.span`
 `;
 
 const Note = styled.div`
-  padding: ${(props) => props.theme.layout.gap};
-  margin-top: ${(props) => props.theme.layout.sectionPadding[0]};
+  padding: ${(props) => props.theme.layout.gap.tight};
+  margin-top: ${(props) => props.theme.layout.space.loose};
   background-color: ${(props) => props.theme.colors.gre10};
   border-left: 2px solid ${(props) => props.theme.colors.blk40};
 `;
@@ -180,23 +180,32 @@ function DesignSystem() {
               />
             ))}
 
-            {/* ---------- spacing ---------- */}
+            {/* ---------- spacing: room around things ---------- */}
             <GroupLabel>Spacing</GroupLabel>
-            <Row name="layout.gutter" value={layout.gutter} count={usage.layout.gutter} />
-            {/* the small value applies below M, not below S, so the columns
-                are listed rather than stepped through */}
-            <Row
-              name="layout.sectionPadding"
-              value={[
-                layout.sectionPadding[0],
-                layout.sectionPadding[0],
-                layout.sectionPadding[1],
-                layout.sectionPadding[1],
-                layout.sectionPadding[1],
-              ]}
-              count={usage.layout.sectionPadding}
-            />
-            <Row name="layout.gap" value={layout.gap} count={usage.layout.gap} />
+            {Object.entries(layout.space).map(([name, value]) => (
+              <Row
+                key={name}
+                name={`space.${name}`}
+                value={value}
+                count={usage.space[name] ?? 0}
+              />
+            ))}
+
+            {/* ---------- gutter: room between things ---------- */}
+            <GroupLabel>Gutter</GroupLabel>
+            {Object.entries(layout.gap).map(([name, value]) => (
+              <Row
+                key={name}
+                name={`gap.${name}`}
+                value={value}
+                count={usage.gap[name] ?? 0}
+              />
+            ))}
+
+            {/* the old styled-system scale, kept only because p/m props on the
+                unconverted pages still resolve against it. Not the same thing
+                as space.* above, despite the name. */}
+            <GroupLabel>Spacing — legacy styled-system props</GroupLabel>
             {spaces.map((size, i) => {
               const actual = [0, 4, 8, 16, 32, 64, 128][i];
               return (
