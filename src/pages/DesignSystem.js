@@ -43,6 +43,16 @@ const Head = styled.div`
   text-align: ${(props) => (props.$name ? 'left' : 'right')};
 `;
 
+// the width each column answers for, set in the cells' monospace so it reads
+// as a value rather than part of the column's name
+const HeadWidth = styled.span`
+  display: block;
+  font-family: 'Courier New', monospace;
+  font-weight: ${(props) => props.theme.text.weight.reg};
+  letter-spacing: normal;
+  color: ${(props) => props.theme.colors.blk40};
+`;
+
 const GroupLabel = styled.div`
   grid-column: 1 / -1;
   font-family: ${(props) => props.theme.layout.fontStack};
@@ -144,7 +154,14 @@ function DesignSystem() {
               max width {maxWidth}
             </Head>
             {COLUMNS.map((col) => (
-              <Head key={col}>{col}</Head>
+              <Head key={col}>
+                {col}
+                {/* base is the range below the first breakpoint, so it has no
+                    width of its own to name */}
+                <HeadWidth>
+                  {col === 'base' ? `< ${breakpoints.S}` : `${breakpoints[col]} +`}
+                </HeadWidth>
+              </Head>
             ))}
             {/* ---------- type ---------- */}
             <GroupLabel>Type — size</GroupLabel>
