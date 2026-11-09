@@ -88,15 +88,17 @@ const ProfileImage = styled.img`
   margin: 0;
 `;
 
-// Name sits in a narrow left column, bio in the wider right column
+// Name and bio share the width evenly from L up, and stack below it. Same
+// rule as Clients, one breakpoint, so both sections of the page turn at the
+// same width rather than at 900 and 1400 respectively.
 const ProfileText = styled.div`
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: ${(props) => props.theme.layout.space.snug};
 
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    gap: 12px;
+  @media (min-width: ${(props) => props.theme.breakpoints.L}) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: ${(props) => props.theme.layout.gap.snug};
   }
 `;
 
