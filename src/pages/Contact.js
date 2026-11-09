@@ -168,7 +168,7 @@ function Contact() {
   };
 
   return (
-    <Container width={['100%', '100%', '100%', '80%']} flexDirection={['column']} p='4' flexWrap="wrap" alignItems='center' justifyContent="center">
+    <Container width={['100%', '100%', '100%', '80%']} flexDirection={['column']} p="loose" flexWrap="wrap" alignItems='center' justifyContent="center">
       <Wrap width="100%" flexDirection='column' justifyContent="start" alignItems="start">
 
         <Type as="h1" size="M" weight="bold" muted marginBottom="32px">

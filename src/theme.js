@@ -23,14 +23,6 @@ breakpoints.M = breakpoints[1];
 breakpoints.L = breakpoints[2];
 breakpoints.XL = breakpoints[3];
 
-const spaces = ["8px", "12px", "16px", "24px", "32px", "56px"];
-spaces.smaller = spaces[0];
-spaces.small = spaces[1];
-spaces.medium = spaces[2];
-spaces.large = spaces[3];
-spaces.larger = spaces[4];
-spaces.extraLarge = spaces[5];
-
 const widths = ["25%", "50%", "100%"];
 widths.w25 = widths[0];
 widths.w50 = widths[1];
@@ -50,10 +42,7 @@ const maxWidth = '2000px';
 // A section is one of two heights and nothing else: it fills the viewport, or
 // it is as tall as its content. Both are named here so the pair reads as a
 // choice rather than one token and one default.
-//
-// Deliberately separate from the `spaces`/`fontSizes` arrays below: those are
-// read by styled-system props on the older pages, where the indices are load
-// bearing. Adding to them would move every page at once.
+
 // Spacing is two scales of the same four steps, split by what they measure.
 // `space` is the room around things - padding and margin. `gap` is the room
 // between things - the gutter, and the gaps inside a grid or flex row.
@@ -65,11 +54,14 @@ const maxWidth = '2000px';
 // means giving that one step an array, not adding a token.
 const steps = { none: '0px', tight: '8px', snug: '16px', loose: '32px' };
 
+const space = { ...steps };
+const gap = { ...steps };
+
 const layout = {
   fullHeight: '100vh',
   fitContent: 'auto',
-  space: { ...steps },
-  gap: { ...steps },
+  space,
+  gap,
   fontStack: `'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif`,
 };
 
@@ -99,6 +91,14 @@ export const base = {
   maxWidth,
   layout,
   text,
+  // styled-system reads `theme.space` for every p/m prop, so the same scale
+  // sits here under the name it looks for. That is what lets a call site say
+  // p="tight" instead of an index into a table nobody can read.
+  //
+  // It also fails loudly: a leftover numeric index finds no key here and
+  // renders no padding at all, rather than quietly rendering the wrong value
+  // off styled-system's built-in scale the way the old `spaces` array did.
+  space,
   colors: {
     nav10: "#3D63C6",
     nav20: "#0E2E81",
@@ -120,7 +120,6 @@ export const base = {
   },
     fontSizes,
     breakpoints,
-    spaces,
     widths,
     fonts,
     flexDirection,

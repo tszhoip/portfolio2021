@@ -94,7 +94,7 @@ export const ProjectInfoModal = ({ isOpen, onClose, projectData }) => {
         <ModalContent>
           <CloseButton onClick={onClose}>&times;</CloseButton>
 
-          <H1 fontFamily={[0]} fontSize={base.text.size.M} mb={[3]} fontWeight={base.text.weight.bold}>
+          <H1 fontFamily={[0]} fontSize={base.text.size.M} mb="snug" fontWeight={base.text.weight.bold}>
             {projectData.title}
           </H1>
 

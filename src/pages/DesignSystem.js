@@ -122,7 +122,7 @@ function DesignSystem() {
     };
   }, []);
 
-  const { maxWidth, layout, text, colors, breakpoints, spaces } = base;
+  const { maxWidth, layout, text, colors, breakpoints } = base;
 
   return (
     <ThemeProvider theme={base}>
@@ -202,21 +202,6 @@ function DesignSystem() {
               />
             ))}
 
-            {/* the old styled-system scale, kept only because p/m props on the
-                unconverted pages still resolve against it. Not the same thing
-                as space.* above, despite the name. */}
-            <GroupLabel>Spacing — legacy styled-system props</GroupLabel>
-            {spaces.map((size, i) => {
-              const actual = [0, 4, 8, 16, 32, 64, 128][i];
-              return (
-                <Row
-                  key={`s${i}`}
-                  name={`spaces[${i}] → ${actual}px`}
-                  value={size}
-                  count={usage.spaces[i] ?? 0}
-                />
-              );
-            })}
 
             {/* ---------- layout ---------- */}
             <GroupLabel>Layout</GroupLabel>
@@ -234,10 +219,12 @@ function DesignSystem() {
 
           <Note>
             <Type size="M">
-              spaces is exported under the key <code>spaces</code>, but styled-system reads{' '}
-              <code>theme.space</code>. That is undefined, so p and m props fall back to
-              styled-system&rsquo;s own scale — the arrow in each name is what actually
-              renders. They agree at index 4 and nowhere else.
+              Spacing is reached two ways and both land on the same scale: a styled
+              component reads <code>theme.layout.space.tight</code>, a call site writes{' '}
+              <code>p=&quot;tight&quot;</code>, which styled-system resolves through{' '}
+              <code>theme.space</code>. A numeric <code>p=&#123;[3]&#125;</code> now matches
+              no key and renders nothing, which is the point — it used to render a value
+              off styled-system&rsquo;s built-in scale that this page disagreed with.
             </Type>
           </Note>
 

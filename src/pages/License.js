@@ -4,7 +4,7 @@ import { Type } from '../components/layout/Type'
 
 function License() {
   return (
-    <Container width={['100%','100%','100%','80%']} flexDirection={['column', 'column', 'row', 'row']} p='4' flexWrap="no wrap" alignItems='start' justifyContent="center">
+    <Container width={['100%','100%','100%','80%']} flexDirection={['column', 'column', 'row', 'row']} p="loose" flexWrap="no wrap" alignItems='start' justifyContent="center">
 
       <Wrap width={["100%", "100%", "33.3%", "33.3%"]} flexDirection='column' justifyContent="center">
         <Type as="h2" size="M" weight="bold" muted mb>

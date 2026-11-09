@@ -11,7 +11,7 @@ export const BlockTabs = ({ tabs }) => {
   return (
     <ThemeProvider theme={base}>
       <Wrap width={['100%','100%','67%','50%']} height={["560px","640px","640px","720px"]}  flexDirection='column' alignItems='center' overflow="hidden" justifyContent="start" bg="white" >
-        <Wrap p={[2]}>
+        <Wrap p="tight">
           {tabs.map((tab, index) => (
             <div
               key={index}

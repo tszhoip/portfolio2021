@@ -37,8 +37,8 @@ export const HeadlineSection = ({ title, tagline }) => {
             fontSize={base.text.size.M}
             fontWeight="500"
             color="#fff"
-            mb={[2]}
-            mt={[0]}
+            mb="tight"
+            mt="none"
           >
             {title}
           </H1>
@@ -48,7 +48,7 @@ export const HeadlineSection = ({ title, tagline }) => {
             fontWeight="500"
             color="#fff"
             lineHeight="1.4"
-            m={[0]}
+            m="none"
           >
             {tagline}
           </H1>

@@ -74,7 +74,7 @@ export const Airpro = (props) => {
     {
       label: 'Title',
       content:
-        <Wrap flexDirection='column' height="100%" justifyContent="space-between" padding={[4]}>
+        <Wrap flexDirection='column' height="100%" justifyContent="space-between" padding="loose">
           <Type as="h2" pl={2} fontFamily={[1]} fontWeight={[700]} size="L" >
             AIR FORCE 1
           </Type>
@@ -112,7 +112,7 @@ export const Airpro = (props) => {
 
         <BlockHeader title="AIR PRO™" description="A Modern Version of Air Force font" handleBuyClick={handleBuyClick} buttonText='BUY' />
 
-        <Wrap width={[1, 1, 1, 1]} mt="5">
+        <Wrap width={[1, 1, 1, 1]} mt="loose">
           {isMobile ? (
             <ProductSliderFull images={bannerm} objfit="cover" />
           ) : (
@@ -123,7 +123,7 @@ export const Airpro = (props) => {
 
         <Wrap width={[1, 1, 2 / 3, 1 / 2]} flexDirection='column' height="auto" justifyContent="space-between">
 
-          <Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">
+          <Wrap flexGrow='4' p="tight" flexDirection='column' justifyContent="center">
             <Type fontFamily={[0]} color={['blk50']} variant='indent' size="S">Introducing AIR™, a versatile and clean font inspired by the United States Air Force font. AIR™ retains the simplicity and limited character set of its inspiration, but has been further refined to offer a range of weight options.
               It works very well in combo or solo. It is made up of six styles, from cap light to cap bold.</Type>
             <Spacer height="16px" />
@@ -131,7 +131,7 @@ export const Airpro = (props) => {
               Our goal with AIR™ was to create a font that is both functional and visually appealing, with as little design as possible to maximize utility. We believe that the best fonts are those that can be used in a variety of contexts, from branding and marketing to product packaging and signage.</Type>
           </Wrap>
 
-          <Wrap flexGrow='4' p={[2]} flexDirection='column' justifyContent="center">
+          <Wrap flexGrow='4' p="tight" flexDirection='column' justifyContent="center">
             <Wrap flexDirection='row' height="auto">
               <BlockList title="formats" description={"OTF, TTF (variable), WOFF, WOFF2"} />
             </Wrap>

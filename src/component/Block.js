@@ -124,7 +124,7 @@ const ThumbnailTitle = styled.div`
 export const BlockImg = (props) => {
   return (
     <ThemeProvider theme={base}>
-      <BImage src={props.image} p={[0]} loading="lazy" />
+      <BImage src={props.image} p="none" loading="lazy" />
     </ThemeProvider>
   )
 };
@@ -144,7 +144,7 @@ export const BlockVideo = (props) => {
     <ThemeProvider theme={base}>
       <BVideo
         src={props.video}
-        p={[0]}
+        p="none"
         autoPlay={true}
         muted={true}
         loop={true}
@@ -163,7 +163,7 @@ export const BlockTwoLn50 = (props) => {
   return (
     <ThemeProvider theme={base}>
       <BlockContainer width={[1, 1, 1 / 2, 1 / 2]} >
-        <Wrap padding={[3]} pb={[4]} display={"block"}>
+        <Wrap padding="snug" pb="loose" display={"block"}>
           <Type fontFamily={[0]} color="grey" size="S">{props.title}</Type>
           <Type fontFamily={[0]} color="navy20" size="S">{props.body}</Type>
         </Wrap>
@@ -176,8 +176,8 @@ export const BlockTwoLn100 = (props) => {
   return (
     <ThemeProvider theme={base}>
       <BlockContainer width={[1, 1, 1, 1]}>
-        <Wrap padding={[0]} pb={[0]}>
-          <ImgBlock2 src={props.image} pb={[0]} />
+        <Wrap padding="none" pb="none">
+          <ImgBlock2 src={props.image} pb="none" />
           <Type as="h2" fontFamily={[0]} color="navy10" size="S">{props.title}</Type>
           <Type color="black" size="S">{props.body}</Type>
         </Wrap>
@@ -189,10 +189,10 @@ export const BlockTwoLn100 = (props) => {
 export const Blockitem = (props) => {
   return (
     <ThemeProvider theme={base}>
-      <Wrap padding={[3]} pb={[3]} flexDirection="column">
-        <ImgBlock2 src={props.image} pb={[1]} />
-        <Type pb="1" fontFamily={[0]} color="lightgrey" size="S">{props.title}</Type>
-        <Type pb="" pr={[0, 3, 4, 5]} fontFamily={[0]} color="black" size="S">{props.body}</Type>
+      <Wrap padding="snug" pb="snug" flexDirection="column">
+        <ImgBlock2 src={props.image} pb="tight" />
+        <Type pb="tight" fontFamily={[0]} color="lightgrey" size="S">{props.title}</Type>
+        <Type pb="" pr="loose" fontFamily={[0]} color="black" size="S">{props.body}</Type>
       </Wrap>
     </ThemeProvider>
   )
@@ -212,8 +212,8 @@ export const BlockMenu = (props) => {
     <ThemeProvider theme={base}>
       <MenuWrapper>
         <Wrap width="100%">
-          <Button fontFamily={[0]} width="25%" fontSize={base.text.size.M} fontWeight={base.text.weight.reg} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateHome}> Work </Button>
-          <Button fontFamily={[0]} width="25%" fontSize={base.text.size.M} fontWeight={base.text.weight.reg} padding={[3]} variant="default" flexGrow="1" textAlign="left" onClick={navigateShop}> Shop </Button>
+          <Button fontFamily={[0]} width="25%" fontSize={base.text.size.M} fontWeight={base.text.weight.reg} padding="snug" variant="default" flexGrow="1" textAlign="left" onClick={navigateHome}> Work </Button>
+          <Button fontFamily={[0]} width="25%" fontSize={base.text.size.M} fontWeight={base.text.weight.reg} padding="snug" variant="default" flexGrow="1" textAlign="left" onClick={navigateShop}> Shop </Button>
         </Wrap>
       </MenuWrapper>
     </ThemeProvider>
@@ -243,14 +243,14 @@ export const BlockFooter = (props) => {
 
   return (
     <ThemeProvider theme={base}>
-      <Wrap className="block-footer" justifyContent="start" flexDirection={["row"]} flexWrap="wrap" zIndex="1" width={[1]} pt="0" pb="0" bg="#000" color="grey">
+      <Wrap className="block-footer" justifyContent="start" flexDirection={["row"]} flexWrap="wrap" zIndex="1" width={[1]} pt="none" pb="none" bg="#000" color="grey">
 
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateAbout}> About </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateResource}> Resource </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateContact}> Contact </Button>
-        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateTerms}> Terms </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding="snug" fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateAbout}> About </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding="snug" fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateResource}> Resource </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding="snug" fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateContact}> Contact </Button>
+        <Button width={[1 / 2, 1 / 2, 1 / 4, 1 / 4]} padding="snug" fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footer" textAlign="left" onClick={navigateTerms}> Terms </Button>
 
-        <Button width={[1, 1, 1, 1]} padding={[3]} fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footerDisable" textAlign="left"> © 2026 MHZ Design Office. All rights reserved.</Button>
+        <Button width={[1, 1, 1, 1]} padding="snug" fontFamily={[0]} fontSize={base.text.size.M} fontWeight={base.text.weight.reg} variant="footerDisable" textAlign="left"> © 2026 MHZ Design Office. All rights reserved.</Button>
       </Wrap>
     </ThemeProvider>
   )
@@ -330,7 +330,7 @@ export const BlockThumb = (props) => {
       >
         <ImgBlock2 height={props.height} src={displayImage} to={props.linkto} side={props.side} />
         <ThumbnailTitle isHovered={isHovered && imgHover} backgroundImage={displayImage}>
-          <Type fontFamily={[0]} size="S" p={[3]} >{props.title}</Type>
+          <Type fontFamily={[0]} size="S" p="snug" >{props.title}</Type>
         </ThumbnailTitle>
       </Thumbnail>
     </ThemeProvider>
@@ -344,8 +344,8 @@ export const BlockThumbFont = (props) => {
       <ThumbnailFont {...restProps} width={width} height={['auto']} display="flex" flexDirection="column" to={props.to}>
         <ImgBlock2 height={props.height} src={props.img} to={props.linkto} side={props.side} />
         <Container display="flex" flexDirection="row" justifyContent={"space-between"} alignItems={["center"]}>
-        <Type fontFamily={[0]} size="S" p={[3]} >{props.title}</Type>
-        <Button padding={[3]} fontFamily={[0]} size="S" variant="footer" to={props.to} > BUY IT </Button>
+        <Type fontFamily={[0]} size="S" p="snug" >{props.title}</Type>
+        <Button padding="snug" fontFamily={[0]} size="S" variant="footer" to={props.to} > BUY IT </Button>
         </Container>
       </ThumbnailFont>
     </ThemeProvider>
@@ -357,7 +357,7 @@ export const BlockThumbFull = (props) => {
   return (
     <ThemeProvider theme={base}>
       <Thumbnail {...restProps} width={width} height={["350px","400px", "450px","500px"]}to={props.to}>
-        <Type fontFamily={[0]} size="S" p={[3]}>{props.title}</Type>
+        <Type fontFamily={[0]} size="S" p="snug">{props.title}</Type>
       </Thumbnail>
     </ThemeProvider>
   )
@@ -367,7 +367,7 @@ export const BlockThumbFull = (props) => {
 export const BlockType = (props) => {
   return (
     <ThemeProvider theme={base}>
-      <Wrap pl={[3]} flexDirection={['column', 'column', 'column', 'column']} flexWrap="wrap" justifyContent="center" width={[3 / 4, 2 / 3, 1 / 2, 1 / 2]}>
+      <Wrap pl="snug" flexDirection={['column', 'column', 'column', 'column']} flexWrap="wrap" justifyContent="center" width={[3 / 4, 2 / 3, 1 / 2, 1 / 2]}>
         <Type as="h2" fontFamily={[0]} size="S" >{props.title}</Type>
         <Type fontFamily={[0]} color={'blk40'} size="S">{props.body}</Type>
       </Wrap>
@@ -381,12 +381,12 @@ export const BlockHeader = ({ title, description, buttonText, handleBuyClick, zI
   return (
     <ThemeProvider theme={base}>
       <Wrap width={["100%", "100%", "100%", "100%"]} position='fixed' top='0' flexDirection={['row']} zIndex='999' height={["64px", "64px", "64px", "64px"]}>
-        <Wrap flexGrow={["6", "6", "6", "6"]} p="3" flexDirection='column' justifyContent="center">
+        <Wrap flexGrow={["6", "6", "6", "6"]} p="snug" flexDirection='column' justifyContent="center">
           <Type as="h2" fontFamily={[0]} size="S" fontWeight='600'>{title}</Type>
           <Type as="h2" fontFamily={[0]} size="S" fontWeight='400'>{description}</Type>
         </Wrap>
-        <Wrap p="2">
-          <Button fontFamily={[0]} size="S" p="3" flexShrink="1" fontWeight='600' variant="primaryR" fle onClick={handleBuyClick} >{buttonText}</Button>
+        <Wrap p="tight">
+          <Button fontFamily={[0]} size="S" p="snug" flexShrink="1" fontWeight='600' variant="primaryR" fle onClick={handleBuyClick} >{buttonText}</Button>
         </Wrap>
       </Wrap>
     </ThemeProvider>
@@ -397,10 +397,10 @@ export const BlockList = ({ title, description }) => {
   return (
     <ThemeProvider theme={base}>
       <Wrap width={["100%"]} borderBottom="1px grey solid">
-        <Wrap flexGrow='4' width={["50%"]} pt={[2]} pb={[2]} flexDirection='row' justifyContent="left">
+        <Wrap flexGrow='4' width={["50%"]} pt="tight" pb="tight" flexDirection='row' justifyContent="left">
           <Type fontFamily={[0]} color={['blk70']} variant='' size="S">{title}</Type>
         </Wrap>
-        <Wrap flexGrow='4' width={["50%"]} pt={[2]} pb={[2]} flexDirection='row' justifyContent="left">
+        <Wrap flexGrow='4' width={["50%"]} pt="tight" pb="tight" flexDirection='row' justifyContent="left">
           <Type fontFamily={[0]} color={['blk50']} variant='' size="S">{description}</Type>
         </Wrap>
       </Wrap>

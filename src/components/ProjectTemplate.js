@@ -107,7 +107,7 @@ export const ProjectTemplate = ({ projectNumber }) => {
         currentProjectNumber={projectNumber}
       />
 
-      <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center" pb={[0]}>
+      <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center" pb="none">
         {/* Media Gallery Section with SubNav */}
         <MediaGallerySectionWrapper>
           {/* Media Gallery - Headline Text Sections, Regular Images + Videos */}

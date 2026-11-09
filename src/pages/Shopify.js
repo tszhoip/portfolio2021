@@ -20,7 +20,7 @@ function Shopify() {
 
   return (
     <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center">
-      <Container width={[1]} flexWrap="wrap" maxWidth={["1440px"]} pb={[0, 4, 4, 5]}>
+      <Container width={[1]} flexWrap="wrap" maxWidth={["1440px"]} pb="loose">
         <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
           <Blockitem
             title="Title"

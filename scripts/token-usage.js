@@ -50,7 +50,6 @@ const sources = files.map((f) => f.body).join('\n');
 
 const usage = {
   fontSizes: {},
-  spaces: {},
   colors: {},
   layout: {},
   text: {},
@@ -68,18 +67,17 @@ for (let i = 0; i < 7; i += 1) {
     countAll(sources, `fontSizes.${FONT_ALIASES[i]}`);
 }
 
-// p/m props in every direction, both prop syntaxes
-const SPACE_PROPS = ['p', 'pt', 'pr', 'pb', 'pl', 'px', 'py', 'm', 'mt', 'mr', 'mb', 'ml'];
-for (let i = 0; i < 6; i += 1) {
-  usage.spaces[i] = SPACE_PROPS.reduce(
-    (total, prop) =>
-      total +
-      countAll(sources, `${prop}={[${i}]}`) +
-      countAll(sources, `${prop}="${i}"`) +
-      countAll(sources, `${prop}='${i}'`),
-    0
-  );
-}
+// p/m props in every direction. Both the shorthands and the longhands that
+// styled-system also accepts - `padding={...}` counts just as much as `p`,
+// and leaving the longhands out undercounted this by a third.
+const SPACE_PROPS = [
+  'p', 'pt', 'pr', 'pb', 'pl', 'px', 'py',
+  'm', 'mt', 'mr', 'mb', 'ml',
+  'padding', 'paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft',
+  'paddingX', 'paddingY',
+  'margin', 'marginTop', 'marginRight', 'marginBottom', 'marginLeft',
+  'marginX', 'marginY',
+];
 
 const COLORS = ['nav10','nav20','nav30','yel10','yel20','yel30','gre10','gre20',
   'blk00','blk10','blk20','blk30','blk40','blk50','blk60','blk70'];
@@ -94,10 +92,15 @@ for (const name of ['fullHeight','fitContent','fontStack']) {
   usage.layout[name] = countAll(sources, `layout.${name}`);
 }
 
-// the two spacing scales share their step names, so each is counted against
-// its own prefix rather than the bare name
+// A step is reached two ways: as a theme read inside a styled component, and
+// as a styled-system prop on a call site. Both are references to the token.
 for (const step of ['none', 'tight', 'snug', 'loose']) {
-  usage.space[step] = countAll(sources, `layout.space.${step}`);
+  const asProp = SPACE_PROPS.reduce(
+    (total, prop) =>
+      total + countAll(sources, `${prop}="${step}"`) + countAll(sources, `${prop}='${step}'`),
+    0
+  );
+  usage.space[step] = countAll(sources, `layout.space.${step}`) + asProp;
   usage.gap[step] = countAll(sources, `layout.gap.${step}`);
 }
 
