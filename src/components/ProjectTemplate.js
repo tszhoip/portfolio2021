@@ -111,6 +111,25 @@ export const ProjectTemplate = ({ projectNumber, info = false }) => {
       />
 
       <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center" pb="none">
+        {/* Credits block - the facts on the left, the writing on the right.
+            Same arrangement, and now the same position, as the top of /nike:
+            it opens the project, so the reader has the title, role and the
+            description before the images rather than after them. */}
+        {info && (
+          <Container width={[1]} flexWrap="wrap" maxWidth={[base.maxWidth]} pb="loose">
+            <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
+              <Blockitem title="Title" body={m.title} />
+              <Blockitem title="Role" body={m.role} />
+              <Blockitem title="Deliverable" body={m.deliverable} />
+              <Blockitem title="Type" body={m.type} />
+            </Container>
+            <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
+              <Blockitem title="Description / EN" body={m.descEN} />
+              <Blockitem title="描述 / CN" body={m.descCN} />
+            </Container>
+          </Container>
+        )}
+
         {/* Media Gallery Section with SubNav */}
         <MediaGallerySectionWrapper>
           {/* Media Gallery - Headline Text Sections, Regular Images + Videos */}
@@ -147,26 +166,6 @@ export const ProjectTemplate = ({ projectNumber, info = false }) => {
             />
           </SubNavWrapper>
         </MediaGallerySectionWrapper>
-
-        {/* Credits block - the facts on the left, the writing on the right.
-            Same arrangement as the top of /nike, which is where it came from.
-            It closes the project itself, so it sits above Featured Projects
-            rather than below, which would put the credits after an invitation
-            to leave the page. */}
-        {info && (
-          <Container width={[1]} flexWrap="wrap" maxWidth={[base.maxWidth]} pb="loose">
-            <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
-              <Blockitem title="Title" body={m.title} />
-              <Blockitem title="Role" body={m.role} />
-              <Blockitem title="Deliverable" body={m.deliverable} />
-              <Blockitem title="Type" body={m.type} />
-            </Container>
-            <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
-              <Blockitem title="Description / EN" body={m.descEN} />
-              <Blockitem title="描述 / CN" body={m.descCN} />
-            </Container>
-          </Container>
-        )}
 
         {/* Featured Projects Section with Main Menu */}
         <FeaturedProjectsSectionWrapper>
