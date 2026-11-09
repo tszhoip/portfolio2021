@@ -37,10 +37,10 @@ export const HeadlineSection = ({ title, tagline }) => {
               title is a heading - the tagline is a paragraph that happens to
               look identical, which is the point of keeping tag and style on
               separate axes. */}
-          <Type as="h1" size="M" color="#fff" mb>
+          <Type as="h1" size="L" color="#fff" mb>
             {title}
           </Type>
-          <Type size="M" color="#fff">
+          <Type size="L" color="#fff">
             {tagline}
           </Type>
         </HeadlineSectionContent>
