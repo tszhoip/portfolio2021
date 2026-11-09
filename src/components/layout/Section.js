@@ -4,25 +4,26 @@ import styled, { css } from 'styled-components';
 /**
  * Section - one horizontal band of a page.
  *
- *   <Section>                content height, standard vertical padding
- *   <Section variant="full"> fills the viewport
- *   <Section variant="bleed">edge to edge, no gutter, no cap
+ * Two independent axes. `variant` is the height, and is one of the two the
+ * theme names; `bleed` is whether the band runs edge to edge.
+ *
+ *   <Section>                     content height, gutter and cap
+ *   <Section variant="full">      fills the viewport, gutter and cap
+ *   <Section bleed>               content height, edge to edge
+ *   <Section variant="full" bleed>fills the viewport, edge to edge
+ *
+ * They were one `variant` before, which made "edge to edge" a third height
+ * and left no way to say an image wall is content height AND full width.
  *
  * The outer element is always full width so a background can span the whole
- * viewport. The inner one carries the maxWidth cap and the gutter, which is
- * what "bleed" opts out of.
+ * viewport. The inner one carries the maxWidth cap and the gutter, and bleed
+ * is what skips it - along with the vertical rhythm, so a bleed section has
+ * no padding on any side.
  */
 
-const variants = {
+const heights = {
   fit: css`
     min-height: ${(props) => props.theme.layout.fitContent};
-    padding-top: ${(props) => props.theme.layout.sectionPadding[1]};
-    padding-bottom: ${(props) => props.theme.layout.sectionPadding[1]};
-
-    @media (max-width: ${(props) => props.theme.breakpoints[1]}) {
-      padding-top: ${(props) => props.theme.layout.sectionPadding[0]};
-      padding-bottom: ${(props) => props.theme.layout.sectionPadding[0]};
-    }
   `,
   full: css`
     min-height: ${(props) => props.theme.layout.fullHeight};
@@ -30,15 +31,23 @@ const variants = {
     flex-direction: column;
     justify-content: center;
   `,
-  bleed: css`
-    padding: 0;
-  `,
 };
+
+const rhythm = css`
+  padding-top: ${(props) => props.theme.layout.sectionPadding[1]};
+  padding-bottom: ${(props) => props.theme.layout.sectionPadding[1]};
+
+  @media (max-width: ${(props) => props.theme.breakpoints[1]}) {
+    padding-top: ${(props) => props.theme.layout.sectionPadding[0]};
+    padding-bottom: ${(props) => props.theme.layout.sectionPadding[0]};
+  }
+`;
 
 const Outer = styled.section`
   width: 100%;
   box-sizing: border-box;
-  ${(props) => variants[props.$variant] || variants.fit};
+  ${(props) => heights[props.$variant] || heights.fit};
+  ${(props) => !props.$bleed && rhythm};
 `;
 
 // Gutter steps with the viewport. theme.breakpoints is ["600px","900px",...]
@@ -61,11 +70,11 @@ const Inner = styled.div`
   }
 `;
 
-export const Section = ({ variant = 'fit', children, ...rest }) => {
+export const Section = ({ variant = 'fit', bleed = false, children, ...rest }) => {
   // bleed has nothing to cap or pad, so it skips the inner wrapper entirely
-  if (variant === 'bleed') {
+  if (bleed) {
     return (
-      <Outer $variant={variant} {...rest}>
+      <Outer $variant={variant} $bleed {...rest}>
         {children}
       </Outer>
     );

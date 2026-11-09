@@ -131,7 +131,7 @@ function Snap() {
           </Type>
         </Section>
 
-        <Section variant="bleed">
+        <Section bleed>
           <Grid>
             {images.map((src) => (
               <Tile key={src}>
