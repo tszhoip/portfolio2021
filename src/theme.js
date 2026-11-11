@@ -57,9 +57,19 @@ const steps = { none: '0px', tight: '8px', snug: '16px', loose: '32px' };
 const space = { ...steps };
 const gap = { ...steps };
 
+// Card proportions. A ratio rather than a height, so a card is the same shape
+// at every width instead of drifting from portrait to landscape as the window
+// grows. Narrow screens get the portrait one, where a tall card uses the space
+// a phone actually has.
+const ratio = {
+  portrait: '4 / 5',
+  landscape: '5 / 4',
+};
+
 const layout = {
   fullHeight: '100vh',
   fitContent: 'auto',
+  ratio,
   space,
   gap,
   fontStack: `'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif`,

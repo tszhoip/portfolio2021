@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BlockImg, BlockVideo, Blockitem, BlockMenu } from '../component/Block';
+import { BlockImg, BlockVideo, BlockMenu } from '../component/Block';
 import { Container } from '../component/Core';
 import { ThemeProvider } from "styled-components";
 import styled from 'styled-components';
@@ -7,7 +7,8 @@ import { base } from '../theme';
 import { getProjectMetadata, projectsMetadata } from '../data/projectsMetadata';
 import { parseMediaArray } from './MediaGalleryBuilder';
 import { FeaturedProjects } from './FeaturedProjects';
-import { HeadlineSection } from './HeadlineSection';
+import { BlockA } from './blocks/BlockA';
+import { BlockB } from './blocks/BlockB';
 import { MediaGridPair } from './MediaGridPair';
 import SubNav from '../component/SubNav';
 import ProjectInfoModal from '../component/ProjectInfoModal';
@@ -60,17 +61,16 @@ const MainMenuWrapper = styled.div`
  *
  * Props:
  *   - projectNumber: 1-5 (or higher)
- *   - headline: render the project's headline title and tagline from
- *     metadata, at the top of the gallery. Opt-in per page.
- *   - info: render the credits block below the gallery. Opt-in per page
- *     rather than on by default, so pages take it as they are redesigned
- *     instead of all six changing at once.
+ *
+ * The page is the media list: images, videos and text blocks sit in one
+ * ordered array, so a credits block or a headline is placed by where it
+ * appears in the sequence rather than by a prop that pins it to the top.
  *
  * Metadata is fetched from centralized projectsMetadata.js (synced with Google Sheet)
  * Automatically loads images from public/images/project-{n}/1.jpg and videos from metadata
  * Renders media in order specified by order field
  */
-export const ProjectTemplate = ({ projectNumber, headline = false, info = false }) => {
+export const ProjectTemplate = ({ projectNumber }) => {
   const [mediaArray, setMediaArray] = useState([]);
   const [infoModalOpen, setInfoModalOpen] = useState(false);
   const [allProjectsModalOpen, setAllProjectsModalOpen] = useState(false);
@@ -113,43 +113,22 @@ export const ProjectTemplate = ({ projectNumber, headline = false, info = false 
       />
 
       <Container width={[1]} flexDirection='column' flexWrap="wrap" alignItems="center" pb="none">
-        {/* Credits block - the facts on the left, the writing on the right.
-            Same arrangement, and now the same position, as the top of /nike:
-            it opens the project, so the reader has the title, role and the
-            description before the images rather than after them. */}
-        {info && (
-          <Container width={[1]} flexWrap="wrap" maxWidth={[base.maxWidth]} pb="loose">
-            <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
-              <Blockitem title="Title" body={m.title} />
-              <Blockitem title="Role" body={m.role} />
-              <Blockitem title="Deliverable" body={m.deliverable} />
-              <Blockitem title="Type" body={m.type} />
-            </Container>
-            <Container width={[1, 1 / 2, 1 / 2, 1 / 2]} flexDirection={[1]} flexWrap="wrap">
-              <Blockitem title="Description / EN" body={m.descEN} />
-              <Blockitem title="描述 / CN" body={m.descCN} />
-            </Container>
-          </Container>
-        )}
-
         {/* Media Gallery Section with SubNav */}
         <MediaGallerySectionWrapper>
           {/* Media Gallery - Headline Text Sections, Regular Images + Videos */}
           <MediaGalleryWrapper>
-            {/* Opens the gallery, from metadata rather than from a file in
-                the media folder. */}
-            {headline && m.headline && (
-              <HeadlineSection title={m.headline.title} tagline={m.headline.tagline} />
-            )}
-
             {mediaArray.map((media, index) => {
               if (media.type === 'headline') {
                 // Render headline IMAGE
                 return <BlockImg key={index} image={media.file} />;
               } else if (media.type === 'image') {
-                return <BlockImg key={index} image={media.file} />;
+                return <BlockImg key={index} image={media.file} ratio={media.ratio} />;
               } else if (media.type === 'video') {
                 return <BlockVideo key={index} video={media.url} />;
+              } else if (media.type === 'blockA') {
+                return <BlockA key={index} items={media.items} />;
+              } else if (media.type === 'blockB') {
+                return <BlockB key={index} lines={media.lines} />;
               } else if (media.type === 'grid') {
                 // Render A/B variant grid (2-column layout)
                 return (

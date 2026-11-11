@@ -14,23 +14,52 @@
  * - feature: Boolean flag to mark project as featured
  */
 
+/* Canoo copy, authored in public/images/canoo-brand/2-headline.txt and hard
+   rendered here. One home for each string: the blocks below and the project
+   info modal both read these. */
+const canooTaglineEN = "A brand identity that doesn't want to feel like a car brand";
+const canooDescEN =
+  'Canoo, an electric vehicle startup, has been at the forefront of innovative mobility solutions since 2018. Initially focusing on niche markets like urban commute and subscription services, the company shifted its priority to commercial vehicles post-IPO. This strategic pivot necessitated a reevaluation of the brand\'s visual identity. The Brand Vision project aims to realign the visual and brand messaging to better reflect the company\'s evolving ethos and motto.';
+const canooDescCN =
+  'Canoo 是一家電動車初創公司，自 2018 年起一直走在創新出行方案的前沿。公司最初專注於城市通勤及訂閱服務等小眾市場，上市後將重心轉向商用車。這次策略轉型，令品牌需要重新審視其視覺形象。Brand Vision 項目旨在重新調整視覺與品牌訊息，以更貼切地反映公司不斷演變的理念與宗旨。';
+const canooType = 'Branding, Identity, Visual Direction';
+const canooMedia = '/images/canoo-brand';
+const systemMedia = '/images/canoo-system';
+
 export const projectsMetadata = {
   1: {
     slug: 'canoo-brand',
     title: 'Canoo, Brand',
-    headline: {
-      title: 'Canoo',
-      tagline: 'A brand identity that doesn\'t want to feel like a car brand.'
-    },
     role: 'Design Lead',
     deliverable: 'Brand Identity, Visual Language',
-    descEN: 'Canoo, an electric vehicle startup, has been at the forefront of innovative mobility solutions since 2018. Initially focusing on niche markets like urban commute and subscription services, the company shifted its priority to commercial vehicles post-IPO. This strategic pivot necessitated a reevaluation of the brand\'s visual identity. The Brand Vision project aims to realign the visual and brand messaging to better reflect the company\'s evolving ethos and motto.',
-    descCN: 'Canoo是一家电动汽车初创公司，自2018年以来一直走在创新出行解决方案的前沿。该公司最初专注于城市通勤和订阅服务等利基市场，但在IPO后将优先级转向商用车辆。这一战略转变需要重新评估该品牌的视觉形象。品牌愿景项目旨在调整视觉和品牌信息，以更好地反映公司不断发展的精神和座右铭。',
-    video: '/images/canoo-brand/2-vid.mp4',
-    type: 'Branding',
-    feature: true
+    descEN: canooDescEN,
+    descCN: canooDescCN,
+    type: canooType,
+    feature: true,
+    /* Hard rendered from the folder: every file listed once, in order, so the
+       page makes exactly the requests it needs instead of probing for names
+       that may not exist. Re-render this list when the folder changes. */
+    media: [
+      { type: 'video', url: `${canooMedia}/1-vid.mp4` },
+      {
+        type: 'blockA',
+        items: [
+          { label: 'Type', body: canooType },
+          { label: 'Description', body: [canooTaglineEN, canooDescEN] },
+        ],
+      },
+      { type: 'grid', files: [`${canooMedia}/3a.jpg`, `${canooMedia}/3b.jpg`] },
+      { type: 'image', file: `${canooMedia}/4.jpg`, ratio: '2250 / 1594' },
+      { type: 'grid', files: [`${canooMedia}/5a.jpg`, `${canooMedia}/5b.jpg`] },
+      { type: 'image', file: `${canooMedia}/6.jpg`, ratio: '2254 / 1500' },
+      { type: 'image', file: `${canooMedia}/7.jpg`, ratio: '2254 / 1500' },
+      { type: 'blockB', lines: ['Build for the work. Not the showroom.'] },
+      { type: 'image', file: `${canooMedia}/9.jpg`, ratio: '2250 / 1500' },
+      { type: 'image', file: `${canooMedia}/10.jpg`, ratio: '2250 / 1500' },
+    ],
   },
   2: {
+    slug: 'canoo-system',
     title: 'Canoo, Design System',
     headline: {
       title: 'Design System',
@@ -41,7 +70,26 @@ export const projectsMetadata = {
     descEN: 'To enhance Canoo\'s design and development processes, we aim to establish a comprehensive design system rooted in functionalism. By addressing the current challenges of misalignment, slow turnaround times, and inconsistent aesthetics, we can streamline workflows, improve code quality, and ensure adherence to our company\'s minimalist design philosophy. Our solution involves creating a centralized repository of reusable components, developing a detailed style guide, implementing a version control system, and providing ongoing training and support. This approach will foster collaboration between design and development teams, accelerate project timelines, and deliver high-quality products that align with our brand identity.',
     descCN: '为了提升Canoo的设计和开发流程，我们致力于建立一个以功能性为根基的综合设计系统。通过解决当前的不对齐、缓慢的周转时间和不一致的美学问题，我们能够简化工作流程、提高代码质量，并确保遵守我们公司的极简设计理念。我们的解决方案涉及创建可复用组件的中央存储库、开发详细的风格指南、实施版本控制系统，以及提供持续的培训和支持。这种方法将促进设计和开发团队之间的协作，加快项目时间表，并交付与我们品牌形象相一致的高质量产品。',
     type: 'Design System',
-    feature: true
+    feature: true,
+    /* Hard rendered from the folder: fifteen images, in order, nothing else.
+       Re-render this list when the folder changes. */
+    media: [
+      { type: 'image', file: `${systemMedia}/1.jpg`, ratio: '2160 / 1440' },
+      { type: 'image', file: `${systemMedia}/2.jpg`, ratio: '2160 / 1440' },
+      { type: 'image', file: `${systemMedia}/3.jpg`, ratio: '2160 / 1440' },
+      { type: 'image', file: `${systemMedia}/4.jpg`, ratio: '2160 / 1440' },
+      { type: 'image', file: `${systemMedia}/5.jpg`, ratio: '2160 / 1440' },
+      { type: 'image', file: `${systemMedia}/6.jpg`, ratio: '2160 / 1440' },
+      { type: 'image', file: `${systemMedia}/7.jpg`, ratio: '2160 / 1440' },
+      { type: 'image', file: `${systemMedia}/8.jpg`, ratio: '2160 / 1440' },
+      { type: 'image', file: `${systemMedia}/9.jpg`, ratio: '2160 / 1440' },
+      { type: 'image', file: `${systemMedia}/10.jpg`, ratio: '2160 / 1440' },
+      { type: 'image', file: `${systemMedia}/11.jpg`, ratio: '2400 / 1920' },
+      { type: 'image', file: `${systemMedia}/12.jpg`, ratio: '2400 / 1580' },
+      { type: 'image', file: `${systemMedia}/13.jpg`, ratio: '2400 / 1580' },
+      { type: 'image', file: `${systemMedia}/14.jpg`, ratio: '2400 / 1580' },
+      { type: 'image', file: `${systemMedia}/15.jpg`, ratio: '2400 / 1580' },
+    ],
   },
   3: {
     title: 'Aboard, Visual Identity',

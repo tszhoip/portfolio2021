@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled, { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider, css } from "styled-components";
 import { color, space, layout, flexbox, position, width, zIndex } from "styled-system";
 
 import { base } from '../theme';
@@ -44,6 +44,11 @@ const BImage = styled.img`
     height: auto;
     object-fit: cover;
     margin: 0;
+    /* A lazy image that has not loaded has no intrinsic size, so it collapses
+       to zero height - and a zero-height image never counts as scrolled into
+       view, so it never loads. Reserving its shape up front breaks that
+       deadlock, and stops the page jumping as each one arrives. */
+    ${(props) => props.$ratio && css`aspect-ratio: ${props.$ratio};`}
     ${space};
     ${layout};
 `
@@ -70,53 +75,48 @@ const MenuWrapper = styled.div`
     }
 `
 
+/* The card is a shape, not a height: one ratio per orientation, so it reads
+   the same at 375px and at 1900px. Portrait below M, landscape from M up -
+   the same width where the wide cards stop spanning the full row. */
+const ThumbCard = styled(Thumbnail)`
+    aspect-ratio: ${(props) => props.theme.layout.ratio.portrait};
+
+    @media (min-width: ${(props) => props.theme.breakpoints.M}) {
+        aspect-ratio: ${(props) => props.theme.layout.ratio.landscape};
+    }
+`
+
 const ThumbnailTitle = styled.div`
     grid-row: 1;
     grid-column: 1;
     width: 100%;
+    box-sizing: border-box;
     display: flex;
     align-items: flex-end;
+    justify-content: flex-start;
+    padding-bottom: ${(props) => props.theme.layout.space.snug};
+    padding-left: ${(props) => props.theme.layout.space.snug};
     position: relative;
     z-index: 10;
     background: transparent;
+    opacity: 1;
     transition: opacity 0.2s ease;
-    padding-bottom: 0;
 
-    /* Desktop (>900px): Hide text by default */
-    @media (min-width: 901px) {
-        opacity: 0;
-        transition: opacity 0.2s ease;
-    }
-
-    /* Mobile/Tablet (<900px): Show text by default */
-    @media (max-width: 900px) {
-        opacity: 1;
-    }
-
-    /* Text color default: black without shadow */
     > p {
         color: black;
-        transition: color 0.2s ease, text-shadow 0.2s ease;
-        text-shadow: none;
+        transition: color 0.2s ease;
     }
 
-    /* On desktop hover: Show text with white color */
-    @media (min-width: 901px) {
-        ${({ isHovered }) => isHovered && `
+    /* Where a pointer can hover, the info is hover-only. Where it cannot -
+       touch - it stays visible, because there is no hover to reveal it. */
+    @media (hover: hover) {
+        opacity: 0;
+
+        ${({ $isHovered }) => $isHovered && `
             opacity: 1;
-            > p {
-                color: white;
-                text-shadow: none;
-            }
-        `}
-    }
 
-    /* On mobile/tablet hover: Just change text color */
-    @media (max-width: 900px) {
-        ${({ isHovered }) => isHovered && `
             > p {
                 color: white;
-                text-shadow: none;
             }
         `}
     }
@@ -124,7 +124,9 @@ const ThumbnailTitle = styled.div`
 export const BlockImg = (props) => {
   return (
     <ThemeProvider theme={base}>
-      <BImage src={props.image} p="none" loading="lazy" />
+      {/* ratio is passed as a transient prop: styled-system's `layout` would
+          read a plain width/height and emit them as CSS, fighting the 100%. */}
+      <BImage src={props.image} p="none" loading="lazy" $ratio={props.ratio} />
     </ThemeProvider>
   )
 };
@@ -316,23 +318,22 @@ export const BlockThumb = (props) => {
 
   return (
     <ThemeProvider theme={base}>
-      <Thumbnail
+      <ThumbCard
         {...restProps}
         width={width}
-        height={['auto']}
-        display="flex"
-        flexDirection="column"
         to={props.to}
         onMouseEnter={() => imgHover && setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         backgroundImage={displayImage}
         backgroundImageHover={imgHover}
       >
-        <ImgBlock2 height={props.height} src={displayImage} to={props.linkto} side={props.side} />
-        <ThumbnailTitle isHovered={isHovered && imgHover} backgroundImage={displayImage}>
-          <Type fontFamily={[0]} size="S" p="snug" >{props.title}</Type>
+        <ImgBlock2 src={displayImage} to={props.linkto} side={props.side} />
+        {/* Padding lives on the block, not on the text: Type carries no space
+            props, so p="snug" here was being dropped on the floor. */}
+        <ThumbnailTitle $isHovered={Boolean(isHovered && imgHover)}>
+          <Type fontFamily={[0]} size="M">{props.title}</Type>
         </ThumbnailTitle>
-      </Thumbnail>
+      </ThumbCard>
     </ThemeProvider>
   )
 }

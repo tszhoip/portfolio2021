@@ -27,10 +27,10 @@ export const projects = [
   {
     id: 2,
     title: 'Canoo, Design System',
-    thumbnail: '/images/project-2/thumb.jpg',
-    thumbnailHover: '/images/project-2/thumb-hover.jpg',
+    thumbnail: '/images/canoo-system/thumb.jpg',
+    thumbnailHover: '/images/canoo-system/thumb-hover.jpg',
     hasContent: true,
-    route: '/work/project-2'
+    route: '/work/canoo-system'
   },
   {
     id: 3,

@@ -60,10 +60,11 @@ function App() {
           <Route path="/archive" element={<PageWrapper component={<Snap/>} />} />
           <Route path="/joy" element={<PageWrapper component={<Joy/>} />} />
           <Route path="/work/canoo-brand" element={<PageWrapper component={<Project1/>} />} />
+          <Route path="/work/canoo-system" element={<PageWrapper component={<Project2/>} />} />
           {/* the old numbered URL is live and may be linked, so it redirects
               rather than 404s. Keep one of these per renamed project. */}
           <Route path="/work/project-1" element={<Navigate to="/work/canoo-brand" replace />} />
-          <Route path="/work/project-2" element={<PageWrapper component={<Project2/>} />} />
+          <Route path="/work/project-2" element={<Navigate to="/work/canoo-system" replace />} />
           <Route path="/work/project-3" element={<PageWrapper component={<Project3/>} />} />
           <Route path="/work/project-4" element={<PageWrapper component={<Project4/>} />} />
           <Route path="/work/project-5" element={<PageWrapper component={<Project5/>} />} />

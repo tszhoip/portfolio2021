@@ -16,7 +16,6 @@ import projects from '../data/projects';
 function Home() {
   BlockThumb.defaultProps = {
     width: [1 / 2, 1 / 2, 1 / 2, 1 / 2],
-    height: ['320px', '400px', '480px', '560px'],
   };
 
   return (
